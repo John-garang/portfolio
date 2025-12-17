@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Bridge | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .eb-hero {
+            background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .eb-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        .eb-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .eb-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .eb-role {
+            font-size: 1.5rem;
+            color: #16b2dc;
+            margin-bottom: 2rem;
+        }
+        .eb-timeline {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background: #16b2dc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        .eb-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        .eb-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            border-left: 5px solid #16b2dc;
+        }
+        .eb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .eb-feature {
+            background: #16b2dc;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .eb-feature i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="eb-hero">
+        <div class="eb-content">
+            <div class="eb-text">
+                <h1>Education Bridge</h1>
+                <p class="eb-role">Communications Lead</p>
+                <p>Kampala, Uganda | May 2025 – Present</p>
+            </div>
+            <div class="eb-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div>
+                        <h4>Junior Researcher</h4>
+                        <p>Post-secondary transition mechanisms</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div>
+                        <h4>Communications Lead</h4>
+                        <p>Strategic storytelling & brand positioning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="eb-section">
+        <div class="container">
+            <div class="eb-card">
+                <h2>About Education Bridge</h2>
+                <p>Education Bridge is a non-profit organization founded in 2013 with a clear purpose: to provide young people in South Sudan with access to quality education and leadership development.</p>
+                <p>The organization works with students, educators, and communities across multiple regions, building an ecosystem that supports future leaders. Leaders who can drive peace, stability, and progress in their communities.</p>
+            </div>
+
+            <div class="eb-grid">
+                <div class="eb-feature">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Quality Education</h3>
+                    <p>Providing access to quality education for South Sudanese youth</p>
+                </div>
+                <div class="eb-feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Leadership Development</h3>
+                    <p>Building future leaders who drive positive change</p>
+                </div>
+                <div class="eb-feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Community Impact</h3>
+                    <p>Creating sustainable systems for educational success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Evolution -->
+    <section class="eb-section" style="background: white;">
+        <div class="container">
+            <div class="eb-card">
+                <h2>Role Evolution: From Research to Communications</h2>
+                <p>At Education Bridge, I began as a Junior Researcher, working to address one of South Sudan's greatest challenges: ensuring more young people successfully transition from secondary school to university despite difficult economic realities.</p>
+                
+                <h3>Research Phase</h3>
+                <p>My early work involved exploring and documenting post-secondary transition mechanisms that could expand access to higher education for South Sudanese students. I investigated strategies that schools could adopt to prepare students academically, personally, and professionally for competitive scholarships and university admissions.</p>
+                
+                <h3>Communications Leadership</h3>
+                <p>As my role evolved, I transitioned into Communications Lead, where I now focus on amplifying Education Bridge's impact through strategic storytelling, stakeholder engagement, and brand positioning. I create compelling narratives that showcase our students' journeys, highlight organizational milestones, and engage both local and international audiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

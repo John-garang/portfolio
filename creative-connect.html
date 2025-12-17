@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Connect | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .cc-hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('Pictures/Creative Connect Heroe Cover.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cc-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .cc-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .cc-title {
+            font-size: 4rem;
+            font-weight: 100;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        .cc-role {
+            font-size: 1.4rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .cc-section {
+            padding: 80px 0;
+        }
+        .cc-light {
+            background: white;
+        }
+        .cc-dark {
+            background: #f8f9fa;
+        }
+        .cc-card {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .cc-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            margin: 3rem 0;
+            border: 1px solid #e0e0e0;
+        }
+        .cc-stat {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .cc-stat:last-child {
+            border-right: none;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .cc-quote {
+            background: #16b2dc;
+            color: white;
+            padding: 3rem;
+            margin: 3rem 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="cc-hero">
+        <div class="cc-content">
+            <h1 class="cc-title">Creative Connect</h1>
+            <p class="cc-role">Social Media Manager</p>
+            <p>Johannesburg, South Africa (Remote) | February 2025 - May 2025</p>
+        </div>
+    </section>
+
+    <!-- About Creative Connect -->
+    <section class="cc-section cc-light">
+        <div class="container">
+            <div class="cc-card">
+                <h2>About Creative Connect</h2>
+                <p>Creative Connect is a registered non-profit organization founded in 2018 with a clear mission: to prioritize the development of independent African and Global South creatives. With over 600 artists, organisations, collectors and art lovers in 39 countries, we are creating an ecosystem that supports and connects creators, both locally and globally.</p>
+                <p>We prioritise promoting diverse voices, ensuring that African and Global South artists, curators, and creatives are seen, heard, and supported while helping them navigate the Arts world—especially within the African and Global South context.</p>
+            </div>
+
+            <div class="cc-stats">
+                <div class="cc-stat">
+                    <div class="stat-number">600+</div>
+                    <p>Artists & Creatives</p>
+                </div>
+                <div class="cc-stat">
+                    <div class="stat-number">39</div>
+                    <p>Countries Represented</p>
+                </div>
+                <div class="cc-stat">
+                    <div class="stat-number">2018</div>
+                    <p>Founded</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role & Responsibilities -->
+    <section class="cc-section cc-dark">
+        <div class="container">
+            <div class="cc-card">
+                <h2>Spotlighting African Contemporary Art</h2>
+                <p>At Creative Connect, I led the social media efforts to spotlight African contemporary art and artists. My day-to-day involved following local exhibitions, fairs, and galleries, collecting artwork, and curating content that told stories with intention and care.</p>
+                <p>I wrote every caption for Instagram and LinkedIn, making sure each post wasn't just beautiful, but meaningful. I worked closely with artists, documented their work, and translated their ideas into language that connected with our audience.</p>
+            </div>
+
+            <div class="cc-quote">
+                "Every post wasn't just beautiful, but meaningful. I worked closely with artists, documented their work, and translated their ideas into language that connected with our audience."
+            </div>
+
+            <div class="cc-card">
+                <h2>Digital Strategy & Visual Design</h2>
+                <p>I also designed visuals, managed the posting schedule, and tracked engagement. Over time, I helped grow our follower base and drive deeper interaction with our content. My focus was simple: build a digital presence that matched the creativity of the work we were sharing.</p>
+                <p>The role required balancing curatorial sensibility with digital marketing strategy, ensuring that each piece of content served both artistic integrity and audience engagement goals.</p>
+            </div>
+
+            <div class="cc-card">
+                <h2>Artist Collaboration & Documentation</h2>
+                <p>Working directly with artists was one of the most rewarding aspects of this role. I spent time understanding their creative processes, documenting their exhibitions and studio practices, and finding ways to authentically represent their work in digital formats.</p>
+                <p>This involved not just photography and content creation, but also building relationships within the creative community and understanding the nuances of how different artists preferred to have their work presented online.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Learning -->
+    <section class="cc-section cc-light">
+        <div class="container">
+            <div class="cc-card">
+                <h2>Building Meaningful Connections</h2>
+                <p>The experience taught me how to bridge the gap between artistic expression and digital communication. Each post required careful consideration of how to maintain the integrity of the artwork while making it accessible to diverse online audiences.</p>
+                <p>I learned to navigate the delicate balance between promoting artists' work and respecting their creative autonomy, always ensuring that our digital presence served the broader mission of supporting African and Global South creatives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

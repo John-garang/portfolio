@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nala Feminist Collective | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .nala-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Pictures/Nalafeminist Collective Heroe Cover.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .nala-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,0.02) 35px, rgba(0,0,0,0.02) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(0,0,0,0.02) 35px, rgba(0,0,0,0.02) 70px);
+        }
+        .nala-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: left;
+        }
+        .nala-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+        .nala-role {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .nala-section {
+            padding: 80px 0;
+        }
+        .nala-light {
+            background: #fafafa;
+        }
+        .nala-white {
+            background: white;
+        }
+        .nala-card {
+            background: white;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            border: 2px solid #f0f0f0;
+            position: relative;
+        }
+        .nala-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 6px;
+            background: #16b2dc;
+        }
+        .nala-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0;
+            margin: 3rem 0;
+            border: 2px solid #16b2dc;
+        }
+        .principle-item {
+            background: white;
+            padding: 2rem;
+            border-right: 1px solid #16b2dc;
+            border-bottom: 1px solid #16b2dc;
+            text-align: center;
+        }
+        .principle-item:last-child {
+            border-right: none;
+        }
+        .principle-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #16b2dc;
+        }
+        .nala-impact {
+            background: #16b2dc;
+            color: white;
+            padding: 4rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .nala-impact h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .design-philosophy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .philosophy-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-left: 4px solid #16b2dc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="nala-hero">
+        <div class="nala-content">
+            <h1 class="nala-title">Nala Feminist<br>Collective</h1>
+            <p class="nala-role">Graphic Designer</p>
+            <p>Remote | May 2025 - August 2025</p>
+        </div>
+    </section>
+
+    <!-- About Nalafem -->
+    <section class="nala-section nala-light">
+        <div class="container">
+            <div class="nala-card">
+                <h2>About Nala Feminist Collective</h2>
+                <p>Nala Feminist Collective, founded in 2020, is a Pan-African, multigenerational movement advancing women's leadership, rights, and liberation across Africa. Through advocacy, training, and mentorship, Nala empowers young women in politics, peacebuilding, and governance, while connecting them with senior leaders.</p>
+                <p>Their campaigns, summits, and fellowships have engaged thousands, pushing for gender equity, accountable leadership, and feminist solidarity. Nala's work drives systemic change, amplifying African women's voices and building a future where they lead at all levels.</p>
+            </div>
+
+            <div class="nala-principles">
+                <div class="principle-item">
+                    <div class="principle-icon">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h4>Pan-African Feminism</h4>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Youth Power</h4>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Collective Strength</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role & Design Philosophy -->
+    <section class="nala-section nala-white">
+        <div class="container">
+            <div class="nala-card">
+                <h2>Design that Serves Purpose</h2>
+                <p>At Nalafem, I used design to serve purpose. My work supported the 4th Nalafem Summit, before, during, and after. Every visual carried a message. Every slide, post, and banner was crafted to reflect the movement.</p>
+            </div>
+
+            <div class="nala-impact">
+                <h3>Design as Quiet Leadership</h3>
+                <p>Behind the scenes, I made sure the message reached the right people, in the right way. Every graphic supported strategy. Every color and font carried intention.</p>
+            </div>
+
+            <div class="design-philosophy">
+                <div class="philosophy-item">
+                    <h3>Design that Speaks Clearly</h3>
+                    <p>I created slide decks for webinars and summit sessions, clean, clear, and rooted in Nalafem's voice. Each design helped tell a story, teach a lesson, or hold space for bold ideas.</p>
+                </div>
+                <div class="philosophy-item">
+                    <h3>Visual Identity with Heart</h3>
+                    <p>From social media graphics to summit banners, I built materials that felt unified and true to Nalafem's mission—Pan-African feminism, youth power, and collective strength.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Learning -->
+    <section class="nala-section nala-light">
+        <div class="container">
+            <div class="nala-card">
+                <h2>Supporting the 4th Nalafem Summit</h2>
+                <p>My primary focus was creating comprehensive visual support for the 4th Nalafem Summit. This involved designing materials for every phase of the event—from pre-summit promotional content to live event graphics and post-summit documentation.</p>
+                <p>Each piece needed to maintain visual consistency while serving different functional purposes, whether it was engaging potential attendees, supporting speakers during presentations, or documenting key moments for future reference.</p>
+            </div>
+
+            <div class="nala-card">
+                <h2>Strategic Visual Communication</h2>
+                <p>The role required understanding not just design principles, but the deeper mission of the feminist movement. Every design decision—from color choices to typography—needed to reflect the values of Pan-African feminism and collective empowerment.</p>
+                <p>This experience taught me how to lead through design, not by being seen, but by helping others be heard. It reinforced the power of visual communication in amplifying important social movements and creating spaces for marginalized voices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">John Ngor Deng Garang</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#portfolio" class="nav-link active">Work Portfolio <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/my-shelf">My Shelf</a>
+                        <a href="/cv">CV</a>
+                        <a href="/artefacts">Artefacts</a>
+                    </div>
+                </li>
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-search">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Academia Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Academia</h1>
+            <p>Research papers, essays, and academic contributions</p>
+        </div>
+    </section>
+
+    <!-- Academic Works -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="posts-grid">
+                {% for work in academic_works %}
+                <article class="post-card">
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">{{ work.created_at|date:"M d, Y" }}</span>
+                            <span class="post-category">Academic</span>
+                        </div>
+                        <h2 class="post-title">{{ work.title }}</h2>
+                        <p class="post-excerpt">{{ work.abstract|truncatewords:30 }}</p>
+                        {% if work.publication %}
+                        <p class="publication-info"><strong>Published in:</strong> {{ work.publication }}</p>
+                        {% endif %}
+                        <a href="/academic/{{ work.id }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                {% empty %}
+                <div class="no-posts">
+                    <p>No academic works available yet. Check back soon!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/my-shelf">My Shelf</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/john-garang-deng-b30b93207/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/JohnGarangDeng"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/johngdeng/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/john.garang.deng"><i class="fab fa-facebook"></i></a>
+                        <a href="https://medium.com/@johngdeng"><i class="fab fa-medium"></i></a>
+                        <a href="mailto:j.garang@alustudent.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

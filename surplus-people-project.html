@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surplus People Project | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .spp-hero {
+            background: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .spp-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 79px, #e0e0e0 79px, #e0e0e0 81px, transparent 81px),
+                linear-gradient(transparent 79px, #e0e0e0 79px, #e0e0e0 81px, transparent 81px);
+            background-size: 80px 80px;
+            opacity: 0.3;
+        }
+        .spp-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+        }
+        .spp-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .spp-role {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .spp-sidebar {
+            background: #16b2dc;
+            color: white;
+            padding: 2rem;
+            height: fit-content;
+        }
+        .sidebar-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #555;
+        }
+        .sidebar-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .sidebar-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .spp-section {
+            padding: 80px 0;
+        }
+        .spp-white {
+            background: white;
+        }
+        .spp-gray {
+            background: #f8f9fa;
+        }
+        .spp-card {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .spp-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: #16b2dc;
+        }
+        .spp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .spp-metric {
+            background: #16b2dc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="spp-hero">
+        <div class="spp-content">
+            <div>
+                <h1 class="spp-title">Surplus People Project</h1>
+                <p class="spp-role">Multimedia Manager</p>
+                <p>Cape Town, South Africa | March 2024 - June 2024</p>
+            </div>
+            <div class="spp-sidebar">
+                <div class="sidebar-item">
+                    <div class="sidebar-number">170%</div>
+                    <p>Engagement Increase</p>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-number">50+</div>
+                    <p>Multimedia Pieces</p>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-number">700+</div>
+                    <p>LinkedIn Followers</p>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-number">8</div>
+                    <p>Outreach Events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About SPP -->
+    <section class="spp-section spp-white">
+        <div class="container">
+            <div class="spp-card">
+                <h2>About Surplus People Project</h2>
+                <p>The Surplus People Project (SPP) was established in 1983 as a non-profit organization dedicated to supporting rural communities in South Africa. Initially formed in response to forced removals during apartheid, SPP played a pivotal role in advocating for land rights and social justice, working with displaced communities to address issues of land access and agrarian reform.</p>
+                <p>Over the years, SPP has evolved into a significant player in promoting sustainable agriculture, food sovereignty, and equitable development, partnering with rural farmers and local organizations to enhance resilience and self-reliance. The organization continues to focus on empowering marginalized groups by advocating for land reform and building sustainable livelihoods through agriculture and environmental conservation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section class="spp-section spp-gray">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Key Achievements</h2>
+            
+            <div class="spp-grid">
+                <div class="spp-metric">
+                    <div class="metric-value">170%</div>
+                    <p>Digital Engagement Growth</p>
+                </div>
+                <div class="spp-metric">
+                    <div class="metric-value">60%</div>
+                    <p>Social Media Follower Increase</p>
+                </div>
+                <div class="spp-metric">
+                    <div class="metric-value">30%</div>
+                    <p>Engagement Rate Boost</p>
+                </div>
+                <div class="spp-metric">
+                    <div class="metric-value">20%</div>
+                    <p>Monthly Reach Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Details -->
+    <section class="spp-section spp-white">
+        <div class="container">
+            <div class="spp-card">
+                <h2>Bringing Stories to Life</h2>
+                <p>I created over 50 multimedia pieces, videos, infographics, and photo stories, all tailored to highlight the organization's work in land justice and social equity. Each piece was designed with one goal in mind: to make people care. That work paid off. Engagement across our digital platforms rose by 170% during my time.</p>
+            </div>
+
+            <div class="spp-card">
+                <h2>Building Our Voice on LinkedIn</h2>
+                <p>I launched and managed the organization's LinkedIn page from scratch. In a few months, we reached over 700 followers—people who are now more aware and connected to the work we do. This wasn't just about numbers; it was about giving the organization a platform where it could speak to decision-makers and partners with clarity and professionalism.</p>
+            </div>
+
+            <div class="spp-card">
+                <h2>Community Engagement</h2>
+                <p>I also supported 8 outreach events, helping with planning, coordination, and post-session engagement. I made sure participants felt heard, collecting feedback, answering questions, and building trust. As a result, turnout grew by 15% from one event to the next.</p>
+            </div>
+
+            <div class="spp-card">
+                <h2>Strategic Social Media Management</h2>
+                <p>I managed our social media pages, posting consistently and shaping content that resonated. Within weeks, we saw a 60% boost in followers and a 30% increase in engagement. I didn't just post—I listened, adapted, and stayed close to what mattered to our audience. Every week, I tracked digital trends and tested new content ideas. That ongoing work helped us grow our monthly reach by 20% and stay relevant in a fast-moving space.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

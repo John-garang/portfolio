@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#portfolio" class="nav-link active">Work Portfolio <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="my-shelf.html">My Shelf</a>
+                        <a href="#cv">CV</a>
+                        <a href="graphic-design.html">Graphic Design</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-search">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        </div>
+    </nav>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <h1>Blog Posts</h1>
+            <p>Discover a collection of thoughts, ideas, and stories that inspire and inform.</p>
+            <a href="my-shelf.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to My Shelf</a>
+        </div>
+    </section>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container">
+            <div class="breaking-text">
+                <span class="breaking-label">LATEST</span>
+                New blog post: "If Equality Means This, Burn the World Already" • Featured in CNN Academy showcase • Travel guide to Cape Town now available • Academic research on South Sudan development published
+            </div>
+        </div>
+    </div>
+
+    <!-- Posts Grid -->
+    <section class="posts-section">
+        <div class="container">
+            <div class="article-cards-grid">
+                <a href="if-equality-means-this.html" class="article-card featured-article">
+                    <div class="article-image">
+                        <img src="Pictures/If Equality Means This, Burn the World Already.jpg" alt="If Equality Means This">
+                        <div class="trending-badge">🔥 TRENDING</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Social Commentary</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3>If Equality Means This, Burn the World Already</h3>
+                        <p>A critical examination of gender-based violence and societal hypocrisy in South Sudan. This powerful piece challenges conventional thinking about equality and justice in modern society.</p>
+                        <span class="post-date">September 7, 2025</span>
+                    </div>
+                </a>
+                <a href="when-educated-woman-says-no.html" class="article-card">
+                    <div class="article-image">
+                        <img src="Pictures/When an Educated Woman Says No.jpg" alt="When an Educated Woman Says No">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Women's Rights</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>When an Educated Woman Says No</h3>
+                        <p>Challenging misconceptions about educated women and addressing societal prejudices</p>
+                        <span class="post-date">July 21, 2025</span>
+                    </div>
+                </a>
+                <a href="making-of-dinka-woman.html" class="article-card">
+                    <div class="article-image">
+                        <img src="Pictures/The Making of a Dinka Woman A Survival Manual Disguised as Culture.jpg" alt="Making of Dinka Woman">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Culture</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h3>The Making of a Dinka Woman: A Survival Manual Disguised as Culture</h3>
+                        <p>An unflinching look at the challenges faced by Dinka women in traditional society</p>
+                        <span class="post-date">July 13, 2025</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="my-shelf.html">My Shelf</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // News-style animations for blogs page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate article cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Setup article cards
+            document.querySelectorAll('.article-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(card);
+            });
+
+            // Add hover sound effect simulation
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+    <script>
+        // Mobile Menu Controller
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const body = document.body;
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                body.classList.toggle('menu-open');
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            mobileOverlay.addEventListener('click', closeMenu);
+            
+            // Close menu when clicking nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</body>
+</html>

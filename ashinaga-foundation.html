@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashinaga Foundation | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .ash-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        radial-gradient(circle at 30% 70%, #16b2dc, #1a1a1a, #333);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        .ash-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .ash-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .ash-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        .ash-japanese {
+            font-size: 1.2rem;
+            color: #16b2dc;
+            margin-bottom: 2rem;
+        }
+        .ash-section {
+            padding: 100px 0;
+        }
+        .ash-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .ash-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: #16b2dc;
+        }
+        .ash-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .ash-metric {
+            background: #16b2dc;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .ash-metric::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        .ash-metric h3 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .ash-achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .achievement-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #16b2dc;
+            transition: transform 0.3s ease;
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            background: #16b2dc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="ash-hero">
+        <div class="ash-particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
+        </div>
+        <div class="ash-content">
+            <h1 class="ash-title">Ashinaga Foundation</h1>
+            <p class="ash-japanese">あしなが育英会 Ashinaga Ikueikai</p>
+            <p style="font-size: 1.5rem; margin-bottom: 1rem;">Learning Facilitator</p>
+            <p>Kampala, Uganda | July 2024 - Present</p>
+        </div>
+    </section>
+
+    <!-- About Ashinaga -->
+    <section class="ash-section">
+        <div class="container">
+            <div class="ash-card">
+                <h2>About Ashinaga Foundation</h2>
+                <p>Ashinaga (あしなが育英会 Ashinaga Ikueikai) is a non-profit organization headquartered in Tokyo, Japan that provides educational funding and psychological support to children who have lost one or both guardians, as well as to those whose guardians suffer from serious disabilities.</p>
+                <p>Since its founding in 1993, the organization has raised an estimated $1 billion and has helped over 95,000 students complete high school and/or attend university. Ashinaga also provides residential facilities, psychological support, day programs and camps for both younger children and Ashinaga student loan recipients.</p>
+            </div>
+
+            <div class="ash-metrics">
+                <div class="ash-metric">
+                    <h3>$1B</h3>
+                    <p>Funds Raised</p>
+                </div>
+                <div class="ash-metric">
+                    <h3>95K+</h3>
+                    <p>Students Supported</p>
+                </div>
+                <div class="ash-metric">
+                    <h3>1993</h3>
+                    <p>Founded</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role & Impact -->
+    <section class="ash-section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="ash-card">
+                <h2>Learning Facilitator Impact</h2>
+                <p>At Ashinaga Foundation, I served as a Learning Facilitator Intern, supporting a cohort of more than 25 students through one of the most critical phases of their academic journeys. My role was to ensure that these students were not only prepared academically, but also equipped with the confidence, resilience, and leadership skills to thrive beyond the classroom.</p>
+            </div>
+
+            <div class="ash-achievements">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>60+ Lesson Plans</h3>
+                    <p>Designed and delivered comprehensive lesson plans covering SAT preparation, reading comprehension, and study challenges using active learning methods.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>100% SAT Pass Rate</h3>
+                    <p>All students successfully passed their SAT exams, opening doors to new opportunities for higher education.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>13 Leadership Workshops</h3>
+                    <p>Facilitated workshops on self-awareness, goal-setting, communication, and ethical leadership development.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>80% Leadership Growth</h3>
+                    <p>Over 80% of participants reported significant growth in their leadership skills and confidence.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized Support</h3>
+                    <p>Provided dedicated mentorship to struggling students with personalized study plans and regular check-ins.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Building</h3>
+                    <p>Co-led bonding sessions that strengthened trust, teamwork, and solidarity among students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="ash-section">
+        <div class="container">
+            <div class="ash-card">
+                <h2>Transformative Impact</h2>
+                <p>By the end of my internship, the cohort had grown academically, personally, and collectively. The measurable results—100% SAT pass rate, 80% leadership growth, and strengthened peer networks—only tell part of the story.</p>
+                <p>The deeper impact was watching students begin to believe in themselves, redefine their self-worth, and imagine futures where they could be changemakers in their own right. My time at Ashinaga was more than an internship. It was a formative experience that taught me how to balance structure with empathy, how to lead with both strategy and heart, and how to create environments where young people can grow into their potential.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Professional Services</h1>
+            <p>Transform your digital presence with expert solutions tailored to your needs</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-main">
+        <div class="container">
+            <div class="services-grid-page">
+                <div class="service-card-page" data-service="web-development">
+                    <div class="service-image">
+                        <img src="Pictures/Web Development.png" alt="Web Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Development</h3>
+                        <p>Custom websites that reflect your brand and drive conversions with responsive design and optimal performance.</p>
+                        <ul>
+                            <li>Responsive Design</li>
+                            <li>User Experience Optimization</li>
+                            <li>Brand Integration</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                        <button class="quote-btn">Get Quote</button>
+                    </div>
+                </div>
+
+                <div class="service-card-page" data-service="graphic-design">
+                    <div class="service-image">
+                        <img src="Pictures/Graphic Design.png" alt="Graphic Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>Graphic Design</h3>
+                        <p>Visual communication that tells your story and connects with your audience across all marketing channels.</p>
+                        <ul>
+                            <li>Brand Identity Design</li>
+                            <li>Marketing Materials</li>
+                            <li>Social Media Graphics</li>
+                            <li>Print Design</li>
+                        </ul>
+                        <button class="quote-btn">Get Quote</button>
+                    </div>
+                </div>
+
+                <div class="service-card-page" data-service="ghost-writing">
+                    <div class="service-image">
+                        <img src="Pictures/Ghost Writing Services.png" alt="Ghost Writing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Ghost Writing Services</h3>
+                        <p>Professional content creation that captures your voice and expertise for effective audience communication.</p>
+                        <ul>
+                            <li>Blog Writing</li>
+                            <li>Marketing Copy</li>
+                            <li>Content Strategy</li>
+                            <li>SEO Optimization</li>
+                        </ul>
+                        <button class="quote-btn">Get Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Request a Quote</h2>
+            <p>Ready to get started? Let's discuss your project and provide you with a detailed quote.</p>
+            <button id="proceedBtn" class="proceed-btn">Proceed to Quotation Form</button>
+        </div>
+    </div>
+
+    <!-- Quote Form Modal -->
+    <div id="quoteFormModal" class="modal">
+        <div class="modal-content quote-form-modal">
+            <span class="close">&times;</span>
+            <h2>Project Quotation Form</h2>
+            <form id="quoteForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Required *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="graphic-design">Graphic Design</option>
+                        <option value="ghost-writing">Ghost Writing Services</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDescription">Project Description *</label>
+                    <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Please describe your project requirements in detail..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="timeline">Project Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select timeline</option>
+                            <option value="urgent">Urgent (1-2 weeks)</option>
+                            <option value="standard">Standard (3-4 weeks)</option>
+                            <option value="flexible">Flexible (1-2 months)</option>
+                            <option value="long-term">Long-term (3+ months)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range (USD)</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="500-1000">$500 - $1,000</option>
+                            <option value="1000-2500">$1,000 - $2,500</option>
+                            <option value="2500-5000">$2,500 - $5,000</option>
+                            <option value="5000+">$5,000+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional Information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any specific requirements, preferences, or questions..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-quote-btn">Submit Quote Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+        // Services page functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const quoteButtons = document.querySelectorAll('.quote-btn');
+            const quoteModal = document.getElementById('quoteModal');
+            const quoteFormModal = document.getElementById('quoteFormModal');
+            const proceedBtn = document.getElementById('proceedBtn');
+            const closeBtns = document.querySelectorAll('.close');
+            const quoteForm = document.getElementById('quoteForm');
+            let selectedService = '';
+
+            // Open quote modal
+            quoteButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    selectedService = e.target.closest('.service-card-page').dataset.service;
+                    quoteModal.style.display = 'block';
+                });
+            });
+
+            // Proceed to form
+            proceedBtn.addEventListener('click', () => {
+                quoteModal.style.display = 'none';
+                quoteFormModal.style.display = 'block';
+                document.getElementById('service').value = selectedService;
+            });
+
+            // Close modals
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    quoteModal.style.display = 'none';
+                    quoteFormModal.style.display = 'none';
+                });
+            });
+
+            // Close on outside click
+            window.addEventListener('click', (e) => {
+                if (e.target === quoteModal || e.target === quoteFormModal) {
+                    quoteModal.style.display = 'none';
+                    quoteFormModal.style.display = 'none';
+                }
+            });
+
+            // Handle form submission
+            quoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your quote request! We will get back to you within 24 hours.');
+                quoteFormModal.style.display = 'none';
+                quoteForm.reset();
+            });
+        });
+    </script>
+    <script>
+        // Mobile Menu Controller
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const body = document.body;
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                body.classList.toggle('menu-open');
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            mobileOverlay.addEventListener('click', closeMenu);
+            
+            // Close menu when clicking nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</body>
+</html>

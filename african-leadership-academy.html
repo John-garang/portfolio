@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Leadership Academy | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .ala-hero {
+            background: #1a1a1a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .ala-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #16b2dc;
+            opacity: 0.1;
+        }
+        .ala-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .ala-title {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #16b2dc;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .ala-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #16b2dc;
+        }
+        .ala-section {
+            padding: 80px 0;
+        }
+        .ala-dark {
+            background: #2c2c2c;
+            color: white;
+        }
+        .ala-light {
+            background: #f5f5f5;
+        }
+        .ala-card {
+            background: white;
+            border-radius: 0;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-left: 8px solid #16b2dc;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .ala-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .ala-stat {
+            text-align: center;
+            padding: 2rem;
+            background: #16b2dc;
+            color: white;
+            border-radius: 10px;
+        }
+        .ala-stat h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .ala-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .ala-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #16b2dc;
+        }
+        .timeline-phase {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .timeline-phase::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: #16b2dc;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="ala-hero">
+        <div class="ala-content">
+            <h1 class="ala-title">African Leadership Academy</h1>
+            <p class="ala-subtitle">ALforEducation Apprentice</p>
+            <p>Johannesburg, South Africa (Remote) | April 2025 - August 2025</p>
+        </div>
+    </section>
+
+    <!-- About ALA -->
+    <section class="ala-section ala-light">
+        <div class="container">
+            <div class="ala-card">
+                <h2>About African Leadership Academy</h2>
+                <p>The African Leadership Academy (ALA) is an educational institution located in Roodepoort on the outskirts of Johannesburg, South Africa, for students between the ages of 16 and 19 years old, with current alumni coming from 46 countries.</p>
+                <p>Founded in 2004 by Fred Swaniker, Chris Bradford, Peter Mombaur, and Acha Leke, ALA officially opened in September 2008 with an inaugural class of 97 students. ALA seeks to transform Africa by identifying, developing, and connecting the next generation of African leaders.</p>
+            </div>
+
+            <div class="ala-stats">
+                <div class="ala-stat">
+                    <h3>46</h3>
+                    <p>Countries Represented</p>
+                </div>
+                <div class="ala-stat">
+                    <h3>2008</h3>
+                    <p>Year Established</p>
+                </div>
+                <div class="ala-stat">
+                    <h3>97</h3>
+                    <p>Inaugural Class Size</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apprenticeship Experience -->
+    <section class="ala-section ala-dark">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #16b2dc;">ALforEducation Apprenticeship Journey</h2>
+            
+            <div class="ala-timeline">
+                <div class="timeline-phase">
+                    <h3>Online Immersion Phase</h3>
+                    <p>I joined the ALforEducation Apprenticeship as part of a growing cohort of young Africans passionate about transforming education on the continent. The experience began with a month-long online immersion into education systems across Africa, exploring what works, what doesn't, and what's possible.</p>
+                    <p>This wasn't just coursework, it was deep reflection, community dialogue, and rigorous thinking about how to make education relevant, inclusive, and future-fit. We learned from practitioners, built real-world problem-solving skills, and grounded ourselves in the urgency of educational transformation.</p>
+                </div>
+                
+                <div class="timeline-phase">
+                    <h3>Innovation Project Phase</h3>
+                    <p>Next, I'll be placed with a partner organization to carry out an innovation project. It's a chance to take everything we've discussed—equity, access, relevance—and apply it in practice.</p>
+                    <p>I'm excited to co-create solutions that don't just add to the conversation but shift what's possible for learners across the continent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Focus -->
+    <section class="ala-section ala-light">
+        <div class="container">
+            <div class="ala-card">
+                <h2>ALA Curriculum & Mission</h2>
+                <p>To achieve its goal of transforming Africa, ALA teaches a two-year curriculum in African Studies, Writing, Rhetoric and Entrepreneurial Leadership, as well as the usual academic core subjects.</p>
+                <p>The academy's approach combines rigorous academics with leadership development, preparing students to become the next generation of African leaders who will drive positive change across the continent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

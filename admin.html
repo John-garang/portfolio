@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | John Ngor Deng Garang</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+            <div class="admin-user">
+                <span>Welcome, John</span>
+                <a href="index.html" class="btn-logout">Back to Site</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+        <div class="container">
+            <ul class="admin-tabs">
+                <li><a href="#service-requests" class="tab-link active">Service Requests</a></li>
+                <li><a href="#add-content" class="tab-link">Add Content</a></li>
+                <li><a href="#newsletter" class="tab-link">Newsletter</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Service Requests Section -->
+    <section id="service-requests" class="admin-section active">
+        <div class="container">
+            <h2>Service Requests</h2>
+            <div class="requests-grid">
+                {% for request in service_requests %}
+                <div class="request-card">
+                    <div class="request-header">
+                        <h3>{{ request.get_service_display }}</h3>
+                        <span class="status {{ request.status }}">{{ request.get_status_display }}</span>
+                    </div>
+                    <div class="request-details">
+                        <p><strong>Client:</strong> {{ request.full_name }}</p>
+                        <p><strong>Email:</strong> {{ request.email }}</p>
+                        <p><strong>Service:</strong> {{ request.get_service_display }}</p>
+                        <p><strong>Budget:</strong> {{ request.budget }}</p>
+                        <p><strong>Timeline:</strong> {{ request.timeline }}</p>
+                        <p><strong>Description:</strong> {{ request.description|truncatewords:20 }}</p>
+                        <p><strong>Date:</strong> {{ request.created_at|date:"M d, Y" }}</p>
+                    </div>
+                    <div class="request-actions">
+                        <button class="btn-respond" onclick="respondToRequest('{{ request.email }}')">Respond</button>
+                        <button class="btn-archive" onclick="updateStatus({{ request.id }}, 'archived')">Archive</button>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No service requests yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Content Section -->
+    <section id="add-content" class="admin-section">
+        <div class="container">
+            <h2>Add New Content</h2>
+            <div class="content-forms">
+                <div class="form-tabs">
+                    <button class="form-tab-btn active" data-form="blog">Blog Post</button>
+                    <button class="form-tab-btn" data-form="academic">Academic Essay</button>
+                    <button class="form-tab-btn" data-form="travel">Travel & Fun</button>
+                </div>
+
+                <!-- Blog Form -->
+                <form id="blog-form" class="content-form active" action="{% url 'add_blog' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="blog-title">Title</label>
+                        <input type="text" id="blog-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-excerpt">Excerpt</label>
+                        <textarea id="blog-excerpt" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-content">Content</label>
+                        <textarea id="blog-content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-date">Date</label>
+                        <input type="date" id="blog-date" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Publish Blog Post</button>
+                </form>
+
+                <!-- Academic Form -->
+                <form id="academic-form" class="content-form">
+                    <div class="form-group">
+                        <label for="academic-title">Title</label>
+                        <input type="text" id="academic-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="academic-excerpt">Abstract</label>
+                        <textarea id="academic-excerpt" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="academic-content">Content</label>
+                        <textarea id="academic-content" rows="12" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="academic-type">Type</label>
+                        <select id="academic-type" required>
+                            <option value="">Select Type</option>
+                            <option value="research">Research Paper</option>
+                            <option value="essay">Academic Essay</option>
+                            <option value="analysis">Analysis</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Publish Academic Work</button>
+                </form>
+
+                <!-- Travel Form -->
+                <form id="travel-form" class="content-form">
+                    <div class="form-group">
+                        <label for="travel-title">Title</label>
+                        <input type="text" id="travel-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-location">Location</label>
+                        <input type="text" id="travel-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-excerpt">Excerpt</label>
+                        <textarea id="travel-excerpt" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-content">Content</label>
+                        <textarea id="travel-content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-date">Travel Date</label>
+                        <input type="date" id="travel-date" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Publish Travel Story</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="admin-section">
+        <div class="container">
+            <h2>Newsletter Subscribers</h2>
+            <div class="newsletter-stats">
+                <div class="stat-card">
+                    <h3>Total Subscribers</h3>
+                    <span class="stat-number">{{ total_subscribers }}</span>
+                </div>
+                <div class="stat-card">
+                    <h3>This Month</h3>
+                    <span class="stat-number">{{ this_month }}</span>
+                </div>
+                <div class="stat-card">
+                    <h3>This Week</h3>
+                    <span class="stat-number">{{ this_week }}</span>
+                </div>
+            </div>
+            <div class="subscribers-list">
+                <h3>Recent Subscribers</h3>
+                {% for subscriber in recent_subscribers %}
+                <div class="subscriber-item">
+                    <span>{{ subscriber.email }}</span>
+                    <span class="sub-date">{{ subscriber.subscribed_at|date:"M d, Y" }}</span>
+                </div>
+                {% empty %}
+                <p>No subscribers yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Admin Dashboard Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab switching
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const sections = document.querySelectorAll('.admin-section');
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = e.target.getAttribute('href').substring(1);
+                    
+                    tabLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    e.target.classList.add('active');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+
+            // Form tab switching
+            const formTabBtns = document.querySelectorAll('.form-tab-btn');
+            const contentForms = document.querySelectorAll('.content-form');
+
+            formTabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const formType = btn.getAttribute('data-form');
+                    
+                    formTabBtns.forEach(b => b.classList.remove('active'));
+                    contentForms.forEach(f => f.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    document.getElementById(formType + '-form').classList.add('active');
+                });
+            });
+
+            // Form submissions
+            document.querySelectorAll('.content-form').forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Content saved successfully!');
+                    form.reset();
+                });
+            });
+
+            // Request actions
+            document.querySelectorAll('.btn-respond').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    alert('Response email template opened');
+                });
+            });
+
+            document.querySelectorAll('.btn-archive').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.target.closest('.request-card').style.opacity = '0.5';
+                    alert('Request archived');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

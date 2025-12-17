@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Inventor Alliance | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .aia-hero {
+            background: white;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .aia-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #f0f0f0 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #f0f0f0 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        .aia-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .aia-title {
+            font-size: 5rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        .aia-role {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        .aia-section {
+            padding: 100px 0;
+        }
+        .aia-dark {
+            background: #1a1a1a;
+            color: white;
+        }
+        .aia-light {
+            background: #f8f9fa;
+        }
+        .aia-card {
+            background: white;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .aia-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #16b2dc;
+        }
+        .aia-timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .timeline-card {
+            background: #2a2a2a;
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+        .timeline-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .aia-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .metric-box {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+        }
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #16b2dc;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Pictures/Logo.png" alt="John Garang Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="african-leadership-university.html">African Leadership University</a>
+                        <a href="education-bridge.html">Education Bridge</a>
+                        <a href="african-leadership-academy.html">African Leadership Academy</a>
+                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
+                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                        <a href="surplus-people-project.html">Surplus People Project</a>
+                        <a href="creative-connect.html">Creative Connect</a>
+                        <a href="nalafem-collective.html">Nalafem Collective</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cnn-academy.html">CNN Academy Fellow</a>
+                        <a href="take-action-lab.html">Take Action Lab</a>
+                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
+                        <a href="accra-fusion.html">Accra Fusion</a>
+                        <a href="yali-east-africa.html">YALI East Africa</a>
+                    </div>
+                </li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="aia-hero">
+        <div class="aia-content">
+            <h1 class="aia-title">Africa Inventor Alliance</h1>
+            <p class="aia-role">Communications Lead</p>
+            <p>Kigali, Rwanda | October 2024 - Present</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="aia-section aia-light">
+        <div class="container">
+            <div class="aia-card">
+                <h2>About Africa Inventors Alliance</h2>
+                <p>Africa Inventors Alliance is a dynamic organization dedicated to empowering African inventors and innovators. With a mission to support inventive solutions that address local and global challenges, the Alliance champions the creativity and potential of African talent.</p>
+                <p>Through a combination of mentorship, resources, and strategic partnerships, Africa Inventors Alliance provides inventors with the tools they need to transform ideas into impactful products and solutions. Focused on sectors like technology, healthcare, and sustainable development, the Alliance fosters an environment where innovation thrives.</p>
+            </div>
+
+            <div class="aia-metrics">
+                <div class="metric-box">
+                    <div class="metric-number">90%</div>
+                    <p>SEO Visibility Increase</p>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">6</div>
+                    <p>Months Old When Joined</p>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">100%</div>
+                    <p>Remote Collaboration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Evolution -->
+    <section class="aia-section aia-dark">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Role Evolution</h2>
+            
+            <div class="aia-timeline">
+                <div class="timeline-card">
+                    <h3>Social Media Manager</h3>
+                    <p>I joined Africa Inventor Alliance when the organization was just six months old, stepping in as a Social Media Manager. At that stage, much of the work was about building from the ground up: creating digital assets, setting up our social media channels, and experimenting with ways to tell the stories of African inventors.</p>
+                </div>
+                
+                <div class="timeline-card">
+                    <h3>Communications Lead</h3>
+                    <p>By early 2025, my role had evolved into Communications Lead, where I now oversee the Alliance's entire marketing and communications portfolio. My responsibilities include managing press and media relations, developing campaigns that highlight African innovation, and producing all communication materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section class="aia-section aia-light">
+        <div class="container">
+            <div class="aia-card">
+                <h2>Key Achievements & Impact</h2>
+                <p>Within months, I helped establish a consistent brand identity, launched a content strategy, and grew a strong follower base, especially on LinkedIn, where our reach and engagement expanded rapidly. I also strengthened our SEO performance, raising visibility to 90%, which made our stories more discoverable to global audiences.</p>
+            </div>
+
+            <div class="aia-card">
+                <h2>On-Ground Impact in Rwanda</h2>
+                <p>From the start, I worked in a hybrid model, collaborating closely with colleagues in Kigali while also supporting projects remotely. In 2025, my role shifted fully online, but the scope of my work extended across Rwanda. I traveled to Huye, where the Alliance runs innovation clubs across universities and technical schools.</p>
+                <p>There, I supported capacity-building programs, facilitating some sessions myself and consistently designing and preparing the slides that structured our workshops. These programs helped students develop innovation skills, leadership, and entrepreneurial mindsets.</p>
+            </div>
+
+            <div class="aia-card">
+                <h2>Strategic Communication</h2>
+                <p>What excites me most about this role is that it sits at the intersection of storytelling and strategy. I make sure the work of African inventors doesn't stay hidden in labs, classrooms, or journals, but reaches the public in ways that are compelling, accurate, and impactful. Through media liaison, digital campaigns, and on-the-ground workshops, I've had the privilege of helping position the Alliance as a platform for innovators who are shaping Africa's future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Ngor Deng Garang</h3>
+                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
