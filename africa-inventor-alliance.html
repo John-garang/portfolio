@@ -4,93 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africa Inventor Alliance | John Garang</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0.6">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .aia-hero {
-            background: white;
-            color: #333;
             min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,1) 100%), url('Pictures/Africa Inventor Alliance 2.JPG') !important;
+            background-size: cover !important;
+            background-position: bottom !important;
             display: flex;
-            align-items: center;
-            position: relative;
-        }
-        .aia-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, #f0f0f0 2px, transparent 2px),
-                radial-gradient(circle at 75% 75%, #f0f0f0 2px, transparent 2px);
-            background-size: 50px 50px;
-            opacity: 0.3;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 60vh;
+            color: white;
         }
         .aia-content {
-            position: relative;
-            z-index: 2;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
             text-align: center;
         }
         .aia-title {
-            font-size: 5rem;
-            font-weight: 200;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-        .aia-role {
-            font-size: 1.5rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        .aia-section {
-            padding: 100px 0;
-        }
-        .aia-dark {
-            background: #1a1a1a;
             color: white;
         }
+        .aia-role {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .aia-section {
+            padding: 80px 0;
+        }
         .aia-light {
-            background: #f8f9fa;
+            background: white;
         }
         .aia-card {
             background: white;
-            padding: 4rem;
+            padding: 3rem;
             margin-bottom: 3rem;
-            border: 1px solid #e0e0e0;
-            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #16b2dc;
         }
-        .aia-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: #16b2dc;
+        .aia-card h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .aia-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
         .aia-timeline {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
         .timeline-card {
-            background: #2a2a2a;
-            color: white;
-            padding: 2rem;
-            position: relative;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #16b2dc;
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
         }
         .timeline-card h3 {
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            color: #16b2dc;
+        }
+        .timeline-card p {
+            color: #666;
+            line-height: 1.6;
         }
         .aia-metrics {
             display: grid;
@@ -99,10 +94,15 @@
             margin: 3rem 0;
         }
         .metric-box {
-            background: white;
+            background: #f8f9fa;
             padding: 2rem;
             text-align: center;
-            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            border-left: 4px solid #16b2dc;
+            transition: transform 0.3s ease;
+        }
+        .metric-box:hover {
+            transform: translateY(-5px);
         }
         .metric-number {
             font-size: 2.5rem;
@@ -110,48 +110,22 @@
             color: #16b2dc;
             margin-bottom: 0.5rem;
         }
+        .metric-box p {
+            color: #666;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .aia-timeline {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="Pictures/Logo.png" alt="John Garang Logo">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-                <li class="dropdown">
-                    <a href="#experience" class="nav-link active">Experience <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="african-leadership-university.html">African Leadership University</a>
-                        <a href="education-bridge.html">Education Bridge</a>
-                        <a href="african-leadership-academy.html">African Leadership Academy</a>
-                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
-                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
-                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
-                        <a href="surplus-people-project.html">Surplus People Project</a>
-                        <a href="creative-connect.html">Creative Connect</a>
-                        <a href="nalafem-collective.html">Nalafem Collective</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="cnn-academy.html">CNN Academy Fellow</a>
-                        <a href="take-action-lab.html">Take Action Lab</a>
-                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
-                        <a href="accra-fusion.html">Accra Fusion</a>
-                        <a href="yali-east-africa.html">YALI East Africa</a>
-                    </div>
-                </li>
-                <li><a href="index.html#services" class="nav-link">Services</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
 
     <!-- Hero Section -->
     <section class="aia-hero">
@@ -189,9 +163,9 @@
     </section>
 
     <!-- Role Evolution -->
-    <section class="aia-section aia-dark">
+    <section class="aia-section" style="background: #f8f9fa;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem;">Role Evolution</h2>
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #333;">Role Evolution</h2>
             
             <div class="aia-timeline">
                 <div class="timeline-card">
@@ -229,40 +203,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>John Ngor Deng Garang</h3>
-                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="index.html#portfolio">Portfolio</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Me</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy;2025 All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
 </body>
 </html>

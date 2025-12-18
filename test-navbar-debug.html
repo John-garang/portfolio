@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Debug Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <!-- Hero Section -->
+    <section class="alu-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Pictures/CNN ACademy Heroe image.jpg'); min-height: 100vh;">
+        <div class="alu-hero-content">
+            <h1>Test Page</h1>
+            <p>Testing navbar transparency</p>
+        </div>
+    </section>
+
+    <section style="padding: 100px 20px; background: white;">
+        <h2>Debug Information</h2>
+        <div id="debug-info" style="font-family: monospace; background: #f0f0f0; padding: 20px; border-radius: 8px;">
+            <p>Loading debug info...</p>
+        </div>
+    </section>
+
+    <script>
+        // Debug script to check navbar state
+        setTimeout(() => {
+            const navbar = document.querySelector('.navbar');
+            const hasHero = document.querySelector('.hero, .about, .alu-hero, .blog-hero, .shelf-hero');
+            const needsWhiteNav = !hasHero || document.querySelector('.category-hero, .contact-hero, .services-hero');
+            
+            const debugInfo = document.getElementById('debug-info');
+            debugInfo.innerHTML = `
+                <p><strong>Navbar exists:</strong> ${navbar ? 'YES' : 'NO'}</p>
+                <p><strong>Navbar has 'scrolled' class:</strong> ${navbar && navbar.classList.contains('scrolled') ? 'YES' : 'NO'}</p>
+                <p><strong>hasHero element found:</strong> ${hasHero ? 'YES (' + hasHero.className + ')' : 'NO'}</p>
+                <p><strong>needsWhiteNav:</strong> ${needsWhiteNav ? 'YES' : 'NO'}</p>
+                <p><strong>Computed background:</strong> ${navbar ? window.getComputedStyle(navbar).background : 'N/A'}</p>
+                <p><strong>Scroll position:</strong> ${window.scrollY}px</p>
+            `;
+            
+            // Update on scroll
+            window.addEventListener('scroll', () => {
+                debugInfo.innerHTML = `
+                    <p><strong>Navbar exists:</strong> ${navbar ? 'YES' : 'NO'}</p>
+                    <p><strong>Navbar has 'scrolled' class:</strong> ${navbar && navbar.classList.contains('scrolled') ? 'YES' : 'NO'}</p>
+                    <p><strong>hasHero element found:</strong> ${hasHero ? 'YES (' + hasHero.className + ')' : 'NO'}</p>
+                    <p><strong>needsWhiteNav:</strong> ${needsWhiteNav ? 'YES' : 'NO'}</p>
+                    <p><strong>Computed background:</strong> ${navbar ? window.getComputedStyle(navbar).background : 'N/A'}</p>
+                    <p><strong>Scroll position:</strong> ${window.scrollY}px</p>
+                `;
+            });
+        }, 200);
+    </script>
+</body>
+</html>

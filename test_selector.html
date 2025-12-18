@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Selector</title></head>
+<body>
+    <section class="alu-hero">ALU Hero</section>
+    <section class="alu-about">ALU About</section>
+    <section class="hero-subtitle">Hero Subtitle</section>
+    <section class="hero">Hero</section>
+    <section class="about">About</section>
+    
+    <script>
+        console.log("Testing querySelector behavior:");
+        console.log(".hero matches:", document.querySelector('.hero') ? "YES" : "NO");
+        console.log(".about matches:", document.querySelector('.about') ? "YES" : "NO");
+        console.log(".alu-hero matches:", document.querySelector('.alu-hero') ? "YES" : "NO");
+        console.log(".alu-about matches:", document.querySelector('.alu-about') ? "YES" : "NO");
+        
+        console.log("\nWhat does '.hero, .about, .alu-hero' match?");
+        const result = document.querySelector('.hero, .about, .alu-hero');
+        console.log("Matched element:", result ? result.className : "NOTHING");
+    </script>
+</body>
+</html>

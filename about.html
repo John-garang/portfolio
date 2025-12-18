@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - John Garang</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20250102-2">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .bio-card p, .detail-item p, .detail-item li, .contact-label, .contact-value { font-size: 15px !important; line-height: 1.5 !important; }
+        .bio-card h3 { font-size: 15px !important; }
+        .bio-card, .detail-item, .contact-card { padding: 1rem !important; }
+        .favorite-quote .quote-source { color: #8B0000 !important; }
+        .bio-grid, .details-grid { gap: 1rem !important; }
+        .contact-details { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
+        .contact-card { background: white !important; border: 1px solid #e0e0e0 !important; border-radius: 8px !important; padding: 1rem 1.25rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; transition: all 0.3s ease !important; }
+        .contact-card:hover { border-color: #16b2dc !important; box-shadow: 0 2px 8px rgba(22, 178, 220, 0.15) !important; transform: translateX(3px) !important; }
+        .contact-icon { width: 40px !important; height: 40px !important; background: linear-gradient(135deg, #16b2dc, #1a9ec7) !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
+        .contact-icon i { font-size: 1.1rem !important; color: white !important; }
+        .contact-text { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; text-align: left !important; }
+        .contact-label { font-size: 0.75rem !important; color: #999 !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
+        .contact-value { font-size: 0.95rem !important; color: #333 !important; font-weight: 500 !important; }
+    </style>
 </head>
 <body>
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="load-header.js"></script>
+    <script src="load-header.js?v=3"></script>
 
     <!-- About Section -->
     <section class="about">
@@ -27,9 +42,7 @@
                 <h1>About Me</h1>
                 <div class="favorite-quote">
                     <div class="quote-label">Favorite Quote</div>
-                    <blockquote>
-                        "Every human being is a puzzle of need. Learn to be the missing piece and they will give you anything."
-                    </blockquote>
+                    <blockquote>"Every human being is a puzzle of need. Learn to be the missing piece and they will give you anything."</blockquote>
                     <div class="quote-source">- Red Sparrow</div>
                 </div>
             </div>
@@ -40,37 +53,83 @@
     <section class="about-content">
         <div class="container">
             <div class="about-bio">
-                <p>John Ngor Deng Garang is a South Sudanese leader, communicator, and designer with a strong passion for storytelling, engagement, and social impact. Coming from a country that has faced its share of challenges, he has walked out of the rubble to prove what is possible when talent meets opportunity. Through education, leadership, and commitment, he has built a career that spans multiple countries, working in South Africa, Uganda, Rwanda, and Ghana; while leaving a strong reputation for both his homeland and his university.</p>
-                
-                <p>Currently pursuing a Bachelor of Science in Entrepreneurial Leadership at the African Leadership University, John applies his skills in communication, strategy, and engagement to create meaningful impact. His ability to simplify complex ideas, connect people, and drive action has made him an asset in every space he enters. Whether it is managing projects, writing compelling narratives, or leading partnerships, his work consistently stands out and strengthens organizations. He thrives on connecting people and ideas in ways that drive real change. His ability to break down complex information into simple, impactful messaging makes him a valuable asset in any space he steps into.</p>
-                
-                <p>Throughout his career, John has developed close to 1000 content pieces, managed social media platforms that saw rapid growth, expanded the online presence of organizations, and facilitated key partnerships through strategic communication. He has also facilitated learning experiences, coordinated projects, and built meaningful partnerships. His greatest strength lies in communication and engagement; understanding people, bridging gaps, and ensuring messages resonate.</p>
-                
-                <p>Beyond his professional work, John has been actively involved in several programs that have shaped his leadership and entrepreneurial mindset. He has participated in the UNLEASH Global Innovation Lab as talent, the Young African Leaders Initiative (YALI), the UN Conference of Youth on Climate Change as a delegate, the Take Action Lab, and the Jim Leech Mastercard Foundation on Entrepreneurship. Each of these experiences has refined his ability to lead, innovate, and create lasting change.</p>
-                
-                <p>John believes leadership is about more than just results; it's about relationships, trust, and lasting impact. His journey reflects resilience, skill, and the power of opportunity. John dedicates every interaction to proving that South Sudanese professionals can thrive and contribute on the global stage.</p>
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <div class="bio-icon"><i class="fas fa-user-tie"></i></div>
+                        <h3>Who I Am</h3>
+                        <p>John Ngor Deng Garang is a South Sudanese leader, communicator, and designer with a strong passion for storytelling, engagement, and social impact. Coming from a country that has faced its share of challenges, he has walked out of the rubble to prove what is possible when talent meets opportunity. Through education, leadership, and commitment, he has built a career that spans multiple countries, working in South Africa, Uganda, Rwanda, and Ghana; while leaving a strong reputation for both his homeland and his university.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <div class="bio-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Current Focus</h3>
+                        <p>Currently pursuing a Bachelor of Science in Entrepreneurial Leadership at the African Leadership University, John applies his skills in communication, strategy, and engagement to create meaningful impact. His ability to simplify complex ideas, connect people, and drive action has made him an asset in every space he enters. Whether it is managing projects, writing compelling narratives, or leading partnerships, his work consistently stands out and strengthens organizations. He thrives on connecting people and ideas in ways that drive real change. His ability to break down complex information into simple, impactful messaging makes him a valuable asset in any space he steps into.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <div class="bio-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Track Record</h3>
+                        <p>Throughout his career, John has developed close to 1000 content pieces, managed social media platforms that saw rapid growth, expanded the online presence of organizations, and facilitated key partnerships through strategic communication. He has also facilitated learning experiences, coordinated projects, and built meaningful partnerships. His greatest strength lies in communication and engagement; understanding people, bridging gaps, and ensuring messages resonate.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <div class="bio-icon"><i class="fas fa-globe-africa"></i></div>
+                        <h3>Global Experience</h3>
+                        <p>Beyond his professional work, John has been actively involved in several programs that have shaped his leadership and entrepreneurial mindset. He has participated in the UNLEASH Global Innovation Lab as talent, the Young African Leaders Initiative (YALI), the UN Conference of Youth on Climate Change as a delegate, the Take Action Lab, and the Jim Leech Mastercard Foundation on Entrepreneurship. Each of these experiences has refined his ability to lead, innovate, and create lasting change.</p>
+                    </div>
+                    
+                    <div class="bio-card" style="grid-column: 1 / -1;">
+                        <div class="bio-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Leadership Philosophy</h3>
+                        <p>John believes leadership is about more than just results; it's about relationships, trust, and lasting impact. His journey reflects resilience, skill, and the power of opportunity. John dedicates every interaction to proving that South Sudanese professionals can thrive and contribute on the global stage.</p>
+                    </div>
+                </div>
             </div>
             
-            <div class="contact-info">
-                <h3>Communications Professional</h3>
-                <h4>Contact Me</h4>
+            <div class="contact-info" style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                <div class="profile-section" style="text-align: center;">
+                    <img src="Pictures/About me picture.jpg" alt="John Garang" class="profile-picture">
+                    <h3>Communications Professional</h3>
+                    <div class="profile-social-links">
+                        <a href="https://www.instagram.com/john._garang/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/John_Ngor_Deng" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/j-garang/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/ngor.johngarang" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div>
+                <h4>Get In Touch</h4>
                 <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>dengjohn200@gmail.com</span>
+                    <a href="mailto:dengjohn200@gmail.com" class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">dengjohn200@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:+256768741070" class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="contact-text">
+                            <span class="contact-label">Mobile</span>
+                            <span class="contact-value">+256 768 741 070</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/250798287465" target="_blank" class="contact-card">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-text">
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">+250 798 287 465</span>
+                        </div>
+                    </a>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Kigali, Rwanda (Open to work globally)</span>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Mobile +256768741070</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp +250798287465</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kampala, Uganda</span>
-                    </div>
+                </div>
                 </div>
             </div>
             

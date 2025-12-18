@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Buttons</title>
+    <script src="popup-system.js"></script>
+</head>
+<body>
+    <h1>Button Test</h1>
+    <button id="testBtn" data-id="123">Test Button</button>
+    
+    <script>
+        console.log('Script loaded');
+        
+        function testFunction(id) {
+            console.log('testFunction called with id:', id);
+            alert('Button clicked! ID: ' + id);
+        }
+        
+        document.getElementById('testBtn').addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            console.log('Button clicked, id:', id);
+            testFunction(id);
+        });
+        
+        console.log('Event listener attached');
+    </script>
+</body>
+</html>

@@ -194,6 +194,7 @@
                 quoteModal.style.display = 'none';
                 quoteFormModal.style.display = 'block';
                 document.getElementById('service').value = selectedService;
+                document.querySelector('.quote-form-modal').scrollTop = 0;
             });
 
             // Close modals
@@ -213,11 +214,43 @@
             });
 
             // Handle form submission
-            quoteForm.addEventListener('submit', (e) => {
+            quoteForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                alert('Thank you for your quote request! We will get back to you within 24 hours.');
-                quoteFormModal.style.display = 'none';
-                quoteForm.reset();
+                const submitBtn = quoteForm.querySelector('.submit-quote-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                const formData = {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    company: document.getElementById('company').value,
+                    service: document.getElementById('service').value,
+                    budget: document.getElementById('budget').value,
+                    timeline: document.getElementById('timeline').value,
+                    message: document.getElementById('projectDescription').value + '\n\nAdditional Info: ' + document.getElementById('additionalInfo').value
+                };
+                
+                try {
+                    const response = await fetch('http://localhost:3000/api/messages', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    if (response.ok) {
+                        alert('Thank you for your quote request! We will get back to you within 24 hours.');
+                        quoteFormModal.style.display = 'none';
+                        quoteForm.reset();
+                    } else {
+                        alert('Failed to submit. Please try again.');
+                    }
+                } catch (error) {
+                    alert('Error submitting form. Please ensure the server is running.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Quote Request';
+                }
             });
         });
     </script>

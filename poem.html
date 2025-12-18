@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem - John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .poem-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 6rem 2rem 4rem;
+        }
+        .poem-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .poem-header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+        .poem-header::before {
+            content: '\201C';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-size: 8rem;
+            color: rgba(255,255,255,0.2);
+            font-family: 'Playfair Display', serif;
+        }
+        .poem-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .poem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+        .poem-date {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .poem-body {
+            padding: 4rem 3rem;
+        }
+        .poem-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #2d3748;
+            text-align: center;
+            font-style: italic;
+            white-space: pre-wrap;
+        }
+        .poem-author {
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-top: 3rem;
+            font-style: italic;
+        }
+        .comments-section {
+            padding: 3rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .comments-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #2d3748;
+        }
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+        }
+        .comment-form textarea { min-height: 100px; resize: vertical; }
+        .comment-form button {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .comment-form button:hover { transform: translateY(-2px); }
+        .comments-list { margin-top: 2rem; }
+        .comment {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .comment-author { font-weight: 600; color: #2d3748; }
+        .comment-date { font-size: 0.85rem; color: #718096; margin-left: 0.5rem; }
+        .comment-text { margin-top: 0.5rem; color: #4a5568; line-height: 1.6; }
+        .poem-footer {
+            padding: 2rem 3rem;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        @media (max-width: 768px) {
+            .poem-container { padding: 4rem 1rem 2rem; }
+            .poem-header { padding: 3rem 2rem; }
+            .poem-title { font-size: 2rem; }
+            .poem-body { padding: 2rem 1.5rem; }
+            .poem-content { font-size: 1.1rem; line-height: 2; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <div class="poem-container">
+        <div class="poem-wrapper">
+            <div class="poem-header">
+                <div class="poem-category">
+                    <i class="fas fa-feather-alt"></i>
+                    <span>Poetry</span>
+                </div>
+                <h1 class="poem-title" id="poemTitle"></h1>
+                <div class="poem-date" id="poemDate"></div>
+            </div>
+            <div class="poem-body">
+                <div class="poem-content" id="poemContent"></div>
+                <div class="poem-author">— John N. D. Garang</div>
+            </div>
+            <div class="comments-section">
+                <h2 class="comments-title">Comments</h2>
+                <form class="comment-form" id="commentForm">
+                    <input type="text" id="commentName" placeholder="Your Name" required>
+                    <textarea id="commentText" placeholder="Your Comment" required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+                <div class="comments-list" id="commentsList"></div>
+            </div>
+            <div class="poem-footer">
+                <a href="poems.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Poems</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
+
+    <script>
+        async function loadPoem() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            
+            if (!id) {
+                window.location.href = 'poems.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/poems/${id}`);
+                const poem = await response.json();
+                
+                document.getElementById('poemTitle').textContent = poem.title;
+                document.getElementById('poemDate').innerHTML = `<i class="far fa-clock"></i> ${poem.date}`;
+                document.getElementById('poemContent').textContent = poem.content;
+                document.title = `${poem.title} - John Garang`;
+            } catch (error) {
+                document.getElementById('poemContent').textContent = 'Poem not found';
+            }
+        }
+
+        loadPoem();
+
+        document.getElementById('commentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const urlParams = new URLSearchParams(window.location.search);
+            const poemId = urlParams.get('id');
+            const comment = {
+                poemId,
+                name: document.getElementById('commentName').value,
+                text: document.getElementById('commentText').value,
+                date: new Date().toISOString()
+            };
+            try {
+                await fetch('http://localhost:3000/api/comments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(comment)
+                });
+                document.getElementById('commentForm').reset();
+                loadComments();
+            } catch (error) { console.error('Error posting comment:', error); }
+        });
+
+        async function loadComments() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const poemId = urlParams.get('id');
+            try {
+                const response = await fetch(`http://localhost:3000/api/comments/${poemId}`);
+                const comments = await response.json();
+                const list = document.getElementById('commentsList');
+                list.innerHTML = comments.map(c => `
+                    <div class="comment">
+                        <div><span class="comment-author">${c.name}</span><span class="comment-date">${new Date(c.date).toLocaleDateString()}</span></div>
+                        <div class="comment-text">${c.text}</div>
+                    </div>
+                `).join('');
+            } catch (error) { console.error('Error loading comments:', error); }
+        }
+        loadComments();
+    </script>
+</body>
+</html>

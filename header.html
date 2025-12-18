@@ -13,6 +13,7 @@
                 <div class="dropdown-content">
                     <a href="my-shelf.html">My Shelf</a>
                     <a href="artefacts.html">Artefacts</a>
+                    <a href="poems.html">Poems</a>
                     <a href="cv.html">CV</a>
                     <a href="graphic-design.html">Graphic Design</a>
                 </div>
@@ -36,13 +37,14 @@
                 <div class="dropdown-content">
                     <a href="cnn-academy.html">CNN Academy Fellow</a>
                     <a href="take-action-lab.html">Take Action Lab</a>
-                    <a href="unleash-innovation.html">UNLEASH Innovation Lab</a>
+                    <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
                     <a href="accra-fusion.html">Accra Fusion</a>
                     <a href="yali-east-africa.html">YALI East Africa</a>
                 </div>
             </li>
             <li><a href="services.html" class="nav-link">Services</a></li>
             <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="poems.html" class="nav-link">Poems</a></li>
         </ul>
         <div class="nav-right">
             <button class="search-btn" id="searchBtn">
@@ -60,9 +62,13 @@
 
 <!-- Search Overlay -->
 <div class="search-overlay" id="searchOverlay">
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
-        <button class="search-close" id="searchClose">&times;</button>
+    <div class="search-modal">
+        <div class="search-header">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search pages...">
+            <button class="search-close" id="searchClose">&times;</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
     </div>
 </div>
 

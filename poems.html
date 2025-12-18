@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poems - John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .poems-hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .poems-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1600');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+        .poems-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .poems-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .poems-hero-subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        .poems-hero-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .feather-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .poems-hero h1 { font-size: 2.5rem; }
+            .poems-hero-subtitle { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <section class="poems-hero">
+        <div class="poems-hero-content">
+            <i class="fas fa-feather-alt feather-icon"></i>
+            <h1>Poems</h1>
+            <p class="poems-hero-subtitle">Poetry Collection</p>
+            <p class="poems-hero-description">Words that dance, emotions that resonate.</p>
+        </div>
+    </section>
+
+    <section class="posts-section">
+        <div class="container">
+            <div id="poemsGrid" class="article-cards-grid"></div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
+
+    <script>
+        async function loadPoems() {
+            try {
+                const response = await fetch('http://localhost:3000/api/poems');
+                const poems = await response.json();
+                displayPoems(poems);
+            } catch (error) {
+                document.getElementById('poemsGrid').innerHTML = '<div class="empty-state"><p>No poems available</p></div>';
+            }
+        }
+
+        function displayPoems(poems) {
+            const grid = document.getElementById('poemsGrid');
+            if (poems.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-feather-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No poems yet</p></div>';
+            } else {
+                grid.innerHTML = poems.map(poem => `
+                    <div class="article-card" data-id="${poem.id}" style="cursor: pointer;">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> ${poem.date}</span>
+                            </div>
+                            <h3>${poem.title}</h3>
+                            <p>${poem.excerpt}</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        window.location.href = `poem.html?id=${id}`;
+                    });
+                });
+            }
+        }
+
+        loadPoems();
+    </script>
+</body>
+</html>

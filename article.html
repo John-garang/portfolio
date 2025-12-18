@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <title>Article - John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <section class="blog-header" id="articleHeader">
+        <div class="container">
+            <h1 id="articleTitle"></h1>
+            <div class="blog-meta">
+                <span class="author"><i class="fas fa-user"></i> John Garang</span>
+                <span class="date" id="articleDate"></span>
+                <span class="category" id="articleCategory"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-text" id="articleContent"></div>
+            
+            <div class="comments-section">
+                <h2>Comments</h2>
+                <form id="commentForm" class="comment-form" onsubmit="submitComment(event)">
+                    <input type="text" id="commentName" placeholder="Your Name" required>
+                    <textarea id="commentText" placeholder="Your Comment" rows="4" required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+                <div id="commentsList"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
+
+    <script>
+        let articleId;
+        let replyToId = null;
+
+        async function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            articleId = urlParams.get('id');
+
+            if (!articleId) {
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/articles/${articleId}`);
+                const article = await response.json();
+
+                document.getElementById('articleTitle').textContent = article.title;
+                document.getElementById('articleDate').innerHTML = `<i class="fas fa-calendar"></i> ${article.date}`;
+                document.getElementById('articleCategory').innerHTML = `<i class="fas fa-tag"></i> ${article.category}`;
+                document.getElementById('articleContent').innerHTML = article.content.replace(/\n/g, '<br>');
+                document.title = `${article.title} - John Garang`;
+                
+                loadComments();
+            } catch (error) {
+                document.getElementById('articleContent').innerHTML = '<p>Article not found</p>';
+            }
+        }
+
+        async function loadComments() {
+            try {
+                const response = await fetch(`http://localhost:3000/api/articles/${articleId}/comments`);
+                const comments = await response.json();
+                displayComments(comments);
+            } catch (error) {
+                console.error('Error loading comments:', error);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function displayComments(comments) {
+            const list = document.getElementById('commentsList');
+            const topLevel = comments.filter(c => !c.parentId);
+            
+            list.innerHTML = topLevel.map(comment => {
+                const replies = comments.filter(c => c.parentId === comment.id);
+                const safeName = escapeHtml(comment.name);
+                const safeText = escapeHtml(comment.text);
+                return `
+                    <div class="comment">
+                        <div class="comment-header">
+                            <strong>${safeName}</strong>
+                            <span class="comment-date">${new Date(comment.date).toLocaleDateString()}</span>
+                        </div>
+                        <p>${safeText}</p>
+                        <button class="reply-btn" onclick="setReply(${comment.id}, '${safeName.replace(/'/g, "\\'")}')">                            <i class="fas fa-reply"></i> Reply
+                        </button>
+                        ${replies.length ? `
+                            <div class="replies">
+                                ${replies.map(reply => `
+                                    <div class="comment reply">
+                                        <div class="comment-header">
+                                            <strong>${escapeHtml(reply.name)}</strong>
+                                            <span class="comment-date">${new Date(reply.date).toLocaleDateString()}</span>
+                                        </div>
+                                        <p>${escapeHtml(reply.text)}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setReply(commentId, name) {
+            replyToId = commentId;
+            document.getElementById('commentText').placeholder = `Replying to ${name}...`;
+            document.getElementById('commentText').focus();
+        }
+
+        async function submitComment(e) {
+            e.preventDefault();
+            const name = document.getElementById('commentName').value;
+            const text = document.getElementById('commentText').value;
+            
+            try {
+                const response = await fetch(`http://localhost:3000/api/articles/${articleId}/comments`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, text, parentId: replyToId })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('commentForm').reset();
+                    document.getElementById('commentText').placeholder = 'Your Comment';
+                    replyToId = null;
+                    loadComments();
+                } else {
+                    alert('Failed to post comment');
+                }
+            } catch (error) {
+                alert('Error posting comment. Make sure server is running.');
+            }
+        }
+
+        loadArticle();
+    </script>
+</body>
+</html>

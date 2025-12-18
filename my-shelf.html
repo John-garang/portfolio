@@ -10,80 +10,26 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="Pictures/Logo.png" alt="John Garang Logo">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li class="dropdown">
-                    <a href="#portfolio" class="nav-link active">Work Portfolio <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="my-shelf.html">My Shelf</a>
-                        <a href="#cv">CV</a>
-                        <a href="graphic-design.html">Graphic Design</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#experience" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="african-leadership-university.html">African Leadership University</a>
-                        <a href="education-bridge.html">Education Bridge</a>
-                        <a href="african-leadership-academy.html">African Leadership Academy</a>
-                        <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
-                        <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
-                        <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
-                        <a href="surplus-people-project.html">Surplus People Project</a>
-                        <a href="creative-connect.html">Creative Connect</a>
-                        <a href="nalafem-collective.html">Nalafem Collective</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#programs" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="cnn-academy.html">CNN Academy Fellow</a>
-                        <a href="take-action-lab.html">Take Action Lab</a>
-                        <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
-                        <a href="accra-fusion.html">Accra Fusion</a>
-                        <a href="yali-east-africa.html">YALI East Africa</a>
-                    </div>
-                </li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <div class="nav-search">
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="mobile-overlay" id="mobileOverlay"></div>
-        </div>
-    </nav>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="load-header.js?v=3"></script>
 
     <!-- Shelf Hero -->
-    <section class="shelf-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop');">
-        <div class="container">
-            <h1>Welcome to My Shelf</h1>
-            <p class="shelf-subtitle">Medium</p>
-            <p class="shelf-description">Welcome to my digital shelf, where my thoughts roams free and ideas are neatly shelved for your reading pleasure. From academic musings to travel stories that might make you rethink your bucket list, it's all here—just a click away. So grab a cup of coffee (or tea, if you're feeling sophisticated) and enjoy the journey through my world.</p>
+    <section class="shelf-hero" style="background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,1) 100%), url('Pictures/my-shelf..jpg'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh; display: flex; align-items: flex-end; justify-content: center; color: white; text-align: center; padding: 0 20px 10px;">
+        <div class="alu-hero-content" style="text-align: center; max-width: 900px; padding: 2rem;">
+            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; text-shadow: 4px 4px 15px rgba(0,0,0,1), 2px 2px 8px rgba(0,0,0,0.8); font-weight: 700; letter-spacing: -0.5px;">Welcome to My Shelf</h1>
+            <a href="https://medium.com/@j.garang" target="_blank" style="display: inline-block; margin-bottom: 1.5rem;">
+                <i class="fab fa-medium" style="font-size: 3rem; color: #fff; filter: drop-shadow(3px 3px 10px rgba(0,0,0,1));"></i>
+            </a>
+            <p class="hero-subtitle" style="font-size: 1.1rem; max-width: 750px; line-height: 1.7; text-shadow: 3px 3px 10px rgba(0,0,0,1), 1px 1px 5px rgba(0,0,0,0.8);">Welcome to my digital shelf, where my thoughts roams free and ideas are neatly shelved for your reading pleasure. From academic musings to travel stories that might make you rethink your bucket list, it's all here—just a click away. So grab a cup of coffee (or tea, if you're feeling sophisticated) and enjoy the journey through my world.</p>
         </div>
     </section>
 
     <!-- Shelf Categories -->
-    <section class="shelf-categories">
+    <section class="posts-section">
         <div class="container">
             <div class="categories-grid">
-                <a href="/blogs/" class="category-card">
+                <a href="blog.html" class="category-card">
                     <div class="category-image">
                         <img src="Pictures/Blog.png" alt="Blog">
                     </div>
@@ -93,7 +39,7 @@
                     </div>
                 </a>
                 
-                <a href="/academia/" class="category-card">
+                <a href="academia.html" class="category-card">
                     <div class="category-image">
                         <img src="Pictures/Academia.png" alt="Academia">
                     </div>
@@ -103,7 +49,7 @@
                     </div>
                 </a>
                 
-                <a href="/travels/" class="category-card">
+                <a href="travels.html" class="category-card">
                     <div class="category-image">
                         <img src="Pictures/Travels and Fun.png" alt="Travels & Fun">
                     </div>
@@ -119,40 +65,9 @@
 
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>John Ngor Deng Garang</h3>
-                    <p>Digital Communications Professional specializing in strategic content creation, brand storytelling, and digital marketing solutions.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="my-shelf.html">My Shelf</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Me</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy;2025 All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
 
     <script src="script.js"></script>
     <script>

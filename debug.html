@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div style="padding: 100px 20px; text-align: center;">
+        <h1>Debug Test Page</h1>
+        <p>If you can see the navigation above, the header is loading correctly.</p>
+        <p>If not, check the browser console for errors (F12).</p>
+    </div>
+
+    <script>
+        console.log('Debug script starting...');
+        
+        // Check if header placeholder exists
+        const placeholder = document.getElementById('header-placeholder');
+        console.log('Header placeholder found:', placeholder);
+        
+        // Load header
+        fetch('header.html')
+            .then(response => {
+                console.log('Header fetch response:', response.status);
+                return response.text();
+            })
+            .then(data => {
+                console.log('Header data loaded, length:', data.length);
+                placeholder.innerHTML = data;
+                console.log('Header inserted into placeholder');
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
+</body>
+</html>

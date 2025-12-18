@@ -32,13 +32,12 @@
             <div class="footer-section">
                 <h3>Newsletter</h3>
                 <p>Stay updated with my latest insights and projects</p>
-                <div id="mc_embed_signup">
-                    <form action="https://YOUR_MAILCHIMP_URL.us1.list-manage.com/subscribe/post?u=YOUR_USER_ID&amp;id=YOUR_LIST_ID" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletter-form" target="_blank" novalidate>
-                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email address" required>
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_YOUR_USER_ID_YOUR_LIST_ID" tabindex="-1" value=""></div>
-                        <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+                <form id="newsletterForm" class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="text" id="newsletterFirstName" placeholder="First Name" required>
+                    <input type="text" id="newsletterLastName" placeholder="Last Name" required>
+                    <input type="email" id="newsletterEmail" placeholder="Email Address" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
         <div class="footer-bottom">

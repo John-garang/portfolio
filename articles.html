@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles | John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <section class="blog-hero">
+        <div class="container">
+            <h1>My Articles</h1>
+            <p>Thoughts, insights, and stories from my journey</p>
+        </div>
+    </section>
+
+    <section class="blog-posts">
+        <div class="container">
+            <div id="articles-container" class="posts-grid">
+                <div class="loading">Loading articles...</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        async function loadArticles() {
+            try {
+                const response = await fetch('http://localhost:3000/api/articles');
+                const articles = await response.json();
+                
+                const container = document.getElementById('articles-container');
+                
+                if (articles.length === 0) {
+                    container.innerHTML = '<div class="no-posts"><p>No articles available yet.</p></div>';
+                    return;
+                }
+                
+                container.innerHTML = articles.map(article => `
+                    <article class="post-card" data-id="${article.id}" style="cursor: pointer;">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">${article.date}</span>
+                                <span class="post-category">${article.category}</span>
+                            </div>
+                            <h2 class="post-title">${article.title}</h2>
+                            <p class="post-excerpt">${article.excerpt}</p>
+                            <a href="article.html?id=${article.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                `).join('');
+                
+                document.querySelectorAll('.post-card').forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        if (!e.target.closest('.read-more')) {
+                            const id = this.getAttribute('data-id');
+                            window.location.href = `article.html?id=${id}`;
+                        }
+                    });
+                });
+            } catch (error) {
+                document.getElementById('articles-container').innerHTML = 
+                    '<div class="no-posts"><p>Error loading articles. Please make sure the server is running.</p></div>';
+            }
+        }
+
+        loadArticles();
+    </script>
+</body>
+</html>

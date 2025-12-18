@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - John Garang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script src="load-header.js"></script>
+
+    <section class="shelf-hero">
+        <div class="container">
+            <h1>Blog</h1>
+            <p class="shelf-subtitle">Personal Writings</p>
+            <p class="shelf-description">Thoughts, ideas, and stories that inspire and inform.</p>
+        </div>
+    </section>
+
+    <section class="posts-section">
+        <div class="container">
+            <div id="articlesGrid" class="article-cards-grid"></div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="load-footer.js"></script>
+
+    <script>
+        let allArticles = [];
+
+        async function loadArticles() {
+            try {
+                const response = await fetch('http://localhost:3000/api/articles');
+                const articles = await response.json();
+                allArticles = articles.filter(a => a.category === 'personal-writings');
+                displayArticles(allArticles);
+            } catch (error) {
+                document.getElementById('articlesGrid').innerHTML = '<div class="empty-state"><p>No articles available</p></div>';
+            }
+        }
+
+        function displayArticles(articles) {
+            const grid = document.getElementById('articlesGrid');
+            if (articles.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No articles yet</p></div>';
+            } else {
+                grid.innerHTML = articles.map(article => `
+                    <div class="article-card" data-id="${article.id}" style="cursor: pointer;">
+                        ${article.image ? `<div class="article-image"><img src="${article.image}" alt="${article.title}"></div>` : ''}
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">${article.category}</span>
+                                <span class="read-time"><i class="far fa-clock"></i> ${article.date}</span>
+                            </div>
+                            <h3>${article.title}</h3>
+                            <p>${article.excerpt}</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        window.location.href = `article.html?id=${id}`;
+                    });
+                });
+            }
+        }
+
+        loadArticles();
+    </script>
+</body>
+</html>
