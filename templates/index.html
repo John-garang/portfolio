@@ -445,6 +445,15 @@
                     });
                 }
                 
+                // Function to estimate read time based on word count
+                function estimateReadTime(content) {
+                    if (!content) return '1 min read';
+                    const wordsPerMinute = 200;
+                    const wordCount = content.split(/\s+/).length;
+                    const minutes = Math.ceil(wordCount / wordsPerMinute);
+                    return `${minutes} min read`;
+                }
+                
                 // Function to create article card
                 function createArticleCard(article) {
                     return `
@@ -452,7 +461,7 @@
                             <div class="article-content">
                                 <div class="article-meta">
                                     <span class="article-category">${article.category}</span>
-                                    <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                                    <span class="read-time"><i class="fas fa-clock"></i> ${estimateReadTime(article.content)}</span>
                                 </div>
                                 <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
                                 <p>${article.excerpt}</p>
