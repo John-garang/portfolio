@@ -44,11 +44,11 @@ ALLOWED_ORIGINS=https://yourdomain.com
 ### 7. Secure MySQL
 ```sql
 -- Change root password
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewStrongPassword123!';
+ALTER USER 'root'@'portfolio-backend-1-53hz.onrender.com' IDENTIFIED BY 'NewStrongPassword123!';
 
 -- Create dedicated user for app
-CREATE USER 'portfolio_user'@'localhost' IDENTIFIED BY 'AnotherStrongPassword123!';
-GRANT SELECT, INSERT, UPDATE, DELETE ON portfolio_db.* TO 'portfolio_user'@'localhost';
+CREATE USER 'portfolio_user'@'portfolio-backend-1-53hz.onrender.com' IDENTIFIED BY 'AnotherStrongPassword123!';
+GRANT SELECT, INSERT, UPDATE, DELETE ON portfolio_db.* TO 'portfolio_user'@'portfolio-backend-1-53hz.onrender.com';
 FLUSH PRIVILEGES;
 ```
 

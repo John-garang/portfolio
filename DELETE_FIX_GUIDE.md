@@ -29,7 +29,7 @@ async function deleteArticle(id) {
    ```
 
 2. **Open Admin Dashboard**
-   - Navigate to `http://localhost:3000/admin-dashboard.html`
+   - Navigate to `https://portfolio-backend-1-53hz.onrender.com/admin-dashboard.html`
    - Login with username: `admin`, password: `admin123`
 
 3. **Test Delete Confirmation**

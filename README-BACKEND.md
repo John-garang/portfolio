@@ -16,10 +16,10 @@ npm install
 npm start
 ```
 
-Server will run at: http://localhost:3000
+Server will run at: https://portfolio-backend-1-53hz.onrender.com
 
 ### 4. Access Admin Dashboard
-Open in browser: http://localhost:3000/admin-server.html
+Open in browser: https://portfolio-backend-1-53hz.onrender.com/admin-server.html
 
 ## 📁 Files Created
 

@@ -53,7 +53,7 @@
 python app.py
 ```
 
-2. Login at: http://localhost:3000/admin-login.html
+2. Login at: https://portfolio-backend-1-53hz.onrender.com/admin-login.html
    - Use new password: `JohnGarang@2024!SecureAdmin`
 
 3. Test that:

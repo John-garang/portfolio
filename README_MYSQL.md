@@ -15,7 +15,7 @@ pip install -r requirements_mysql.txt
 Edit `migrate_to_mysql.py` and set your MySQL password:
 ```python
 DB_CONFIG = {
-    'host': 'localhost',
+    'host': 'portfolio-backend-1-53hz.onrender.com',
     'user': 'root',
     'password': 'YOUR_PASSWORD_HERE',  # Set your MySQL password
     'database': 'portfolio_db'
@@ -31,7 +31,7 @@ python migrate_to_mysql.py
 Set the same password in `app_mysql.py`:
 ```python
 DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
+    'host': os.getenv('DB_HOST', 'portfolio-backend-1-53hz.onrender.com'),
     'user': os.getenv('DB_USER', 'root'),
     'password': os.getenv('DB_PASSWORD', 'YOUR_PASSWORD_HERE'),
     'database': os.getenv('DB_NAME', 'portfolio_db')

@@ -468,6 +468,6 @@ process.on('SIGTERM', () => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running at https://portfolio-backend-1-53hz.onrender.com:${PORT}`);
     console.log('Using SQLite database for persistent storage');
 });

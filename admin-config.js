@@ -1,11 +1,11 @@
 // Admin API Configuration
 const ADMIN_API_BASE_URL = 'https://portfolio-backend-1-53hz.onrender.com';
 
-// Override fetch globally to replace localhost URLs
+// Override fetch globally to replace portfolio-backend-1-53hz.onrender.com URLs
 const originalFetch = window.fetch;
 window.fetch = function(url, options) {
-    if (typeof url === 'string' && (url.includes('localhost:3000') || url.startsWith('http://localhost:3000'))) {
-        url = url.replace('http://localhost:3000', ADMIN_API_BASE_URL);
+    if (typeof url === 'string' && (url.includes('portfolio-backend-1-53hz.onrender.com') || url.startsWith('https://portfolio-backend-1-53hz.onrender.com'))) {
+        url = url.replace('https://portfolio-backend-1-53hz.onrender.com', ADMIN_API_BASE_URL);
         console.log('Redirected API call to:', url);
     }
     return originalFetch(url, options);

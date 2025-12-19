@@ -22,7 +22,7 @@ python app.py
 ```
 
 ### Step 2: Open Admin Dashboard
-1. Navigate to: `http://localhost:3000/admin-dashboard.html`
+1. Navigate to: `https://portfolio-backend-1-53hz.onrender.com/admin-dashboard.html`
 2. Login with: username `admin`, password `admin123`
 
 ### Step 3: Test Article Delete
@@ -124,7 +124,7 @@ All delete functions now follow this simple pattern:
 ```javascript
 function deleteArticle(id) {
     if (!confirm('Confirmation message')) return;
-    fetch(`http://localhost:3000/api/articles/${id}`, { method: 'DELETE' })
+    fetch(`https://portfolio-backend-1-53hz.onrender.com/api/articles/${id}`, { method: 'DELETE' })
         .then(response => response.json())
         .then(() => {
             loadArticles();

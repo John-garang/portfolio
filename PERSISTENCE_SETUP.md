@@ -72,7 +72,7 @@ The `migrate-data.js` script will:
 ### Manual Verification
 After migration, verify your data:
 1. Start the new server: `node server-persistent.js`
-2. Visit admin dashboard: `http://localhost:3000/admin-dashboard.html`
+2. Visit admin dashboard: `https://portfolio-backend-1-53hz.onrender.com/admin-dashboard.html`
 3. Check all sections (messages, articles, subscribers)
 
 ## Backup System

@@ -49,7 +49,7 @@ Once the server is running:
 4. You should now see the poems interface working
 
 ## Why the Dashboard Failed
-The dashboard JavaScript tries to fetch from `http://localhost:3000/api/poems` but:
+The dashboard JavaScript tries to fetch from `https://portfolio-backend-1-53hz.onrender.com/api/poems` but:
 - Server wasn't running → Connection refused
 - Browser shows network errors in console
 - Dashboard appears broken/empty

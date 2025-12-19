@@ -21,7 +21,7 @@ Double-click on `start-persistent-server.bat` in the Portfolio folder
 
 ## Verify the Server is Running
 1. Open your browser
-2. Go to `http://localhost:3000/api/articles`
+2. Go to `https://portfolio-backend-1-53hz.onrender.com/api/articles`
 3. You should see JSON data with your articles
 
 ## Then Access the Admin Dashboard
