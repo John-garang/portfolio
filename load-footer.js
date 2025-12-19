@@ -22,7 +22,7 @@ window.subscribeNewsletter = async function(e) {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
     try {
-        const response = await fetch('http://localhost:3000/api/subscribers', {
+        const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ firstName, lastName, email })

@@ -1,0 +1,11 @@
+Files to copy to new portfolio-backend repository:
+
+1. app.py
+2. requirements.txt
+3. .env
+4. Dockerfile (if needed)
+5. render.yaml
+6. Procfile
+
+Create new GitHub repo: portfolio-backend
+Copy only these files to the new repo.

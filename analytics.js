@@ -24,7 +24,7 @@ class Analytics {
         };
 
         try {
-            await fetch('http://localhost:3000/api/analytics/track', {
+            await fetch('https://portfolio-backend-1-53hz.onrender.com/api/analytics/track', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(eventData)

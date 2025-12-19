@@ -18,10 +18,10 @@
         const results = document.getElementById('results');
         
         async function testConnection() {
-            results.innerHTML = '<div class="status info">Testing connection to http://localhost:3000...</div>';
+            results.innerHTML = '<div class="status info">Testing connection to https://johngarangg.netlify.app...</div>';
             
             try {
-                const response = await fetch('http://localhost:3000/api/articles');
+                const response = await fetch('https://johngarangg.netlify.app/api/articles');
                 
                 if (response.ok) {
                     const data = await response.json();

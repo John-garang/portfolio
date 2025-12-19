@@ -96,7 +96,7 @@
     <script>
         async function loadPoems() {
             try {
-                const response = await fetch('http://localhost:3000/api/poems');
+                const response = await fetch('https://johngarangg.netlify.app/api/poems');
                 const poems = await response.json();
                 displayPoems(poems);
             } catch (error) {
