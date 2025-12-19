@@ -45,7 +45,80 @@ ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
 valid_tokens = set()
 
 def get_db():
-    return mysql.connector.connect(**DB_CONFIG)
+    try:
+        conn = mysql.connector.connect(**DB_CONFIG)
+        return conn
+    except mysql.connector.Error as e:
+        print(f"Database connection failed: {e}")
+        print("Creating in-memory fallback...")
+        return None
+
+def init_db():
+    try:
+        conn = get_db()
+        if conn:
+            cursor = conn.cursor()
+            # Create tables if they don't exist
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS articles (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    title VARCHAR(255),
+                    category VARCHAR(100),
+                    excerpt TEXT,
+                    content TEXT,
+                    image VARCHAR(255),
+                    slug VARCHAR(255),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS poems (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    title VARCHAR(255),
+                    excerpt TEXT,
+                    content TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS comments (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    poemId INT,
+                    name VARCHAR(255),
+                    text TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS messages (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(255),
+                    email VARCHAR(255),
+                    phone VARCHAR(50),
+                    company VARCHAR(255),
+                    service VARCHAR(255),
+                    budget VARCHAR(100),
+                    timeline VARCHAR(100),
+                    message TEXT,
+                    status VARCHAR(50),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS subscribers (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    email VARCHAR(255) UNIQUE,
+                    firstName VARCHAR(255),
+                    lastName VARCHAR(255),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            print("Database tables initialized")
+    except Exception as e:
+        print(f"Database initialization failed: {e}")
 
 def sanitize_input(text):
     if not isinstance(text, str):
@@ -383,11 +456,12 @@ def login():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
-    if not DB_CONFIG['password']:
-        print("ERROR: DB_PASSWORD environment variable not set!")
-        exit(1)
     if not ADMIN_PASSWORD:
         print("ERROR: ADMIN_PASSWORD environment variable not set!")
         exit(1)
+    
+    # Initialize database
+    init_db()
+    
     print(f'Secure MySQL Flask Server Starting on port {port}')
     app.run(port=port, debug=False, host='0.0.0.0')
