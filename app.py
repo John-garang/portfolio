@@ -17,12 +17,25 @@ ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://your-netlify-site.netlif
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS, "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 # Secure DB config - use environment variables
-DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
-    'user': os.getenv('DB_USER', 'root'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME', 'portfolio_db')
-}
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    # Parse Railway MySQL URL: mysql://user:pass@host:port/db
+    import urllib.parse
+    parsed = urllib.parse.urlparse(DATABASE_URL)
+    DB_CONFIG = {
+        'host': parsed.hostname,
+        'user': parsed.username,
+        'password': parsed.password,
+        'database': parsed.path[1:],
+        'port': parsed.port or 3306
+    }
+else:
+    DB_CONFIG = {
+        'host': os.getenv('DB_HOST', 'localhost'),
+        'user': os.getenv('DB_USER', 'root'),
+        'password': os.getenv('DB_PASSWORD'),
+        'database': os.getenv('DB_NAME', 'portfolio_db')
+    }
 
 # Secure admin credentials - use environment variables
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
