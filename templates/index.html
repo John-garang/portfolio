@@ -181,6 +181,7 @@
             <div class="portfolio-tabs">
                 <button class="tab-btn active" data-tab="blogs">Blogs</button>
                 <button class="tab-btn" data-tab="travels">Travels</button>
+                <button class="tab-btn" data-tab="poems">Poems</button>
                 <button class="tab-btn" data-tab="academic">Academic Writings</button>
             </div>
             <div class="portfolio-content">
@@ -191,6 +192,11 @@
                 </div>
                 <div class="tab-content" id="travels">
                     <div class="portfolio-grid" id="travels-grid">
+                        <!-- Dynamic content loaded from backend -->
+                    </div>
+                </div>
+                <div class="tab-content" id="poems">
+                    <div class="portfolio-grid" id="poems-grid">
                         <!-- Dynamic content loaded from backend -->
                     </div>
                 </div>
@@ -462,6 +468,7 @@
                 // Separate articles by category
                 const blogs = articles.filter(article => article.category === 'personal-writings');
                 const travels = articles.filter(article => article.category === 'travels');
+                const poems = articles.filter(article => article.category === 'poems');
                 const academic = articles.filter(article => article.category === 'academia');
                 
                 // Populate blogs
@@ -471,6 +478,10 @@
                 // Populate travels
                 const travelsGrid = document.getElementById('travels-grid');
                 travelsGrid.innerHTML = travels.map(createArticleCard).join('');
+                
+                // Populate poems
+                const poemsGrid = document.getElementById('poems-grid');
+                poemsGrid.innerHTML = poems.map(createArticleCard).join('');
                 
                 // Populate academic
                 const academicGrid = document.getElementById('academic-grid');
