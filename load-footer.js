@@ -32,8 +32,14 @@ window.subscribeNewsletter = async function(e) {
             window.popupSystem.success('Thank you for subscribing to our newsletter! You\'ll receive updates on our latest content and insights.', 'Successfully Subscribed!');
             document.getElementById('newsletterForm').reset();
         } else {
-            const error = await response.json();
-            window.popupSystem.error(error.error || 'Subscription failed. Please try again.', 'Subscription Failed');
+            let errorMessage = 'Subscription failed. Please try again.';
+            try {
+                const error = await response.json();
+                errorMessage = error.error || errorMessage;
+            } catch (e) {
+                // Response is not JSON, use default message
+            }
+            window.popupSystem.error(errorMessage, 'Subscription Failed');
         }
     } catch (error) {
         window.popupSystem.error('Unable to connect to the server. Please check your internet connection and try again.', 'Connection Error');
