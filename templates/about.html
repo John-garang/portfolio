@@ -21,6 +21,17 @@
         .contact-text { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; text-align: left !important; }
         .contact-label { font-size: 0.75rem !important; color: #999 !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
         .contact-value { font-size: 0.95rem !important; color: #333 !important; font-weight: 500 !important; }
+        
+        @media (max-width: 768px) {
+            .contact-info { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
+            .profile-section { order: -1 !important; }
+            .profile-picture { width: 150px !important; height: 150px !important; }
+            .about { padding: 80px 15px 40px !important; }
+            .about h1 { font-size: 2.5rem !important; }
+            .bio-grid { grid-template-columns: 1fr !important; }
+            .details-grid { grid-template-columns: 1fr !important; }
+            .about-bio, .contact-info, .personal-details { padding: 1.5rem !important; }
+        }
     </style>
 </head>
 <body>
