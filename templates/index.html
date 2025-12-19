@@ -456,27 +456,53 @@
                     `;
                 }
                 
-                // Separate articles by category
-                const blogs = articles.filter(article => article.category === 'personal-writings');
-                const travels = articles.filter(article => article.category === 'travels');
-                const poems = articles.filter(article => article.category === 'poems');
-                const academic = articles.filter(article => article.category === 'academia');
+                // Function to create view more button
+                function createViewMoreButton(category, totalCount) {
+                    if (totalCount <= 3) return '';
+                    const categoryMap = {
+                        'personal-writings': 'blogs.html',
+                        'travels': 'travels.html',
+                        'poems': 'poems.html',
+                        'academia': 'academia.html'
+                    };
+                    return `
+                        <div class="view-more-container">
+                            <a href="${categoryMap[category]}" class="view-more-btn">
+                                View All ${totalCount} Articles <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    `;
+                }
                 
-                // Populate blogs
+                // Separate articles by category and sort by date (most recent first)
+                const blogs = articles.filter(article => article.category === 'personal-writings')
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                const travels = articles.filter(article => article.category === 'travels')
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                const poems = articles.filter(article => article.category === 'poems')
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                const academic = articles.filter(article => article.category === 'academia')
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                
+                // Populate blogs (top 3)
                 const blogsGrid = document.getElementById('blogs-grid');
-                blogsGrid.innerHTML = blogs.map(createArticleCard).join('');
+                blogsGrid.innerHTML = blogs.slice(0, 3).map(createArticleCard).join('') + 
+                    createViewMoreButton('personal-writings', blogs.length);
                 
-                // Populate travels
+                // Populate travels (top 3)
                 const travelsGrid = document.getElementById('travels-grid');
-                travelsGrid.innerHTML = travels.map(createArticleCard).join('');
+                travelsGrid.innerHTML = travels.slice(0, 3).map(createArticleCard).join('') + 
+                    createViewMoreButton('travels', travels.length);
                 
-                // Populate poems
+                // Populate poems (top 3)
                 const poemsGrid = document.getElementById('poems-grid');
-                poemsGrid.innerHTML = poems.map(createArticleCard).join('');
+                poemsGrid.innerHTML = poems.slice(0, 3).map(createArticleCard).join('') + 
+                    createViewMoreButton('poems', poems.length);
                 
-                // Populate academic
+                // Populate academic (top 3)
                 const academicGrid = document.getElementById('academic-grid');
-                academicGrid.innerHTML = academic.map(createArticleCard).join('');
+                academicGrid.innerHTML = academic.slice(0, 3).map(createArticleCard).join('') + 
+                    createViewMoreButton('academia', academic.length);
                 
             } catch (error) {
                 console.error('Error loading portfolio content:', error);
