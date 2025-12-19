@@ -427,6 +427,38 @@
                 const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles');
                 const articles = await response.json();
                 
+                // Function to format date safely
+                function formatDate(dateString) {
+                    if (!dateString) return 'Recently published';
+                    const date = new Date(dateString);
+                    if (isNaN(date.getTime())) return 'Recently published';
+                    return date.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                }
+                
+                // Function to create article card
+                function createArticleCard(article) {
+                    return `
+                        <div class="article-card">
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span class="article-category">${article.category}</span>
+                                    <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                                </div>
+                                <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
+                                <p>${article.excerpt}</p>
+                                <div class="article-footer">
+                                    <span class="post-date"><i class="fas fa-calendar"></i> ${formatDate(article.created_at)}</span>
+                                    <a href="article.html?id=${article.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
                 // Separate articles by category
                 const blogs = articles.filter(article => article.category === 'personal-writings');
                 const travels = articles.filter(article => article.category === 'travels');
@@ -434,33 +466,15 @@
                 
                 // Populate blogs
                 const blogsGrid = document.getElementById('blogs-grid');
-                blogsGrid.innerHTML = blogs.map(article => `
-                    <a href="article.html?id=${article.id}" class="portfolio-item">
-                        <h3>${article.title}</h3>
-                        <p>${article.excerpt}</p>
-                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
-                    </a>
-                `).join('');
+                blogsGrid.innerHTML = blogs.map(createArticleCard).join('');
                 
                 // Populate travels
                 const travelsGrid = document.getElementById('travels-grid');
-                travelsGrid.innerHTML = travels.map(article => `
-                    <a href="article.html?id=${article.id}" class="portfolio-item">
-                        <h3>${article.title}</h3>
-                        <p>${article.excerpt}</p>
-                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
-                    </a>
-                `).join('');
+                travelsGrid.innerHTML = travels.map(createArticleCard).join('');
                 
                 // Populate academic
                 const academicGrid = document.getElementById('academic-grid');
-                academicGrid.innerHTML = academic.map(article => `
-                    <a href="article.html?id=${article.id}" class="portfolio-item">
-                        <h3>${article.title}</h3>
-                        <p>${article.excerpt}</p>
-                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
-                    </a>
-                `).join('');
+                academicGrid.innerHTML = academic.map(createArticleCard).join('');
                 
             } catch (error) {
                 console.error('Error loading portfolio content:', error);
