@@ -185,45 +185,18 @@
             </div>
             <div class="portfolio-content">
                 <div class="tab-content active" id="blogs">
-                    <div class="portfolio-grid">
-                        <a href="the-making-of-a-dinka-woman-a-survival-manual-disguised-as-culture.html" class="portfolio-item">
-                            <h3>The Making of a Dinka Woman: A Survival Manual Disguised as Culture</h3>
-                            <p>Even though I don't agree with feminists in most cases, we can agree on one thing; the closest living thing to a donkey isn't four-legged. It's a Dinka woman.</p>
-                            <span class="blog-date">2025-12-18</span>
-                        </a>
-                        <a href="when-an-educated-woman-says-no.html" class="portfolio-item">
-                            <h3>When an Educated Woman Says No</h3>
-                            <p>Educated women can read through you like the book you never finished.</p>
-                            <span class="blog-date">2025-12-18</span>
-                        </a>
-                        <a href="if-equality-means-this-burn-the-world-already.html" class="portfolio-item">
-                            <h3>If Equality Means This, Burn the World Already</h3>
-                            <p>When violence wears a skirt and puts on lipstick, it suddenly becomes excused.</p>
-                            <span class="blog-date">2025-12-18</span>
-                        </a>
+                    <div class="portfolio-grid" id="blogs-grid">
+                        <!-- Dynamic content loaded from backend -->
                     </div>
                 </div>
                 <div class="tab-content" id="travels">
-                    <div class="portfolio-grid">
-                        <a href="cape-town-travel-guide.html" class="portfolio-item">
-                            <h3>A First-time Traveller's Guide to Cape Town</h3>
-                            <p>My first ever trip to Cape Town, South Africa - experiences, tips, and memorable moments</p>
-                            <span class="blog-date">October 13, 2024</span>
-                        </a>
+                    <div class="portfolio-grid" id="travels-grid">
+                        <!-- Dynamic content loaded from backend -->
                     </div>
                 </div>
                 <div class="tab-content" id="academic">
-                    <div class="portfolio-grid">
-                        <a href="addressing-entrepreneurial-gaps-in-south-sudan.html" class="portfolio-item">
-                            <h3>Addressing Entrepreneurial Gaps in South Sudan</h3>
-                            <p>South Sudanese students, particularly from low-income backgrounds, have limited access to entrepreneurial resources such as mentorship, funding, and business training.</p>
-                            <span class="blog-date">2025-12-18</span>
-                        </a>
-                        <a href="development-trajectory-of-south-sudan.html" class="portfolio-item">
-                            <h3>Development Trajectory of South Sudan</h3>
-                            <p>South Sudan, the world's youngest nation, has already had a long political history...</p>
-                            <span class="blog-date">2025-12-18</span>
-                        </a>
+                    <div class="portfolio-grid" id="academic-grid">
+                        <!-- Dynamic content loaded from backend -->
                     </div>
                 </div>
             </div>
@@ -448,7 +421,58 @@
             }
         };
 
+        // Load portfolio content from backend
+        async function loadPortfolioContent() {
+            try {
+                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles');
+                const articles = await response.json();
+                
+                // Separate articles by category
+                const blogs = articles.filter(article => article.category === 'personal-writings');
+                const travels = articles.filter(article => article.category === 'travels');
+                const academic = articles.filter(article => article.category === 'academia');
+                
+                // Populate blogs
+                const blogsGrid = document.getElementById('blogs-grid');
+                blogsGrid.innerHTML = blogs.map(article => `
+                    <a href="article.html?id=${article.id}" class="portfolio-item">
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
+                    </a>
+                `).join('');
+                
+                // Populate travels
+                const travelsGrid = document.getElementById('travels-grid');
+                travelsGrid.innerHTML = travels.map(article => `
+                    <a href="article.html?id=${article.id}" class="portfolio-item">
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
+                    </a>
+                `).join('');
+                
+                // Populate academic
+                const academicGrid = document.getElementById('academic-grid');
+                academicGrid.innerHTML = academic.map(article => `
+                    <a href="article.html?id=${article.id}" class="portfolio-item">
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <span class="blog-date">${new Date(article.created_at).toLocaleDateString()}</span>
+                    </a>
+                `).join('');
+                
+            } catch (error) {
+                console.error('Error loading portfolio content:', error);
+                // Fallback content if backend is unavailable
+                document.getElementById('blogs-grid').innerHTML = '<p>Content loading...</p>';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Load portfolio content
+            loadPortfolioContent();
+            
             document.querySelectorAll('.interactive-card').forEach((card, cardIndex) => {
                 const skill = card.dataset.skill;
                 const data = skillsData[skill];
