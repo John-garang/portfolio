@@ -1,5 +1,5 @@
 // API Client for Backend Communication
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://portfolio-backend-1-53hz.onrender.com/api';
 
 const API = {
     // Messages

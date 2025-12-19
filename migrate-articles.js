@@ -37,7 +37,7 @@ const articles = [
 async function migrateArticles() {
     for (const article of articles) {
         try {
-            const response = await fetch('http://localhost:3000/api/articles', {
+            const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(article)

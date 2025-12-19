@@ -95,7 +95,7 @@ app.use(helmet({
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com"],
             fontSrc: ["'self'", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
             imgSrc: ["'self'", "data:", "https:"],
-            connectSrc: ["'self'", "http://localhost:3000"],
+            connectSrc: ["'self'", "https://portfolio-backend-1-53hz.onrender.com"],
             frameSrc: ["'none'"],
             objectSrc: ["'none'"],
         }
