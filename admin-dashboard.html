@@ -421,6 +421,30 @@
             window.location.href = 'admin-login.html';
         }
 
+        // Handle authentication errors globally
+        async function handleAuthError(response) {
+            if (response.status === 401) {
+                localStorage.removeItem('adminToken');
+                window.location.href = 'admin-login.html';
+                return true;
+            }
+            return false;
+        }
+
+        // Enhanced fetch with auth error handling
+        async function authFetch(url, options = {}) {
+            const token = localStorage.getItem('adminToken');
+            if (token && options.headers) {
+                options.headers['Authorization'] = `Bearer ${token}`;
+            }
+            
+            const response = await fetch(url, options);
+            if (await handleAuthError(response)) {
+                throw new Error('Authentication required');
+            }
+            return response;
+        }
+
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
