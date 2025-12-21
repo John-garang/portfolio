@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import mysql.connector
+import psycopg2
+import psycopg2.extras
 import os
 import re
 from datetime import datetime
@@ -13,16 +14,8 @@ load_dotenv()
 app = Flask(__name__, static_folder='.')
 
 # CORS for Netlify frontend
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://portfolio-cmwe.onrender.com,https://johngarangg.netlify.app,http://localhost:3000').split(',')
+ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://portfolio-cmwe.onrender.com').split(',')
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS, "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type", "Authorization"]}})
-
-# Secure DB config - use environment variables
-DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
-    'user': os.getenv('DB_USER', 'root'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME', 'portfolio_db')
-}
 
 # Secure admin credentials - use environment variables
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
@@ -31,8 +24,9 @@ ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
 # Store valid tokens in memory (use Redis in production)
 valid_tokens = set()
 
+# Database connection using PostgreSQL
 def get_db():
-    return mysql.connector.connect(**DB_CONFIG)
+    return psycopg2.connect(os.getenv('DATABASE_URL'))
 
 def sanitize_input(text):
     if not isinstance(text, str):
