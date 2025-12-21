@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="poems.html" class="nav-link">Poems</a></li>
                     </ul>
                     <div class="nav-right">
+                        <button class="search-btn" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
                         <div class="hamburger" id="hamburger">
                             <span></span>
                             <span></span>
