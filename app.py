@@ -13,7 +13,7 @@ load_dotenv()
 app = Flask(__name__, static_folder='.')
 
 # CORS for Netlify frontend
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://your-netlify-site.netlify.app,http://localhost:3000').split(',')
+ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://portfolio-cmwe.onrender.com,https://johngarangg.netlify.app,http://localhost:3000').split(',')
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS, "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 # Secure DB config - use environment variables
