@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="logo-name">John Ngor Deng Garang</span>
                     </div>
                     <ul class="nav-menu">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="/" class="nav-link">Home</a></li>
+                        <li><a href="/about" class="nav-link">About</a></li>
                         <li class="dropdown">
                             <a href="work-portfolio.html" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="yali-east-africa.html">YALI East Africa</a>
                             </div>
                         </li>
-                        <li><a href="services.html" class="nav-link">Services</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li><a href="poems.html" class="nav-link">Poems</a></li>
+                        <li><a href="/services" class="nav-link">Services</a></li>
+                        <li><a href="/contact" class="nav-link">Contact</a></li>
+                        <li><a href="/poems" class="nav-link">Poems</a></li>
                     </ul>
                     <div class="nav-right">
                         <button class="search-btn" id="searchBtn">
@@ -76,9 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
         headerPlaceholder.innerHTML = header;
         
         // Set active page
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentPage = window.location.pathname === '/' ? 'index.html' : window.location.pathname.split('/').pop() + '.html';
         document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
+            const href = link.getAttribute('href');
+            if ((href === '/' && currentPage === 'index.html') || 
+                (href !== '/' && href.replace('/', '') + '.html' === currentPage)) {
                 link.classList.add('active');
             }
         });
