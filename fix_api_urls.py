@@ -4,7 +4,7 @@ from pathlib import Path
 def fix_api_urls():
     templates_dir = Path("templates")
     backend_url = "https://portfolio-backend-1-53hz.onrender.com"
-    old_url = "https://johngarangg.netlify.app"
+    old_url = "https://portfolio-cmwe.onrender.com"
     
     fixed_count = 0
     

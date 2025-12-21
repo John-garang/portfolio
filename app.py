@@ -13,7 +13,7 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='.')
 
-# CORS for Netlify frontend
+# CORS for frontend
 ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://portfolio-cmwe.onrender.com').split(',')
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS, "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type", "Authorization"]}})
 

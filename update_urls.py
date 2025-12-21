@@ -10,12 +10,12 @@ def update_urls_in_file(file_path):
         original_content = content
         
         # Replace localhost:3000 with Netlify URL
-        content = re.sub(r'http://localhost:3000', 'https://johngarangg.netlify.app', content)
-        content = re.sub(r'localhost:3000', 'johngarangg.netlify.app', content)
+        content = re.sub(r'http://localhost:3000', 'https://portfolio-cmwe.onrender.com', content)
+        content = re.sub(r'localhost:3000', 'portfolio-cmwe.onrender.com', content)
         
         # Replace any other localhost variations
-        content = re.sub(r'http://localhost', 'https://johngarangg.netlify.app', content)
-        content = re.sub(r'localhost', 'johngarangg.netlify.app', content)
+        content = re.sub(r'http://localhost', 'https://portfolio-cmwe.onrender.com', content)
+        content = re.sub(r'localhost', 'portfolio-cmwe.onrender.com', content)
         
         if content != original_content:
             with open(file_path, 'w', encoding='utf-8') as f:
