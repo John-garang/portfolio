@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     
-    if (headerPlaceholder && !headerPlaceholder.innerHTML.trim()) {
+    if (headerPlaceholder) {
         const header = `
             <nav class="navbar">
                 <div class="nav-container">
