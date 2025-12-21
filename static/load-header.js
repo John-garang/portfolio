@@ -59,6 +59,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="mobile-overlay" id="mobileOverlay"></div>
             </nav>
+            
+            <!-- Search Overlay -->
+            <div class="search-overlay" id="searchOverlay">
+                <div class="search-modal">
+                    <div class="search-header">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search pages...">
+                        <button class="search-close" id="searchClose">&times;</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
         `;
         
         headerPlaceholder.innerHTML = header;
