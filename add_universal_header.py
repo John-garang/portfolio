@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Portfolio | John Garang</title>
-    <link rel="stylesheet" href="static/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header Placeholder -->
+import os
+import re
+from pathlib import Path
+
+def add_universal_header():
+    templates_dir = Path("templates")
+    
+    # Header HTML with all functionality
+    header_html = '''    <!-- Header Placeholder -->
     <div id="header-placeholder">
         <!-- Universal Navigation -->
         <nav class="navbar">
@@ -98,62 +95,10 @@
                 });
             }
         });
-    </script>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
-    <script src="static/load-header.js"></script>
-
-    <!-- Hero Section -->
-    <section class="category-hero">
-        <div class="container">
-            <h1>Work Portfolio</h1>
-            <p>A comprehensive showcase of professional work, creative projects, and academic contributions</p>
-        </div>
-    </section>
-
-    <!-- Portfolio Overview -->
-    <section class="posts-section">
-        <div class="container">
-            <div class="categories-grid">
-                <a href="my-shelf.html" class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="My Shelf">
-                    </div>
-                    <div class="category-content">
-                        <h3>My Shelf 📚</h3>
-                        <p>A curated collection of writings including blogs, travel guides, and academic papers that showcase diverse perspectives and experiences.</p>
-                    </div>
-                </a>
-
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Professional CV">
-                    </div>
-                    <div class="category-content">
-                        <h3>Professional CV</h3>
-                        <p>Comprehensive resume highlighting professional experience, skills, achievements, and career progression in digital communications.</p>
-                    </div>
-                </div>
-
-                <a href="graphic-design.html" class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Graphic Design">
-                    </div>
-                    <div class="category-content">
-                        <h3>Graphic Design 🖼</h3>
-                        <p>Visual design portfolio featuring brand identities, marketing materials, social media graphics, and creative solutions for various clients.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js"></script>
-
-    <script src="static/script.js"></script>
-
+    </script>'''
+    
+    # JavaScript for setting active page
+    active_script = '''
     <script>
         // Set active page
         document.addEventListener('DOMContentLoaded', function() {
@@ -164,6 +109,37 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
+    </script>'''
+    
+    for html_file in templates_dir.glob("*.html"):
+        if html_file.name == 'header.html' or html_file.name == 'footer.html':
+            continue
+            
+        with open(html_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Skip if already has header
+        if 'nav class="navbar"' in content and html_file.name != 'index.html':
+            continue
+            
+        # Find body tag and add header after it
+        if '<body>' in content:
+            content = content.replace('<body>', f'<body>\n{header_html}')
+        elif '<body' in content:
+            # Handle body tag with attributes
+            body_match = re.search(r'<body[^>]*>', content)
+            if body_match:
+                content = content.replace(body_match.group(), f'{body_match.group()}\n{header_html}')
+        
+        # Add active script before closing body tag
+        if '</body>' in content:
+            content = content.replace('</body>', f'{active_script}\n</body>')
+        
+        with open(html_file, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"Added header to: {html_file.name}")
+
+if __name__ == "__main__":
+    add_universal_header()
+    print("Universal header added to all pages!")
