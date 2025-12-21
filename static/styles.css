@@ -163,6 +163,7 @@ li {
     display: flex;
     align-items: center;
     margin-bottom: 0;
+    transition: color 0.3s ease;
 }
 
 .navbar.scrolled .logo-name {
