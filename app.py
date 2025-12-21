@@ -13,9 +13,9 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='.')
 
-# CORS for frontend
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://portfolio-cmwe.onrender.com').split(',')
-CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS, "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type", "Authorization"]}})
+# CORS for frontend - Force specific origin
+ALLOWED_ORIGINS = ['https://portfolio-cmwe.onrender.com']
+CORS(app, origins=ALLOWED_ORIGINS, methods=["GET", "POST", "PUT", "DELETE", "PATCH"], allow_headers=["Content-Type", "Authorization"])
 
 # Secure admin credentials - use environment variables
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
@@ -364,11 +364,12 @@ def login():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
-    if not DB_CONFIG['password']:
-        print("ERROR: DB_PASSWORD environment variable not set!")
+    if not os.getenv('DATABASE_URL'):
+        print("ERROR: DATABASE_URL environment variable not set!")
         exit(1)
     if not ADMIN_PASSWORD:
         print("ERROR: ADMIN_PASSWORD environment variable not set!")
         exit(1)
-    print(f'Secure MySQL Flask Server Starting on port {port}')
+    print(f'Portfolio Backend Server Starting on port {port}')
+    print(f'CORS allowed origins: {ALLOWED_ORIGINS}')
     app.run(port=port, debug=False, host='0.0.0.0')
