@@ -257,6 +257,41 @@ def handle_profile():
     elif request.method == 'POST':
         return jsonify({'success': True})
 
+@app.route('/api/poems', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def handle_poems():
+    if request.method == 'GET':
+        try:
+            conn = get_db()
+            cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+            cursor.execute("SELECT *, created_at as date FROM poems ORDER BY created_at DESC")
+            poems = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            return jsonify([dict(poem) for poem in poems])
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    return jsonify({'success': True})
+
+@app.route('/api/poems/<int:poem_id>', methods=['GET', 'PUT', 'DELETE'])
+@require_auth
+def handle_poem(poem_id):
+    return jsonify({'success': True})
+
+@app.route('/api/articles/<int:article_id>', methods=['GET', 'PUT', 'DELETE'])
+@require_auth
+def handle_article(article_id):
+    return jsonify({'success': True})
+
+@app.route('/api/messages/<int:message_id>', methods=['PATCH', 'DELETE'])
+@require_auth
+def handle_message(message_id):
+    return jsonify({'success': True})
+
+@app.route('/api/subscribers/<int:subscriber_id>', methods=['DELETE'])
+@require_auth
+def handle_subscriber(subscriber_id):
+    return jsonify({'success': True})
+
 # Initialize database on startup
 init_db()
 
