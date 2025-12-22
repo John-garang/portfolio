@@ -18,8 +18,8 @@ ALLOWED_ORIGINS = ['https://johngarang.com', 'https://portfolio-cmwe.onrender.co
 CORS(app, origins=ALLOWED_ORIGINS, methods=["GET", "POST", "PUT", "DELETE", "PATCH"], allow_headers=["Content-Type", "Authorization"])
 
 # Secure admin credentials - use environment variables
-ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
-ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'dengjohn200@gmail.com')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'John@Alustudent1')
 
 # Store valid tokens in memory (use Redis in production)
 valid_tokens = set()
