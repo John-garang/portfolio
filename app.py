@@ -24,9 +24,12 @@ ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
 # Store valid tokens in memory (use Redis in production)
 valid_tokens = set()
 
-# Database connection using PostgreSQL
+# All cursor usage should use RealDictCursor
 def get_db():
     return psycopg2.connect(os.getenv('DATABASE_URL'))
+
+def get_cursor(conn):
+    return conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
 def sanitize_input(text):
     if not isinstance(text, str):
@@ -68,7 +71,7 @@ def serve_static(path):
 @app.route('/api/articles', methods=['GET'])
 def get_articles():
     conn = get_db()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute("SELECT * FROM articles ORDER BY created_at DESC")
     articles = cursor.fetchall()
     cursor.close()
@@ -78,7 +81,7 @@ def get_articles():
 @app.route('/api/articles/<int:id>', methods=['GET'])
 def get_article(id):
     conn = get_db()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute("SELECT * FROM articles WHERE id = %s", (id,))
     article = cursor.fetchone()
     cursor.close()
@@ -120,10 +123,9 @@ def add_comment():
     conn = get_db()
     cursor = conn.cursor(dictionary=True)
     data = sanitize_object(request.json)
-    cursor.execute("INSERT INTO comments (poemId, name, text) VALUES (%s, %s, %s)",
+    cursor.execute("INSERT INTO comments (poemId, name, text) VALUES (%s, %s, %s) RETURNING id",
                   (data['poemId'], data['name'], data['text']))
-    conn.commit()
-    comment_id = cursor.lastrowid
+    comment_id = cursor.fetchone()[0]
     cursor.execute("SELECT * FROM comments WHERE id = %s", (comment_id,))
     comment = cursor.fetchone()
     cursor.close()
@@ -173,12 +175,10 @@ def create_article():
     conn = get_db()
     cursor = conn.cursor(dictionary=True)
     data = sanitize_object(request.json)
-    cursor.execute("""INSERT INTO articles (title, category, excerpt, content, image, slug) 
-                     VALUES (%s, %s, %s, %s, %s, %s)""",
+    cursor.execute("INSERT INTO articles (title, category, excerpt, content, image, slug) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id",
                   (data['title'], data['category'], data['excerpt'], data['content'], 
                    data.get('image', ''), re.sub(r'[^a-z0-9]+', '-', data['title'].lower())))
-    conn.commit()
-    article_id = cursor.lastrowid
+    article_id = cursor.fetchone()[0]
     cursor.execute("SELECT * FROM articles WHERE id = %s", (article_id,))
     article = cursor.fetchone()
     cursor.close()
