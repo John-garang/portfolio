@@ -13,8 +13,15 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='.')
 
-# CORS for frontend - Allow all origins temporarily for debugging
+# CORS for frontend - Allow all origins
 CORS(app, origins="*", methods=["GET", "POST", "PUT", "DELETE", "PATCH"], allow_headers=["Content-Type", "Authorization"])
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH')
+    return response
 
 # Secure admin credentials - use environment variables
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'dengjohn200@gmail.com')
