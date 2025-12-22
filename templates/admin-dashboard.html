@@ -407,18 +407,9 @@
         </main>
     </div>
 
-    <link rel="stylesheet" href="https://portfolio-backend-1-53hz.onrender.com/static/styles.css">
-    <script src="https://portfolio-backend-1-53hz.onrender.com/static/popup-system.js"></script>
-    <script src="https://portfolio-backend-1-53hz.onrender.com/static/admin-config.js"></script>
-    <script>
-        // Load admin config first
-        const script = document.createElement('script');
-        script.src = 'admin-config.js';
-        script.onload = function() {
-            console.log('Admin config loaded, API calls will use:', window.API_BASE_URL);
-        };
-        document.head.appendChild(script);
-    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/popup-system.js"></script>
+    <script src="/static/admin-config.js"></script>
     <script>
         // Check authentication
         if (!localStorage.getItem('adminToken')) {
@@ -478,21 +469,25 @@
         async function loadDashboard() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const [articles, messages, subscribers] = await Promise.all([
+                const [articlesRes, messagesRes, subscribersRes] = await Promise.all([
                     fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
                         headers: { 'Authorization': `Bearer ${token}` }
-                    }).then(r => r.json()),
+                    }),
                     fetch('https://portfolio-backend-1-53hz.onrender.com/api/messages', {
                         headers: { 'Authorization': `Bearer ${token}` }
-                    }).then(r => r.json()),
+                    }),
                     fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
                         headers: { 'Authorization': `Bearer ${token}` }
-                    }).then(r => r.json())
+                    })
                 ]);
                 
-                document.getElementById('articles-count').textContent = articles.length;
-                document.getElementById('messages-count').textContent = messages.length;
-                document.getElementById('subscribers-count').textContent = subscribers.length;
+                const articles = articlesRes.ok ? await articlesRes.json() : [];
+                const messages = messagesRes.ok ? await messagesRes.json() : [];
+                const subscribers = subscribersRes.ok ? await subscribersRes.json() : [];
+                
+                document.getElementById('articles-count').textContent = articles.length || 0;
+                document.getElementById('messages-count').textContent = messages.length || 0;
+                document.getElementById('subscribers-count').textContent = subscribers.length || 0;
             } catch (error) {
                 console.error('Error loading dashboard:', error);
             }
@@ -501,7 +496,14 @@
         async function editArticle(id) {
             try {
                 const response = await fetch(`https://portfolio-backend-1-53hz.onrender.com/api/articles/${id}`);
+                if (!response.ok) {
+                    throw new Error(`Article not found (${response.status})`);
+                }
                 const article = await response.json();
+                
+                if (article.error) {
+                    throw new Error(article.error);
+                }
                 
                 document.getElementById('articleId').value = article.id;
                 document.getElementById('articleTitle').value = article.title;
@@ -516,7 +518,8 @@
                 
                 document.querySelector('.content-section').scrollIntoView({ behavior: 'smooth' });
             } catch (error) {
-                window.popupSystem.error('Failed to load article. Please try again.', 'Load Error');
+                console.error('Edit article error:', error);
+                window.popupSystem?.error('Failed to load article: ' + error.message, 'Load Error');
             }
         }
 
@@ -540,7 +543,14 @@
         async function editPoem(id) {
             try {
                 const response = await fetch(`https://portfolio-backend-1-53hz.onrender.com/api/poems/${id}`);
+                if (!response.ok) {
+                    throw new Error(`Poem not found (${response.status})`);
+                }
                 const poem = await response.json();
+                
+                if (poem.error) {
+                    throw new Error(poem.error);
+                }
                 
                 document.getElementById('poemId').value = poem.id;
                 document.getElementById('poemTitle').value = poem.title;
@@ -553,7 +563,8 @@
                 
                 document.querySelector('.content-section').scrollIntoView({ behavior: 'smooth' });
             } catch (error) {
-                window.popupSystem.error('Failed to load poem. Please try again.', 'Load Error');
+                console.error('Edit poem error:', error);
+                window.popupSystem?.error('Failed to load poem: ' + error.message, 'Load Error');
             }
         }
 
@@ -576,12 +587,18 @@
         async function loadPoems() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const poems = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/poems', {
+                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/poems', {
                     headers: { 'Authorization': `Bearer ${token}` }
-                }).then(r => r.json());
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load poems (${response.status})`);
+                }
+                
+                const poems = await response.json();
                 const container = document.getElementById('poems-list');
                 
-                if (poems.length === 0) {
+                if (!Array.isArray(poems) || poems.length === 0) {
                     container.innerHTML = '<div class="empty-state"><i class="fas fa-feather-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No poems yet</p></div>';
                     return;
                 }
@@ -608,19 +625,26 @@
                     </div>
                 `).join('');
             } catch (error) {
-                document.getElementById('poems-list').innerHTML = '<p>Error loading poems.</p>';
+                console.error('Load poems error:', error);
+                document.getElementById('poems-list').innerHTML = '<p>Error loading poems: ' + error.message + '</p>';
             }
         }
 
         async function loadArticles() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const articles = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
+                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
                     headers: { 'Authorization': `Bearer ${token}` }
-                }).then(r => r.json());
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load articles (${response.status})`);
+                }
+                
+                const articles = await response.json();
                 const container = document.getElementById('articles-list');
                 
-                if (articles.length === 0) {
+                if (!Array.isArray(articles) || articles.length === 0) {
                     container.innerHTML = '<div class="empty-state"><i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No articles yet</p></div>';
                     return;
                 }
@@ -648,19 +672,26 @@
                     </div>
                 `).join('');
             } catch (error) {
-                document.getElementById('articles-list').innerHTML = '<p>Error loading articles.</p>';
+                console.error('Load articles error:', error);
+                document.getElementById('articles-list').innerHTML = '<p>Error loading articles: ' + error.message + '</p>';
             }
         }
 
         async function loadMessages() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const messages = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/messages', {
+                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/messages', {
                     headers: { 'Authorization': `Bearer ${token}` }
-                }).then(r => r.json());
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load messages (${response.status})`);
+                }
+                
+                const messages = await response.json();
                 const container = document.getElementById('messages-list');
                 
-                if (messages.length === 0) {
+                if (!Array.isArray(messages) || messages.length === 0) {
                     container.innerHTML = '<div class="empty-state"><i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No messages yet</p></div>';
                     return;
                 }
@@ -693,19 +724,26 @@
                     </div>
                 `).join('');
             } catch (error) {
-                document.getElementById('messages-list').innerHTML = '<p>Error loading messages.</p>';
+                console.error('Load messages error:', error);
+                document.getElementById('messages-list').innerHTML = '<p>Error loading messages: ' + error.message + '</p>';
             }
         }
 
         async function loadSubscribers() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const subscribers = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
+                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
                     headers: { 'Authorization': `Bearer ${token}` }
-                }).then(r => r.json());
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load subscribers (${response.status})`);
+                }
+                
+                const subscribers = await response.json();
                 const container = document.getElementById('subscribers-list');
                 
-                if (subscribers.length === 0) {
+                if (!Array.isArray(subscribers) || subscribers.length === 0) {
                     container.innerHTML = '<div class="empty-state"><i class="fas fa-users" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No subscribers yet</p></div>';
                     return;
                 }
@@ -717,7 +755,7 @@
                                 <h3>${sub.firstName || ''} ${sub.lastName || ''}</h3>
                                 <div class="message-meta">
                                     <i class="fas fa-envelope"></i> ${sub.email} | 
-                                    <i class="fas fa-calendar"></i> ${sub.date}
+                                    <i class="fas fa-calendar"></i> ${sub.created_at || sub.date}
                                 </div>
                             </div>
                         </div>
@@ -729,7 +767,8 @@
                     </div>
                 `).join('');
             } catch (error) {
-                document.getElementById('subscribers-list').innerHTML = '<p>Error loading subscribers.</p>';
+                console.error('Load subscribers error:', error);
+                document.getElementById('subscribers-list').innerHTML = '<p>Error loading subscribers: ' + error.message + '</p>';
             }
         }
 
@@ -737,15 +776,25 @@
             try {
                 const token = localStorage.getItem('adminToken');
                 const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/profile', {
+                    method: 'GET',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load profile (${response.status})`);
+                }
+                
                 const profile = await response.json();
                 document.getElementById('fullName').value = profile.fullName || '';
                 document.getElementById('email').value = profile.email || '';
                 document.getElementById('phone').value = profile.phone || '';
                 document.getElementById('currentUsername').value = profile.username || 'admin';
             } catch (error) {
-                console.log('Profile not found, using defaults');
+                console.error('Load profile error:', error);
+                // Set defaults on error
+                document.getElementById('fullName').value = 'John Garang';
+                document.getElementById('email').value = 'dengjohn200@gmail.com';
+                document.getElementById('currentUsername').value = 'admin';
             }
         }
 
@@ -902,15 +951,22 @@
                 });
                 
                 console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Profile update error response:', errorText);
+                    throw new Error(`Update failed (${response.status})`);
+                }
+                
                 const result = await response.json();
                 console.log('Response data:', result);
                 
-                if (!response.ok) {
-                    throw new Error(result.error || 'Failed to update');
+                if (result.error) {
+                    throw new Error(result.error);
                 }
                 
                 if (newPassword) {
-                    window.popupSystem.success('Password updated! Restart server with restart-server.bat', 'Success');
+                    window.popupSystem?.success('Password updated! Restart server with restart-server.bat', 'Success');
                     document.getElementById('newPassword').value = '';
                     document.getElementById('confirmPassword').value = '';
                 } else {
@@ -921,7 +977,7 @@
                 }
             } catch (error) {
                 console.error('Password update error:', error);
-                window.popupSystem.error('Error: ' + error.message, 'Save Error');
+                window.popupSystem?.error('Error: ' + error.message, 'Save Error');
             }
         });
 

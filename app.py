@@ -441,9 +441,11 @@ def analytics_dashboard():
 # -----------------------------
 # Profile Endpoint
 # -----------------------------
-@app.route('/api/profile', methods=['GET'])
+@app.route('/api/profile', methods=['GET', 'POST'])
 @require_auth
 def get_profile():
+    if request.method == 'POST':
+        return jsonify({'success': True, 'message': 'Profile updated'})
     return jsonify({
         'fullName': 'John Garang',
         'email': ADMIN_USERNAME,
