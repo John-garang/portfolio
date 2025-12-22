@@ -179,7 +179,7 @@ def serve_admin_config():
 # -----------------------------
 @app.route('/')
 def index():
-    return jsonify({'status': 'running', 'message': 'Portfolio backend API'})
+    return jsonify({'status': 'running', 'message': 'Portfolio backend API v2'})
 
 @app.route('/api/test', methods=['GET'])
 def test():
