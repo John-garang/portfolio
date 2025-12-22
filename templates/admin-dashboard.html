@@ -479,7 +479,9 @@
             try {
                 const token = localStorage.getItem('adminToken');
                 const [articles, messages, subscribers] = await Promise.all([
-                    fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles').then(r => r.json()),
+                    fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    }).then(r => r.json()),
                     fetch('https://portfolio-backend-1-53hz.onrender.com/api/messages', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }).then(r => r.json()),
@@ -522,7 +524,7 @@
             const confirmed = await window.confirm('Are you sure you want to delete this article? This cannot be undone.');
             if (!confirmed) return;
             const token = localStorage.getItem('adminToken');
-            fetch(`https://portfolio-backend-1-53hz.onrender.com/api/articles/${id}`, { 
+            fetch(`https://portfolio-backend-1-53hz.onrender.com/api/admin/articles/${id}`, { 
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -609,7 +611,10 @@
 
         async function loadArticles() {
             try {
-                const articles = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles').then(r => r.json());
+                const token = localStorage.getItem('adminToken');
+                const articles = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                }).then(r => r.json());
                 const container = document.getElementById('articles-list');
                 
                 if (articles.length === 0) {
@@ -758,7 +763,7 @@
                 if (articleId) {
                     const token = localStorage.getItem('adminToken');
                     console.log('Updating article:', articleId, articleData);
-                    response = await fetch(`https://portfolio-backend-1-53hz.onrender.com/api/articles/${articleId}`, {
+                    response = await fetch(`https://portfolio-backend-1-53hz.onrender.com/api/admin/articles/${articleId}`, {
                         method: 'PUT',
                         headers: { 
                             'Content-Type': 'application/json',
@@ -775,7 +780,7 @@
                     window.popupSystem.success('Your article has been updated successfully!', 'Article Updated');
                 } else {
                     const token = localStorage.getItem('adminToken');
-                    response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles', {
+                    response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
                         method: 'POST',
                         headers: { 
                             'Content-Type': 'application/json',

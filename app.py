@@ -262,12 +262,11 @@ def delete_subscriber(subscriber_id):
 # Articles Endpoints
 # -----------------------------
 @app.route('/api/articles', methods=['GET'])
-@require_auth
-def get_articles():
+def get_articles_public():
     try:
         conn = get_db()
         cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-        cursor.execute("SELECT * FROM articles ORDER BY created_at DESC")
+        cursor.execute("SELECT id, title, category, excerpt, created_at::date as date FROM articles ORDER BY created_at DESC")
         articles = cursor.fetchall()
         cursor.close()
         conn.close()
@@ -275,7 +274,46 @@ def get_articles():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/articles/<int:article_id>', methods=['PUT', 'DELETE'])
+@app.route('/api/admin/articles', methods=['GET', 'POST'])
+@require_auth
+def get_articles_admin():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        if request.method == 'POST':
+            data = request.json
+            cursor.execute("INSERT INTO articles (title, category, excerpt, content) VALUES (%s,%s,%s,%s) RETURNING *",
+                           (data['title'], data['category'], data['excerpt'], data['content']))
+            article = cursor.fetchone()
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return jsonify(article), 201
+        else:
+            cursor.execute("SELECT * FROM articles ORDER BY created_at DESC")
+            articles = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            return jsonify(articles)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/articles/<int:article_id>', methods=['GET'])
+def get_article_public(article_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM articles WHERE id=%s", (article_id,))
+        article = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        if article:
+            return jsonify(article)
+        return jsonify({'error': 'Article not found'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/admin/articles/<int:article_id>', methods=['PUT', 'DELETE'])
 @require_auth
 def modify_article(article_id):
     try:
