@@ -376,6 +376,40 @@ def get_profile():
     })
 
 # -----------------------------
+# Comments Endpoints
+# -----------------------------
+@app.route('/api/comments/<int:poem_id>', methods=['GET'])
+def get_comments(poem_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM comments WHERE poemId=%s ORDER BY created_at DESC", (poem_id,))
+        comments = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(comments)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/comments', methods=['POST'])
+def add_comment():
+    data = request.json
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT INTO comments (poemId, name, text) VALUES (%s,%s,%s) RETURNING id",
+            (data['poemId'], data['name'], data['text'])
+        )
+        conn.commit()
+        new_id = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return jsonify({'success': True, 'id': new_id})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# -----------------------------
 # Run Server
 # -----------------------------
 if __name__ == '__main__':
