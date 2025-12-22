@@ -354,7 +354,15 @@ def test_credentials():
         'password_first_char': ADMIN_PASSWORD[0] if ADMIN_PASSWORD else None
     })
 
-@app.route('/api/login', methods=['POST'])
+@app.route('/api/test-cors', methods=['GET', 'POST', 'OPTIONS'])
+def test_cors():
+    return jsonify({
+        'message': 'CORS test successful',
+        'origin': request.headers.get('Origin'),
+        'method': request.method
+    })
+
+@app.route('/api/login', methods=['POST']))
 def login():
     data = request.json
     print(f"Login attempt - Username: {data.get('username')}")
