@@ -377,5 +377,5 @@ if __name__ == '__main__':
         print("ERROR: ADMIN_PASSWORD environment variable not set!")
         exit(1)
     print(f'Portfolio Backend Server Starting on port {port}')
-    print(f'CORS allowed origins: {ALLOWED_ORIGINS}')
+    print('CORS: Allow all origins')
     app.run(port=port, debug=False, host='0.0.0.0')
