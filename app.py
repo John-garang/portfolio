@@ -490,4 +490,6 @@ def add_comment():
 # -----------------------------
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
+    print("Starting server with all routes...")
+    print(f"Available routes: {len(app.url_map._rules)} routes")
     app.run(host='0.0.0.0', port=port, debug=True)
