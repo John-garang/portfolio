@@ -11,7 +11,7 @@ import urllib.parse
 
 load_dotenv()
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 # -----------------------------
 # CORS Configuration
