@@ -70,7 +70,7 @@ def require_auth(f):
 # PostgreSQL Configuration
 # -----------------------------
 DATABASE_URL = os.getenv('DATABASE_URL') or \
-    "postgresql://postgres:John%40Alustudent1@db.dynharywcbwznknrvetq.supabase.co:5432/postgres"
+    "postgresql://postgres:John%40Alustudent1@db.fxigmaaeoqeqjszucosw.supabase.co:5432/postgres"
 
 parsed = urllib.parse.urlparse(DATABASE_URL)
 DB_CONFIG = {
