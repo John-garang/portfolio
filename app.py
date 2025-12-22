@@ -161,6 +161,11 @@ def require_auth(f):
         return f(*args, **kwargs)
     return decorated
 
+@app.before_request
+def handle_options():
+    if request.method == "OPTIONS":
+        return jsonify({'status': 'ok'}), 200
+
 @app.route('/')
 def index():
     return jsonify({'message': 'Portfolio Backend API', 'status': 'running'})
