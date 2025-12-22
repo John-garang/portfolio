@@ -1,4 +1,4 @@
-// Quick server test
+﻿// Quick server test
 try {
     console.log('Testing server startup...');
     require('./server.js');

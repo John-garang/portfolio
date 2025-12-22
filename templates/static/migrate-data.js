@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const Database = require('./database');
 
 async function migrateData() {

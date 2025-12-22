@@ -1,4 +1,4 @@
-// API Configuration
+﻿// API Configuration
 const API_BASE_URL = 'https://portfolio-backend-1-53hz.onrender.com';
 
 // Export for use in other files

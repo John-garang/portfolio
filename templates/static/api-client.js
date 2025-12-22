@@ -1,4 +1,4 @@
-// API Client for Backend Communication
+﻿// API Client for Backend Communication
 const API_BASE = 'https://portfolio-backend-1-53hz.onrender.com/api';
 
 const API = {
@@ -92,3 +92,4 @@ const API = {
         return res.json();
     }
 };
+

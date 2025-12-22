@@ -1,5 +1,5 @@
-// Load footer across all pages
-fetch('footer.html')
+﻿// Load footer across all pages
+fetch('footer')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
@@ -48,3 +48,4 @@ window.subscribeNewsletter = async function(e) {
         btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
     }
 };
+

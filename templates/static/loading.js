@@ -1,4 +1,4 @@
-// Loading screen functionality
+﻿// Loading screen functionality
 window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 
 // Show loading screen on page navigation
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[href$=".html"]');
+    const links = document.querySelectorAll('a[href$=""]');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             const loadingScreen = document.getElementById('loading-screen');

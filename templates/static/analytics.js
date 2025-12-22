@@ -1,4 +1,4 @@
-// Analytics Tracking System
+﻿// Analytics Tracking System
 class Analytics {
     constructor() {
         this.sessionId = this.generateSessionId();

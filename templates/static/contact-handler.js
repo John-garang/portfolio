@@ -1,4 +1,4 @@
-// Contact Form Handler - Saves to Admin Backend
+﻿// Contact Form Handler - Saves to Admin Backend
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.professional-contact-form, .contact-form');
     
@@ -35,3 +35,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+

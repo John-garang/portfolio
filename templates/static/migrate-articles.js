@@ -1,4 +1,4 @@
-// Run this script to migrate existing articles to database
+﻿// Run this script to migrate existing articles to database
 // Usage: node migrate-articles.js
 
 const articles = [
@@ -8,7 +8,7 @@ const articles = [
         excerpt: "When violence wears a skirt and puts on lipstick, it suddenly becomes excused. A critical look at the double standards in how society treats violence based on gender.",
         content: `<p class="lead">When violence wears a skirt and puts on lipstick, it suddenly becomes excused.</p>
 
-<p>Today in Aweil, Northern Bahr El Ghazal, South Sudan, a man—a man I do not know, became a victim of the growing social inequality. His wife cut off his private part while he was asleep, for unknown reasons. The man is currently at the hospital with medics trying to salvage whatever is left of his manhood, while the culprit sits comfortably with the authorities.</p>
+<p>Today in Aweil, Northern Bahr El Ghazal, South Sudan, a manâ€”a man I do not know, became a victim of the growing social inequality. His wife cut off his private part while he was asleep, for unknown reasons. The man is currently at the hospital with medics trying to salvage whatever is left of his manhood, while the culprit sits comfortably with the authorities.</p>
 
 <p>But you know what disgusts me? Go look at the comment section of major media houses in South Sudan. People are laughing about it. They are turning the man's agony into some cheap comedy, singing the same tired chorus: "He must have cheated."</p>
 
@@ -43,12 +43,13 @@ async function migrateArticles() {
                 body: JSON.stringify(article)
             });
             const result = await response.json();
-            console.log(`✓ Migrated: ${article.title}`);
+            console.log(`âœ“ Migrated: ${article.title}`);
         } catch (error) {
-            console.log(`✗ Failed: ${article.title}`, error.message);
+            console.log(`âœ— Failed: ${article.title}`, error.message);
         }
     }
     console.log('\nMigration complete!');
 }
 
 migrateArticles();
+

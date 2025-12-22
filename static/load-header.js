@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="/" class="nav-link">Home</a></li>
                         <li><a href="/about" class="nav-link">About</a></li>
                         <li class="dropdown">
-                            <a href="work-portfolio.html" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
+                            <a href="/work-portfolio" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="my-shelf.html">My Shelf</a>
                                 <a href="artefacts.html">Artefacts</a>
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="experience-overview.html" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
+                            <a href="/experience-overview" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="african-leadership-university.html">African Leadership University</a>
                                 <a href="education-bridge.html">Education Bridge</a>
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="programs-overview.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                            <a href="/programs-overview" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="cnn-academy.html">CNN Academy Fellow</a>
                                 <a href="take-action-lab.html">Take Action Lab</a>

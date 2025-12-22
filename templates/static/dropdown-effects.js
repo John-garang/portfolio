@@ -1,4 +1,4 @@
-// Advanced Interactive Dropdown System
+﻿// Advanced Interactive Dropdown System
 // Multi-language implementation with CSS, JavaScript, WebGL, and Web Audio API
 
 class AdvancedDropdownSystem {

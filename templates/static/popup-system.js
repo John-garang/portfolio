@@ -1,4 +1,4 @@
-// Global Custom Popup System
+﻿// Global Custom Popup System
 class PopupSystem {
     constructor() {
         this.createPopupContainer();

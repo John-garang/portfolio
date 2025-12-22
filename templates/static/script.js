@@ -1,4 +1,4 @@
-// Search Functionality
+﻿// Search Functionality
 const searchBtn = document.getElementById('searchBtn');
 const searchOverlay = document.getElementById('searchOverlay');
 const searchInput = document.getElementById('searchInput');
@@ -6,20 +6,20 @@ const searchClose = document.getElementById('searchClose');
 const searchResults = document.getElementById('searchResults');
 
 const searchData = [
-    { title: 'Home', url: 'index.html', desc: 'Digital communications portfolio showcasing skills and expertise' },
-    { title: 'About Me', url: 'about.html', desc: 'Biography and background of John Ngor Deng Garang' },
-    { title: 'Work Portfolio', url: 'work-portfolio.html', desc: 'Collection of professional work and projects' },
-    { title: 'My Shelf', url: 'my-shelf.html', desc: 'Published writings and articles' },
-    { title: 'Artefacts', url: 'artefacts.html', desc: 'Creative projects and artefacts' },
-    { title: 'CV', url: 'cv.html', desc: 'Curriculum vitae and professional experience' },
-    { title: 'Graphic Design', url: 'graphic-design.html', desc: 'Graphic design portfolio and visual work' },
-    { title: 'Experience Overview', url: 'experience-overview.html', desc: 'Overview of professional experience and career' },
-    { title: 'African Leadership University', url: 'african-leadership-university.html', desc: 'Experience at African Leadership University' },
-    { title: 'Education Bridge', url: 'education-bridge.html', desc: 'Work with Education Bridge organization' },
-    { title: 'African Leadership Academy', url: 'african-leadership-academy.html', desc: 'Experience at African Leadership Academy' },
-    { title: 'CNN Academy Fellow', url: 'cnn-academy.html', desc: 'CNN Academy Fellowship experience' },
-    { title: 'Services', url: 'services.html', desc: 'Professional services offered' },
-    { title: 'Contact', url: 'contact.html', desc: 'Get in touch and contact information' }
+    { title: 'Home', url: 'index', desc: 'Digital communications portfolio showcasing skills and expertise' },
+    { title: 'About Me', url: 'about', desc: 'Biography and background of John Ngor Deng Garang' },
+    { title: 'Work Portfolio', url: 'work-portfolio', desc: 'Collection of professional work and projects' },
+    { title: 'My Shelf', url: 'my-shelf', desc: 'Published writings and articles' },
+    { title: 'Artefacts', url: 'artefacts', desc: 'Creative projects and artefacts' },
+    { title: 'CV', url: 'cv', desc: 'Curriculum vitae and professional experience' },
+    { title: 'Graphic Design', url: 'graphic-design', desc: 'Graphic design portfolio and visual work' },
+    { title: 'Experience Overview', url: 'experience-overview', desc: 'Overview of professional experience and career' },
+    { title: 'African Leadership University', url: 'african-leadership-university', desc: 'Experience at African Leadership University' },
+    { title: 'Education Bridge', url: 'education-bridge', desc: 'Work with Education Bridge organization' },
+    { title: 'African Leadership Academy', url: 'african-leadership-academy', desc: 'Experience at African Leadership Academy' },
+    { title: 'CNN Academy Fellow', url: 'cnn-academy', desc: 'CNN Academy Fellowship experience' },
+    { title: 'Services', url: 'services', desc: 'Professional services offered' },
+    { title: 'Contact', url: 'contact', desc: 'Get in touch and contact information' }
 ];
 
 if (searchBtn && searchOverlay) {
