@@ -18,7 +18,8 @@ app = Flask(__name__, static_folder='static')
 # -----------------------------
 ALLOWED_ORIGINS = [
     'https://johngarang.com',
-    'http://localhost:3000'
+    'http://localhost:3000',
+    '*'  # Allow all origins for testing
 ]
 
 CORS(app, origins=ALLOWED_ORIGINS,
