@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 import hashlib
 import time
+import psycopg2
+import psycopg2.extras
+import urllib.parse
 
 load_dotenv()
 
@@ -15,7 +18,6 @@ app = Flask(__name__, static_folder='static')
 # -----------------------------
 ALLOWED_ORIGINS = [
     'https://johngarang.com',
-    'https://johngarangg.netlify.app',
     'http://localhost:3000'
 ]
 
@@ -47,7 +49,6 @@ def generate_token(username):
     return hashlib.sha256(token_data.encode()).hexdigest()
 
 def validate_token(token, username):
-    # Basic format check
     if not token or not username:
         return False
     return len(token) == 64 and all(c in '0123456789abcdef' for c in token.lower())
@@ -63,6 +64,85 @@ def require_auth(f):
             return jsonify({'error': 'Invalid token'}), 401
         return f(*args, **kwargs)
     return decorated
+
+# -----------------------------
+# PostgreSQL Configuration
+# -----------------------------
+DATABASE_URL = os.getenv('DATABASE_URL') or \
+    "postgresql://portfolio_db_twcn_user:Eu50hgLBOjV6HiunGOdNnvPiOqnilBBi@dpg-d52i2d95pdvs73fgtvl0-a.virginia-postgres.render.com/portfolio_db_twcn"
+
+parsed = urllib.parse.urlparse(DATABASE_URL)
+DB_CONFIG = {
+    'host': parsed.hostname,
+    'user': parsed.username,
+    'password': parsed.password,
+    'database': parsed.path[1:],
+    'port': parsed.port or 5432
+}
+
+def get_db():
+    return psycopg2.connect(**DB_CONFIG)
+
+# -----------------------------
+# Initialize Database Tables
+# -----------------------------
+def init_db():
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255),
+                email VARCHAR(255),
+                phone VARCHAR(50),
+                company VARCHAR(255),
+                service VARCHAR(255),
+                budget VARCHAR(100),
+                timeline VARCHAR(100),
+                message TEXT,
+                status VARCHAR(50) DEFAULT 'new',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS subscribers (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) UNIQUE,
+                firstName VARCHAR(255),
+                lastName VARCHAR(255),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS articles (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255),
+                category VARCHAR(100),
+                excerpt TEXT,
+                content TEXT,
+                image VARCHAR(255),
+                slug VARCHAR(255),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS poems (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255),
+                excerpt TEXT,
+                content TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        print("Database initialized")
+    except Exception as e:
+        print(f"DB init error: {e}")
+
+init_db()
 
 # -----------------------------
 # Static Files
@@ -86,48 +166,188 @@ def login():
         return jsonify({'token': token})
     return jsonify({'error': 'Invalid credentials'}), 401
 
-# Dummy in-memory data for demonstration
-MESSAGES = [
-    {'id': 1, 'name': 'Alice', 'email': 'alice@example.com', 'message': 'Hello!', 'status': 'new', 'created_at': '2025-12-22'},
-    {'id': 2, 'name': 'Bob', 'email': 'bob@example.com', 'message': 'Hi there!', 'status': 'new', 'created_at': '2025-12-22'}
-]
+# -----------------------------
+# Messages Endpoints
+# -----------------------------
+@app.route('/api/messages', methods=['GET'])
+@require_auth
+def get_messages():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT *, created_at as date FROM messages ORDER BY created_at DESC")
+        messages = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(messages)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-SUBSCRIBERS = [
-    {'id': 1, 'email': 'user1@example.com', 'firstName': 'John', 'lastName': 'Doe', 'created_at': '2025-12-22'},
-    {'id': 2, 'email': 'user2@example.com', 'firstName': 'Jane', 'lastName': 'Smith', 'created_at': '2025-12-22'}
-]
-
-ARTICLES = [
-    {'id': 1, 'title': 'My First Article', 'category': 'web', 'excerpt': 'Intro...', 'content': 'Full content', 'image': '', 'slug': 'my-first-article', 'created_at': '2025-12-22'}
-]
+@app.route('/api/messages/<int:message_id>', methods=['PATCH', 'DELETE'])
+@require_auth
+def modify_message(message_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        if request.method == 'DELETE':
+            cursor.execute("DELETE FROM messages WHERE id=%s", (message_id,))
+        elif request.method == 'PATCH':
+            status = request.json.get('status', 'new')
+            cursor.execute("UPDATE messages SET status=%s WHERE id=%s", (status, message_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # -----------------------------
-# Dashboard Endpoints
+# Subscribers Endpoints
 # -----------------------------
 @app.route('/api/subscribers', methods=['GET'])
 @require_auth
 def get_subscribers():
-    return jsonify(SUBSCRIBERS)
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM subscribers ORDER BY created_at DESC")
+        subscribers = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(subscribers)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-@app.route('/api/messages', methods=['GET'])
+@app.route('/api/subscribers/<int:subscriber_id>', methods=['DELETE'])
 @require_auth
-def get_messages():
-    return jsonify(MESSAGES)
+def delete_subscriber(subscriber_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM subscribers WHERE id=%s", (subscriber_id,))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
+# -----------------------------
+# Articles Endpoints
+# -----------------------------
+@app.route('/api/articles', methods=['GET'])
+@require_auth
+def get_articles():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM articles ORDER BY created_at DESC")
+        articles = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(articles)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/articles/<int:article_id>', methods=['PUT', 'DELETE'])
+@require_auth
+def modify_article(article_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        if request.method == 'DELETE':
+            cursor.execute("DELETE FROM articles WHERE id=%s", (article_id,))
+        elif request.method == 'PUT':
+            data = request.json
+            cursor.execute("""
+                UPDATE articles SET title=%s, category=%s, excerpt=%s, content=%s WHERE id=%s
+            """, (data.get('title'), data.get('category'), data.get('excerpt'), data.get('content'), article_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# -----------------------------
+# Poems Endpoints
+# -----------------------------
+@app.route('/api/poems', methods=['GET', 'POST'])
+@require_auth
+def poems():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        if request.method == 'POST':
+            data = request.json
+            cursor.execute("INSERT INTO poems (title, excerpt, content) VALUES (%s,%s,%s) RETURNING *",
+                           (data['title'], data['excerpt'], data['content']))
+            poem = cursor.fetchone()
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return jsonify(poem), 201
+        else:
+            cursor.execute("SELECT * FROM poems ORDER BY created_at DESC")
+            poems_list = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            return jsonify(poems_list)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/poems/<int:poem_id>', methods=['PUT', 'DELETE'])
+@require_auth
+def modify_poem(poem_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        if request.method == 'DELETE':
+            cursor.execute("DELETE FROM poems WHERE id=%s", (poem_id,))
+        elif request.method == 'PUT':
+            data = request.json
+            cursor.execute("UPDATE poems SET title=%s, excerpt=%s, content=%s WHERE id=%s",
+                           (data.get('title'), data.get('excerpt'), data.get('content'), poem_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# -----------------------------
+# Analytics
+# -----------------------------
 @app.route('/api/analytics/dashboard', methods=['GET'])
 @require_auth
-def get_analytics_dashboard():
-    return jsonify({
-        'totalVisitors': 0,
-        'totalPageViews': 0,
-        'todayVisitors': 0,
-        'totalMessages': len(MESSAGES),
-        'totalSubscribers': len(SUBSCRIBERS),
-        'totalArticles': len(ARTICLES),
-        'topPages': [],
-        'recentEvents': []
-    })
+def analytics_dashboard():
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM messages")
+        total_messages = cursor.fetchone()[0]
+        cursor.execute("SELECT COUNT(*) FROM subscribers")
+        total_subscribers = cursor.fetchone()[0]
+        cursor.execute("SELECT COUNT(*) FROM articles")
+        total_articles = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return jsonify({
+            'totalVisitors': 0,
+            'totalPageViews': 0,
+            'todayVisitors': 0,
+            'totalMessages': total_messages,
+            'totalSubscribers': total_subscribers,
+            'totalArticles': total_articles,
+            'topPages': [],
+            'recentEvents': []
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
+# -----------------------------
+# Profile Endpoint
+# -----------------------------
 @app.route('/api/profile', methods=['GET'])
 @require_auth
 def get_profile():
@@ -137,33 +357,6 @@ def get_profile():
         'phone': '',
         'username': ADMIN_USERNAME
     })
-
-# -----------------------------
-# Subscriber Management
-# -----------------------------
-@app.route('/api/subscribers/<int:subscriber_id>', methods=['DELETE'])
-@require_auth
-def delete_subscriber(subscriber_id):
-    global SUBSCRIBERS
-    SUBSCRIBERS = [s for s in SUBSCRIBERS if s['id'] != subscriber_id]
-    return jsonify({'success': True})
-
-# -----------------------------
-# Messages Management
-# -----------------------------
-@app.route('/api/messages/<int:message_id>', methods=['PATCH', 'DELETE'])
-@require_auth
-def update_message(message_id):
-    global MESSAGES
-    if request.method == 'DELETE':
-        MESSAGES = [m for m in MESSAGES if m['id'] != message_id]
-        return jsonify({'success': True})
-    elif request.method == 'PATCH':
-        # Example: mark as read or update status
-        for m in MESSAGES:
-            if m['id'] == message_id:
-                m['status'] = request.json.get('status', m['status'])
-        return jsonify({'success': True})
 
 # -----------------------------
 # Run Server
