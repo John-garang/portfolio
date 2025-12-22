@@ -363,6 +363,13 @@ def login():
     return jsonify({'error': 'Invalid credentials'}), 401
 
 if __name__ == '__main__':
+    # Initialize database tables on startup
+    try:
+        from init_db import init_database
+        init_database()
+    except Exception as e:
+        print(f"Database initialization error: {e}")
+    
     port = int(os.getenv('PORT', 3000))
     if not os.getenv('DATABASE_URL'):
         print("ERROR: DATABASE_URL environment variable not set!")
