@@ -190,6 +190,42 @@ def get_articles():
 def track_analytics():
     return jsonify({'success': True})
 
+@app.route('/api/subscribers', methods=['GET'])
+@require_auth
+def get_subscribers():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM subscribers ORDER BY created_at DESC")
+        subscribers = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify([dict(sub) for sub in subscribers])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/analytics/dashboard', methods=['GET'])
+@require_auth
+def get_analytics_dashboard():
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM messages")
+        total_messages = cursor.fetchone()[0]
+        cursor.execute("SELECT COUNT(*) FROM subscribers")
+        total_subscribers = cursor.fetchone()[0]
+        cursor.execute("SELECT COUNT(*) FROM articles")
+        total_articles = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return jsonify({
+            'totalMessages': total_messages,
+            'totalSubscribers': total_subscribers,
+            'totalArticles': total_articles
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 # Initialize database on startup
 init_db()
 
