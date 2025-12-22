@@ -149,7 +149,20 @@ init_db()
 # -----------------------------
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)
+    response = send_from_directory('static', filename)
+    if filename.endswith('.js'):
+        response.headers['Content-Type'] = 'application/javascript'
+    elif filename.endswith('.css'):
+        response.headers['Content-Type'] = 'text/css'
+    return response
+
+@app.route('/load-header.js')
+def serve_load_header():
+    return send_from_directory('static', 'load-header.js', mimetype='application/javascript')
+
+@app.route('/admin-config.js')
+def serve_admin_config():
+    return send_from_directory('static', 'admin-config.js', mimetype='application/javascript')
 
 # -----------------------------
 # API Endpoints
