@@ -15,12 +15,12 @@ load_dotenv()
 app = Flask(__name__)
 
 # CORS for frontend
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://johngarang.com,http://localhost:3000').split(',')
+ALLOWED_ORIGINS = ['https://johngarang.com', 'https://johngarangg.netlify.app', 'http://localhost:3000']
 CORS(app, 
-     origins=['*'],  # Temporarily allow all origins
+     origins=ALLOWED_ORIGINS,
      methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
      allow_headers=["Content-Type", "Authorization"],
-     supports_credentials=False)
+     supports_credentials=True)
 
 # Database config for PostgreSQL
 DATABASE_URL = os.getenv('DATABASE_URL')
