@@ -1,5 +1,5 @@
 ﻿// Admin API Configuration
-const ADMIN_API_BASE_URL = 'https://portfolio-backend-1-53hz.onrender.com';
+const ADMIN_API_BASE_URL = 'https://johngarang.com';
 
 // Override fetch globally to replace portfolio-backend-1-53hz.onrender.com URLs
 const originalFetch = window.fetch;
