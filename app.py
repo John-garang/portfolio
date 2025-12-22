@@ -171,6 +171,10 @@ def serve_admin_config():
 def index():
     return jsonify({'status': 'running', 'message': 'Portfolio backend API'})
 
+@app.route('/api/test', methods=['GET'])
+def test():
+    return jsonify({'status': 'ok', 'message': 'Backend is working', 'timestamp': time.time()})
+
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
