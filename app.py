@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
 import psycopg2
 import psycopg2.extras
 import os
@@ -13,14 +12,11 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='.')
 
-# CORS for frontend - Allow all origins
-CORS(app, origins="*", methods=["GET", "POST", "PUT", "DELETE", "PATCH"], allow_headers=["Content-Type", "Authorization"])
-
 @app.after_request
 def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH')
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
     return response
 
 # Secure admin credentials - use environment variables
@@ -356,6 +352,8 @@ def test_credentials():
 
 @app.route('/api/test-cors', methods=['GET', 'POST', 'OPTIONS'])
 def test_cors():
+    if request.method == 'OPTIONS':
+        return '', 200
     return jsonify({
         'message': 'CORS test successful',
         'origin': request.headers.get('Origin'),
