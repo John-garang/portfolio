@@ -189,6 +189,14 @@ def about():
 def test():
     return jsonify({'status': 'ok', 'message': 'Backend is working', 'timestamp': time.time()})
 
+@app.route('/api/init-db', methods=['GET'])
+def init_database():
+    try:
+        init_db()
+        return jsonify({'status': 'success', 'message': 'Database initialized'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
