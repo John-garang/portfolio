@@ -337,9 +337,37 @@ def modify_article(article_id):
 # -----------------------------
 # Poems Endpoints
 # -----------------------------
-@app.route('/api/poems', methods=['GET', 'POST'])
+@app.route('/api/poems', methods=['GET'])
+def get_poems_public():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT id, title, excerpt, created_at::date as date FROM poems ORDER BY created_at DESC")
+        poems = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(poems)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/poems/<int:poem_id>', methods=['GET'])
+def get_poem_public(poem_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT * FROM poems WHERE id=%s", (poem_id,))
+        poem = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        if poem:
+            return jsonify(poem)
+        return jsonify({'error': 'Poem not found'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/admin/poems', methods=['GET', 'POST'])
 @require_auth
-def poems():
+def poems_admin():
     try:
         conn = get_db()
         cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
@@ -361,9 +389,9 @@ def poems():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/poems/<int:poem_id>', methods=['PUT', 'DELETE'])
+@app.route('/api/admin/poems/<int:poem_id>', methods=['PUT', 'DELETE'])
 @require_auth
-def modify_poem(poem_id):
+def modify_poem_admin(poem_id):
     try:
         conn = get_db()
         cursor = conn.cursor()
