@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import psycopg2
 import psycopg2.extras
@@ -8,46 +8,131 @@ from datetime import datetime
 from functools import wraps
 import secrets
 from dotenv import load_dotenv
+import urllib.parse
 
 load_dotenv()
 
-app = Flask(__name__, static_folder='.')
+app = Flask(__name__)
 
-@app.before_request
-def handle_preflight():
-    if request.method == "OPTIONS":
-        response = jsonify({})
-        response.headers['Access-Control-Allow-Origin'] = '*'
-        response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,PATCH,OPTIONS'
-        response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
-        return response
+# CORS for frontend
+ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://johngarang.com').split(',')
+CORS(app, 
+     origins=ALLOWED_ORIGINS,
+     methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+     allow_headers=["Content-Type", "Authorization"],
+     supports_credentials=True)
 
-@app.after_request
-def after_request(response):
-    # Clear any existing CORS headers first
-    response.headers.pop('Access-Control-Allow-Origin', None)
-    response.headers.pop('Access-Control-Allow-Methods', None)
-    response.headers.pop('Access-Control-Allow-Headers', None)
-    
-    # Set new CORS headers
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
-    response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
-    return response
+# Database config for PostgreSQL
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    parsed = urllib.parse.urlparse(DATABASE_URL)
+    DB_CONFIG = {
+        'host': parsed.hostname,
+        'user': parsed.username,
+        'password': parsed.password,
+        'database': parsed.path[1:],
+        'port': parsed.port or 5432
+    }
+else:
+    DB_CONFIG = {
+        'host': os.getenv('DB_HOST', 'localhost'),
+        'user': os.getenv('DB_USER', 'postgres'),
+        'password': os.getenv('DB_PASSWORD'),
+        'database': os.getenv('DB_NAME', 'portfolio_db'),
+        'port': 5432
+    }
 
-# Secure admin credentials - use environment variables
+# Secure admin credentials
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'dengjohn200@gmail.com')
 ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'John@Alustudent1')
 
-# Store valid tokens in memory (use Redis in production)
-valid_tokens = set()
+# Simple token validation
+import hashlib
+import time
 
-# All cursor usage should use RealDictCursor
+def generate_token(username):
+    timestamp = str(int(time.time()))
+    token_data = f"{username}:{timestamp}:{os.getenv('SECRET_KEY', 'default-secret')}"
+    return hashlib.sha256(token_data.encode()).hexdigest()
+
+def validate_token(token, username):
+    if not token or not username:
+        return False
+    return len(token) == 64 and all(c in '0123456789abcdef' for c in token.lower())
+
 def get_db():
-    return psycopg2.connect(os.getenv('DATABASE_URL'))
+    return psycopg2.connect(**DB_CONFIG)
 
-def get_cursor(conn):
-    return conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+def init_db():
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS articles (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255),
+                category VARCHAR(100),
+                excerpt TEXT,
+                content TEXT,
+                image VARCHAR(255),
+                slug VARCHAR(255),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS poems (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255),
+                excerpt TEXT,
+                content TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS comments (
+                id SERIAL PRIMARY KEY,
+                poemId INTEGER,
+                name VARCHAR(255),
+                text TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255),
+                email VARCHAR(255),
+                phone VARCHAR(50),
+                company VARCHAR(255),
+                service VARCHAR(255),
+                budget VARCHAR(100),
+                timeline VARCHAR(100),
+                message TEXT,
+                status VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS subscribers (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) UNIQUE,
+                firstName VARCHAR(255),
+                lastName VARCHAR(255),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        conn.commit()
+        cursor.close()
+        conn.close()
+        print("Database tables initialized")
+    except Exception as e:
+        print(f"Database initialization error: {e}")
 
 def sanitize_input(text):
     if not isinstance(text, str):
@@ -64,7 +149,6 @@ def sanitize_object(obj):
 def validate_email(email):
     return re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email) is not None
 
-# Authentication decorator
 def require_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -72,339 +156,44 @@ def require_auth(f):
         if not token or not token.startswith('Bearer '):
             return jsonify({'error': 'Unauthorized'}), 401
         token = token.replace('Bearer ', '')
-        if token not in valid_tokens:
+        if not validate_token(token, ADMIN_USERNAME):
             return jsonify({'error': 'Invalid token'}), 401
         return f(*args, **kwargs)
     return decorated
 
 @app.route('/')
 def index():
-    return send_from_directory('.', 'index.html')
+    return jsonify({'message': 'Portfolio Backend API', 'status': 'running'})
 
-@app.route('/<path:path>')
-def serve_static(path):
-    return send_from_directory('.', path)
-
-# Public routes (no auth required)
-@app.route('/api/articles', methods=['GET'])
-def get_articles():
-    conn = get_db()
-    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cursor.execute("SELECT * FROM articles ORDER BY created_at DESC")
-    articles = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return jsonify(articles)
-
-@app.route('/api/articles/<int:id>', methods=['GET'])
-def get_article(id):
-    conn = get_db()
-    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cursor.execute("SELECT * FROM articles WHERE id = %s", (id,))
-    article = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(article) if article else ('', 404)
-
-@app.route('/api/poems', methods=['GET'])
-def get_poems():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM poems ORDER BY created_at DESC")
-    poems = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return jsonify(poems)
-
-@app.route('/api/poems/<int:id>', methods=['GET'])
-def get_poem(id):
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM poems WHERE id = %s", (id,))
-    poem = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(poem) if poem else ('', 404)
-
-@app.route('/api/comments/<poem_id>', methods=['GET'])
-def get_comments(poem_id):
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM comments WHERE poemId = %s ORDER BY created_at DESC", (poem_id,))
-    comments = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return jsonify(comments)
-
-@app.route('/api/comments', methods=['POST'])
-def add_comment():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    data = sanitize_object(request.json)
-    cursor.execute("INSERT INTO comments (poemId, name, text) VALUES (%s, %s, %s) RETURNING id",
-                  (data['poemId'], data['name'], data['text']))
-    comment_id = cursor.fetchone()[0]
-    cursor.execute("SELECT * FROM comments WHERE id = %s", (comment_id,))
-    comment = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(comment)
-
-@app.route('/api/messages', methods=['POST'])
-def add_message():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    data = sanitize_object(request.json)
-    if not validate_email(data.get('email', '')):
-        return jsonify({'error': 'Invalid email'}), 400
-    cursor.execute("""INSERT INTO messages (name, email, phone, company, service, budget, 
-                     timeline, message, status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-                  (data.get('name'), data['email'], data.get('phone'), data.get('company'),
-                   data.get('service'), data.get('budget'), data.get('timeline'), 
-                   data.get('message'), 'new'))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({'success': True})
-
-@app.route('/api/subscribers', methods=['POST'])
-def add_subscriber():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    data = sanitize_object(request.json)
-    if not validate_email(data.get('email', '')):
-        return jsonify({'error': 'Invalid email'}), 400
-    cursor.execute("SELECT * FROM subscribers WHERE email = %s", (data['email'],))
-    if cursor.fetchone():
-        cursor.close()
-        conn.close()
-        return jsonify({'error': 'Email already subscribed'}), 400
-    cursor.execute("INSERT INTO subscribers (email, firstName, lastName) VALUES (%s, %s, %s)",
-                  (data['email'], data.get('firstName', ''), data.get('lastName', '')))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({'success': True})
-
-# Protected admin routes (auth required)
-@app.route('/api/articles', methods=['POST'])
-@require_auth
-def create_article():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    data = sanitize_object(request.json)
-    cursor.execute("INSERT INTO articles (title, category, excerpt, content, image, slug) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id",
-                  (data['title'], data['category'], data['excerpt'], data['content'], 
-                   data.get('image', ''), re.sub(r'[^a-z0-9]+', '-', data['title'].lower())))
-    article_id = cursor.fetchone()[0]
-    cursor.execute("SELECT * FROM articles WHERE id = %s", (article_id,))
-    article = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(article)
-
-@app.route('/api/articles/<int:id>', methods=['PUT', 'DELETE'])
-@require_auth
-def modify_article(id):
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    if request.method == 'DELETE':
-        cursor.execute("DELETE FROM articles WHERE id = %s", (id,))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return jsonify({'success': True})
-    data = sanitize_object(request.json)
-    cursor.execute("""UPDATE articles SET title=%s, category=%s, excerpt=%s, content=%s, 
-                     image=%s, slug=%s WHERE id=%s""",
-                  (data['title'], data['category'], data['excerpt'], data['content'],
-                   data.get('image', ''), re.sub(r'[^a-z0-9]+', '-', data['title'].lower()), id))
-    conn.commit()
-    cursor.execute("SELECT * FROM articles WHERE id = %s", (id,))
-    article = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(article)
-
-@app.route('/api/poems', methods=['POST'])
-@require_auth
-def create_poem():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    data = sanitize_object(request.json)
-    cursor.execute("INSERT INTO poems (title, excerpt, content) VALUES (%s, %s, %s)",
-                  (data['title'], data['excerpt'], data['content']))
-    conn.commit()
-    poem_id = cursor.lastrowid
-    cursor.execute("SELECT * FROM poems WHERE id = %s", (poem_id,))
-    poem = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(poem)
-
-@app.route('/api/poems/<int:id>', methods=['PUT', 'DELETE'])
-@require_auth
-def modify_poem(id):
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    if request.method == 'DELETE':
-        cursor.execute("DELETE FROM poems WHERE id = %s", (id,))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return jsonify({'success': True})
-    data = sanitize_object(request.json)
-    cursor.execute("UPDATE poems SET title=%s, excerpt=%s, content=%s WHERE id=%s",
-                  (data['title'], data['excerpt'], data['content'], id))
-    conn.commit()
-    cursor.execute("SELECT * FROM poems WHERE id = %s", (id,))
-    poem = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return jsonify(poem)
-
-@app.route('/api/messages', methods=['GET'])
-@require_auth
-def get_messages():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM messages ORDER BY created_at DESC")
-    messages = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return jsonify(messages)
-
-@app.route('/api/messages/<int:id>', methods=['DELETE', 'PATCH'])
-@require_auth
-def modify_message(id):
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    if request.method == 'DELETE':
-        cursor.execute("DELETE FROM messages WHERE id = %s", (id,))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return jsonify({'success': True})
-    data = request.json
-    cursor.execute("UPDATE messages SET status=%s WHERE id=%s", (data.get('status'), id))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({'success': True})
-
-@app.route('/api/subscribers', methods=['GET'])
-@require_auth
-def get_subscribers():
-    conn = get_db()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM subscribers ORDER BY created_at DESC")
-    subscribers = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return jsonify(subscribers)
-
-@app.route('/api/subscribers/<int:id>', methods=['DELETE'])
-@require_auth
-def delete_subscriber(id):
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("DELETE FROM subscribers WHERE id = %s", (id,))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({'success': True})
-
-@app.route('/api/analytics', methods=['GET'])
-@app.route('/api/analytics/dashboard', methods=['GET'])
-@require_auth
-def analytics():
-    return jsonify({
-        'totalVisitors': 0,
-        'totalPageViews': 0,
-        'todayVisitors': 0,
-        'topPages': [],
-        'recentEvents': []
-    })
-
-@app.route('/api/profile', methods=['GET', 'POST'])
-@require_auth
-def profile():
-    if request.method == 'GET':
-        return jsonify({
-            'fullName': 'John Ngor Deng Garang',
-            'email': 'dengjohn200@gmail.com',
-            'phone': '+256 768 741 070',
-            'username': ADMIN_USERNAME
-        })
-    
-    # POST - Update password
-    try:
-        data = request.json
-        new_password = data.get('newPassword', '').strip()
-        if new_password:
-            env_path = '.env'
-            with open(env_path, 'r') as f:
-                lines = f.readlines()
-            with open(env_path, 'w') as f:
-                for line in lines:
-                    if line.startswith('ADMIN_PASSWORD='):
-                        f.write(f'ADMIN_PASSWORD={new_password}\n')
-                    else:
-                        f.write(line)
-            print(f"Password updated to: {new_password}")
-            return jsonify({'success': True, 'message': 'Password updated'})
-        return jsonify({'success': True})
-    except Exception as e:
-        print(f"Error updating password: {e}")
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/api/test-credentials', methods=['GET'])
-def test_credentials():
-    return jsonify({
-        'username': ADMIN_USERNAME,
-        'password_length': len(ADMIN_PASSWORD) if ADMIN_PASSWORD else 0,
-        'password_first_char': ADMIN_PASSWORD[0] if ADMIN_PASSWORD else None
-    })
-
-@app.route('/api/test-cors', methods=['GET', 'POST', 'OPTIONS'])
-def test_cors():
-    if request.method == 'OPTIONS':
-        return '', 200
-    return jsonify({
-        'message': 'CORS test successful',
-        'origin': request.headers.get('Origin'),
-        'method': request.method
-    })
-
-@app.route('/api/login', methods=['POST']))
+@app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
-    print(f"Login attempt - Username: {data.get('username')}")
-    print(f"Expected username: {ADMIN_USERNAME}")
-    print(f"Expected password: {ADMIN_PASSWORD}")
     if data.get('username') == ADMIN_USERNAME and data.get('password') == ADMIN_PASSWORD:
-        token = secrets.token_urlsafe(32)
-        valid_tokens.add(token)
-        print("Login successful!")
+        token = generate_token(ADMIN_USERNAME)
         return jsonify({'token': token})
-    print("Login failed - Invalid credentials")
     return jsonify({'error': 'Invalid credentials'}), 401
 
-if __name__ == '__main__':
-    # Initialize database tables on startup
+@app.route('/api/articles', methods=['GET'])
+def get_articles():
     try:
-        from init_db import init_database
-        init_database()
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT id, title, category, excerpt, content, image, slug, created_at as date FROM articles ORDER BY created_at DESC")
+        articles = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify([dict(article) for article in articles])
     except Exception as e:
-        print(f"Database initialization error: {e}")
-    
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/analytics/track', methods=['POST'])
+def track_analytics():
+    return jsonify({'success': True})
+
+# Initialize database on startup
+init_db()
+
+if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
-    if not os.getenv('DATABASE_URL'):
-        print("ERROR: DATABASE_URL environment variable not set!")
-        exit(1)
-    if not ADMIN_PASSWORD:
-        print("ERROR: ADMIN_PASSWORD environment variable not set!")
-        exit(1)
-    print(f'Portfolio Backend Server Starting on port {port}')
-    print('CORS: Allow all origins')
+    print(f'Portfolio Backend API Starting on port {port}')
     app.run(port=port, debug=False, host='0.0.0.0')
