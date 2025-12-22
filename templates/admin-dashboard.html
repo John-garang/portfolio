@@ -407,9 +407,20 @@
         </main>
     </div>
 
-    <link rel="stylesheet" href="/static/styles.css">
-    <script src="/static/popup-system.js"></script>
-    <script src="/static/admin-config.js"></script>
+    <script>
+        // Inline admin config to avoid loading issues
+        window.API_BASE_URL = 'https://portfolio-backend-1-53hz.onrender.com';
+        
+        // Simple popup system fallback
+        if (!window.popupSystem) {
+            window.popupSystem = {
+                success: (msg, title) => alert(`${title}: ${msg}`),
+                error: (msg, title) => alert(`${title}: ${msg}`),
+                warning: (msg, title) => alert(`${title}: ${msg}`),
+                info: (msg, title) => alert(`${title}: ${msg}`)
+            };
+        }
+    </script>
     <script>
         // Check authentication
         if (!localStorage.getItem('adminToken')) {
@@ -829,7 +840,7 @@
                         console.error('Update error:', errorText);
                         throw new Error('Update failed: ' + errorText);
                     }
-                    window.popupSystem.success('Your article has been updated successfully!', 'Article Updated');
+                    window.popupSystem?.success('Your article has been updated successfully!', 'Article Updated');
                 } else {
                     const token = localStorage.getItem('adminToken');
                     response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/articles', {
@@ -841,7 +852,7 @@
                         body: JSON.stringify(articleData)
                     });
                     if (!response.ok) throw new Error('Publish failed');
-                    window.popupSystem.success('Your article has been published successfully!', 'Article Published');
+                    window.popupSystem?.success('Your article has been published successfully!', 'Article Published');
                 }
                 e.target.reset();
                 document.getElementById('articleId').value = '';
@@ -852,7 +863,7 @@
                 await loadDashboard();
             } catch (error) {
                 console.error('Article save error:', error);
-                window.popupSystem.error('Failed to save article: ' + error.message, 'Save Error');
+                window.popupSystem?.error('Failed to save article: ' + error.message, 'Save Error');
             }
         });
 
@@ -886,7 +897,7 @@
                         body: JSON.stringify(poemData)
                     });
                     if (!response.ok) throw new Error('Update failed');
-                    window.popupSystem.success('Your poem has been updated successfully!', 'Poem Updated');
+                    window.popupSystem?.success('Your poem has been updated successfully!', 'Poem Updated');
                 } else {
                     const token = localStorage.getItem('adminToken');
                     response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/admin/poems', {
@@ -898,7 +909,7 @@
                         body: JSON.stringify(poemData)
                     });
                     if (!response.ok) throw new Error('Publish failed');
-                    window.popupSystem.success('Your poem has been published successfully!', 'Poem Published');
+                    window.popupSystem?.success('Your poem has been published successfully!', 'Poem Published');
                 }
                 e.target.reset();
                 document.getElementById('poemId').value = '';
@@ -907,7 +918,7 @@
                 document.getElementById('cancel-poem-edit-btn').style.display = 'none';
                 await loadPoems();
             } catch (error) {
-                window.popupSystem.error('Failed to save poem: ' + error.message, 'Save Error');
+                window.popupSystem?.error('Failed to save poem: ' + error.message, 'Save Error');
             }
         });
 
@@ -925,12 +936,12 @@
             const confirmPassword = document.getElementById('confirmPassword').value;
 
             if (newPassword && newPassword !== confirmPassword) {
-                window.popupSystem.error('The passwords you entered do not match. Please try again.', 'Password Mismatch');
+                window.popupSystem?.error('The passwords you entered do not match. Please try again.', 'Password Mismatch');
                 return;
             }
 
             if (newPassword && newPassword.length < 8) {
-                window.popupSystem.error('Password must be at least 8 characters long.', 'Weak Password');
+                window.popupSystem?.error('Password must be at least 8 characters long.', 'Weak Password');
                 return;
             }
 
