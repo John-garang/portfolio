@@ -409,7 +409,7 @@
 
     <script>
         // Inline admin config to avoid loading issues
-        window.API_BASE_URL = 'https://johngarang.com';
+        window.API_BASE_URL = 'http://localhost:5000';
         
         // Simple popup system fallback
         if (!window.popupSystem) {
@@ -481,13 +481,13 @@
             try {
                 const token = localStorage.getItem('adminToken');
                 const [articlesRes, messagesRes, subscribersRes] = await Promise.all([
-                    fetch('https://johngarang.com/api/admin/articles', {
+                    fetch('http://localhost:5000/api/admin/articles', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('https://johngarang.com/api/messages', {
+                    fetch('http://localhost:5000/api/messages', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('https://johngarang.com/api/subscribers', {
+                    fetch('http://localhost:5000/api/subscribers', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     })
                 ]);
@@ -506,7 +506,7 @@
 
         async function editArticle(id) {
             try {
-                const response = await fetch(`https://johngarang.com/api/articles/${id}`);
+                const response = await fetch(`http://localhost:5000/api/articles/${id}`);
                 if (!response.ok) {
                     throw new Error(`Article not found (${response.status})`);
                 }
@@ -538,7 +538,7 @@
             const confirmed = await window.confirm('Are you sure you want to delete this article? This cannot be undone.');
             if (!confirmed) return;
             const token = localStorage.getItem('adminToken');
-            fetch(`https://johngarang.com/api/admin/articles/${id}`, { 
+            fetch(`http://localhost:5000/api/admin/articles/${id}`, { 
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -553,7 +553,7 @@
 
         async function editPoem(id) {
             try {
-                const response = await fetch(`https://johngarang.com/api/poems/${id}`);
+                const response = await fetch(`http://localhost:5000/api/poems/${id}`);
                 if (!response.ok) {
                     throw new Error(`Poem not found (${response.status})`);
                 }
@@ -583,7 +583,7 @@
             const confirmed = await window.confirm('Are you sure you want to delete this poem? This cannot be undone.');
             if (!confirmed) return;
             const token = localStorage.getItem('adminToken');
-            fetch(`https://johngarang.com/api/admin/poems/${id}`, { 
+            fetch(`http://localhost:5000/api/admin/poems/${id}`, { 
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -598,7 +598,7 @@
         async function loadPoems() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/admin/poems', {
+                const response = await fetch('http://localhost:5000/api/admin/poems', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
@@ -644,7 +644,7 @@
         async function loadArticles() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/admin/articles', {
+                const response = await fetch('http://localhost:5000/api/admin/articles', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
@@ -691,7 +691,7 @@
         async function loadMessages() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/messages', {
+                const response = await fetch('http://localhost:5000/api/messages', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
@@ -743,7 +743,7 @@
         async function loadSubscribers() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/subscribers', {
+                const response = await fetch('http://localhost:5000/api/subscribers', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
@@ -786,7 +786,7 @@
         async function loadProfile() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/profile', {
+                const response = await fetch('http://localhost:5000/api/profile', {
                     method: 'GET',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
@@ -826,7 +826,7 @@
                 if (articleId) {
                     const token = localStorage.getItem('adminToken');
                     console.log('Updating article:', articleId, articleData);
-                    response = await fetch(`https://johngarang.com/api/admin/articles/${articleId}`, {
+                    response = await fetch(`http://localhost:5000/api/admin/articles/${articleId}`, {
                         method: 'PUT',
                         headers: { 
                             'Content-Type': 'application/json',
@@ -843,7 +843,7 @@
                     window.popupSystem.success('Your article has been updated successfully!', 'Article Updated');
                 } else {
                     const token = localStorage.getItem('adminToken');
-                    response = await fetch('https://johngarang.com/api/admin/articles', {
+                    response = await fetch('http://localhost:5000/api/admin/articles', {
                         method: 'POST',
                         headers: { 
                             'Content-Type': 'application/json',
@@ -888,7 +888,7 @@
                 let response;
                 if (poemId) {
                     const token = localStorage.getItem('adminToken');
-                    response = await fetch(`https://johngarang.com/api/admin/poems/${poemId}`, {
+                    response = await fetch(`http://localhost:5000/api/admin/poems/${poemId}`, {
                         method: 'PUT',
                         headers: { 
                             'Content-Type': 'application/json',
@@ -900,7 +900,7 @@
                     window.popupSystem.success('Your poem has been updated successfully!', 'Poem Updated');
                 } else {
                     const token = localStorage.getItem('adminToken');
-                    response = await fetch('https://johngarang.com/api/admin/poems', {
+                    response = await fetch('http://localhost:5000/api/admin/poems', {
                         method: 'POST',
                         headers: { 
                             'Content-Type': 'application/json',
@@ -952,7 +952,7 @@
             try {
                 const token = localStorage.getItem('adminToken');
                 console.log('Sending password update request...');
-                const response = await fetch('https://johngarang.com/api/profile', {
+                const response = await fetch('http://localhost:5000/api/profile', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -996,7 +996,7 @@
             const confirmed = await window.confirm('Are you sure you want to delete this message? This cannot be undone.');
             if (!confirmed) return;
             const token = localStorage.getItem('adminToken');
-            fetch(`https://johngarang.com/api/messages/${id}`, { 
+            fetch(`http://localhost:5000/api/messages/${id}`, { 
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -1011,7 +1011,7 @@
 
         async function markAsRead(id) {
             const token = localStorage.getItem('adminToken');
-            await fetch(`https://johngarang.com/api/messages/${id}`, {
+            await fetch(`http://localhost:5000/api/messages/${id}`, {
                 method: 'PATCH',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -1027,7 +1027,7 @@
             const confirmed = await window.confirm('Are you sure you want to remove this subscriber? This cannot be undone.');
             if (!confirmed) return;
             const token = localStorage.getItem('adminToken');
-            fetch(`https://johngarang.com/api/subscribers/${id}`, { 
+            fetch(`http://localhost:5000/api/subscribers/${id}`, { 
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -1043,7 +1043,7 @@
         async function loadAnalytics() {
             try {
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch('https://johngarang.com/api/analytics/dashboard', {
+                const response = await fetch('http://localhost:5000/api/analytics/dashboard', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
