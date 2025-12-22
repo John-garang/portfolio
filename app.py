@@ -15,12 +15,12 @@ load_dotenv()
 app = Flask(__name__)
 
 # CORS for frontend
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://johngarang.com').split(',')
+ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://johngarang.com,http://localhost:3000').split(',')
 CORS(app, 
-     origins=ALLOWED_ORIGINS,
+     origins=['*'],  # Temporarily allow all origins
      methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
      allow_headers=["Content-Type", "Authorization"],
-     supports_credentials=True)
+     supports_credentials=False)
 
 # Database config for PostgreSQL
 DATABASE_URL = os.getenv('DATABASE_URL')
@@ -161,14 +161,7 @@ def require_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-@app.before_request
-def handle_options():
-    if request.method == "OPTIONS":
-        response = jsonify({'status': 'ok'})
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
-        return response, 200
+
 
 @app.route('/')
 def index():
@@ -250,6 +243,19 @@ def get_messages():
         return jsonify([dict(msg) for msg in messages])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+@app.route('/api/profile', methods=['GET', 'POST'])
+@require_auth
+def handle_profile():
+    if request.method == 'GET':
+        return jsonify({
+            'fullName': 'John Garang',
+            'email': ADMIN_USERNAME,
+            'phone': '',
+            'username': ADMIN_USERNAME
+        })
+    elif request.method == 'POST':
+        return jsonify({'success': True})
 
 # Initialize database on startup
 init_db()
