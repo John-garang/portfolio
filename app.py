@@ -14,7 +14,7 @@ load_dotenv()
 app = Flask(__name__, static_folder='.')
 
 # CORS for frontend - Allow production and local development
-ALLOWED_ORIGINS = ['https://portfolio-cmwe.onrender.com', 'http://127.0.0.1:5500', 'http://localhost:5500']
+ALLOWED_ORIGINS = ['https://johngarang.com', 'https://portfolio-cmwe.onrender.com', 'http://127.0.0.1:5500', 'http://localhost:5500']
 CORS(app, origins=ALLOWED_ORIGINS, methods=["GET", "POST", "PUT", "DELETE", "PATCH"], allow_headers=["Content-Type", "Authorization"])
 
 # Secure admin credentials - use environment variables
