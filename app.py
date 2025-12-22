@@ -164,7 +164,11 @@ def require_auth(f):
 @app.before_request
 def handle_options():
     if request.method == "OPTIONS":
-        return jsonify({'status': 'ok'}), 200
+        response = jsonify({'status': 'ok'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
+        return response, 200
 
 @app.route('/')
 def index():
@@ -224,10 +228,26 @@ def get_analytics_dashboard():
         cursor.close()
         conn.close()
         return jsonify({
-            'totalMessages': total_messages,
-            'totalSubscribers': total_subscribers,
-            'totalArticles': total_articles
+            'totalVisitors': 0,
+            'totalPageViews': 0,
+            'todayVisitors': 0,
+            'topPages': [],
+            'recentEvents': []
         })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/messages', methods=['GET'])
+@require_auth
+def get_messages():
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cursor.execute("SELECT *, created_at as date FROM messages ORDER BY created_at DESC")
+        messages = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify([dict(msg) for msg in messages])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
