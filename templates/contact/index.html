@@ -280,7 +280,57 @@
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
 
-    <script src="../static/google-forms-handler.js"></script>
+    <script>
+        // Contact Form Handler for Google Apps Script
+        document.querySelector('.professional-contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Collect form data
+            const formData = {
+                formType: 'contact',
+                name: this.querySelector('#firstName').value + ' ' + this.querySelector('#lastName').value,
+                email: this.querySelector('#email').value,
+                phone: this.querySelector('#phone').value,
+                company: this.querySelector('#company').value,
+                service: this.querySelector('#service').value,
+                budget: this.querySelector('#budget').value,
+                timeline: this.querySelector('#timeline').value,
+                message: this.querySelector('#message').value
+            };
+            
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwB77DBzA1M_FmV5nV9Yz3TtUJgVWnylnQ78jhqcTPQgD1c19hcY0O7-9XuA0iLun3JIA/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    this.reset();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error sending message. Please try again later.');
+            }
+            
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+    </script>
 
     <script>
         // Set active page

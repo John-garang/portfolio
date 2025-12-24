@@ -429,7 +429,62 @@
                         <span>Available Worldwide</span>
                     </div>
                 </div>
-    <script src="static/google-forms-handler.js"></script>
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="static/popup-system.js" defer></script>
+    <script src="static/analytics.js" defer></script>
+    <script src="static/load-footer.js" defer></script>
+    <script src="static/config.js"></script>
+    <script src="static/script.js" defer></script>
+    <script src="static/loading.js" defer></script>
+    
+    <script>
+        // Homepage contact form handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const homeContactForm = document.querySelector('.contact-form');
+            if (homeContactForm) {
+                homeContactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        formType: 'contact',
+                        name: this.querySelector('input[placeholder="Your Name"]').value,
+                        email: this.querySelector('input[placeholder="Your Email"]').value,
+                        message: this.querySelector('input[placeholder="Subject"]').value + '\n\n' + this.querySelector('textarea').value
+                    };
+                    
+                    try {
+                        const response = await fetch('https://script.google.com/macros/s/AKfycbwB77DBzA1M_FmV5nV9Yz3TtUJgVWnylnQ78jhqcTPQgD1c19hcY0O7-9XuA0iLun3JIA/exec', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            alert('Thank you! Your message has been sent successfully.');
+                            this.reset();
+                        } else {
+                            alert('Error: ' + result.message);
+                        }
+                    } catch (error) {
+                        alert('Error sending message. Please try again later.');
+                    }
+                });
+            }
+        });
             </div>
         </div>
     </section>
