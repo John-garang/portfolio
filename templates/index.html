@@ -408,38 +408,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>Ready to take your digital marketing to the next level? I'd love to hear about your project and discuss how we can achieve your goals together.</p>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>dengjohn200@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>Contact via email</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Available Worldwide</span>
-                    </div>
-                </div>
-                <form class="contact-form" action="#" method="POST">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <script src="static/popup-system.js" defer></script>
@@ -448,54 +416,6 @@
     <script src="static/config.js"></script>
     <script src="static/script.js" defer></script>
     <script src="static/loading.js" defer></script>
-    
-    <script>
-        // Homepage contact form handler using form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const homeContactForm = document.querySelector('.contact-form');
-            if (homeContactForm) {
-                homeContactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const formData = {
-                        formType: 'contact',
-                        name: this.querySelector('input[placeholder="Your Name"]').value,
-                        email: this.querySelector('input[placeholder="Your Email"]').value,
-                        message: this.querySelector('input[placeholder="Subject"]').value + '\n\n' + this.querySelector('textarea').value
-                    };
-                    
-                    // Create hidden form
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = 'https://script.google.com/macros/s/AKfycbyIkrho7Kdvo19Ely41v6U7CNvtjO-oU4IsUqulvVlJHiPa5DuB3hgmhxNkwTEm7Q1XWQ/exec';
-                    form.target = 'hidden_iframe';
-                    form.style.display = 'none';
-                    
-                    Object.keys(formData).forEach(key => {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = formData[key];
-                        form.appendChild(input);
-                    });
-                    
-                    const iframe = document.createElement('iframe');
-                    iframe.name = 'hidden_iframe';
-                    iframe.style.display = 'none';
-                    
-                    iframe.onload = () => {
-                        alert('Thank you! Your message has been sent successfully.');
-                        this.reset();
-                        document.body.removeChild(form);
-                        document.body.removeChild(iframe);
-                    };
-                    
-                    document.body.appendChild(iframe);
-                    document.body.appendChild(form);
-                    form.submit();
-                });
-            }
-        });
             </div>
         </div>
     </section>
