@@ -14,6 +14,8 @@ fetch('footer.html')
 window.subscribeNewsletter = function(e) {
     e.preventDefault();
     e.stopPropagation();
+    const firstName = document.getElementById('newsletterFirstName').value;
+    const lastName = document.getElementById('newsletterLastName').value;
     const email = document.getElementById('newsletterEmail').value;
     const btn = e.target.querySelector('button');
     btn.disabled = true;
@@ -31,6 +33,12 @@ window.subscribeNewsletter = function(e) {
     formTypeInput.name = 'formType';
     formTypeInput.value = 'newsletter';
     form.appendChild(formTypeInput);
+    
+    const nameInput = document.createElement('input');
+    nameInput.type = 'hidden';
+    nameInput.name = 'name';
+    nameInput.value = firstName + ' ' + lastName;
+    form.appendChild(nameInput);
     
     const emailInput = document.createElement('input');
     emailInput.type = 'hidden';
