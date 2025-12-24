@@ -22,24 +22,19 @@ window.subscribeNewsletter = async function(e) {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
     try {
-        const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwB77DBzA1M_FmV5nV9Yz3TtUJgVWnylnQ78jhqcTPQgD1c19hcY0O7-9XuA0iLun3JIA/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ firstName, lastName, email })
+            body: JSON.stringify({ formType: 'newsletter', email })
         });
         
-        if (response.ok) {
+        const result = await response.json();
+        
+        if (result.success) {
             window.popupSystem.success('Thank you for subscribing to our newsletter! You\'ll receive updates on our latest content and insights.', 'Successfully Subscribed!');
             document.getElementById('newsletterForm').reset();
         } else {
-            let errorMessage = 'Subscription failed. Please try again.';
-            try {
-                const error = await response.json();
-                errorMessage = error.error || errorMessage;
-            } catch (e) {
-                // Response is not JSON, use default message
-            }
-            window.popupSystem.error(errorMessage, 'Subscription Failed');
+            window.popupSystem.error(result.message || 'Subscription failed. Please try again.', 'Subscription Failed');
         }
     } catch (error) {
         window.popupSystem.error('Unable to connect to the server. Please check your internet connection and try again.', 'Connection Error');
