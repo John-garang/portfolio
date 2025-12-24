@@ -281,7 +281,7 @@
     <script src="static/load-footer.js"></script>
 
     <script>
-        // Contact Form Handler for Google Apps Script
+        // Contact Form Handler using form submission (bypasses CORS)
         document.querySelector('.professional-contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -305,30 +305,41 @@
                 message: this.querySelector('#message').value
             };
             
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzmaa8ZuVQtieBEGlHAZcZPyNyp3WUX7ZMWtdoAylzj9CGPI-rNV3NJChAno2DbTljluQ/exec', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    this.reset();
-                } else {
-                    alert('Error: ' + result.message);
-                }
-            } catch (error) {
-                alert('Error sending message. Please try again later.');
-            }
+            // Create hidden form for submission
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://script.google.com/macros/s/AKfycbzmaa8ZuVQtieBEGlHAZcZPyNyp3WUX7ZMWtdoAylzj9CGPI-rNV3NJChAno2DbTljluQ/exec';
+            form.target = 'hidden_iframe';
+            form.style.display = 'none';
             
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            // Add form data as hidden inputs
+            Object.keys(formData).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = formData[key];
+                form.appendChild(input);
+            });
+            
+            // Create hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            
+            // Handle response
+            iframe.onload = () => {
+                alert('Thank you! Your message has been sent successfully.');
+                this.reset();
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            };
+            
+            // Submit form
+            document.body.appendChild(iframe);
+            document.body.appendChild(form);
+            form.submit();
         });
     </script>
 
