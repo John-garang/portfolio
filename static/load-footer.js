@@ -22,7 +22,7 @@ window.subscribeNewsletter = async function(e) {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwB77DBzA1M_FmV5nV9Yz3TtUJgVWnylnQ78jhqcTPQgD1c19hcY0O7-9XuA0iLun3JIA/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzmaa8ZuVQtieBEGlHAZcZPyNyp3WUX7ZMWtdoAylzj9CGPI-rNV3NJChAno2DbTljluQ/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ formType: 'newsletter', email })
