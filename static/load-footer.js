@@ -43,7 +43,7 @@ window.subscribeNewsletter = function(e) {
     iframe.style.display = 'none';
     
     iframe.onload = () => {
-        window.popupSystem.success('Thank you for subscribing to our newsletter! You\'ll receive updates on our latest content and insights.', 'Successfully Subscribed!');
+        alert('Thank you for subscribing to our newsletter!');
         document.getElementById('newsletterForm').reset();
         document.body.removeChild(form);
         document.body.removeChild(iframe);
