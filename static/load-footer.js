@@ -52,37 +52,43 @@ window.subscribeNewsletter = function(e) {
     iframe.style.display = 'none';
     
     iframe.onload = () => {
+        // Prevent multiple notifications
+        if (iframe.hasLoaded) return;
+        iframe.hasLoaded = true;
+        
         // Create custom notification
         const notification = document.createElement('div');
         notification.style.cssText = `
-            position: fixed; top: 20px; right: 20px; z-index: 10000;
-            background: #4CAF50; color: white; padding: 15px 20px;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10000;
+            background: #4CAF50; color: white; padding: 20px 30px;
             border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            font-family: Arial, sans-serif; font-size: 14px;
-            max-width: 350px; animation: slideIn 0.3s ease;
+            font-family: Arial, sans-serif; font-size: 16px; text-align: center;
+            min-width: 300px; animation: fadeIn 0.3s ease;
         `;
         notification.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-check-circle" style="font-size: 18px;"></i>
-                <span>Thanks ${firstName}! You're subscribed to our newsletter.</span>
+            <div>
+                <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                <div>Thanks ${firstName}!</div>
+                <div style="margin-top: 5px; font-size: 14px; opacity: 0.9;">You're subscribed to our newsletter.</div>
                 <button onclick="this.parentElement.parentElement.remove()" style="
-                    background: none; border: none; color: white; font-size: 18px;
-                    cursor: pointer; margin-left: auto; padding: 0;
-                ">&times;</button>
+                    background: rgba(255,255,255,0.2); border: none; color: white; 
+                    padding: 8px 16px; border-radius: 4px; cursor: pointer; 
+                    margin-top: 15px; font-size: 14px;
+                ">Close</button>
             </div>
         `;
         
         // Add animation
         const style = document.createElement('style');
-        style.textContent = '@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }';
+        style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }';
         document.head.appendChild(style);
         
         document.body.appendChild(notification);
         
-        // Auto remove after 5 seconds
+        // Auto remove after 4 seconds
         setTimeout(() => {
             if (notification.parentElement) notification.remove();
-        }, 5000);
+        }, 4000);
         
         document.getElementById('newsletterForm').reset();
         document.body.removeChild(form);
