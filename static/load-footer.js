@@ -18,6 +18,7 @@ window.subscribeNewsletter = function(e) {
     const lastName = document.getElementById('newsletterLastName').value;
     const email = document.getElementById('newsletterEmail').value;
     const btn = e.target.querySelector('button');
+    const originalHTML = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
@@ -51,12 +52,43 @@ window.subscribeNewsletter = function(e) {
     iframe.style.display = 'none';
     
     iframe.onload = () => {
-        alert('Thank you for subscribing to our newsletter!');
+        // Create custom notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed; top: 20px; right: 20px; z-index: 10000;
+            background: #4CAF50; color: white; padding: 15px 20px;
+            border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-family: Arial, sans-serif; font-size: 14px;
+            max-width: 350px; animation: slideIn 0.3s ease;
+        `;
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-check-circle" style="font-size: 18px;"></i>
+                <span>Thanks ${firstName}! You're subscribed to our newsletter.</span>
+                <button onclick="this.parentElement.parentElement.remove()" style="
+                    background: none; border: none; color: white; font-size: 18px;
+                    cursor: pointer; margin-left: auto; padding: 0;
+                ">&times;</button>
+            </div>
+        `;
+        
+        // Add animation
+        const style = document.createElement('style');
+        style.textContent = '@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }';
+        document.head.appendChild(style);
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) notification.remove();
+        }, 5000);
+        
         document.getElementById('newsletterForm').reset();
         document.body.removeChild(form);
         document.body.removeChild(iframe);
         btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        btn.innerHTML = originalHTML;
     };
     
     document.body.appendChild(iframe);
