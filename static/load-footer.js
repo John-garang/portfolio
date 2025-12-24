@@ -14,6 +14,11 @@ fetch('footer.html')
 window.subscribeNewsletter = function(e) {
     e.preventDefault();
     e.stopPropagation();
+    
+    // Prevent multiple executions
+    if (e.target.submitting) return;
+    e.target.submitting = true;
+    
     const firstName = document.getElementById('newsletterFirstName').value;
     const lastName = document.getElementById('newsletterLastName').value;
     const email = document.getElementById('newsletterEmail').value;
@@ -26,7 +31,7 @@ window.subscribeNewsletter = function(e) {
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = 'https://script.google.com/macros/s/AKfycbyIkrho7Kdvo19Ely41v6U7CNvtjO-oU4IsUqulvVlJHiPa5DuB3hgmhxNkwTEm7Q1XWQ/exec';
-    form.target = 'hidden_iframe';
+    form.target = 'hidden_iframe_' + Date.now();
     form.style.display = 'none';
     
     const formTypeInput = document.createElement('input');
@@ -48,13 +53,13 @@ window.subscribeNewsletter = function(e) {
     form.appendChild(emailInput);
     
     const iframe = document.createElement('iframe');
-    iframe.name = 'hidden_iframe';
+    iframe.name = form.target;
     iframe.style.display = 'none';
     
+    let notificationShown = false;
     iframe.onload = () => {
-        // Prevent multiple notifications
-        if (iframe.hasLoaded) return;
-        iframe.hasLoaded = true;
+        if (notificationShown) return;
+        notificationShown = true;
         
         // Create custom notification
         const notification = document.createElement('div');
@@ -78,10 +83,13 @@ window.subscribeNewsletter = function(e) {
             </div>
         `;
         
-        // Add animation
-        const style = document.createElement('style');
-        style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }';
-        document.head.appendChild(style);
+        // Add animation if not exists
+        if (!document.querySelector('#fadeInAnimation')) {
+            const style = document.createElement('style');
+            style.id = 'fadeInAnimation';
+            style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }';
+            document.head.appendChild(style);
+        }
         
         document.body.appendChild(notification);
         
@@ -95,6 +103,7 @@ window.subscribeNewsletter = function(e) {
         document.body.removeChild(iframe);
         btn.disabled = false;
         btn.innerHTML = originalHTML;
+        e.target.submitting = false;
     };
     
     document.body.appendChild(iframe);
