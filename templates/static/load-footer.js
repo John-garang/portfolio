@@ -11,41 +11,47 @@ fetch('footer')
     });
 
 // Make function globally accessible
-window.subscribeNewsletter = async function(e) {
+window.subscribeNewsletter = function(e) {
     e.preventDefault();
     e.stopPropagation();
-    const firstName = document.getElementById('newsletterFirstName').value;
-    const lastName = document.getElementById('newsletterLastName').value;
     const email = document.getElementById('newsletterEmail').value;
     const btn = e.target.querySelector('button');
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
-    try {
-        const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/subscribers', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ firstName, lastName, email })
-        });
-        
-        if (response.ok) {
-            window.popupSystem.success('Thank you for subscribing to our newsletter! You\'ll receive updates on our latest content and insights.', 'Successfully Subscribed!');
-            document.getElementById('newsletterForm').reset();
-        } else {
-            let errorMessage = 'Subscription failed. Please try again.';
-            try {
-                const error = await response.json();
-                errorMessage = error.error || errorMessage;
-            } catch (e) {
-                // Response is not JSON, use default message
-            }
-            window.popupSystem.error(errorMessage, 'Subscription Failed');
-        }
-    } catch (error) {
-        window.popupSystem.error('Unable to connect to the server. Please check your internet connection and try again.', 'Connection Error');
-    } finally {
+    // Create hidden form for newsletter
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://script.google.com/macros/s/AKfycbzmaa8ZuVQtieBEGlHAZcZPyNyp3WUX7ZMWtdoAylzj9CGPI-rNV3NJChAno2DbTljluQ/exec';
+    form.target = 'hidden_iframe';
+    form.style.display = 'none';
+    
+    const formTypeInput = document.createElement('input');
+    formTypeInput.type = 'hidden';
+    formTypeInput.name = 'formType';
+    formTypeInput.value = 'newsletter';
+    form.appendChild(formTypeInput);
+    
+    const emailInput = document.createElement('input');
+    emailInput.type = 'hidden';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+    
+    const iframe = document.createElement('iframe');
+    iframe.name = 'hidden_iframe';
+    iframe.style.display = 'none';
+    
+    iframe.onload = () => {
+        window.popupSystem.success('Thank you for subscribing to our newsletter! You\'ll receive updates on our latest content and insights.', 'Successfully Subscribed!');
+        document.getElementById('newsletterForm').reset();
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
         btn.disabled = false;
         btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
-    }
+    };
+    
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
 };
-
