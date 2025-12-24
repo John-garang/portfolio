@@ -22,7 +22,7 @@ window.subscribeNewsletter = function(e) {
     // Create hidden form for newsletter
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'https://script.google.com/macros/s/AKfycbzf79ic4wBTgrPOT2QLb9-Hh4eYgmvl49blJNUJEX8W2WEotqMBb0g7d9SWv3phRtDbVw/exec';
+    form.action = 'https://script.google.com/macros/s/AKfycbyIkrho7Kdvo19Ely41v6U7CNvtjO-oU4IsUqulvVlJHiPa5DuB3hgmhxNkwTEm7Q1XWQ/exec';
     form.target = 'hidden_iframe';
     form.style.display = 'none';
     
