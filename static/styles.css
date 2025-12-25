@@ -2099,6 +2099,33 @@ li {
     background: inherit !important;
 }
 
+@media (max-width: 768px) {
+    .alu-hero {
+        background-attachment: scroll;
+        min-height: 100vh;
+        padding: 80px 15px 40px;
+    }
+    
+    .alu-hero[style*="background"] {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    
+    .alu-hero-content {
+        padding-top: 20vh !important;
+        align-items: center !important;
+    }
+    
+    .alu-hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .alu-hero .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+}
+
 .unleash-hero {
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Pictures/UNLEASH Lab Heroe Photo.jpg');
