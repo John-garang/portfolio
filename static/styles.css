@@ -93,6 +93,11 @@ li {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
     }
+    
+    .journey-text {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
 }
 
 @media (max-width: 480px) {
