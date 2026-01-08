@@ -1,11 +1,13 @@
 // Loading screen functionality
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
-        loadingScreen.classList.add('fade-out');
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 300);
+        }, 800);
     }
 });
 
