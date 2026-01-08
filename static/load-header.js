@@ -1,6 +1,8 @@
 // Universal Header System
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Header script loaded');
     const headerPlaceholder = document.getElementById('header-placeholder');
+    console.log('Header placeholder found:', !!headerPlaceholder);
     
     if (headerPlaceholder) {
         const header = `
@@ -78,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         headerPlaceholder.innerHTML = header;
+        console.log('Header HTML inserted');
+        console.log('Dropdowns created:', document.querySelectorAll('.dropdown').length);
         
         // Set active page
         const currentPage = window.location.pathname === '/' ? 'index.html' : window.location.pathname.split('/').pop() + '.html';

@@ -15,6 +15,15 @@
     <link rel="stylesheet" href="static/styles.css?v=1.0.6">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Temporary dropdown debug styles */
+        .dropdown-content {
+            display: block !important;
+            position: relative !important;
+            background: red !important;
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -321,7 +330,28 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-header.js?v=1.0.2"></script>
+    <script src="static/load-header.js?v=1.0.3"></script>
+    <script>
+        // Debug header loading
+        setTimeout(() => {
+            console.log('Header placeholder:', document.getElementById('header-placeholder'));
+            console.log('Navbar:', document.querySelector('.navbar'));
+            console.log('Dropdowns:', document.querySelectorAll('.dropdown'));
+            
+            // Force dropdown visibility for testing
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            console.log('Dropdown contents found:', dropdowns.length);
+            
+            // Test hover functionality
+            const firstDropdown = document.querySelector('.dropdown');
+            if (firstDropdown) {
+                console.log('First dropdown found, testing hover');
+                firstDropdown.addEventListener('mouseenter', () => {
+                    console.log('Dropdown hovered');
+                });
+            }
+        }, 1000);
+    </script>
     <script src="static/popup-system.js" defer></script>
     <script src="static/analytics.js" defer></script>
     <script src="static/load-footer.js" defer></script>
