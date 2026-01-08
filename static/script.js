@@ -1,9 +1,12 @@
-// Search Functionality
-const searchBtn = document.getElementById('searchBtn');
-const searchOverlay = document.getElementById('searchOverlay');
-const searchInput = document.getElementById('searchInput');
-const searchClose = document.getElementById('searchClose');
-const searchResults = document.getElementById('searchResults');
+// Search Functionality - Wait for header to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for header to be loaded
+    setTimeout(() => {
+        const searchBtn = document.getElementById('searchBtn');
+        const searchOverlay = document.getElementById('searchOverlay');
+        const searchInput = document.getElementById('searchInput');
+        const searchClose = document.getElementById('searchClose');
+        const searchResults = document.getElementById('searchResults');
 
 const searchData = [
     { title: 'Home', url: 'index.html', desc: 'Digital communications portfolio showcasing skills and expertise' },
@@ -74,6 +77,9 @@ if (searchBtn && searchOverlay) {
         }
     });
 }
+
+    }, 200);
+});
 
 // Mobile Navigation is now handled in load-header.js
 
