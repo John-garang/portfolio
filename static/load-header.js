@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="african-leadership-academy.html">African Leadership Academy</a>
                                 <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
                                 <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                                <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                                <a href="surplus-people-project.html">Surplus People Project</a>
+                                <a href="creative-connect.html">Creative Connect</a>
+                                <a href="nalafem-collective.html">Nalafem Collective</a>
                             </div>
                         </li>
                         <li class="dropdown">
