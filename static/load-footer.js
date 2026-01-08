@@ -84,9 +84,9 @@ window.subscribeNewsletter = function(e) {
         `;
         
         // Add animation if not exists
-        if (!document.querySelector('#fadeInAnimation')) {
+        if (!document.getElementById('slideInStyle')) {
             const style = document.createElement('style');
-            style.id = 'fadeInAnimation';
+            style.id = 'slideInStyle';
             style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }';
             document.head.appendChild(style);
         }
