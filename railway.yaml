@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: portfolio-static
+    env: static
+    staticPublishPath: ./
+    buildCommand: echo "Static site - no build needed"
+    startCommand: python3 -m http.server $PORT
