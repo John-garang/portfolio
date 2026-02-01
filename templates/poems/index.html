@@ -179,53 +179,100 @@
 
     <section class="posts-section">
         <div class="container">
-            <div id="poemsGrid" class="article-cards-grid"></div>
+            <div class="article-cards-grid">
+                <div class="article-card" onclick="window.location.href='../an-unbalanced-man.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>An Unbalanced Man</h3>
+                        <p>Today I woke up on the wrong side of the bed. That's not to say there's nothing right about me. But the room says otherwise...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../learning-to-write-without-permission.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>Learning to Write Without Permission</h3>
+                        <p>The first lesson in freedom is the courage to write without asking. Where the Nile flows, silent books of law have been written with guns...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../the-price-of-truth.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>The Price of Truth</h3>
+                        <p>Mama calls me stupid, She says if the degree I'm studying doesn't teach me the value of my own life, then I'm illiterate...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../the-son-mama-couldnt-save.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>The Son Mama Couldn't Save</h3>
+                        <p>My son, the inspector said your body was found floating, calm, like you always were, the water holding you like a secret it could not keep...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../the-boy-who-taught-his-nation-to-speak.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>The Boy Who Taught His Nation to Speak</h3>
+                        <p>They buried him facing East—not so he may greet Christ, the way, the truth, and the life, when he returns—but because his ancestor Deng-Aguet and his gods rest in the East...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../a-sour-vow.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>A Sour Vow</h3>
+                        <p>… the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../a-fool-of-warmth.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>A Fool of Warmth</h3>
+                        <p>The curtain hangs half-open, welcoming daybreak. Outside—a rooster screams the day open, reciting yesternight's moans...</p>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="window.location.href='../the-words-i-never-said.html'" style="cursor: pointer;">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                            <span class="read-time"><i class="far fa-clock"></i> January 15, 2025</span>
+                        </div>
+                        <h3>The Words I Never Said</h3>
+                        <p>I never whispered or screamed it out loud, But somehow, I think we both knew. Some words are too soft for sound...</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
-
-    <script>
-        async function loadPoems() {
-            try {
-                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/poems');
-                const poems = await response.json();
-                displayPoems(poems);
-            } catch (error) {
-                document.getElementById('poemsGrid').innerHTML = '<div class="empty-state"><p>No poems available</p></div>';
-            }
-        }
-
-        function displayPoems(poems) {
-            const grid = document.getElementById('poemsGrid');
-            if (poems.length === 0) {
-                grid.innerHTML = '<div class="empty-state"><i class="fas fa-feather-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i><p>No poems yet</p></div>';
-            } else {
-                grid.innerHTML = poems.map(poem => `
-                    <div class="article-card" data-id="${poem.id}" style="cursor: pointer;">
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                                <span class="read-time"><i class="far fa-clock"></i> ${poem.date}</span>
-                            </div>
-                            <h3>${poem.title}</h3>
-                            <p>${poem.excerpt}</p>
-                        </div>
-                    </div>
-                `).join('');
-                
-                document.querySelectorAll('.article-card').forEach(card => {
-                    card.addEventListener('click', function() {
-                        const id = this.getAttribute('data-id');
-                        window.location.href = `poem.html?id=${id}`;
-                    });
-                });
-            }
-        }
-
-        loadPoems();
-    </script>
 
     <script>
         // Set active page
