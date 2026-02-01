@@ -6,24 +6,31 @@
     <title>A Fool of Warmth - John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background: white; margin-top: 80px;">
     <div id="header-placeholder"></div>
     <script src="static/load-header.js"></script>
 
-    <article class="article-page">
+    <!-- Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%); padding: 60px 0; color: white; text-align: center;">
         <div class="container">
-            <div class="article-header">
-                <div class="article-meta">
-                    <span class="article-category">Poetry</span>
-                    <span class="article-date">January 15, 2025</span>
-                </div>
-                <h1>A Fool of Warmth</h1>
+            <div class="hero-content">
+                <span class="category-badge" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 20px; display: inline-block;">Poetry</span>
+                <h1 style="font-family: 'Crimson Text', serif; font-size: 3rem; font-weight: 600; margin: 20px 0; line-height: 1.2;">A Fool of Warmth</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">A sensual meditation on desire, intimacy, and the vulnerability that comes with opening oneself to another.</p>
+            </div>
+        </div>
+    </section>
+
+    <article class="poem-page" style="padding: 60px 0;">
+        <div class="container">
+            <div class="poem-navigation" style="margin-bottom: 40px;">
+                <a href="poems/" class="back-link" style="color: #16b2dc; text-decoration: none; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Poems</a>
             </div>
 
-            <div class="poem-content">
-                <div class="poem-stanza">
+            <div class="poem-content" style="font-family: 'Crimson Text', serif; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>The curtain hangs half-open, welcoming daybreak.<br>
                     Outside—a rooster screams the day open, reciting yesternight's moans.<br>
                     A lizard on my window nods, as if he knows our sins.<br>
@@ -31,7 +38,7 @@
                     & he knows fire does not forgive the log it loves.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>The sheets lie still, like elders sipping a story<br>
                     too sacred for the young.<br>
                     Your scent kneels in the unholy authority of my room,<br>
@@ -40,7 +47,7 @@
                     last night, like others, had no long-term goal.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>My mind revisits episodes of last night,<br>
                     like two birds wrestling in a cloud.<br>
                     Our wings were tied by the string of want.<br>
@@ -48,7 +55,7 @@
                     because even falling can be fellowship.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>My ex once said silence grows teeth<br>
                     when you keep feeding it memory.<br>
                     So my teeth reach into Jericho,<br>
@@ -57,7 +64,7 @@
                     it still dreams of rain."</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>But I was already drifting,<br>
                     too far for salvation,<br>
                     as I stared at Jericho like an open wound<br>
@@ -67,7 +74,7 @@
                     Somewhere, the sun began to burn the world.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>But in here, my lust turned into bread—<br>
                     you, the yeast.<br>
                     Each second hammered in like a clout nail<br>
@@ -76,7 +83,7 @@
                     this mouth that drank from it.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>In the middle of my own weather,<br>
                     I paused—watching raindrops that never touched the ground.<br>
                     I'm done, and tired.<br>
@@ -86,7 +93,7 @@
                     writing the psalms of this event.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>The day yawns wide,<br>
                     as if to say softly: you are a fool of warmth.<br>
                     I press my lips to the cup you used.<br>
@@ -96,9 +103,14 @@
                     truth that I am a fool of warmth.</p>
                 </div>
 
-                <div class="poem-footer">
-                    <p><em>© John Garang</em></p>
+                <div class="author-attribution" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; color: #666; font-style: italic;">
+                    <p>John Ngor Deng Garang - Writer & Poet</p>
                 </div>
+            </div>
+
+            <div class="poem-navigation" style="margin-top: 60px; display: flex; justify-content: space-between; align-items: center; padding-top: 40px; border-top: 1px solid #eee;">
+                <a href="a-sour-vow.html" class="nav-link prev" style="color: #16b2dc; text-decoration: none; font-weight: 500;"><i class="fas fa-chevron-left"></i> Previous</a>
+                <a href="the-boy-who-taught-his-nation-to-speak.html" class="nav-link next" style="color: #16b2dc; text-decoration: none; font-weight: 500;">Next <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </article>

@@ -6,24 +6,31 @@
     <title>The Words I Never Said - John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background: white; margin-top: 80px;">
     <div id="header-placeholder"></div>
     <script src="static/load-header.js"></script>
 
-    <article class="article-page">
+    <!-- Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%); padding: 60px 0; color: white; text-align: center;">
         <div class="container">
-            <div class="article-header">
-                <div class="article-meta">
-                    <span class="article-category">Poetry</span>
-                    <span class="article-date">January 15, 2025</span>
-                </div>
-                <h1>The Words I Never Said</h1>
+            <div class="hero-content">
+                <span class="category-badge" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 20px; display: inline-block;">Poetry</span>
+                <h1 style="font-family: 'Crimson Text', serif; font-size: 3rem; font-weight: 600; margin: 20px 0; line-height: 1.2;">The Words I Never Said</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">A tender reflection on unspoken love, missed opportunities, and the quiet ache of words left unsaid.</p>
+            </div>
+        </div>
+    </section>
+
+    <article class="poem-page" style="padding: 60px 0;">
+        <div class="container">
+            <div class="poem-navigation" style="margin-bottom: 40px;">
+                <a href="poems/" class="back-link" style="color: #16b2dc; text-decoration: none; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Poems</a>
             </div>
 
-            <div class="poem-content">
-                <div class="poem-stanza">
+            <div class="poem-content" style="font-family: 'Crimson Text', serif; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I never whispered or screamed it out loud,<br>
                     But somehow, I think we both knew.<br>
                     Some words are too soft for sound,<br>
@@ -31,7 +38,7 @@
                     So I kept quiet, and loved you in my heart instead.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I'd see you pass by my auntie's shop,<br>
                     And I would look away—afraid inside.<br>
                     She spoke so kindly of you;<br>
@@ -39,7 +46,7 @@
                     The kind of woman who lives in small moments.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I went abroad to study,<br>
                     And met many foreign ladies—wild and calm—<br>
                     But none could warm my colder days.<br>
@@ -48,7 +55,7 @@
                     But neither you, nor those soft words, ever came along.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>You married well; Adhieu gossiped.<br>
                     Men and women ate to their fill that afternoon.<br>
                     You were very happy—I heard the news.<br>
@@ -57,7 +64,7 @@
                     But the lone bench reminded me they were only hopes.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>Five years have come, and five years have gone.<br>
                     Life has moved on, as life must do.<br>
                     You have had children, and all the love you ever wanted.<br>
@@ -66,16 +73,21 @@
                     Yet your eyes still hold the only light I ever knew.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>We never made vows; you never said you loved me.<br>
                     There was no promise that someday it would be mutual.<br>
                     It was a love that had quietly flown in my heart,<br>
                     And ended somewhere where the Nile turns.</p>
                 </div>
 
-                <div class="poem-footer">
-                    <p><em>© John Garang</em></p>
+                <div class="author-attribution" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; color: #666; font-style: italic;">
+                    <p>John Ngor Deng Garang - Writer & Poet</p>
                 </div>
+            </div>
+
+            <div class="poem-navigation" style="margin-top: 60px; display: flex; justify-content: space-between; align-items: center; padding-top: 40px; border-top: 1px solid #eee;">
+                <a href="the-price-of-truth.html" class="nav-link prev" style="color: #16b2dc; text-decoration: none; font-weight: 500;"><i class="fas fa-chevron-left"></i> Previous</a>
+                <a href="learning-to-write-without-permission.html" class="nav-link next" style="color: #16b2dc; text-decoration: none; font-weight: 500;">Next <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </article>
