@@ -1,10 +1,3 @@
-// Search Functionality
-const searchBtn = document.getElementById('searchBtn');
-const searchOverlay = document.getElementById('searchOverlay');
-const searchInput = document.getElementById('searchInput');
-const searchClose = document.getElementById('searchClose');
-const searchResults = document.getElementById('searchResults');
-
 const searchData = [
     { title: 'Home', url: 'index.html', desc: 'Digital communications portfolio showcasing skills and expertise' },
     { title: 'About Me', url: 'about.html', desc: 'Biography and background of John Ngor Deng Garang' },
@@ -21,6 +14,13 @@ const searchData = [
     { title: 'Services', url: 'services.html', desc: 'Professional services offered' },
     { title: 'Contact', url: 'contact.html', desc: 'Get in touch and contact information' }
 ];
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('searchInput');
+    const searchClose = document.getElementById('searchClose');
+    const searchResults = document.getElementById('searchResults');
 
 if (searchBtn && searchOverlay) {
     searchBtn.addEventListener('click', () => {
@@ -74,6 +74,7 @@ if (searchBtn && searchOverlay) {
         }
     });
 }
+});
 
 // Mobile Navigation is now handled in load-header.js
 

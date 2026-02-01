@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="static/styles.css?v=1.0.6">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="static/load-header.js" type="text/javascript"></script>
+    <style>
+
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -28,95 +30,7 @@
     </div>
     
     <!-- Header Placeholder -->
-    <div id="header-placeholder">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="static/Pictures/Logo.png" alt="John Garang Logo">
-                    <span class="logo-name">John Ngor Deng Garang</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link active">Home</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li class="dropdown">
-                        <a href="work-portfolio.html" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="my-shelf">My Shelf</a>
-                            <a href="artefacts">Artefacts</a>
-                            <a href="cv">CV</a>
-                            <a href="graphic-design">Graphic Design</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="experience-overview.html" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="african-leadership-university">African Leadership University</a>
-                            <a href="education-bridge">Education Bridge</a>
-                            <a href="african-leadership-academy">African Leadership Academy</a>
-                            <a href="ashinaga-foundation">Ashinaga Foundation</a>
-                            <a href="uganics-repellents">Uganics Repellents Ltd</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="programs-overview.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="cnn-academy">CNN Academy Fellow</a>
-                            <a href="take-action-lab">Take Action Lab</a>
-                            <a href="unleash-innovation-lab">UNLEASH Innovation Lab</a>
-                            <a href="accra-fusion">Accra Fusion</a>
-                            <a href="yali-east-africa">YALI East Africa</a>
-                        </div>
-                    </li>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
-                    <li><a href="/poems" class="nav-link">Poems</a></li>
-                </ul>
-                <div class="nav-right">
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <div class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-overlay" id="mobileOverlay"></div>
-        </nav>
-    </div>
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-                
-                mobileOverlay.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            }
-        });
-    </script>
+    <div id="header-placeholder"></div>
 
     <!-- Home Section -->
     <section id="home" class="hero">
@@ -266,7 +180,7 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2>My Shelf ðŸ“š</h2>
+            <h2>My Shelf</h2>
             <div class="portfolio-tabs">
                 <button class="tab-btn active" data-tab="blogs">Blogs</button>
                 <button class="tab-btn" data-tab="travels">Travels</button>
@@ -408,42 +322,31 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>Ready to take your digital marketing to the next level? I'd love to hear about your project and discuss how we can achieve your goals together.</p>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>dengjohn200@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>Contact via email</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Available Worldwide</span>
-                    </div>
-                </div>
-                <form class="contact-form" action="#" method="POST">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
+    <script src="static/load-header.js?v=1.0.3"></script>
+    <script>
+        // Debug header loading
+        setTimeout(() => {
+            console.log('Header placeholder:', document.getElementById('header-placeholder'));
+            console.log('Navbar:', document.querySelector('.navbar'));
+            console.log('Dropdowns:', document.querySelectorAll('.dropdown'));
+            
+            // Force dropdown visibility for testing
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            console.log('Dropdown contents found:', dropdowns.length);
+            
+            // Test hover functionality
+            const firstDropdown = document.querySelector('.dropdown');
+            if (firstDropdown) {
+                console.log('First dropdown found, testing hover');
+                firstDropdown.addEventListener('mouseenter', () => {
+                    console.log('Dropdown hovered');
+                });
+            }
+        }, 1000);
+    </script>
     <script src="static/popup-system.js" defer></script>
-    <script src="static/analytics.js" defer></script>
     <script src="static/load-footer.js" defer></script>
     <script src="static/config.js"></script>
     <script src="static/script.js" defer></script>
@@ -500,129 +403,79 @@
             }
         };
 
-        // Load portfolio content from backend
-        async function loadPortfolioContent() {
-            // Show loading state immediately
-            const grids = ['blogs-grid', 'travels-grid', 'poems-grid', 'academic-grid'];
-            grids.forEach(gridId => {
-                const grid = document.getElementById(gridId);
-                if (grid) grid.innerHTML = '<div class="loading-placeholder">Loading articles...</div>';
-            });
+        // Load static portfolio content
+        function loadPortfolioContent() {
+            const staticContent = {
+                blogs: [
+                    { title: 'Digital Marketing Trends 2024', excerpt: 'Exploring the latest trends shaping digital marketing landscape...', category: 'Marketing', readTime: '5 min read', date: 'December 2024' },
+                    { title: 'Building Brand Identity', excerpt: 'A comprehensive guide to creating memorable brand experiences...', category: 'Branding', readTime: '7 min read', date: 'November 2024' },
+                    { title: 'Content Strategy Essentials', excerpt: 'Key principles for developing effective content strategies...', category: 'Strategy', readTime: '6 min read', date: 'October 2024' }
+                ],
+                travels: [
+                    { title: 'Journey Through East Africa', excerpt: 'Discovering the vibrant cultures and landscapes of East Africa...', category: 'Travel', readTime: '8 min read', date: 'September 2024' },
+                    { title: 'Urban Photography in Nairobi', excerpt: 'Capturing the essence of modern African city life...', category: 'Photography', readTime: '4 min read', date: 'August 2024' },
+                    { title: 'Cultural Immersion Experience', excerpt: 'Learning from local communities and traditions...', category: 'Culture', readTime: '6 min read', date: 'July 2024' }
+                ],
+                poems: [
+                    { title: 'Reflections on Home', excerpt: 'A poetic exploration of identity and belonging...', category: 'Poetry', readTime: '3 min read', date: 'November 2024' },
+                    { title: 'Digital Age Musings', excerpt: 'Contemplating our relationship with technology...', category: 'Poetry', readTime: '2 min read', date: 'October 2024' },
+                    { title: 'Nature\'s Whispers', excerpt: 'Finding inspiration in the natural world...', category: 'Poetry', readTime: '3 min read', date: 'September 2024' }
+                ],
+                academic: [
+                    { title: 'Digital Communication Strategies', excerpt: 'Research on effective digital communication in modern organizations...', category: 'Research', readTime: '12 min read', date: 'December 2024' },
+                    { title: 'Social Media Impact Study', excerpt: 'Analyzing the influence of social media on brand perception...', category: 'Analysis', readTime: '15 min read', date: 'November 2024' },
+                    { title: 'Cross-Cultural Marketing', excerpt: 'Understanding cultural nuances in global marketing campaigns...', category: 'Study', readTime: '10 min read', date: 'October 2024' }
+                ]
+            };
             
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-                
-                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/articles', {
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                
-                if (!response.ok) throw new Error('Network response was not ok');
-                const articles = await response.json();
-                
-                // Function to format date safely
-                function formatDate(dateString) {
-                    if (!dateString) return 'Recently published';
-                    const date = new Date(dateString);
-                    if (isNaN(date.getTime())) return 'Recently published';
-                    return date.toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                    });
-                }
-                
-                // Function to estimate read time based on word count
-                function estimateReadTime(content) {
-                    if (!content) return '1 min read';
-                    const wordsPerMinute = 200;
-                    const wordCount = content.split(/\s+/).length;
-                    const minutes = Math.ceil(wordCount / wordsPerMinute);
-                    return `${minutes} min read`;
-                }
-                
-                // Function to create article card
-                function createArticleCard(article) {
-                    return `
-                        <div class="article-card">
-                            <div class="article-content">
-                                <div class="article-meta">
-                                    <span class="article-category">${article.category}</span>
-                                    <span class="read-time"><i class="fas fa-clock"></i> ${estimateReadTime(article.content)}</span>
-                                </div>
-                                <h3><a href="article?id=${article.id}">${article.title}</a></h3>
-                                <p>${article.excerpt}</p>
-                                <div class="article-footer">
-                                    <span class="post-date"><i class="fas fa-calendar"></i> ${formatDate(article.created_at)}</span>
-                                    <a href="article?id=${article.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
+            function createArticleCard(article) {
+                return `
+                    <div class="article-card">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">${article.category}</span>
+                                <span class="read-time"><i class="fas fa-clock"></i> ${article.readTime}</span>
+                            </div>
+                            <h3><a href="my-shelf">${article.title}</a></h3>
+                            <p>${article.excerpt}</p>
+                            <div class="article-footer">
+                                <span class="post-date"><i class="fas fa-calendar"></i> ${article.date}</span>
+                                <a href="my-shelf" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
-                    `;
-                }
-                
-                // Function to create view more button
-                function createViewMoreButton(category, totalCount) {
-                    if (totalCount <= 3) return '';
-                    const categoryMap = {
-                        'personal-writings': 'blogs.html',
-                        'travels': 'travels.html',
-                        'poems': 'poems.html',
-                        'academia': 'academia.html'
-                    };
-                    return `
-                        <div class="view-more-container">
-                            <a href="${categoryMap[category]}" class="view-more-btn">
-                                View All ${totalCount} Articles <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    `;
-                }
-                
-                // Separate articles by category and sort by date (most recent first)
-                const blogs = articles.filter(article => article.category === 'personal-writings')
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                const travels = articles.filter(article => article.category === 'travels')
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                const poems = articles.filter(article => article.category === 'poems')
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                const academic = articles.filter(article => article.category === 'academia')
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                
-                // Populate blogs (top 3)
-                const blogsGrid = document.getElementById('blogs-grid');
-                blogsGrid.innerHTML = blogs.slice(0, 3).map(createArticleCard).join('') + 
-                    createViewMoreButton('personal-writings', blogs.length);
-                
-                // Populate travels (top 3)
-                const travelsGrid = document.getElementById('travels-grid');
-                travelsGrid.innerHTML = travels.slice(0, 3).map(createArticleCard).join('') + 
-                    createViewMoreButton('travels', travels.length);
-                
-                // Populate poems (top 3)
-                const poemsGrid = document.getElementById('poems-grid');
-                poemsGrid.innerHTML = poems.slice(0, 3).map(createArticleCard).join('') + 
-                    createViewMoreButton('poems', poems.length);
-                
-                // Populate academic (top 3)
-                const academicGrid = document.getElementById('academic-grid');
-                academicGrid.innerHTML = academic.slice(0, 3).map(createArticleCard).join('') + 
-                    createViewMoreButton('academia', academic.length);
-                
-            } catch (error) {
-                console.error('Error loading portfolio content:', error);
-                // Fallback content if backend is unavailable
-                const fallbackContent = '<div class="fallback-message">Articles will load shortly. <a href="my-shelf">View all articles</a></div>';
-                document.getElementById('blogs-grid').innerHTML = fallbackContent;
-                document.getElementById('travels-grid').innerHTML = fallbackContent;
-                document.getElementById('poems-grid').innerHTML = fallbackContent;
-                document.getElementById('academic-grid').innerHTML = fallbackContent;
+                    </div>
+                `;
             }
+            
+            function createViewMoreButton(page, count) {
+                return `
+                    <div class="view-more-container">
+                        <a href="${page}" class="view-more-btn">
+                            View All ${count} Articles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+            }
+            
+            // Populate content
+            document.getElementById('blogs-grid').innerHTML = 
+                staticContent.blogs.map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.blogs.length);
+                
+            document.getElementById('travels-grid').innerHTML = 
+                staticContent.travels.map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.travels.length);
+                
+            document.getElementById('poems-grid').innerHTML = 
+                staticContent.poems.map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.poems.length);
+                
+            document.getElementById('academic-grid').innerHTML = 
+                staticContent.academic.map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.academic.length);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Load portfolio content
             loadPortfolioContent();
             
             document.querySelectorAll('.interactive-card').forEach((card, cardIndex) => {
@@ -662,6 +515,7 @@
 
 </body>
 </html>
+
 
 
 

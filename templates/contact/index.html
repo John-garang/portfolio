@@ -280,14 +280,22 @@
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
 
+    <script src="static/brand-notifications.js"></script>
     <script>
+        // Contact Form Handler using form submission (bypasses CORS)
         document.querySelector('.professional-contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const btn = this.querySelector('.submit-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Collect form data
             const formData = {
+                formType: 'contact',
                 name: this.querySelector('#firstName').value + ' ' + this.querySelector('#lastName').value,
                 email: this.querySelector('#email').value,
                 phone: this.querySelector('#phone').value,
@@ -298,25 +306,46 @@
                 message: this.querySelector('#message').value
             };
             
-            try {
-                const response = await fetch('https://portfolio-backend-1-53hz.onrender.com/api/messages', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (response.ok) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    this.reset();
-                } else {
-                    alert('Error sending message. Please try again.');
-                }
-            } catch (error) {
-                alert('Error connecting to server. Please try again later.');
-            }
+            // Create hidden form for submission
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://script.google.com/macros/s/AKfycbyIkrho7Kdvo19Ely41v6U7CNvtjO-oU4IsUqulvVlJHiPa5DuB3hgmhxNkwTEm7Q1XWQ/exec';
+            form.target = 'hidden_iframe';
+            form.style.display = 'none';
             
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            // Add form data as hidden inputs
+            Object.keys(formData).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = formData[key];
+                form.appendChild(input);
+            });
+            
+            // Create hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            
+            // Handle response
+            iframe.onload = () => {
+                // Prevent multiple notifications
+                if (iframe.hasLoaded) return;
+                iframe.hasLoaded = true;
+                
+                showBrandNotification('success', 'Thank You!', 'Your message has been sent successfully. We\'ll get back to you soon.');
+                
+                this.reset();
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            };
+            
+            // Submit form
+            document.body.appendChild(iframe);
+            document.body.appendChild(form);
+            form.submit();
         });
     </script>
 

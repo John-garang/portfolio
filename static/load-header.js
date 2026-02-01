@@ -1,6 +1,8 @@
 // Universal Header System
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Header script loaded');
     const headerPlaceholder = document.getElementById('header-placeholder');
+    console.log('Header placeholder found:', !!headerPlaceholder);
     
     if (headerPlaceholder) {
         const header = `
@@ -30,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="african-leadership-academy.html">African Leadership Academy</a>
                                 <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
                                 <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
+                                <a href="africa-inventor-alliance.html">Africa Inventor Alliance</a>
+                                <a href="surplus-people-project.html">Surplus People Project</a>
+                                <a href="creative-connect.html">Creative Connect</a>
+                                <a href="nalafem-collective.html">Nalafem Collective</a>
                             </div>
                         </li>
                         <li class="dropdown">
@@ -74,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         headerPlaceholder.innerHTML = header;
+        console.log('Header HTML inserted');
+        console.log('Dropdowns created:', document.querySelectorAll('.dropdown').length);
         
         // Set active page
         const currentPage = window.location.pathname === '/' ? 'index.html' : window.location.pathname.split('/').pop() + '.html';
@@ -101,18 +109,76 @@ document.addEventListener('DOMContentLoaded', function() {
         const mobileOverlay = document.getElementById('mobileOverlay');
         
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
+            // Hamburger click handler
+            hamburger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 mobileOverlay.classList.toggle('active');
                 document.body.classList.toggle('menu-open');
             });
             
+            // Mobile overlay click handler
             mobileOverlay.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 mobileOverlay.classList.remove('active');
                 document.body.classList.remove('menu-open');
+            });
+            
+            // Mobile dropdown functionality
+            const dropdowns = document.querySelectorAll('.nav-menu .dropdown');
+            dropdowns.forEach(dropdown => {
+                const dropdownLink = dropdown.querySelector('.nav-link');
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                
+                if (dropdownLink && dropdownContent) {
+                    dropdownLink.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Close other dropdowns
+                            dropdowns.forEach(otherDropdown => {
+                                if (otherDropdown !== dropdown) {
+                                    otherDropdown.classList.remove('active');
+                                }
+                            });
+                            
+                            // Toggle current dropdown
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+            
+            // Close menu when clicking on regular nav links (not dropdowns)
+            const regularLinks = document.querySelectorAll('.nav-menu > li:not(.dropdown) .nav-link, .dropdown-content a');
+            regularLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        mobileOverlay.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    
+                    // Reset dropdowns
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
             });
         }
     }
