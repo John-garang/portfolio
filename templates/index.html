@@ -422,6 +422,8 @@
                     { title: 'Nature\'s Whispers', excerpt: 'Finding inspiration in the natural world...', category: 'Poetry', readTime: '3 min read', date: 'September 2024' }
                 ],
                 academic: [
+                    { title: 'Development Trajectory of South Sudan', excerpt: 'An analysis of South Sudan\'s development challenges and opportunities, exploring the nation\'s economic trajectory, political instability, and potential pathways to Vision 2063.', category: 'Academia', readTime: '15 min read', date: 'January 2025', link: 'development-trajectory-south-sudan.html' },
+                    { title: 'Addressing Entrepreneurial Gaps in South Sudan', excerpt: 'South Sudanese students, particularly from low-income backgrounds have limited access to entrepreneurial resources such as mentorship, funding, and business training.', category: 'Academia', readTime: '12 min read', date: 'January 2025', link: 'addressing-entrepreneurial-gaps-south-sudan.html' },
                     { title: 'Digital Communication Strategies', excerpt: 'Research on effective digital communication in modern organizations...', category: 'Research', readTime: '12 min read', date: 'December 2024' },
                     { title: 'Social Media Impact Study', excerpt: 'Analyzing the influence of social media on brand perception...', category: 'Analysis', readTime: '15 min read', date: 'November 2024' },
                     { title: 'Cross-Cultural Marketing', excerpt: 'Understanding cultural nuances in global marketing campaigns...', category: 'Study', readTime: '10 min read', date: 'October 2024' }
@@ -429,6 +431,7 @@
             };
             
             function createArticleCard(article) {
+                const link = article.link || 'my-shelf';
                 return `
                     <div class="article-card">
                         <div class="article-content">
@@ -436,11 +439,11 @@
                                 <span class="article-category">${article.category}</span>
                                 <span class="read-time"><i class="fas fa-clock"></i> ${article.readTime}</span>
                             </div>
-                            <h3><a href="my-shelf">${article.title}</a></h3>
+                            <h3><a href="${link}">${article.title}</a></h3>
                             <p>${article.excerpt}</p>
                             <div class="article-footer">
                                 <span class="post-date"><i class="fas fa-calendar"></i> ${article.date}</span>
-                                <a href="my-shelf" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <a href="${link}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
