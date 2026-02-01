@@ -455,11 +455,17 @@
                 `;
             }
             
-            function createViewMoreButton(page, count) {
+            function createViewMoreButton(page, count, type) {
+                const buttonText = {
+                    'blogs': `View All ${count} Blog Posts`,
+                    'travels': `View All ${count} Travel Articles`,
+                    'poems': `View All ${count} Poems`,
+                    'academic': `View All ${count} Academic Writings`
+                };
                 return `
                     <div class="view-more-container">
                         <a href="${page}" class="view-more-btn">
-                            View All ${count} Articles <i class="fas fa-arrow-right"></i>
+                            ${buttonText[type]} <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 `;
@@ -467,20 +473,20 @@
             
             // Populate content
             document.getElementById('blogs-grid').innerHTML = 
-                staticContent.blogs.map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.blogs.length);
+                staticContent.blogs.slice(0, 3).map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.blogs.length, 'blogs');
                 
             document.getElementById('travels-grid').innerHTML = 
-                staticContent.travels.map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.travels.length);
+                staticContent.travels.slice(0, 3).map(createArticleCard).join('') + 
+                createViewMoreButton('my-shelf', staticContent.travels.length, 'travels');
                 
             document.getElementById('poems-grid').innerHTML = 
-                staticContent.poems.map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.poems.length);
+                staticContent.poems.slice(0, 3).map(createArticleCard).join('') + 
+                createViewMoreButton('poems/', staticContent.poems.length, 'poems');
                 
             document.getElementById('academic-grid').innerHTML = 
-                staticContent.academic.map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.academic.length);
+                staticContent.academic.slice(0, 3).map(createArticleCard).join('') + 
+                createViewMoreButton('academia.html', staticContent.academic.length, 'academic');
         }
 
         document.addEventListener('DOMContentLoaded', () => {

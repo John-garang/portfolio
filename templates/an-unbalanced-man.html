@@ -67,6 +67,22 @@
             font-size: 0.9rem;
             color: #666;
         }
+        .author-attribution {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .author-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+        .author-title {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
         .article-navigation {
             display: flex;
             justify-content: space-between;
@@ -206,7 +222,10 @@
                 </div>
 
                 <div class="poem-footer">
-                    <p><em>© John Garang</em></p>
+                    <div class="author-attribution">
+                        <span class="author-name">John Ngor Deng Garang</span>
+                        <span class="author-title">Writer & Poet</span>
+                    </div>
                 </div>
             </div>
 
