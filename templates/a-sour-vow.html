@@ -6,7 +6,7 @@
     <title>A Sour Vow - John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { background: white !important; }
         .poem-navigation { 
@@ -54,31 +54,58 @@
             .nav-row { flex-direction: column; gap: 10px; }
             .back-link { order: 2; }
         }
+        .poem-hero {
+            background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .poem-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .article-page { max-width: 700px; margin: 0 auto; padding: 2rem 1rem; }
+        .poem-content { font-family: 'Crimson Text', serif; font-size: 1.2rem; line-height: 1.8; text-align: center; max-width: 600px; margin: 0 auto; }
+        .poem-stanza { margin-bottom: 2rem; }
+        .poem-stanza p { color: #444; margin: 0; }
+        .poem-stanza em { font-style: italic; color: #666; }
+        .poem-footer { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; }
+        .author-attribution { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+        .author-name { font-weight: 600; color: #333; font-size: 1rem; }
+        .author-title { font-size: 0.85rem; color: #666; font-weight: bold; }
+        .poem-notes { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; font-style: italic; }
+        .article-navigation { display: flex; justify-content: space-between; align-items: center; margin: 3rem 0; padding: 2rem 0; border-top: 1px solid #eee; }
+        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: #16b2dc; color: white; text-decoration: none; border-radius: 25px; transition: background 0.3s ease; }
+        .nav-btn:hover { background: #1496b8; }
+        .nav-btn.disabled { background: #ccc; cursor: not-allowed; }
+        .return-btn { background: #667eea; padding: 1rem 2rem; }
+        .return-btn:hover { background: #5a6fd8; }
     </style>
 </head>
-<body style="background: white; margin-top: 80px;">
+<body>
     <div id="header-placeholder"></div>
     <script src="static/load-header.js"></script>
 
     <!-- Hero Section -->
-    <section class="hero-section" style="background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%); padding: 60px 0; color: white; text-align: center;">
+    <section class="poem-hero">
         <div class="container">
-            <div class="hero-content">
-                <span class="category-badge" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 20px; display: inline-block;">Poetry</span>
-                <h1 style="font-family: 'Crimson Text', serif; font-size: 3rem; font-weight: 600; margin: 20px 0; line-height: 1.2;">A Sour Vow</h1>
-                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">An intimate exploration of marriage, disappointment, and the complex paths we take when love turns bitter.</p>
-            </div>
+            <h1>A Sour Vow</h1>
+            <p class="hero-subtitle">Poetry</p>
         </div>
     </section>
 
-    <article class="poem-page" style="padding: 60px 0;">
+    <article class="article-page">
         <div class="container">
-            <div class="poem-navigation" style="margin-bottom: 40px;">
-                <a href="poems/" class="back-link" style="color: #16b2dc; text-decoration: none; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Poems</a>
-            </div>
-
-            <div class="poem-content" style="font-family: 'Crimson Text', serif; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+            <div class="poem-content">
+                <div class="poem-stanza">
                     <p>… the door slammed so hard the silence flinched.<br>
                     She threw the 50,000 ssp at my face<br>
                     like a stone meant to chase a stray dog.<br>
@@ -87,7 +114,7 @@
                     before they could learn how to fly.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>She barked <em>aŋ'il moc</em><br>
                     with a tongue sharpened by her mother's bitterness.<br>
                     Quiet like my late father,<br>
@@ -96,7 +123,7 @@
                     tired of storms but too loyal to fall.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>This was the wife I swore death would separate from me.<br>
                     But death is a lazy visitor.<br>
                     It never comes early for those who need saving.<br>
@@ -105,7 +132,7 @@
                     Had branded me the mascot of poor men in these streets.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>In my absence, she fed rumors<br>
                     to every ear that loved salt.<br>
                     Like her mother, she stretched the word "dollaaaar"<br>
@@ -115,7 +142,7 @@
                     yet her brothers and father were no better.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>But like my father, and his father before him,<br>
                     I knew <em>wël ke diäär acie beer</em>—<br>
                     I swallowed this sorrow<br>
@@ -125,7 +152,7 @@
                     keeps a dying soul one more day.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>I climbed back onto my rickshaw.<br>
                     It coughed when I turned the key,<br>
                     as if grieving on my behalf—<br>
@@ -136,7 +163,7 @@
                     a song drunk enough to fall into my arms.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>As I put my rickshaw to sleep,<br>
                     a woman smiled at me—<br>
                     she always does.<br>
@@ -150,7 +177,7 @@
                     a prize the streets hid from men like me.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>She is fluent in comfort,<br>
                     a master of styles grief doesn't understand.<br>
                     It's 2 a.m. already.<br>
@@ -162,7 +189,7 @@
                     only a night, a woman, a sore throat, and a heavy quiet.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>My body gives in as Amuor coquettishly pushes me into the backroom.<br>
                     The drinks blur as we connect from end to end.<br>
                     Her body and night stories invite sleep.<br>
@@ -170,7 +197,7 @@
                     and rickshaws must rise early.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>Somewhere across the city,<br>
                     my lovely wife slept on our matrimonial bed—<br>
                     lonely.<br>
@@ -180,7 +207,7 @@
                     her heartbeat humming a lullaby my mama used to sing.</p>
                 </div>
 
-                <div class="poem-stanza" style="margin-bottom: 2rem;">
+                <div class="poem-stanza">
                     <p>Yes, alcohol kills.<br>
                     But women who only smile at money<br>
                     have buried more men<br>
@@ -191,13 +218,16 @@
                     I did not ask for.</p>
                 </div>
 
-                <div class="poem-notes" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; font-style: italic;">
+                <div class="poem-notes">
                     <p><em>*aŋ'il moc — A Dinka slur for a useless man who provides nothing.</em></p>
                     <p><em>* wël ke diäär acie beer — A Dinka phrase that suggests insult from women should not be responded to.</em></p>
                 </div>
 
-                <div class="author-attribution" style="text-align: center; margin-top: 2rem; color: #666; font-style: italic;">
-                    <p>John Ngor Deng Garang - Writer & Poet</p>
+                <div class="poem-footer">
+                    <div class="author-attribution">
+                        <span class="author-name">John Ngor Deng Garang</span>
+                        <span class="author-title">Writer & Poet</span>
+                    </div>
                 </div>
             </div>
 
