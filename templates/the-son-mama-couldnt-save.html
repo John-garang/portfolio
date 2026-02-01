@@ -6,22 +6,60 @@
     <title>The Son Mama Couldn't Save - John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: white;
+        }
+        .poem-hero {
+            background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .poem-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .article-page { max-width: 700px; margin: 0 auto; padding: 2rem 1rem; }
+        .poem-content { font-family: 'Crimson Text', serif; font-size: 1.2rem; line-height: 1.8; text-align: center; max-width: 600px; margin: 0 auto; }
+        .poem-stanza { margin-bottom: 2rem; }
+        .poem-stanza p { color: #444; margin: 0; }
+        .poem-stanza em { font-style: italic; color: #666; }
+        .poem-footer { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; }
+        .author-attribution { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+        .author-name { font-weight: 600; color: #333; font-size: 1rem; }
+        .author-title { font-size: 0.85rem; color: #666; font-weight: bold; }
+        .article-navigation { display: flex; justify-content: space-between; align-items: center; margin: 3rem 0; padding: 2rem 0; border-top: 1px solid #eee; }
+        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: #16b2dc; color: white; text-decoration: none; border-radius: 25px; transition: background 0.3s ease; }
+        .nav-btn:hover { background: #1496b8; }
+        .nav-btn.disabled { background: #ccc; cursor: not-allowed; }
+        .return-btn { background: #667eea; padding: 1rem 2rem; }
+        .return-btn:hover { background: #5a6fd8; }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
     <script src="static/load-header.js"></script>
 
+    <!-- Hero Section -->
+    <section class="poem-hero">
+        <div class="container">
+            <h1>The Son Mama Couldn't Save</h1>
+            <p class="hero-subtitle">Poetry</p>
+        </div>
+    </section>
+
     <article class="article-page">
         <div class="container">
-            <div class="article-header">
-                <div class="article-meta">
-                    <span class="article-category">Poetry</span>
-                    <span class="article-date">January 15, 2025</span>
-                </div>
-                <h1>The Son Mama Couldn't Save</h1>
-            </div>
-
             <div class="poem-content">
                 <div class="poem-stanza">
                     <p>My son,<br>
@@ -106,8 +144,10 @@
                 </div>
 
                 <div class="poem-footer">
-                    <p><em>*Manyar — a childhood name the mother called the author</em></p>
-                    <p><em>© John Garang</em></p>
+                    <div class="author-attribution">
+                        <span class="author-name">John Ngor Deng Garang</span>
+                        <span class="author-title">Writer & Poet</span>
+                    </div>
                 </div>
             </div>
         </div>
