@@ -7,6 +7,101 @@
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .article-category {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+        .article-date {
+            color: #666;
+        }
+        .article-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .article-image {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content p.lead {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 2.5rem 0 1rem 0;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: #444;
+            margin: 2rem 0 1rem 0;
+        }
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+        }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: #5a6fd8;
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .return-btn {
+            background: #764ba2;
+            padding: 1rem 2rem;
+        }
+        .return-btn:hover {
+            background: #6a4190;
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -66,6 +161,18 @@
                 <p>South Sudan needs to focus on conserving the environment. Natural calamities like floods and droughts have played a key role in holding the state's development agendas. South Sudan should manage its natural resources and protect its rich biodiversity. Implementing conservation policies and promoting renewable energy and eco-friendly practices will achieve this goal.</p>
 
                 <p>South Sudan still has a long way to go, but combining the above practices under exemplary leadership and regional cooperation with the East African Community and the African Union and trading blocks can open the way to Vision 2063.</p>
+            </div>
+
+            <div class="article-navigation">
+                <a href="#" class="nav-btn disabled">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </a>
+                <a href="academia.html" class="nav-btn return-btn">
+                    <i class="fas fa-list"></i> Back to Academia
+                </a>
+                <a href="addressing-entrepreneurial-gaps-south-sudan.html" class="nav-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </a>
             </div>
         </div>
     </article>

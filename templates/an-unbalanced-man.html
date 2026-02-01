@@ -6,7 +6,101 @@
     <title>An Unbalanced Man - John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .article-category {
+            background: #764ba2;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+        .article-date {
+            color: #666;
+        }
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .poem-content {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .poem-stanza {
+            margin-bottom: 2rem;
+        }
+        .poem-stanza p {
+            color: #444;
+            margin: 0;
+        }
+        .poem-stanza em {
+            font-style: italic;
+            color: #666;
+        }
+        .poem-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+        }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #764ba2;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: #6a4190;
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .return-btn {
+            background: #667eea;
+            padding: 1rem 2rem;
+        }
+        .return-btn:hover {
+            background: #5a6fd8;
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -114,6 +208,18 @@
                 <div class="poem-footer">
                     <p><em>© John Garang</em></p>
                 </div>
+            </div>
+
+            <div class="article-navigation">
+                <a href="#" class="nav-btn disabled">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </a>
+                <a href="poems/" class="nav-btn return-btn">
+                    <i class="fas fa-list"></i> Back to Poems
+                </a>
+                <a href="learning-to-write-without-permission.html" class="nav-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </a>
             </div>
         </div>
     </article>

@@ -9,55 +9,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .poems-hero {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .poems-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1600');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-            filter: blur(2px);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
         }
         .poems-hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
             max-width: 800px;
-            padding: 2rem;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         .poems-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .poems-hero-subtitle {
-            font-size: 1.5rem;
-            font-style: italic;
-            opacity: 0.95;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
         }
         .poems-hero-description {
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.8;
         }
         .feather-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             animation: float 3s ease-in-out infinite;
         }
@@ -65,9 +43,51 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        @media (max-width: 768px) {
-            .poems-hero h1 { font-size: 2.5rem; }
-            .poems-hero-subtitle { font-size: 1.2rem; }
+        .article-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .article-content {
+            padding: 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .article-category {
+            background: #764ba2;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .read-time {
+            color: #666;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        .article-content p {
+            color: #666;
+            line-height: 1.6;
         }
     </style>
 </head>
