@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <title>The Price of Truth - John Garang</title>
-    <link rel="stylesheet" href="static/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="static/Pictures/Logo.png">
+    <link rel="apple-touch-icon" href="static/Pictures/Logo.png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="static/styles.css?v=1.0.6">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { background: white !important; }
         .poem-navigation { 
@@ -81,17 +86,11 @@
         .author-attribution { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
         .author-name { font-weight: 600; color: #333; font-size: 1rem; }
         .author-title { font-size: 0.85rem; color: #666; font-weight: bold; }
-        .article-navigation { display: flex; justify-content: space-between; align-items: center; margin: 3rem 0; padding: 2rem 0; border-top: 1px solid #eee; }
-        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: #16b2dc; color: white; text-decoration: none; border-radius: 25px; transition: background 0.3s ease; }
-        .nav-btn:hover { background: #1496b8; }
-        .nav-btn.disabled { background: #ccc; cursor: not-allowed; }
-        .return-btn { background: #667eea; padding: 1rem 2rem; }
-        .return-btn:hover { background: #5a6fd8; }
     </style>
 </head>
 <body>
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="static/load-header.js"></script>
 
     <!-- Hero Section -->
     <section class="poem-hero">
@@ -164,7 +163,9 @@
         </div>
     </article>
 
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js"></script>
+    <script src="static/load-header.js?v=1.0.3"></script>
+    <script src="static/load-footer.js" defer></script>
 </body>
 </html>
