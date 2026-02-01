@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="logo-name">John Ngor Deng Garang</span>
                     </div>
                     <ul class="nav-menu">
-                        <li><a href="/" class="nav-link">Home</a></li>
-                        <li><a href="/about" class="nav-link">About</a></li>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about/index.html" class="nav-link">About</a></li>
                         <li class="dropdown">
-                            <a href="/work-portfolio" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
+                            <a href="work-portfolio/index.html" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="my-shelf.html">My Shelf</a>
                                 <a href="artefacts.html">Artefacts</a>
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="/experience-overview" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
+                            <a href="experience-overview/index.html" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="african-leadership-university.html">African Leadership University</a>
                                 <a href="education-bridge.html">Education Bridge</a>
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="/programs-overview" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                            <a href="programs-overview/index.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
                                 <a href="cnn-academy.html">CNN Academy Fellow</a>
                                 <a href="take-action-lab.html">Take Action Lab</a>
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="yali-east-africa.html">YALI East Africa</a>
                             </div>
                         </li>
-                        <li><a href="/services" class="nav-link">Services</a></li>
-                        <li><a href="/contact" class="nav-link">Contact</a></li>
-                        <li><a href="/poems" class="nav-link">Poems</a></li>
+                        <li><a href="services/index.html" class="nav-link">Services</a></li>
+                        <li><a href="contact/index.html" class="nav-link">Contact</a></li>
+                        <li><a href="poems/index.html" class="nav-link">Poems</a></li>
                     </ul>
                     <div class="nav-right">
                         <button class="search-btn" id="searchBtn">
