@@ -8,134 +8,51 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: white;
+        body { background: white !important; }
+        .poem-navigation { 
+            margin-top: 60px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            padding-top: 40px; 
+            border-top: 1px solid #eee; 
         }
-        .poem-hero {
-            background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-            margin-top: 80px;
+        .nav-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
         }
-        .poem-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-style: italic;
+        .back-link { 
+            background: #16b2dc; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-weight: 500; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: background 0.3s; 
         }
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .back-link:hover { background: #1496b8; }
+        .nav-link { 
+            color: #16b2dc; 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 8px 16px; 
+            border: 2px solid #16b2dc; 
+            border-radius: 20px; 
+            transition: all 0.3s; 
         }
-        .article-page {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+        .nav-link:hover { background: #16b2dc; color: white; }
+        .nav-link.disabled { 
+            color: #ccc; 
+            border-color: #ccc; 
+            cursor: not-allowed; 
         }
-        .article-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .article-meta {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .article-category {
-            background: #16b2dc;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-        }
-        .article-date {
-            color: #666;
-        }
-        .article-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #333;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-        .poem-content {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .poem-stanza {
-            margin-bottom: 2rem;
-        }
-        .poem-stanza p {
-            color: #444;
-            margin: 0;
-        }
-        .poem-stanza em {
-            font-style: italic;
-            color: #666;
-        }
-        .poem-footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .author-attribution {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .author-name {
-            font-weight: 600;
-            color: #333;
-            font-size: 1rem;
-        }
-        .author-title {
-            font-size: 0.85rem;
-            color: #666;
-            font-style: italic;
-        }
-        .article-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid #eee;
-        }
-        .nav-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: #16b2dc;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s ease;
-        }
-        .nav-btn:hover {
-            background: #1496b8;
-        }
-        .nav-btn.disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .return-btn {
-            background: #667eea;
-            padding: 1rem 2rem;
-        }
-        .return-btn:hover {
-            background: #5a6fd8;
+        @media (max-width: 768px) {
+            .nav-row { flex-direction: column; gap: 10px; }
+            .back-link { order: 2; }
         }
     </style>
 </head>
@@ -144,17 +61,19 @@
     <script src="static/load-header.js"></script>
 
     <!-- Hero Section -->
-    <section class="poem-hero">
+    <section class="hero-section" style="background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%); padding: 60px 0; color: white; text-align: center; margin-top: 80px;">
         <div class="container">
-            <h1>An Unbalanced Man</h1>
-            <p class="hero-subtitle">Poetry</p>
+            <div class="hero-content">
+                <span class="category-badge" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 20px; display: inline-block;">Poetry</span>
+                <h1 style="font-family: 'Crimson Text', serif; font-size: 3rem; font-weight: 600; margin: 20px 0; line-height: 1.2;">An Unbalanced Man</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">A raw and honest exploration of inner turmoil, self-doubt, and the search for balance in an unbalanced world.</p>
+            </div>
         </div>
     </section>
-
-    <article class="article-page">
+    <article class="poem-page" style="padding: 60px 0;">
         <div class="container">
-            <div class="poem-content">
-                <div class="poem-stanza">
+            <div class="poem-content" style="font-family: 'Crimson Text', serif; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>Today I woke up on the wrong side of the bed.<br>
                     That's not to say there's nothing right about me.<br>
                     But the room says otherwise—<br>
@@ -163,7 +82,7 @@
                     and nobody won.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>My life is a knot of small lies<br>
                     and the ghosts of promises I withdrew<br>
                     before they matured.<br>
@@ -173,7 +92,7 @@
                     that no visitor ever opens.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>My spirit went into a casket long ago,<br>
                     and my feelings—<br>
                     they've been sitting on the kitchen counter<br>
@@ -185,7 +104,7 @@
                     And those poor barmaids have families to feed.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I, on the other hand,<br>
                     have thoughts to forget.<br>
                     I am not that poor.<br>
@@ -197,7 +116,7 @@
                     when I am too loud for myself.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>Thieves pass my door with doubt—<br>
                     they know there's nothing worth stealing.<br>
                     So security is not a chapter in my worries.<br>
@@ -208,7 +127,7 @@
                     Don't be foolish enough to think it's for work.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I have a hangover to silence<br>
                     before it stages a protest in my head.<br>
                     I don't like keeping words long<br>
@@ -221,7 +140,7 @@
                     My feet remember better than my pride.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I see flies whispering on the pavement.<br>
                     No doubt that's where I donated<br>
                     a portion of last night's barbeque.<br>
@@ -231,7 +150,7 @@
                     So here I go.</p>
                 </div>
 
-                <div class="poem-stanza">
+                <div class="poem-stanza" style="margin-bottom: 2rem;">
                     <p>I place an order—<br>
                     not ambitious, but honest.<br>
                     I pay the price<br>
@@ -242,24 +161,17 @@
                     An unbalanced man.</p>
                 </div>
 
-                <div class="poem-footer">
-                    <div class="author-attribution">
-                        <span class="author-name">John Ngor Deng Garang</span>
-                        <span class="author-title">Writer & Poet</span>
-                    </div>
+                <div class="author-attribution" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; color: #666; font-style: italic;">
+                    <p>John Ngor Deng Garang - Writer & Poet</p>
                 </div>
             </div>
 
-            <div class="article-navigation">
-                <a href="#" class="nav-btn disabled">
-                    <i class="fas fa-chevron-left"></i> Previous
-                </a>
-                <a href="poems/" class="nav-btn return-btn">
-                    <i class="fas fa-list"></i> Back to Poems
-                </a>
-                <a href="learning-to-write-without-permission.html" class="nav-btn">
-                    Next <i class="fas fa-chevron-right"></i>
-                </a>
+            <div class="poem-navigation">
+                <div class="nav-row">
+                    <span class="nav-link disabled"><i class="fas fa-chevron-left"></i> Previous</span>
+                    <a href="learning-to-write-without-permission.html" class="nav-link">Next <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <a href="poems/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Poems</a>
             </div>
         </div>
     </article>

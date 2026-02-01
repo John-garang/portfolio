@@ -8,8 +8,51 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: white;
+        body { background: white !important; }
+        .poem-navigation { 
+            margin-top: 60px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            padding-top: 40px; 
+            border-top: 1px solid #eee; 
+        }
+        .nav-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .back-link { 
+            background: #16b2dc; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-weight: 500; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: background 0.3s; 
+        }
+        .back-link:hover { background: #1496b8; }
+        .nav-link { 
+            color: #16b2dc; 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 8px 16px; 
+            border: 2px solid #16b2dc; 
+            border-radius: 20px; 
+            transition: all 0.3s; 
+        }
+        .nav-link:hover { background: #16b2dc; color: white; }
+        .nav-link.disabled { 
+            color: #ccc; 
+            border-color: #ccc; 
+            cursor: not-allowed; 
+        }
+        @media (max-width: 768px) {
+            .nav-row { flex-direction: column; gap: 10px; }
+            .back-link { order: 2; }
         }
         .poem-hero {
             background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
@@ -150,8 +193,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </article>
+            <div class="poem-navigation">
+                <div class="nav-row">
+                    <a href="the-price-of-truth.html" class="nav-link"><i class="fas fa-chevron-left"></i> Previous</a>
+                    <a href="the-words-i-never-said.html" class="nav-link">Next <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <a href="poems/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Poems</a>
+            </div>
 
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
