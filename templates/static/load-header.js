@@ -75,13 +75,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         headerPlaceholder.innerHTML = header;
         
-        // Get navbar and make it white by default for poems
+        // Get navbar and set background based on page
         const navbar = document.querySelector('.navbar');
+        const isPoems = window.location.pathname.includes('/poems/') || window.location.pathname.endsWith('poems');
         
-        // Force white background for poem pages
         if (navbar) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.classList.add('scrolled');
+            if (isPoems) {
+                // Poems index page keeps transparent-to-white behavior
+                navbar.style.background = 'transparent';
+                navbar.classList.remove('scrolled');
+            } else {
+                // All other pages white by default
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.classList.add('scrolled');
+            }
         }
         
         // Set active page
@@ -94,11 +101,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Scroll effects - keep white background
+        // Scroll effects
         function updateNavbarState() {
             if (!navbar) return;
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.classList.add('scrolled');
+            if (isPoems) {
+                // Poems index page has scroll behavior
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.style.background = 'transparent';
+                    navbar.classList.remove('scrolled');
+                }
+            } else {
+                // Other pages stay white
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.classList.add('scrolled');
+            }
         }
         
         // Set initial state after header loads
