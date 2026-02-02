@@ -75,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         headerPlaceholder.innerHTML = header;
         
+        // Force navbar to start transparent
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.remove('scrolled');
+        
         // Set active page
         const currentPage = window.location.pathname === '/' ? 'index.html' : window.location.pathname.split('/').pop() + '.html';
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -86,8 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Scroll effects with proper initialization
-        const navbar = document.querySelector('.navbar');
-        
         function updateNavbarState() {
             if (!navbar) return;
             if (window.scrollY > 50) {
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Set initial state after header loads
-        updateNavbarState();
+        setTimeout(() => updateNavbarState(), 0);
         
         // Update on scroll
         window.addEventListener('scroll', updateNavbarState);
