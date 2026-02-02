@@ -75,9 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         headerPlaceholder.innerHTML = header;
         
-        // Force navbar to start transparent
+        // Get navbar and ensure it starts transparent
         const navbar = document.querySelector('.navbar');
-        navbar.classList.remove('scrolled');
+        
+        // Force transparent state immediately
+        if (navbar) {
+            navbar.style.background = 'transparent';
+            navbar.classList.remove('scrolled');
+        }
         
         // Set active page
         const currentPage = window.location.pathname === '/' ? 'index.html' : window.location.pathname.split('/').pop() + '.html';
@@ -93,8 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateNavbarState() {
             if (!navbar) return;
             if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.classList.add('scrolled');
             } else {
+                navbar.style.background = 'transparent';
                 navbar.classList.remove('scrolled');
             }
         }
