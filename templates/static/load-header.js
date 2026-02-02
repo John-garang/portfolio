@@ -85,15 +85,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Scroll effects
+        // Scroll effects with proper initialization
         const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', function() {
+        
+        function updateNavbarState() {
+            if (!navbar) return;
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
+        }
+        
+        // Set initial state after header loads
+        updateNavbarState();
+        
+        // Update on scroll
+        window.addEventListener('scroll', updateNavbarState);
         
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
