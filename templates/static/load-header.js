@@ -77,18 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Get navbar and set background based on page
         const navbar = document.querySelector('.navbar');
-        const isPoems = window.location.pathname.includes('/poems/') || window.location.pathname.endsWith('poems');
         
         if (navbar) {
-            if (isPoems) {
-                // Poems index page keeps transparent-to-white behavior
-                navbar.style.background = 'transparent';
-                navbar.classList.remove('scrolled');
-            } else {
-                // All other pages white by default
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.classList.add('scrolled');
-            }
+            // All pages start transparent
+            navbar.style.background = 'transparent';
+            navbar.classList.remove('scrolled');
         }
         
         // Set active page
@@ -104,19 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Scroll effects
         function updateNavbarState() {
             if (!navbar) return;
-            if (isPoems) {
-                // Poems index page has scroll behavior
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.style.background = 'transparent';
-                    navbar.classList.remove('scrolled');
-                }
-            } else {
-                // Other pages stay white
+            // All pages have scroll behavior
+            if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.classList.add('scrolled');
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.classList.remove('scrolled');
             }
         }
         
