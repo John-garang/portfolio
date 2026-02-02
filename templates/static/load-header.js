@@ -108,7 +108,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Set initial state after header loads
-        setTimeout(() => updateNavbarState(), 0);
+        setTimeout(() => {
+            updateNavbarState();
+            // Force transparent initially regardless of scroll position
+            if (navbar && window.scrollY <= 80) {
+                navbar.style.background = 'transparent';
+                navbar.classList.remove('scrolled');
+            }
+        }, 0);
         
         // Update on scroll
         window.addEventListener('scroll', updateNavbarState);
