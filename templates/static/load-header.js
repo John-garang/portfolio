@@ -75,13 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         headerPlaceholder.innerHTML = header;
         
-        // Get navbar and ensure it starts transparent
+        // Get navbar and make it white by default for poems
         const navbar = document.querySelector('.navbar');
         
-        // Force transparent state immediately
+        // Force white background for poem pages
         if (navbar) {
-            navbar.style.background = 'transparent';
-            navbar.classList.remove('scrolled');
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.classList.add('scrolled');
         }
         
         // Set active page
@@ -94,16 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Scroll effects with proper initialization
+        // Scroll effects - keep white background
         function updateNavbarState() {
             if (!navbar) return;
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.style.background = 'transparent';
-                navbar.classList.remove('scrolled');
-            }
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.classList.add('scrolled');
         }
         
         // Set initial state after header loads
