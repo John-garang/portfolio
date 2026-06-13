@@ -14,3 +14,9 @@
 
 /*.jpg
   Content-Type: image/jpeg
+
+/*.xml
+  Content-Type: application/xml
+
+/*.txt
+  Content-Type: text/plain
