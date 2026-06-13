@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin-login
 Disallow: /admin-dashboard
 
-Sitemap: https://johngaran.up.railway.app/sitemap.xml
+Sitemap: https://johngarang.com/sitemap.xml
