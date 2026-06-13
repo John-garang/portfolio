@@ -1,0 +1,20 @@
+
+/* Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+    .portfolio-tabs { gap: 0.5rem; padding: 0 10px; }
+    .tab-btn { padding: 0.6rem 1rem; font-size: 0.8rem; }
+    .article-content h3 { font-size: 1.1rem; line-height: 1.4; }
+    .article-category { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .view-more-container { text-align: center; margin-top: 1.5rem; }
+    .journey-text h3 { font-size: 1.1rem; }
+    .journey-text p { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+    .portfolio-tabs { gap: 0.4rem; }
+    .tab-btn { padding: 0.5rem 0.85rem; font-size: 0.75rem; }
+    .article-content h3 { font-size: 1rem; }
+    .journey-text { padding: 1rem; }
+    .journey-text h3 { font-size: 1rem; }
+}

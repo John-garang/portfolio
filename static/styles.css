@@ -82,6 +82,7 @@ li {
     .welcome-content,
     .journey-text {
         padding: 1.5rem;
+        margin: 1rem 0 0;
     }
     
     .welcome-content p,
@@ -95,8 +96,8 @@ li {
     }
     
     .journey-text {
-        margin-left: 20px !important;
-        margin-right: 20px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
 
@@ -107,7 +108,8 @@ li {
     
     .welcome-content,
     .journey-text {
-        padding: 0;
+        padding: 1rem;
+        margin: 1rem 0 0;
     }
 }
 
@@ -907,10 +909,12 @@ li {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 15px;
-    margin: 1rem 20px 0;
+    margin: 1rem 0 0;
     border-left: 4px solid #16b2dc;
     position: relative;
     z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Skills Section */
@@ -1686,12 +1690,13 @@ li {
 .portfolio-tabs {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 3rem;
 }
 
 .tab-btn {
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     background: #f8f9fa;
     color: #666;
@@ -1699,6 +1704,8 @@ li {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .tab-btn.active,
@@ -3210,7 +3217,8 @@ li {
 .article-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-bottom: 1rem;
     font-size: 0.85rem;
     color: #666;
@@ -5168,8 +5176,8 @@ li {
     
     .welcome-content,
     .journey-text {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
         margin-left: 0;
         margin-right: 0;
     }
