@@ -15,6 +15,7 @@
             display: flex;
             align-items: center;
             position: relative;
+            padding-top: 80px;
         }
         .spp-hero::before {
             content: '';
@@ -39,6 +40,50 @@
             grid-template-columns: 1fr 300px;
             gap: 4rem;
             align-items: center;
+        }
+        @media (max-width: 768px) {
+            .spp-hero {
+                padding-top: 100px;
+                padding-bottom: 3rem;
+                align-items: flex-start;
+            }
+            .spp-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1.25rem;
+            }
+            .spp-title {
+                font-size: 2.2rem !important;
+            }
+            .spp-sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            .sidebar-item {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+                text-align: center;
+            }
+            .sidebar-number {
+                font-size: 1.6rem !important;
+            }
+            .spp-card {
+                padding: 1.5rem;
+            }
+            .spp-section {
+                padding: 50px 0;
+            }
+        }
+        @media (max-width: 480px) {
+            .spp-sidebar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .spp-title {
+                font-size: 1.8rem !important;
+            }
         }
         .spp-title {
             font-size: 3.5rem;
