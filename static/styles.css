@@ -695,7 +695,7 @@ li {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('Pictures/Home Background Picture.JPG');
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('Pictures/john-ngor-deng-garang-homepage-background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1172,7 +1172,7 @@ li {
 /* About Section */
 .about {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Pictures/About Background Image.JPG');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Pictures/john-ngor-deng-garang-about-background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -2051,7 +2051,7 @@ li {
 /* ALU Page Styles */
 .alu-hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Pictures/ALU Background Image.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Pictures/john-ngor-deng-garang-alu-background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -2096,7 +2096,7 @@ li {
 
 .unleash-hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Pictures/UNLEASH Lab Heroe Photo.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Pictures/john-ngor-deng-garang-unleash-hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -2110,7 +2110,7 @@ li {
 
 .cnn-hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Pictures/CNN ACademy Heroe image.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Pictures/john-ngor-deng-garang-cnn-academy-hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
