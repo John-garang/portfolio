@@ -65,13 +65,14 @@
     <div class="search-modal">
         <div class="search-header">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" placeholder="Search pages...">
-            <button class="search-close" id="searchClose">&times;</button>
+            <input type="text" id="searchInput" placeholder="Search pages..." autocomplete="off">
+            <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
         </div>
         <div class="search-results" id="searchResults"></div>
     </div>
 </div>
 
+<script src="static/search.js" defer></script>
 <script>
 // Load header script to activate navigation
 document.addEventListener('DOMContentLoaded', function() {
