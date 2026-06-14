@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs & Fellowships | John Ngor Deng Garang</title>
+    <meta name="description" content="Explore John Ngor Deng Garang's participation in prestigious global programs including CNN Academy, UNLEASH Innovation Lab, Take Action Lab, Accra Fusion, and YALI East Africa.">
+    <link rel="icon" type="image/png" href="static/Pictures/john-ngor-deng-garang-logo.png">
+    <link rel="stylesheet" href="static/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Programs Navigation Sidebar */
+        .programs-nav {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .programs-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #666;
+        }
+        
+        .programs-nav-item:hover {
+            background: #f8f9fa;
+            color: #16b2dc;
+            transform: translateX(5px);
+        }
+        
+        .programs-nav-item.active {
+            background: linear-gradient(135deg, #16b2dc, #1a9ec7);
+            color: white;
+            box-shadow: 0 4px 15px rgba(22, 178, 220, 0.3);
+        }
+        
+        .programs-nav-item i {
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .programs-nav-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 1024px) {
+            .programs-nav {
+                display: none;
+            }
+        }
+        
+        /* Program Section Styles */
+        .program-section {
+            padding: 80px 0;
+            min-height: 100vh;
+            scroll-margin-top: 80px;
+        }
+        
+        .program-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .program-hero-compact {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .program-hero-compact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .program-hero-compact .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-hero-compact .duration {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .program-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+            align-items: start;
+        }
+        
+        .program-image-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .program-image-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .program-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .module-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 3px solid #16b2dc;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(22, 178, 220, 0.15);
+        }
+        
+        .module-card i {
+            font-size: 2rem;
+            color: #16b2dc;
+            margin-bottom: 1rem;
+        }
+        
+        .module-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .module-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .program-quote {
+            background: white;
+            padding: 2rem;
+            border-left: 4px solid #16b2dc;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .program-content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .program-image-card {
+                position: relative;
+                top: 0;
+            }
+            
+            .program-hero-compact h2 {
+                font-size: 2rem;
+            }
+            
+            .program-modules {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #16b2dc, #1a9ec7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(22, 178, 220, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(22, 178, 220, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <script src="static/load-header.js"></script>
+
+    <!-- Page Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <h1>Programs & Fellowships</h1>
+            <p>A journey through global innovation, leadership development, and impactful learning experiences</p>
+        </div>
+    </section>
+
+    <!-- Side Navigation -->
+    <nav class="programs-nav">
+        <a href="#cnn-academy" class="programs-nav-item active" data-program="cnn-academy">
+            <i class="fas fa-video"></i>
+            <span class="programs-nav-label">CNN Academy</span>
+        </a>
+        <a href="#unleash" class="programs-nav-item" data-program="unleash">
+            <i class="fas fa-lightbulb"></i>
+            <span class="programs-nav-label">UNLEASH Lab</span>
+        </a>
+        <a href="#take-action-lab" class="programs-nav-item" data-program="take-action-lab">
+            <i class="fas fa-hands-helping"></i>
+            <span class="programs-nav-label">Take Action Lab</span>
+        </a>
+        <a href="#accra-fusion" class="programs-nav-item" data-program="accra-fusion">
+            <i class="fas fa-globe-africa"></i>
+            <span class="programs-nav-label">Accra Fusion</span>
+        </a>
+        <a href="#yali" class="programs-nav-item" data-program="yali">
+            <i class="fas fa-users"></i>
+            <span class="programs-nav-label">YALI</span>
+        </a>
+    </nav>
+
+    <!-- CNN Academy Section -->
+    <section id="cnn-academy" class="program-section">
+        <div class="container">
+            <div class="program-hero-compact">
+                <h2><i class="fas fa-video"></i> CNN Academy Fellow</h2>
+                <p class="tagline">Voices of the Global South</p>
+                <p class="duration">July 2025 - November 2025</p>
+            </div>
+
+            <h3>About CNN Academy</h3>
+            <p>CNN Academy equips the next generation of journalists with real-world skills through immersive, newsroom-style learning. Drawing on CNN's legacy, it brings newsroom expertise into classrooms—from Dublin to Kuala Lumpur—connecting students with top CNN correspondents and transforming storytelling into action.</p>
+
+            <div class="program-content-grid">
+                <div>
+                    <h3>Fellowship Experience</h3>
+                    <p>As a CNN Academy Global South Fellow, I spent months immersed in an intensive program designed to sharpen both my technical and editorial skills. The fellowship was a unique blend of online courses, expert-led masterclasses, and peer-to-peer collaboration, all focused on harnessing storytelling to address climate change from a Global South perspective.</p>
+                    
+                    <div class="program-quote">
+                        "The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."
+                    </div>
+                </div>
+                <div class="program-image-card">
+                    <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow">
+                </div>
+            </div>
+
+            <h3>Learning Modules & Skills</h3>
+            <div class="program-modules">
+                <div class="module-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Ethics in Journalism</h4>
+                    <p>Fundamental principles of ethical reporting</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-book-open"></i>
+                    <h4>The Art of Storytelling</h4>
+                    <p>Crafting compelling narratives</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Breaking News</h4>
+                    <p>Real-time reporting techniques</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Field Reporting</h4>
+                    <p>On-location journalism skills</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Digital Storytelling</h4>
+                    <p>Multimedia content creation</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h4>Social Media</h4>
+                    <p>Social storytelling techniques</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-search"></i>
+                    <h4>Open Source Reporting</h4>
+                    <p>OSINT for journalism</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI & Journalism</h4>
+                    <p>Integrating AI tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNLEASH Section -->
+    <section id="unleash" class="program-section">
+        <div class="container">
+            <div class="program-hero-compact">
+                <h2><i class="fas fa-lightbulb"></i> UNLEASH Global Innovation Lab</h2>
+                <p class="tagline">Global Talent | Climate and Land Track</p>
+                <p class="duration">December 2-9, 2023 | Kigali, Rwanda</p>
+            </div>
+
+            <h3>About UNLEASH</h3>
+            <p>UNLEASH is a nonprofit powerhouse on a mission to accelerate progress toward the UN Sustainable Development Goals (SDGs) by mobilizing young changemakers from around the world. They gather top talents (ages 18–35) for immersive Innovation Labs where diverse youth co-create scalable, real-world solutions.</p>
+
+            <div class="program-content-grid">
+                <div>
+                    <h3>Kigali Lab Experience</h3>
+                    <p>I joined as one of 1,000 young talents selected from around the world, placed in the Climate and Land track. I collaborated with a team from Colombia, The Gambia, USA, Pakistan, and Iceland to develop PappyBags—a sustainable solution replacing single-use plastic bags in South Sudan using locally abundant papyrus reeds.</p>
+                    
+                    <div class="program-quote">
+                        "We progressed to the first knockout stage, and the experience deepened my commitment to applying creativity and local resources toward climate resilience."
+                    </div>
+                </div>
+                <div class="program-image-card">
+                    <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab">
+                </div>
+            </div>
+
+            <h3>Project & Learning Outcomes</h3>
+            <div class="program-modules">
+                <div class="module-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustainable Materials</h4>
+                    <p>Using local papyrus reeds</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Environmental Impact</h4>
+                    <p>Replacing single-use plastics</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-coins"></i>
+                    <h4>Economic Empowerment</h4>
+                    <p>Creating income opportunities</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Cross-Cultural Team</h4>
+                    <p>6 countries collaboration</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Systems Thinking</h4>
+                    <p>Holistic problem-solving</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-presentation"></i>
+                    <h4>Impact Pitching</h4>
+                    <p>Communicating solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Take Action Lab Section -->
+    <section id="take-action-lab" class="program-section">
+        <div class="container">
+            <div class="program-hero-compact">
+                <h2><i class="fas fa-hands-helping"></i> Take Action Lab</h2>
+                <p class="tagline">Tilting Futures Fellowship</p>
+                <p class="duration">September - December 2024</p>
+            </div>
+
+            <h3>About Take Action Lab</h3>
+            <p>Take Action Lab – Tilting Futures is an immersive program designed to empower young African leaders with the tools, frameworks, and networks needed to drive systemic change. The program focuses on leadership development, social innovation, and creating sustainable impact across African communities.</p>
+
+            <div class="program-content-grid">
+                <div>
+                    <h3>Fellowship Journey</h3>
+                    <p>Through Take Action Lab, I engaged in intensive workshops on systems thinking, community organizing, and social entrepreneurship. The program equipped me with practical skills to design and implement solutions addressing critical challenges in my community and beyond.</p>
+                    
+                    <div class="program-quote">
+                        "Take Action Lab taught me that real change starts with understanding the systems that shape our communities and having the courage to challenge them."
+                    </div>
+                </div>
+                <div class="program-image-card">
+                    <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
+                </div>
+            </div>
+
+            <h3>Key Learning Areas</h3>
+            <div class="program-modules">
+                <div class="module-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>Systems Thinking</h4>
+                    <p>Understanding complex systems</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Community Organizing</h4>
+                    <p>Mobilizing for change</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Social Entrepreneurship</h4>
+                    <p>Building sustainable ventures</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Leadership Development</h4>
+                    <p>Transformational leadership</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Collaborative Action</h4>
+                    <p>Building partnerships</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Impact Design</h4>
+                    <p>Creating measurable change</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accra Fusion Section -->
+    <section id="accra-fusion" class="program-section">
+        <div class="container">
+            <div class="program-hero-compact">
+                <h2><i class="fas fa-globe-africa"></i> Accra Fusion</h2>
+                <p class="tagline">Cultural Exchange & Innovation</p>
+                <p class="duration">2024</p>
+            </div>
+
+            <h3>About Accra Fusion</h3>
+            <p>Accra Fusion is a dynamic cultural exchange and networking program bringing together young African leaders, entrepreneurs, and innovators from across the continent. The program fosters cross-cultural understanding, collaboration, and the exchange of ideas to drive innovation and development across Africa.</p>
+
+            <div class="program-content-grid">
+                <div>
+                    <h3>Program Experience</h3>
+                    <p>Participating in Accra Fusion provided me with invaluable opportunities to connect with fellow African changemakers, explore innovative approaches to continental challenges, and build lasting partnerships that transcend borders.</p>
+                    
+                    <div class="program-quote">
+                        "Accra Fusion reminded me that Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."
+                    </div>
+                </div>
+                <div class="program-image-card">
+                    <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
+                </div>
+            </div>
+
+            <h3>Program Highlights</h3>
+            <div class="program-modules">
+                <div class="module-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>Pan-African Networking</h4>
+                    <p>Connecting continental leaders</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-palette"></i>
+                    <h4>Cultural Exchange</h4>
+                    <p>Celebrating African diversity</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Innovation Showcase</h4>
+                    <p>Sharing breakthrough ideas</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Partnership Building</h4>
+                    <p>Creating collaborations</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-map"></i>
+                    <h4>Regional Insights</h4>
+                    <p>Understanding African markets</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-comments"></i>
+                    <h4>Dialogue Forums</h4>
+                    <p>Addressing key challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YALI Section -->
+    <section id="yali" class="program-section">
+        <div class="container">
+            <div class="program-hero-compact">
+                <h2><i class="fas fa-users"></i> YALI East Africa</h2>
+                <p class="tagline">Young African Leaders Initiative</p>
+                <p class="duration">2024</p>
+            </div>
+
+            <h3>About YALI</h3>
+            <p>The Young African Leaders Initiative (YALI) East Africa is a signature program empowering young African leaders through leadership training, mentorship, and networking opportunities. YALI focuses on three key tracks: Business & Entrepreneurship, Public Management, and Civic Leadership.</p>
+
+            <div class="program-content-grid">
+                <div>
+                    <h3>Leadership Journey</h3>
+                    <p>Through YALI East Africa, I engaged with emerging leaders from across the East African region, participating in intensive training sessions, workshops, and collaborative projects designed to strengthen leadership capacity and drive positive change in our communities.</p>
+                    
+                    <div class="program-quote">
+                        "YALI showed me that leadership is not about titles or positions—it's about taking responsibility for the future you want to see."
+                    </div>
+                </div>
+                <div class="program-image-card">
+                    <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa">
+                </div>
+            </div>
+
+            <h3>Core Program Elements</h3>
+            <div class="program-modules">
+                <div class="module-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Leadership Training</h4>
+                    <p>Developing leadership skills</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Mentorship</h4>
+                    <p>Learning from established leaders</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Entrepreneurship</h4>
+                    <p>Business development skills</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-landmark"></i>
+                    <h4>Public Management</h4>
+                    <p>Governance and policy</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Civic Leadership</h4>
+                    <p>Community engagement</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>Regional Network</h4>
+                    <p>East Africa connections</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="static/load-footer.js"></script>
+
+    <script>
+        // Side navigation scroll spy
+        const programSections = document.querySelectorAll('.program-section');
+        const navItems = document.querySelectorAll('.programs-nav-item');
+        
+        function updateActiveNav() {
+            let currentSection = '';
+            
+            programSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-program') === currentSection || 
+                    item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Smooth scroll for navigation
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

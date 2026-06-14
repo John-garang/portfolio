@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const crypto = require('crypto');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const Database = require('./database');
 
@@ -86,6 +87,29 @@ let adminProfile = {
     phone: '+256 768 741 070'
 };
 
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (!token) {
+        return res.status(401).json({ error: 'Access denied. No token provided.' });
+    }
+    
+    if (!token.startsWith('admin-token-')) {
+        return res.status(403).json({ error: 'Invalid token' });
+    }
+    
+    const timestamp = parseInt(token.replace('admin-token-', ''));
+    const tokenAge = Date.now() - timestamp;
+    const maxAge = 24 * 60 * 60 * 1000;
+    
+    if (tokenAge > maxAge) {
+        return res.status(403).json({ error: 'Token expired' });
+    }
+    
+    next();
+}
+
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -105,22 +129,65 @@ app.use(helmet({
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
 }));
 
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://portfolio-backend-1-53hz.onrender.com'
+];
+
+app.use(cors({
+    origin: function(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static(__dirname));
+
+const csrfTokens = new Map();
+
+function generateCSRFToken() {
+    return crypto.randomBytes(32).toString('hex');
+}
+
+function validateCSRFToken(req, res, next) {
+    const token = req.headers['x-csrf-token'];
+    const authHeader = req.headers['authorization'];
+    const userToken = authHeader && authHeader.split(' ')[1];
+    
+    if (!token || !userToken) {
+        return res.status(403).json({ error: 'CSRF token required' });
+    }
+    
+    const storedToken = csrfTokens.get(userToken);
+    if (!storedToken || storedToken !== token) {
+        return res.status(403).json({ error: 'Invalid CSRF token' });
+    }
+    
+    next();
+}
 
 // Login Route
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
     if (username === adminProfile.username && password === adminProfile.password) {
-        res.json({ token: 'admin-token-' + Date.now() });
+        const token = 'admin-token-' + Date.now();
+        const csrfToken = generateCSRFToken();
+        csrfTokens.set(token, csrfToken);
+        res.json({ token, csrfToken });
     } else {
         res.status(401).json({ error: 'Invalid credentials' });
     }
 });
 
 // Profile Routes
-app.get('/api/profile', (req, res) => {
+app.get('/api/profile', authenticateToken, (req, res) => {
     res.json({
         fullName: adminProfile.fullName,
         email: adminProfile.email,
@@ -129,7 +196,7 @@ app.get('/api/profile', (req, res) => {
     });
 });
 
-app.post('/api/profile', (req, res) => {
+app.post('/api/profile', authenticateToken, validateCSRFToken, (req, res) => {
     const { fullName, email, phone, username, password } = req.body;
     if (fullName) adminProfile.fullName = fullName;
     if (email) adminProfile.email = email;
@@ -140,7 +207,7 @@ app.post('/api/profile', (req, res) => {
 });
 
 // Messages API
-app.get('/api/messages', (req, res) => {
+app.get('/api/messages', authenticateToken, (req, res) => {
     db.getMessages((err, messages) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -173,7 +240,7 @@ app.post('/api/messages', (req, res) => {
     });
 });
 
-app.delete('/api/messages/:id', (req, res) => {
+app.delete('/api/messages/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.deleteMessage(parseInt(req.params.id), (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -183,7 +250,7 @@ app.delete('/api/messages/:id', (req, res) => {
     });
 });
 
-app.patch('/api/messages/:id', (req, res) => {
+app.patch('/api/messages/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.updateMessage(parseInt(req.params.id), req.body, (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -194,7 +261,7 @@ app.patch('/api/messages/:id', (req, res) => {
 });
 
 // Analytics API
-app.get('/api/analytics', (req, res) => {
+app.get('/api/analytics', authenticateToken, (req, res) => {
     db.getAnalytics((err, analytics) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -204,7 +271,7 @@ app.get('/api/analytics', (req, res) => {
     });
 });
 
-app.patch('/api/analytics', (req, res) => {
+app.patch('/api/analytics', authenticateToken, validateCSRFToken, (req, res) => {
     db.updateAnalytics(req.body, (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -215,7 +282,7 @@ app.patch('/api/analytics', (req, res) => {
 });
 
 // Blog Posts API
-app.get('/api/blog-posts', (req, res) => {
+app.get('/api/blog-posts', authenticateToken, (req, res) => {
     db.getBlogPosts((err, posts) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -225,7 +292,7 @@ app.get('/api/blog-posts', (req, res) => {
     });
 });
 
-app.post('/api/blog-posts', (req, res) => {
+app.post('/api/blog-posts', authenticateToken, validateCSRFToken, (req, res) => {
     const post = {
         ...req.body,
         date: new Date().toISOString().split('T')[0]
@@ -240,7 +307,7 @@ app.post('/api/blog-posts', (req, res) => {
     });
 });
 
-app.delete('/api/blog-posts/:id', (req, res) => {
+app.delete('/api/blog-posts/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.deleteBlogPost(parseInt(req.params.id), (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -251,7 +318,7 @@ app.delete('/api/blog-posts/:id', (req, res) => {
 });
 
 // Projects API
-app.get('/api/projects', (req, res) => {
+app.get('/api/projects', authenticateToken, (req, res) => {
     db.getProjects((err, projects) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -261,7 +328,7 @@ app.get('/api/projects', (req, res) => {
     });
 });
 
-app.post('/api/projects', (req, res) => {
+app.post('/api/projects', authenticateToken, validateCSRFToken, (req, res) => {
     const project = {
         ...req.body,
         date: new Date().toISOString().split('T')[0]
@@ -276,7 +343,7 @@ app.post('/api/projects', (req, res) => {
     });
 });
 
-app.delete('/api/projects/:id', (req, res) => {
+app.delete('/api/projects/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.deleteProject(parseInt(req.params.id), (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -287,7 +354,7 @@ app.delete('/api/projects/:id', (req, res) => {
 });
 
 // Articles API
-app.get('/api/articles', (req, res) => {
+app.get('/api/articles', authenticateToken, (req, res) => {
     db.getArticles((err, articles) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -297,7 +364,7 @@ app.get('/api/articles', (req, res) => {
     });
 });
 
-app.post('/api/articles', (req, res) => {
+app.post('/api/articles', authenticateToken, validateCSRFToken, (req, res) => {
     const sanitizedBody = sanitizeObject(req.body);
     const article = {
         ...sanitizedBody,
@@ -314,7 +381,7 @@ app.post('/api/articles', (req, res) => {
     });
 });
 
-app.put('/api/articles/:id', (req, res) => {
+app.put('/api/articles/:id', authenticateToken, validateCSRFToken, (req, res) => {
     const sanitizedBody = sanitizeObject(req.body);
     const article = {
         ...sanitizedBody,
@@ -330,7 +397,7 @@ app.put('/api/articles/:id', (req, res) => {
     });
 });
 
-app.delete('/api/articles/:id', (req, res) => {
+app.delete('/api/articles/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.deleteArticle(parseInt(req.params.id), (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -353,7 +420,7 @@ app.get('/api/articles/:id', (req, res) => {
 });
 
 // Subscribers API
-app.get('/api/subscribers', (req, res) => {
+app.get('/api/subscribers', authenticateToken, (req, res) => {
     db.getSubscribers((err, subscribers) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -405,7 +472,7 @@ app.post('/api/subscribers', (req, res) => {
     });
 });
 
-app.delete('/api/subscribers/:id', (req, res) => {
+app.delete('/api/subscribers/:id', authenticateToken, validateCSRFToken, (req, res) => {
     db.deleteSubscriber(parseInt(req.params.id), (err) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });
@@ -435,7 +502,7 @@ app.post('/api/analytics/track', (req, res) => {
     res.json({ success: true });
 });
 
-app.get('/api/analytics/dashboard', (req, res) => {
+app.get('/api/analytics/dashboard', authenticateToken, (req, res) => {
     db.getAnalytics((err, analytics) => {
         if (err) {
             res.status(500).json({ error: 'Database error' });

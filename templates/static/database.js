@@ -1,10 +1,10 @@
-﻿const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+﻿const path = require('path');
 
 const DB_PATH = path.join(__dirname, 'portfolio_data.db');
 
 class Database {
     constructor() {
+        const sqlite3 = require('sqlite3').verbose();
         this.db = new sqlite3.Database(DB_PATH, (err) => {
             if (err) {
                 console.error('Error opening database:', err);

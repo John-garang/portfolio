@@ -1,6 +1,7 @@
 {
-  "name": "john-garang-portfolio",
+  "name": "@john-garang/portfolio",
   "version": "1.0.0",
+  "private": true,
   "description": "Digital Marketing Professional Portfolio",
   "main": "templates/index.html",
   "scripts": {

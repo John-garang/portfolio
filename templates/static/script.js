@@ -95,20 +95,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
+if (tabBtns.length > 0 && tabContents.length > 0) {
+    tabBtns.forEach(btn => {
+        // Support both click and touch events for mobile
+        const handleTabClick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Remove active class from all buttons and contents
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Show corresponding content
+            const targetTab = btn.getAttribute('data-tab');
+            const targetContent = document.getElementById(targetTab);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        };
         
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        // Show corresponding content
-        const targetTab = btn.getAttribute('data-tab');
-        document.getElementById(targetTab).classList.add('active');
+        btn.addEventListener('click', handleTabClick);
+        btn.addEventListener('touchend', handleTabClick, { passive: false });
     });
-});
+}
 
 // Experience dropdown functionality
 function toggleDropdown(element) {
@@ -186,11 +198,11 @@ const observer = new IntersectionObserver((entries) => {
 // Typing effect for hero title (optional enhancement)
 function typeWriter(element, text, speed = 100) {
     let i = 0;
-    element.innerHTML = '';
+    element.textContent = '';
     
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            element.textContent += text.charAt(i);
             i++;
             setTimeout(type, speed);
         }
@@ -225,7 +237,11 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.createElement('div');
     preloader.className = 'preloader';
-    preloader.innerHTML = '<div class="loader"></div>';
+    
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    preloader.appendChild(loader);
+    
     document.body.appendChild(preloader);
     
     window.addEventListener('load', () => {

@@ -1,11 +1,19 @@
-﻿const fs = require('fs');
+﻿let fs;
+
+function loadFS() {
+    if (!fs) {
+        fs = require('fs');
+    }
+    return fs;
+}
 
 // Clean restore from backup
 try {
+    const fsModule = loadFS();
     console.log('Cleaning and restoring data...');
     
     // Read the backup file
-    let backupData = fs.readFileSync('./database.json.backup', 'utf8');
+    let backupData = fsModule.readFileSync('./database.json.backup', 'utf8');
     
     // Find the last valid closing brace for sessions array
     const lastValidEnd = backupData.lastIndexOf('    }\n  ]\n}');
@@ -18,7 +26,7 @@ try {
         const parsed = JSON.parse(backupData);
         
         // Write clean version
-        fs.writeFileSync('./database.json', JSON.stringify(parsed, null, 2));
+        fsModule.writeFileSync('./database.json', JSON.stringify(parsed, null, 2));
         
         console.log('Data cleaned and restored successfully!');
         console.log(`Restored ${parsed.articles?.length || 0} articles`);
@@ -136,6 +144,6 @@ try {
         "sessions": []
     };
     
-    fs.writeFileSync('./database.json', JSON.stringify(essentialData, null, 2));
+    fsModule.writeFileSync('./database.json', JSON.stringify(essentialData, null, 2));
     console.log('Created database with essential data');
 }

@@ -1,7 +1,8 @@
-﻿const fs = require('fs');
+﻿
 
 // Fix corrupted database.json
 try {
+    const fs = require('fs');
     const data = fs.readFileSync('./database.json', 'utf8');
     
     // Find the last valid closing brace
@@ -23,6 +24,7 @@ try {
         console.log('Could not find valid JSON structure');
     }
 } catch (error) {
+    const fs = require('fs');
     console.error('Error fixing database:', error.message);
     
     // Create minimal database if completely corrupted

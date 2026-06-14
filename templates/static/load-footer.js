@@ -2,7 +2,12 @@
 fetch('footer')
     .then(response => response.text())
     .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
+        const placeholder = document.getElementById('footer-placeholder');
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        while (doc.body.firstChild) {
+            placeholder.appendChild(doc.body.firstChild);
+        }
         // Attach event listener after footer is loaded
         const form = document.getElementById('newsletterForm');
         if (form) {
@@ -70,18 +75,32 @@ window.subscribeNewsletter = function(e) {
             font-family: Arial, sans-serif; font-size: 16px; text-align: center;
             min-width: 300px; animation: fadeIn 0.3s ease;
         `;
-        notification.innerHTML = `
-            <div>
-                <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
-                <div>Thanks ${firstName}!</div>
-                <div style="margin-top: 5px; font-size: 14px; opacity: 0.9;">You're subscribed to our newsletter.</div>
-                <button onclick="this.parentElement.parentElement.remove()" style="
-                    background: rgba(255,255,255,0.2); border: none; color: white; 
-                    padding: 8px 16px; border-radius: 4px; cursor: pointer; 
-                    margin-top: 15px; font-size: 14px;
-                ">Close</button>
-            </div>
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-check-circle';
+        icon.style.cssText = 'font-size: 24px; margin-bottom: 10px; display: block;';
+        
+        const thanksDiv = document.createElement('div');
+        thanksDiv.textContent = `Thanks ${firstName}!`;
+        
+        const subscribeDiv = document.createElement('div');
+        subscribeDiv.style.cssText = 'margin-top: 5px; font-size: 14px; opacity: 0.9;';
+        subscribeDiv.textContent = "You're subscribed to our newsletter.";
+        
+        const closeBtn = document.createElement('button');
+        closeBtn.style.cssText = `
+            background: rgba(255,255,255,0.2); border: none; color: white;
+            padding: 8px 16px; border-radius: 4px; cursor: pointer;
+            margin-top: 15px; font-size: 14px;
         `;
+        closeBtn.textContent = 'Close';
+        closeBtn.addEventListener('click', () => notification.remove());
+        
+        const container = document.createElement('div');
+        container.appendChild(icon);
+        container.appendChild(thanksDiv);
+        container.appendChild(subscribeDiv);
+        container.appendChild(closeBtn);
+        notification.appendChild(container);
         
         document.body.appendChild(notification);
         
