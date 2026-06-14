@@ -74,9 +74,8 @@
 
 <script src="static/search.js" defer></script>
 <script>
-// Load header script to activate navigation
+// Set active link based on current page
 document.addEventListener('DOMContentLoaded', function() {
-    // Set active link based on current page
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('href') === currentPage) {
@@ -85,7 +84,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
-
-
-
