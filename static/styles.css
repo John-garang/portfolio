@@ -940,9 +940,7 @@ li {
     box-sizing: border-box;
 }
 
-.welcome-section {
-    margin-bottom: 0;
-}
+.welcome-section { margin-bottom: 2rem; padding: 0 1.5rem; } .welcome-section:last-of-type { margin-bottom: 0; }
 
 .welcome-section + .welcome-section {
     margin-top: 1.5rem;
@@ -980,7 +978,7 @@ li {
     position: relative;
     z-index: 1;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; overflow: hidden;
 }
 
 .journey-text h3 {
@@ -6293,3 +6291,5 @@ li {
         background-position: center center;
     }
 }
+
+
