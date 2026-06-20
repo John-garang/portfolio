@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <style>
-        /* Programs Page Specific Styles */
+        /* Editorial Programs Page Styles */
         .programs-hero {
             min-height: 60vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Pictures/Home Background Picture.JPG');
@@ -57,357 +57,229 @@
         }
 
         .programs-hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             z-index: 1;
         }
 
         .programs-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 7vw, 3.5rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 700;
             color: #F5F5F5;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
         .programs-hero p {
             font-family: 'Lato', sans-serif;
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             color: #D1D1D1;
-            line-height: 1.6;
-            max-width: 600px;
+            line-height: 1.7;
+            max-width: 700px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
-        .programs-section {
-            padding: 60px 0;
+        /* Editorial Program Rows */
+        .programs-editorial {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .program-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 85vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .program-row:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .program-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 6rem;
             background: white;
         }
 
-        .programs-section:nth-child(even) {
+        .program-row:nth-child(even) .program-text {
             background: #f8f9fa;
         }
 
-        .program-card-main {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 3rem;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .program-card-main:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .program-header {
-            background: linear-gradient(135deg, #16b2dc 0%, #1a9ec7 100%);
-            color: white;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-        }
-
-        .program-header h2 {
+        .program-number {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #16b2dc;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
         }
 
-        .program-header .program-tagline {
+        .program-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .program-tagline {
             font-family: 'Lato', sans-serif;
-            font-size: 1.1rem;
-            opacity: 0.95;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-style: italic;
         }
 
-        .program-header .program-duration {
+        .program-description {
             font-family: 'Lato', sans-serif;
-            font-size: 0.95rem;
-            opacity: 0.85;
-            position: relative;
-            z-index: 1;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 540px;
         }
 
-        .program-body {
-            padding: 2.5rem;
-        }
-
-        .program-body h3 {
+        .program-quote-editorial {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-        }
-
-        .program-body h3:first-child {
-            margin-top: 0;
-        }
-
-        .program-body p {
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-quote {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 1.5rem 2rem;
-            border-left: 4px solid #16b2dc;
-            border-radius: 10px;
-            margin: 2rem 0;
             font-style: italic;
-            color: #555;
-            position: relative;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 2rem;
+            border-left: 3px solid #16b2dc;
+            margin: 2.5rem 0;
+            max-width: 600px;
         }
 
-        .program-quote::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            font-size: 4rem;
-            color: #16b2dc;
-            opacity: 0.3;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .program-quote p {
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Stacked Photo Gallery */
-        .program-gallery {
+        .program-meta {
             display: flex;
-            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .program-meta span {
+            display: flex;
             align-items: center;
-            padding: 2rem 0;
-            margin: 2rem 0;
+            gap: 0.5rem;
         }
 
-        .gallery-stack {
+        .program-image-container {
             position: relative;
-            width: 280px;
-            height: 200px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-stack:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-stack:hover .gallery-photo {
-            transform: translateX(0) rotate(0deg);
-        }
-
-        .gallery-stack:hover .gallery-photo:nth-child(1) {
-            transform: translateX(-60px) rotate(-8deg);
-        }
-
-        .gallery-stack:hover .gallery-photo:nth-child(2) {
-            transform: translateX(-30px) rotate(-4deg);
-        }
-
-        .gallery-stack:hover .gallery-photo:nth-child(3) {
-            transform: translateX(0) rotate(0deg);
-        }
-
-        .gallery-stack:hover .gallery-photo:nth-child(4) {
-            transform: translateX(30px) rotate(4deg);
-        }
-
-        .gallery-stack:hover .gallery-photo:nth-child(5) {
-            transform: translateX(60px) rotate(8deg);
-        }
-
-        .gallery-photo {
-            position: absolute;
-            width: 200px;
-            height: 150px;
-            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: white;
-            border: 3px solid white;
+            background: #f0f0f0;
         }
 
-        .gallery-photo img {
+        .program-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .gallery-photo:nth-child(1) {
-            top: 25px;
-            left: 0;
-            transform: translateX(-40px) rotate(-6deg);
-            z-index: 1;
+        .program-row:hover .program-image {
+            transform: scale(1.05);
         }
 
-        .gallery-photo:nth-child(2) {
-            top: 15px;
-            left: 20px;
-            transform: translateX(-20px) rotate(-3deg);
-            z-index: 2;
-        }
-
-        .gallery-photo:nth-child(3) {
-            top: 5px;
-            left: 40px;
-            transform: translateX(0) rotate(0deg);
-            z-index: 3;
-        }
-
-        .gallery-photo:nth-child(4) {
-            top: 15px;
-            left: 60px;
-            transform: translateX(20px) rotate(3deg);
-            z-index: 2;
-        }
-
-        .gallery-photo:nth-child(5) {
-            top: 25px;
-            left: 80px;
-            transform: translateX(40px) rotate(6deg);
-            z-index: 1;
-        }
-
-        .gallery-label {
+        .program-image-overlay {
             position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #16b2dc, #1a9ec7);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
             color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
+        }
+
+        .program-image-label {
             font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            white-space: nowrap;
-            box-shadow: 0 4px 15px rgba(22, 178, 220, 0.3);
-            z-index: 10;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.9;
         }
 
-        /* Program Modules Grid */
-        .program-modules {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .module-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            border-top: 3px solid #16b2dc;
+        /* CTA Button */
+        .program-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 2px solid #1a1a1a;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(22, 178, 220, 0.15);
-            background: white;
+        .program-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
-        .module-card i {
-            font-size: 2rem;
-            color: #16b2dc;
-            margin-bottom: 1rem;
-            display: block;
+        .program-cta:hover {
+            color: white;
         }
 
-        .module-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #333;
+        .program-cta:hover::before {
+            left: 0;
         }
 
-        .module-card p {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-            margin: 0;
+        .program-cta i {
+            transition: transform 0.3s ease;
         }
 
-        /* Program Stats */
-        .program-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .program-cta:hover i {
+            transform: translateX(5px);
         }
 
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-top: 3px solid #16b2dc;
-        }
-
-        .stat-card .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #16b2dc;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .stat-card .stat-label {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Back to Top Button */
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #16b2dc, #1a9ec7);
+            background: #1a1a1a;
             color: white;
             border: none;
             border-radius: 50%;
@@ -416,7 +288,6 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(22, 178, 220, 0.3);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -429,109 +300,76 @@
         }
 
         .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(22, 178, 220, 0.4);
+            background: #16b2dc;
+            transform: translateY(-3px);
         }
 
-        @media (max-width: 768px) {
-            .programs-hero {
-                padding: 100px 20px 40px;
-                min-height: 50vh;
-            }
-
-            .program-body {
-                padding: 1.5rem;
-            }
-
-            .program-header {
-                padding: 2rem 1.5rem;
-            }
-
-            .gallery-stack {
-                width: 240px;
-                height: 180px;
-            }
-
-            .gallery-photo {
-                width: 160px;
-                height: 120px;
-            }
-
-            .gallery-photo:nth-child(1) {
-                transform: translateX(-30px) rotate(-6deg);
-            }
-
-            .gallery-photo:nth-child(2) {
-                transform: translateX(-15px) rotate(-3deg);
-            }
-
-            .gallery-photo:nth-child(3) {
-                transform: translateX(0) rotate(0deg);
-            }
-
-            .gallery-photo:nth-child(4) {
-                transform: translateX(15px) rotate(3deg);
-            }
-
-            .gallery-photo:nth-child(5) {
-                transform: translateX(30px) rotate(6deg);
-            }
-
-            .program-modules {
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .program-row {
                 grid-template-columns: 1fr;
+                min-height: auto;
             }
 
-            .program-stats {
-                grid-template-columns: repeat(2, 1fr);
+            .program-row:nth-child(even) {
+                direction: ltr;
+            }
+
+            .program-text {
+                padding: 5rem 2rem;
+                order: 2;
+            }
+
+            .program-image-container {
+                height: 50vh;
+                min-height: 400px;
+                order: 1;
+            }
+
+            .program-row:nth-child(even) .program-image-container {
+                order: 1;
+            }
+
+            .program-title {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .program-quote-editorial {
+                font-size: 1.25rem;
+                padding-left: 1.5rem;
+            }
+
+            .program-meta {
+                flex-direction: column;
+                gap: 0.75rem;
             }
         }
 
         @media (max-width: 480px) {
             .programs-hero {
-                padding: 80px 15px 30px;
-                min-height: 40vh;
+                padding: 100px 20px 40px;
+                min-height: 50vh;
             }
 
-            .program-body {
-                padding: 1rem;
+            .program-text {
+                padding: 3rem 1.5rem;
             }
 
-            .program-header {
-                padding: 1.5rem 1rem;
+            .program-image-container {
+                height: 40vh;
+                min-height: 300px;
             }
 
-            .gallery-stack {
-                width: 200px;
-                height: 150px;
+            .program-title {
+                font-size: 2rem;
             }
 
-            .gallery-photo {
-                width: 130px;
-                height: 100px;
+            .program-description {
+                font-size: 1rem;
             }
 
-            .gallery-photo:nth-child(1) {
-                transform: translateX(-20px) rotate(-6deg);
-            }
-
-            .gallery-photo:nth-child(2) {
-                transform: translateX(-10px) rotate(-3deg);
-            }
-
-            .gallery-photo:nth-child(3) {
-                transform: translateX(0) rotate(0deg);
-            }
-
-            .gallery-photo:nth-child(4) {
-                transform: translateX(10px) rotate(3deg);
-            }
-
-            .gallery-photo:nth-child(5) {
-                transform: translateX(20px) rotate(6deg);
-            }
-
-            .program-stats {
-                grid-template-columns: 1fr;
+            .program-quote-editorial {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -553,406 +391,131 @@
     <section class="programs-hero">
         <div class="programs-hero-content">
             <h1>Programs & Fellowships</h1>
-            <p>A journey through global innovation, leadership development, and impactful learning experiences</p>
+            <p>A curated journey through global innovation, leadership development, and transformative learning experiences that have shaped my professional trajectory</p>
         </div>
     </section>
 
-    <!-- Programs Content -->
-    <div class="container">
+    <!-- Editorial Programs Layout -->
+    <div class="programs-editorial">
         <!-- CNN Academy -->
-        <div class="programs-section">
-            <div class="program-card-main">
-                <div class="program-header">
-                    <h2><i class="fas fa-video"></i> CNN Academy Fellow</h2>
-                    <p class="program-tagline">Voices of the Global South</p>
-                    <p class="program-duration">July 2025 - November 2025</p>
+        <article class="program-row">
+            <div class="program-text">
+                <span class="program-number">01 / 05</span>
+                <h2 class="program-title">CNN Academy Fellow</h2>
+                <p class="program-tagline">Voices of the Global South</p>
+                <p class="program-description">An immersive journalism fellowship designed to sharpen technical and editorial skills through newsroom-style learning, masterclasses with top CNN correspondents, and peer collaboration focused on climate storytelling from a Global South perspective.</p>
+                <blockquote class="program-quote-editorial">"The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."</blockquote>
+                <div class="program-meta">
+                    <span><i class="fas fa-calendar"></i> July 2025 – November 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Global (Online)</span>
                 </div>
-                <div class="program-body">
-                    <h3>About the Program</h3>
-                    <p>CNN Academy equips the next generation of journalists with real-world skills through immersive, newsroom-style learning. Drawing on CNN's legacy, it brings newsroom expertise into classrooms—connecting students with top CNN correspondents and transforming storytelling into action.</p>
-
-                    <h3>My Experience</h3>
-                    <p>As a CNN Academy Global South Fellow, I spent months immersed in an intensive program designed to sharpen both technical and editorial skills. The fellowship blended online courses, expert-led masterclasses, and peer collaboration, all focused on harnessing storytelling to address climate change from a Global South perspective.</p>
-
-                    <div class="program-quote">
-                        <p>"The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."</p>
-                    </div>
-
-                    <h3>Key Skills & Modules</h3>
-                    <div class="program-modules">
-                        <div class="module-card">
-                            <i class="fas fa-balance-scale"></i>
-                            <h4>Ethics in Journalism</h4>
-                            <p>Fundamental principles of ethical reporting</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-book-open"></i>
-                            <h4>The Art of Storytelling</h4>
-                            <p>Crafting compelling narratives</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-bolt"></i>
-                            <h4>Breaking News</h4>
-                            <p>Real-time reporting techniques</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h4>Field Reporting</h4>
-                            <p>On-location journalism skills</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-laptop-code"></i>
-                            <h4>Digital Storytelling</h4>
-                            <p>Multimedia content creation</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-share-alt"></i>
-                            <h4>Social Media</h4>
-                            <p>Social storytelling techniques</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-search"></i>
-                            <h4>Open Source Reporting</h4>
-                            <p>OSINT for journalism</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-robot"></i>
-                            <h4>AI & Journalism</h4>
-                            <p>Integrating AI tools</p>
-                        </div>
-                    </div>
-
-                    <div class="program-gallery">
-                        <div class="gallery-stack">
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy">
-                            </div>
-                            <div class="gallery-label">View Gallery</div>
-                        </div>
-                    </div>
+                <a href="#" class="program-cta">
+                    Explore Fellowship <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="program-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow" class="program-image">
+                <div class="program-image-overlay">
+                    <span class="program-image-label">Journalism & Media</span>
                 </div>
             </div>
-        </div>
+        </article>
 
         <!-- UNLEASH Innovation Lab -->
-        <div class="programs-section">
-            <div class="program-card-main">
-                <div class="program-header">
-                    <h2><i class="fas fa-lightbulb"></i> UNLEASH Global Innovation Lab</h2>
-                    <p class="program-tagline">Global Talent | Climate and Land Track</p>
-                    <p class="program-duration">December 2-9, 2023 | Kigali, Rwanda</p>
+        <article class="program-row">
+            <div class="program-text">
+                <span class="program-number">02 / 05</span>
+                <h2 class="program-title">UNLEASH Global Innovation Lab</h2>
+                <p class="program-tagline">Global Talent | Climate and Land Track</p>
+                <p class="program-description">Selected as one of 1,000 young talents worldwide to co-create scalable solutions for the UN Sustainable Development Goals. Developed PappyBags—a sustainable alternative to single-use plastics using locally abundant papyrus reeds in South Sudan.</p>
+                <blockquote class="program-quote-editorial">"We progressed to the first knockout stage, and the experience deepened my commitment to applying creativity and local resources toward climate resilience."</blockquote>
+                <div class="program-meta">
+                    <span><i class="fas fa-calendar"></i> December 2–9, 2023</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
                 </div>
-                <div class="program-body">
-                    <h3>About UNLEASH</h3>
-                    <p>UNLEASH is a nonprofit accelerating progress toward the UN Sustainable Development Goals by mobilizing young changemakers. They gather top talents (ages 18–35) for immersive Innovation Labs where diverse youth co-create scalable, real-world solutions.</p>
-
-                    <h3>Kigali Lab Experience</h3>
-                    <p>I joined as one of 1,000 young talents selected globally, placed in the Climate and Land track. I collaborated with a team from Colombia, The Gambia, USA, Pakistan, and Iceland to develop PappyBags—a sustainable solution replacing single-use plastic bags in South Sudan using locally abundant papyrus reeds.</p>
-
-                    <div class="program-quote">
-                        <p>"We progressed to the first knockout stage, and the experience deepened my commitment to applying creativity and local resources toward climate resilience."</p>
-                    </div>
-
-                    <h3>Project Outcomes</h3>
-                    <div class="program-modules">
-                        <div class="module-card">
-                            <i class="fas fa-leaf"></i>
-                            <h4>Sustainable Materials</h4>
-                            <p>Using local papyrus reeds</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-recycle"></i>
-                            <h4>Environmental Impact</h4>
-                            <p>Replacing single-use plastics</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-coins"></i>
-                            <h4>Economic Empowerment</h4>
-                            <p>Creating income opportunities</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-users"></i>
-                            <h4>Cross-Cultural Team</h4>
-                            <p>6 countries collaboration</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-cogs"></i>
-                            <h4>Systems Thinking</h4>
-                            <p>Holistic problem-solving</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-presentation"></i>
-                            <h4>Impact Pitching</h4>
-                            <p>Communicating solutions</p>
-                        </div>
-                    </div>
-
-                    <div class="program-gallery">
-                        <div class="gallery-stack">
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH">
-                            </div>
-                            <div class="gallery-label">View Gallery</div>
-                        </div>
-                    </div>
+                <a href="#" class="program-cta">
+                    View Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="program-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab" class="program-image">
+                <div class="program-image-overlay">
+                    <span class="program-image-label">Innovation & Sustainability</span>
                 </div>
             </div>
-        </div>
+        </article>
 
         <!-- Take Action Lab -->
-        <div class="programs-section">
-            <div class="program-card-main">
-                <div class="program-header">
-                    <h2><i class="fas fa-hands-helping"></i> Take Action Lab</h2>
-                    <p class="program-tagline">Tilting Futures Fellowship</p>
-                    <p class="program-duration">September - December 2024</p>
+        <article class="program-row">
+            <div class="program-text">
+                <span class="program-number">03 / 05</span>
+                <h2 class="program-title">Take Action Lab</h2>
+                <p class="program-tagline">Tilting Futures Fellowship</p>
+                <p class="program-description">An immersive leadership program equipping young African leaders with frameworks for systemic change. Intensive workshops on systems thinking, community organizing, and social entrepreneurship prepared me to design solutions for critical community challenges.</p>
+                <blockquote class="program-quote-editorial">"Take Action Lab taught me that real change starts with understanding the systems that shape our communities and having the courage to challenge them."</blockquote>
+                <div class="program-meta">
+                    <span><i class="fas fa-calendar"></i> September – December 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> East Africa</span>
                 </div>
-                <div class="program-body">
-                    <h3>About the Program</h3>
-                    <p>Take Action Lab – Tilting Futures empowers young African leaders with tools, frameworks, and networks to drive systemic change. The program focuses on leadership development, social innovation, and creating sustainable impact across African communities.</p>
-
-                    <h3>My Fellowship Journey</h3>
-                    <p>Through Take Action Lab, I engaged in intensive workshops on systems thinking, community organizing, and social entrepreneurship. The program equipped me with practical skills to design and implement solutions addressing critical challenges in my community and beyond.</p>
-
-                    <div class="program-quote">
-                        <p>"Take Action Lab taught me that real change starts with understanding the systems that shape our communities and having the courage to challenge them."</p>
-                    </div>
-
-                    <h3>Key Learning Areas</h3>
-                    <div class="program-modules">
-                        <div class="module-card">
-                            <i class="fas fa-project-diagram"></i>
-                            <h4>Systems Thinking</h4>
-                            <p>Understanding complex systems</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-users-cog"></i>
-                            <h4>Community Organizing</h4>
-                            <p>Mobilizing for change</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>Social Entrepreneurship</h4>
-                            <p>Building sustainable ventures</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-brain"></i>
-                            <h4>Leadership Development</h4>
-                            <p>Transformational leadership</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-hands-helping"></i>
-                            <h4>Collaborative Action</h4>
-                            <p>Building partnerships</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-bullseye"></i>
-                            <h4>Impact Design</h4>
-                            <p>Creating measurable change</p>
-                        </div>
-                    </div>
-
-                    <div class="program-gallery">
-                        <div class="gallery-stack">
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                            </div>
-                            <div class="gallery-label">View Gallery</div>
-                        </div>
-                    </div>
+                <a href="#" class="program-cta">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="program-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab" class="program-image">
+                <div class="program-image-overlay">
+                    <span class="program-image-label">Leadership & Impact</span>
                 </div>
             </div>
-        </div>
+        </article>
 
         <!-- Accra Fusion -->
-        <div class="programs-section">
-            <div class="program-card-main">
-                <div class="program-header">
-                    <h2><i class="fas fa-globe-africa"></i> Accra Fusion</h2>
-                    <p class="program-tagline">Cultural Exchange & Innovation</p>
-                    <p class="program-duration">2024</p>
+        <article class="program-row">
+            <div class="program-text">
+                <span class="program-number">04 / 05</span>
+                <h2 class="program-title">Accra Fusion</h2>
+                <p class="program-tagline">Cultural Exchange & Innovation</p>
+                <p class="program-description">A dynamic program bringing together young African leaders, entrepreneurs, and innovators to foster cross-cultural understanding and collaboration. Built lasting partnerships with changemakers across the continent, reimagining what's possible for Africa's future.</p>
+                <blockquote class="program-quote-editorial">"Accra Fusion reminded me that Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."</blockquote>
+                <div class="program-meta">
+                    <span><i class="fas fa-calendar"></i> 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Accra, Ghana</span>
                 </div>
-                <div class="program-body">
-                    <h3>About the Program</h3>
-                    <p>Accra Fusion is a dynamic cultural exchange and networking program bringing together young African leaders, entrepreneurs, and innovators from across the continent. The program fosters cross-cultural understanding, collaboration, and the exchange of ideas to drive innovation and development across Africa.</p>
-
-                    <h3>Program Experience</h3>
-                    <p>Participating in Accra Fusion provided invaluable opportunities to connect with fellow African changemakers, explore innovative approaches to continental challenges, and build lasting partnerships that transcend borders.</p>
-
-                    <div class="program-quote">
-                        <p>"Accra Fusion reminded me that Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."</p>
-                    </div>
-
-                    <h3>Program Highlights</h3>
-                    <div class="program-modules">
-                        <div class="module-card">
-                            <i class="fas fa-network-wired"></i>
-                            <h4>Pan-African Networking</h4>
-                            <p>Connecting continental leaders</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-palette"></i>
-                            <h4>Cultural Exchange</h4>
-                            <p>Celebrating African diversity</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-rocket"></i>
-                            <h4>Innovation Showcase</h4>
-                            <p>Sharing breakthrough ideas</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-handshake"></i>
-                            <h4>Partnership Building</h4>
-                            <p>Creating collaborations</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-map"></i>
-                            <h4>Regional Insights</h4>
-                            <p>Understanding African markets</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-comments"></i>
-                            <h4>Dialogue Forums</h4>
-                            <p>Addressing key challenges</p>
-                        </div>
-                    </div>
-
-                    <div class="program-gallery">
-                        <div class="gallery-stack">
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                            </div>
-                            <div class="gallery-label">View Gallery</div>
-                        </div>
-                    </div>
+                <a href="#" class="program-cta">
+                    Discover More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="program-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion" class="program-image">
+                <div class="program-image-overlay">
+                    <span class="program-image-label">Culture & Innovation</span>
                 </div>
             </div>
-        </div>
+        </article>
 
         <!-- YALI East Africa -->
-        <div class="programs-section">
-            <div class="program-card-main">
-                <div class="program-header">
-                    <h2><i class="fas fa-users"></i> YALI East Africa</h2>
-                    <p class="program-tagline">Young African Leaders Initiative</p>
-                    <p class="program-duration">2024</p>
+        <article class="program-row">
+            <div class="program-text">
+                <span class="program-number">05 / 05</span>
+                <h2 class="program-title">YALI East Africa</h2>
+                <p class="program-tagline">Young African Leaders Initiative</p>
+                <p class="program-description">A signature leadership program empowering young African leaders through intensive training, mentorship, and networking. Focused on Business & Entrepreneurship, Public Management, and Civic Leadership tracks to drive positive community change.</p>
+                <blockquote class="program-quote-editorial">"YALI showed me that leadership is not about titles or positions—it's about taking responsibility for the future you want to see."</blockquote>
+                <div class="program-meta">
+                    <span><i class="fas fa-calendar"></i> 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> East Africa Region</span>
                 </div>
-                <div class="program-body">
-                    <h3>About YALI</h3>
-                    <p>The Young African Leaders Initiative (YALI) East Africa empowers young African leaders through leadership training, mentorship, and networking. YALI focuses on three key tracks: Business & Entrepreneurship, Public Management, and Civic Leadership.</p>
-
-                    <h3>Leadership Journey</h3>
-                    <p>Through YALI East Africa, I engaged with emerging leaders from across the region, participating in intensive training sessions, workshops, and collaborative projects designed to strengthen leadership capacity and drive positive change in our communities.</p>
-
-                    <div class="program-quote">
-                        <p>"YALI showed me that leadership is not about titles or positions—it's about taking responsibility for the future you want to see."</p>
-                    </div>
-
-                    <h3>Core Program Elements</h3>
-                    <div class="program-modules">
-                        <div class="module-card">
-                            <i class="fas fa-user-tie"></i>
-                            <h4>Leadership Training</h4>
-                            <p>Developing leadership skills</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <h4>Mentorship</h4>
-                            <p>Learning from established leaders</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-briefcase"></i>
-                            <h4>Entrepreneurship</h4>
-                            <p>Business development skills</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-landmark"></i>
-                            <h4>Public Management</h4>
-                            <p>Governance and policy</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-heart"></i>
-                            <h4>Civic Leadership</h4>
-                            <p>Community engagement</p>
-                        </div>
-                        <div class="module-card">
-                            <i class="fas fa-globe"></i>
-                            <h4>Regional Network</h4>
-                            <p>East Africa connections</p>
-                        </div>
-                    </div>
-
-                    <div class="program-gallery">
-                        <div class="gallery-stack">
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI">
-                            </div>
-                            <div class="gallery-photo">
-                                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI">
-                            </div>
-                            <div class="gallery-label">View Gallery</div>
-                        </div>
-                    </div>
+                <a href="#" class="program-cta">
+                    View Journey <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="program-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa" class="program-image">
+                <div class="program-image-overlay">
+                    <span class="program-image-label">Leadership Development</span>
                 </div>
             </div>
-        </div>
+        </article>
     </div>
 
     <!-- Back to Top Button -->
@@ -987,20 +550,13 @@
             });
         });
 
-        // Gallery stack interaction
-        document.querySelectorAll('.gallery-stack').forEach(stack => {
-            stack.addEventListener('click', function() {
-                // In a real implementation, this would open a lightbox or gallery modal
-                const label = this.querySelector('.gallery-label');
-                if (label) {
-                    const originalText = label.textContent;
-                    label.textContent = 'Coming Soon!';
-                    label.style.background = 'linear-gradient(135deg, #1a1a1a, #333)';
-                    setTimeout(() => {
-                        label.textContent = originalText;
-                        label.style.background = 'linear-gradient(135deg, #16b2dc, #1a9ec7)';
-                    }, 1500);
-                }
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('.program-cta').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real implementation, this would navigate to a detailed program page
+                const label = button.textContent.trim();
+                console.log(`Navigate to: ${label}`);
             });
         });
     </script>
