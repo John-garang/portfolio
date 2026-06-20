@@ -4,453 +4,601 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Experience | John Garang</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/styles.css?v=20250102-2">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .experience-detail-card {
+        /* Editorial Experience Page Styles */
+        .experience-hero {
+            min-height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/Pictures/Experience (2).jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            align-items: flex-start;
-        }
-        
-        .experience-detail-card.flex-row-reverse {
-            flex-direction: row-reverse;
-        }
-        
-        .experience-logo {
-            flex: 0 0 200px;
+            align-items: center;
+            justify-content: center;
+            color: white;
             text-align: center;
+            padding: 120px 20px 60px;
+            position: relative;
         }
-        
-        .experience-logo img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+        .experience-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 1;
         }
-        
-        .experience-info {
-            flex: 1;
+
+        .experience-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            color: #F5F5F5;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-        
-        .experience-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+
+        .experience-hero p {
+            font-family: 'Lato', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: #D1D1D1;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Editorial Experience Rows */
+        .experience-editorial {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .experience-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 85vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .experience-row:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .experience-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 6rem;
+            background: white;
+        }
+
+        .experience-row:nth-child(even) .experience-text {
+            background: #f8f9fa;
+        }
+
+        .experience-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #16b2dc;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .experience-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
             color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-        
+
+        .experience-role {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .experience-description {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .experience-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 2rem;
+            border-left: 3px solid #16b2dc;
+            margin: 2.5rem 0;
+            max-width: 600px;
+        }
+
         .experience-meta {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875rem;
             color: #666;
-            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
-        
+
         .experience-meta span {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
-        .experience-meta i {
-            color: #16b2dc;
+
+        .experience-image-container {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
         }
-        
-        .experience-about {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-left: 4px solid #16b2dc;
-            border-radius: 8px;
+
+        .experience-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .experience-about h4 {
-            color: #16b2dc;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+
+        .experience-row:hover .experience-image {
+            transform: scale(1.05);
         }
-        
-        .experience-about p {
-            color: #555;
-            line-height: 1.6;
-            margin: 0;
+
+        .experience-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            color: white;
         }
-        
+
+        .experience-image-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Accomplishments */
         .experience-accomplishments {
             list-style: none;
             padding: 0;
-            margin: 1rem 0 0 0;
+            margin: 1.5rem 0;
         }
-        
+
         .experience-accomplishments li {
-            padding: 0.5rem 0 0.5rem 2rem;
+            padding: 0.75rem 0 0.75rem 2rem;
             position: relative;
             color: #444;
             line-height: 1.6;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
         }
-        
+
         .experience-accomplishments li:before {
             content: "▸";
             position: absolute;
             left: 0;
             color: #16b2dc;
             font-weight: bold;
+            font-size: 1.2rem;
         }
-        
-        @media (max-width: 768px) {
-            .experience-detail-card,
-            .experience-detail-card.flex-row-reverse {
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #16b2dc;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .experience-row {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .experience-row:nth-child(even) {
+                direction: ltr;
+            }
+
+            .experience-text {
+                padding: 5rem 2rem;
+                order: 2;
+            }
+
+            .experience-image-container {
+                height: 50vh;
+                min-height: 400px;
+                order: 1;
+            }
+
+            .experience-row:nth-child(even) .experience-image-container {
+                order: 1;
+            }
+
+            .experience-title {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .experience-highlight {
+                font-size: 1.25rem;
+                padding-left: 1.5rem;
+            }
+
+            .experience-meta {
                 flex-direction: column;
+                gap: 0.75rem;
             }
-            
-            .experience-logo {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 150px;
-                margin: 0 auto;
+        }
+
+        @media (max-width: 480px) {
+            .experience-hero {
+                padding: 100px 20px 40px;
+                min-height: 50vh;
             }
-            
-            .experience-info h3 {
-                font-size: 1.5rem;
+
+            .experience-text {
+                padding: 3rem 1.5rem;
+            }
+
+            .experience-image-container {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .experience-title {
+                font-size: 2rem;
+            }
+
+            .experience-description {
+                font-size: 1rem;
+            }
+
+            .experience-highlight {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header Placeholder -->
-    <div id="header-placeholder">
-        <!-- Universal Navigation -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="John Garang Logo">
-                    <span class="logo-name">John Ngor Deng Garang</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="work-portfolio.html" class="nav-link">Work Portfolio</a></li>
-                    <li><a href="experience-overview.html" class="nav-link">Experience</a></li>
-                    <li><a href="programs.html" class="nav-link">Programs</a></li>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
-                    <li><a href="/poems" class="nav-link">Poems</a></li>
-                </ul>
-                <div class="nav-right">
-                    <div class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-overlay" id="mobileOverlay"></div>
-        </nav>
-    </div>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-                
-                mobileOverlay.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            }
-        });
-    </script>
-    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
     <script src="static/load-header.js?v=3"></script>
 
-    <!-- Hero Section -->
-    <section class="alu-hero" style="background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,1) 100%), url('static/Pictures/Experience (2).jpg') !important; background-size: cover !important; background-position: center !important; background-attachment: fixed !important; height: 100vh; max-height: 100vh; overflow: hidden;">
-        <div class="alu-hero-content" style="align-items: flex-start; justify-content: center; padding-top: 60vh;">
-            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; text-shadow: 4px 4px 15px rgba(0,0,0,1), 2px 2px 8px rgba(0,0,0,0.8); font-weight: 700; letter-spacing: -0.5px;">Professional Experience</h1>
-            <p class="hero-subtitle" style="font-size: 1.3rem; max-width: 650px; line-height: 1.7; text-shadow: 3px 3px 10px rgba(0,0,0,1), 1px 1px 5px rgba(0,0,0,0.8);">4 years blending corporate and non-profit work in digital communications and education</p>
+    <!-- Experience Hero -->
+    <section class="experience-hero">
+        <div class="experience-hero-content">
+            <h1>Professional Experience</h1>
+            <p>4 years blending corporate and non-profit work in digital communications and education across 5 countries</p>
         </div>
     </section>
 
-    <!-- Experience Details -->
-    <section class="posts-section">
-        <div class="container">
-            <!-- Experience 1: Education Bridge - Normal Layout -->
-            <a href="education-bridge" class="category-card experience-detail-card">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Education Bridge Ex.png" alt="Education Bridge">
+    <!-- Editorial Experience Layout -->
+    <div class="experience-editorial">
+        <!-- Education Bridge -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">01 / 09</span>
+                <h2 class="experience-title">Education Bridge</h2>
+                <p class="experience-role">Communications Lead</p>
+                <p class="experience-description">Leading strategic storytelling and brand positioning for a non-profit dedicated to providing South Sudanese youth with quality education and leadership development.</p>
+                <ul class="experience-accomplishments">
+                    <li>Lead strategic storytelling, stakeholder engagement, and brand positioning</li>
+                    <li>Create compelling narratives showcasing student journeys and organizational milestones</li>
+                    <li>Manage digital communications and strategic content creation</li>
+                    <li>Explored and documented post-secondary transition mechanisms</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> May 2025 – Present</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
+                    <span><i class="fas fa-location-dot"></i> In-person</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Education Bridge</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Communications Lead</span>
-                        <span><i class="fas fa-calendar"></i> May 2025 – Present</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
-                        <span><i class="fas fa-location-dot"></i> In-person</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Education Bridge</h4>
-                        <p>Education Bridge is a non-profit organization founded in 2013 dedicated to providing South Sudanese youth with quality education and leadership development.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Lead strategic storytelling, stakeholder engagement, and brand positioning</li>
-                        <li>Create compelling narratives showcasing student journeys and organizational milestones</li>
-                        <li>Manage digital communications and strategic content creation</li>
-                        <li>Explored and documented post-secondary transition mechanisms</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Education Bridge Ex.png" alt="Education Bridge" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Education & Non-profit</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 2: African Leadership Academy - Reverse Layout -->
-            <a href="african-leadership-academy" class="category-card experience-detail-card flex-row-reverse">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/The African Leadership Academy Ex.png" alt="African Leadership Academy">
+        <!-- African Leadership Academy -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">02 / 09</span>
+                <h2 class="experience-title">African Leadership Academy</h2>
+                <p class="experience-role">ALforEducation Apprentice</p>
+                <p class="experience-description">Participated in a selective pan-African cohort focused on analyzing and designing equitable education systems through intensive online immersion and collaborative problem-solving.</p>
+                <ul class="experience-accomplishments">
+                    <li>Participated in selective pan-African cohort focused on analyzing and designing equitable education systems</li>
+                    <li>Completed intensive online immersion analyzing systemic educational challenges</li>
+                    <li>Engaged in rigorous community dialogues and collaborative problem solving</li>
+                    <li>Designed and executed innovative practical field project with partner organization</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> April 2025 – August 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
+                    <span><i class="fas fa-location-dot"></i> Remote</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>African Leadership Academy</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> ALforEducation Apprentice</span>
-                        <span><i class="fas fa-calendar"></i> April 2025 - August 2025</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
-                        <span><i class="fas fa-location-dot"></i> Remote</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About African Leadership Academy</h4>
-                        <p>Premier pan-African educational institution established in 2004 to transform the continent by developing its next generation of leaders.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Participated in selective pan-African cohort focused on analyzing and designing equitable education systems</li>
-                        <li>Completed intensive online immersion analyzing systemic educational challenges</li>
-                        <li>Engaged in rigorous community dialogues and collaborative problem solving</li>
-                        <li>Designed and executed innovative practical field project with partner organization</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/The African Leadership Academy Ex.png" alt="African Leadership Academy" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Education & Leadership</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 3: Ashinaga Foundation - Normal Layout -->
-            <a href="ashinaga-foundation" class="category-card experience-detail-card">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Ashinaga Foundation Ex.png" alt="Ashinaga Foundation">
+        <!-- Ashinaga Foundation -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">03 / 09</span>
+                <h2 class="experience-title">Ashinaga Foundation</h2>
+                <p class="experience-role">Learning Facilitator</p>
+                <p class="experience-description">Mentored 25+ orphaned students and designed 60+ active-learning lesson plans, achieving a verified 100% student pass rate on SAT examinations.</p>
+                <ul class="experience-accomplishments">
+                    <li>Mentored 25+ students, designed and delivered 60+ active-learning lesson plans</li>
+                    <li>Achieved verified 100% student pass rate on SAT examinations</li>
+                    <li>Facilitated 13 specialized workshops on leadership, communication, and goal-setting (80% confidence growth)</li>
+                    <li>Co-led community bonding sessions and peer-support networks</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> July 2024 – Present</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
+                    <span><i class="fas fa-location-dot"></i> In-person</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Ashinaga Foundation</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Learning Facilitator</span>
-                        <span><i class="fas fa-calendar"></i> July 2024 - Present</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
-                        <span><i class="fas fa-location-dot"></i> In-person</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Ashinaga Foundation</h4>
-                        <p>International non-profit headquartered in Tokyo providing educational funding and support to orphaned students. Raised over $1 billion since 1993.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Mentored 25+ students, designed and delivered 60+ active-learning lesson plans</li>
-                        <li>Achieved verified 100% student pass rate on SAT examinations</li>
-                        <li>Facilitated 13 specialized workshops on leadership, communication, and goal-setting (80% confidence growth)</li>
-                        <li>Co-led community bonding sessions and peer-support networks</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Ashinaga Foundation Ex.png" alt="Ashinaga Foundation" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Education & Mentorship</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 4: Uganics Repellents - Reverse Layout -->
-            <a href="uganics-repellents" class="category-card experience-detail-card flex-row-reverse">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Uganics Logo.png" alt="Uganics Repellents">
+        <!-- Uganics Repellents -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">04 / 09</span>
+                <h2 class="experience-title">Uganics Repellents Ltd</h2>
+                <p class="experience-role">Media & Communications Manager</p>
+                <p class="experience-description">Managed comprehensive PR and digital communications for a social enterprise manufacturing organic mosquito-repellent soap to combat malaria across East Africa.</p>
+                <ul class="experience-accomplishments">
+                    <li>Managed comprehensive public relations and press operations, prepared CEO for media interviews</li>
+                    <li>Engineered data-driven content strategy yielding 68% increase in social media follower growth</li>
+                    <li>Designed over 100 educational graphics and product infographics</li>
+                    <li>Researched and identified 20+ global grant opportunities, co-authored funding proposals</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> Sept 2023 – April 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kabasanda, Uganda</span>
+                    <span><i class="fas fa-location-dot"></i> Hybrid</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Uganics Repellents Ltd</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Media & Communications Manager</span>
-                        <span><i class="fas fa-calendar"></i> Sept 2023 - April 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Kabasanda, Uganda</span>
-                        <span><i class="fas fa-location-dot"></i> Hybrid</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Uganics Repellents</h4>
-                        <p>Social enterprise established in 2017 manufacturing organic mosquito-repellent soap to combat malaria across East Africa.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Managed comprehensive public relations and press operations, prepared CEO for media interviews</li>
-                        <li>Engineered data-driven content strategy yielding 68% increase in social media follower growth</li>
-                        <li>Designed over 100 educational graphics and product infographics</li>
-                        <li>Researched and identified 20+ global grant opportunities, co-authored funding proposals</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Uganics Logo.png" alt="Uganics Repellents" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Social Enterprise</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 5: Africa Inventor Alliance - Normal Layout -->
-            <a href="africa-inventor-alliance" class="category-card experience-detail-card">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Africa Inventor Alliance Ex.png" alt="Africa Inventor Alliance">
+        <!-- Africa Inventor Alliance -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">05 / 09</span>
+                <h2 class="experience-title">Africa Inventor Alliance</h2>
+                <p class="experience-role">Communications Lead</p>
+                <p class="experience-description">Directing comprehensive marketing portfolio for a strategic ecosystem developer empowering continental talent to build impactful technology, healthcare, and sustainable development products.</p>
+                <ul class="experience-accomplishments">
+                    <li>Direct comprehensive marketing portfolio: global press relations, international digital campaigns, multi-channel brand messaging</li>
+                    <li>Optimized SEO architecture achieving 90% increase in brand search visibility</li>
+                    <li>Spearheaded educational capacity-building workshops across innovation hubs and universities in Huye</li>
+                    <li>Built early-stage startup digital footprint from scratch during organization's first six months</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> October 2024 – Present</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                    <span><i class="fas fa-location-dot"></i> Hybrid</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Africa Inventor Alliance</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Communications Lead</span>
-                        <span><i class="fas fa-calendar"></i> October 2024 - Present</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
-                        <span><i class="fas fa-location-dot"></i> Hybrid</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Africa Inventor Alliance</h4>
-                        <p>Strategic ecosystem developer empowering continental talent to build impactful technology, healthcare, and sustainable development products.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Direct comprehensive marketing portfolio: global press relations, international digital campaigns, multi-channel brand messaging</li>
-                        <li>Optimized SEO architecture achieving 90% increase in brand search visibility</li>
-                        <li>Spearheaded educational capacity-building workshops across innovation hubs and universities in Huye</li>
-                        <li>Built early-stage startup digital footprint from scratch during organization's first six months</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Africa Inventor Alliance Ex.png" alt="Africa Inventor Alliance" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Innovation & Technology</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 6: Surplus People Project - Reverse Layout -->
-            <a href="surplus-people-project" class="category-card experience-detail-card flex-row-reverse">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Surplus People Project Ex.png" alt="Surplus People Project">
+        <!-- Surplus People Project -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">06 / 09</span>
+                <h2 class="experience-title">Surplus People Project</h2>
+                <p class="experience-role">Multimedia Manager</p>
+                <p class="experience-description">Produced 50+ custom multimedia pieces and launched official LinkedIn presence for a historic South African non-profit combating apartheid-era forced removals and promoting food sovereignty.</p>
+                <ul class="experience-accomplishments">
+                    <li>Produced 50+ custom multimedia pieces driving 170% increase in digital engagement</li>
+                    <li>Launched and scaled official LinkedIn presence from scratch, securing 700+ professional followers</li>
+                    <li>Coordinated communications for 8 community outreach events (15% growth in attendee turnout)</li>
+                    <li>Executed daily multi-channel social media management (60% boost in followers, 30% increase in engagement)</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> March 2024 – June 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</span>
+                    <span><i class="fas fa-location-dot"></i> In-person</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Surplus People Project</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Multimedia Manager</span>
-                        <span><i class="fas fa-calendar"></i> March 2024 - June 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</span>
-                        <span><i class="fas fa-location-dot"></i> In-person</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Surplus People Project</h4>
-                        <p>Historic South African non-profit established in 1983 combating apartheid-era forced removals, now promoting food sovereignty and agrarian reform.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Produced 50+ custom multimedia pieces driving 170% increase in digital engagement</li>
-                        <li>Launched and scaled official LinkedIn presence from scratch, securing 700+ professional followers</li>
-                        <li>Coordinated communications for 8 community outreach events (15% growth in attendee turnout)</li>
-                        <li>Executed daily multi-channel social media management (60% boost in followers, 30% increase in engagement)</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Surplus People Project Ex.png" alt="Surplus People Project" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Social Justice & Agriculture</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 7: Creative Connect - Normal Layout -->
-            <a href="creative-connect" class="category-card experience-detail-card">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/Creative Connect Ex.png" alt="Creative Connect">
+        <!-- Creative Connect -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">07 / 09</span>
+                <h2 class="experience-title">Creative Connect</h2>
+                <p class="experience-role">Social Media Manager</p>
+                <p class="experience-description">Curated and produced digital content spotlighting contemporary African art for a non-profit accelerating career development of independent creators across Africa and Global South.</p>
+                <ul class="experience-accomplishments">
+                    <li>Curated and produced digital content spotlighting contemporary African art</li>
+                    <li>Drafted all professional captions and contextual copy for Instagram and LinkedIn</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> February 2025 – May 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
+                    <span><i class="fas fa-location-dot"></i> Remote</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Creative Connect</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Social Media Manager</span>
-                        <span><i class="fas fa-calendar"></i> February 2025 - May 2025</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
-                        <span><i class="fas fa-location-dot"></i> Remote</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Creative Connect</h4>
-                        <p>Non-profit established in 2018 accelerating career development of independent creators across Africa and Global South. 600+ artists in 39 countries.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Curated and produced digital content spotlighting contemporary African art</li>
-                        <li>Drafted all professional captions and contextual copy for Instagram and LinkedIn</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/Creative Connect Ex.png" alt="Creative Connect" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Arts & Culture</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 8: Nalafem Collective - Reverse Layout -->
-            <a href="nalafem-collective" class="category-card experience-detail-card flex-row-reverse">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="Nalafem Collective">
+        <!-- Nalafem Collective -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">08 / 09</span>
+                <h2 class="experience-title">Nalafem Collective</h2>
+                <p class="experience-role">Graphic Designer</p>
+                <p class="experience-description">Designed comprehensive visual support for the 4th Nalafem Summit, creating unified visual materials from social media graphics to summit banners for a Pan-African feminist movement.</p>
+                <ul class="experience-accomplishments">
+                    <li>Designed comprehensive visual support for 4th Nalafem Summit (pre, during, post phases)</li>
+                    <li>Created slide decks for webinars and summit sessions reflecting Pan-African feminist identity</li>
+                    <li>Built unified visual materials from social media graphics to summit banners</li>
+                    <li>Strategic visual communication maintaining brand consistency across all touchpoints</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> May 2025 – August 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                    <span><i class="fas fa-location-dot"></i> Remote</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>Nalafem Collective</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Graphic Designer</span>
-                        <span><i class="fas fa-calendar"></i> May 2025 - August 2025</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About Nalafem Collective</h4>
-                        <p>Pan-African, multigenerational movement founded in 2020 advancing women's leadership, rights, and liberation across Africa.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Designed comprehensive visual support for 4th Nalafem Summit (pre, during, post phases)</li>
-                        <li>Created slide decks for webinars and summit sessions reflecting Pan-African feminist identity</li>
-                        <li>Built unified visual materials from social media graphics to summit banners</li>
-                        <li>Strategic visual communication maintaining brand consistency across all touchpoints</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="Nalafem Collective" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Women's Leadership</span>
                 </div>
-            </a>
+            </div>
+        </article>
 
-            <!-- Experience 9: African Leadership University - Normal Layout -->
-            <a href="african-leadership-university" class="category-card experience-detail-card">
-                <div class="category-image experience-logo">
-                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="African Leadership University">
+        <!-- African Leadership University -->
+        <article class="experience-row">
+            <div class="experience-text">
+                <span class="experience-number">09 / 09</span>
+                <h2 class="experience-title">African Leadership University</h2>
+                <p class="experience-role">Learning Assistant & Hub Ambassador</p>
+                <p class="experience-description">Managed 200+ students across BEL programme with 437 engagement cases (97.5% success rate) and served as Hub Ambassador for the first Signature Immersive Experience rollout in Ghana.</p>
+                <ul class="experience-accomplishments">
+                    <li>Managed 200+ students across BEL programme with 437 engagement cases (97.5% success rate, 426 resolved)</li>
+                    <li>Built structured follow-up process using Google Forms, spreadsheets, and multi-channel outreach</li>
+                    <li>Selected as Hub Ambassador for first Signature Immersive Experience rollout in Ghana</li>
+                    <li>Secured externship placements with 8 organizations across Accra, managed GLE social media platforms</li>
+                </ul>
+                <div class="experience-meta">
+                    <span><i class="fas fa-calendar"></i> Jan 2025 – April 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Accra, Ghana / Remote</span>
                 </div>
-                <div class="category-content experience-info">
-                    <h3>African Leadership University</h3>
-                    <div class="experience-meta">
-                        <span><i class="fas fa-briefcase"></i> Learning Assistant & Hub Ambassador</span>
-                        <span><i class="fas fa-calendar"></i> Jan 2025 - April 2025</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Accra, Ghana / Remote</span>
-                    </div>
-                    <div class="experience-about">
-                        <h4>About African Leadership University</h4>
-                        <p>ALU established in 2015 is a pioneering network of tertiary institutions with mission to produce 3 million young African leaders over 50 years.</p>
-                    </div>
-                    <ul class="experience-accomplishments">
-                        <li>Managed 200+ students across BEL programme with 437 engagement cases (97.5% success rate, 426 resolved)</li>
-                        <li>Built structured follow-up process using Google Forms, spreadsheets, and multi-channel outreach</li>
-                        <li>Selected as Hub Ambassador for first Signature Immersive Experience rollout in Ghana</li>
-                        <li>Secured externship placements with 8 organizations across Accra, managed GLE social media platforms</li>
-                    </ul>
+            </div>
+            <div class="experience-image-container">
+                <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="African Leadership University" class="experience-image">
+                <div class="experience-image-overlay">
+                    <span class="experience-image-label">Higher Education</span>
                 </div>
-            </a>
-        </div>
-    </section>
+            </div>
+        </article>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
 
-    <script src="static/script.js"></script>
-
     <script>
-        // Set active page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
