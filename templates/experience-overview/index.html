@@ -7,6 +7,123 @@
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .experience-detail-card {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            align-items: flex-start;
+        }
+        
+        .experience-detail-card.flex-row-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .experience-logo {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+        
+        .experience-logo img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-info {
+            flex: 1;
+        }
+        
+        .experience-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .experience-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .experience-meta i {
+            color: #16b2dc;
+        }
+        
+        .experience-about {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid #16b2dc;
+            border-radius: 8px;
+        }
+        
+        .experience-about h4 {
+            color: #16b2dc;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .experience-about p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .experience-accomplishments {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+        
+        .experience-accomplishments li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .experience-accomplishments li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #16b2dc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .experience-detail-card,
+            .experience-detail-card.flex-row-reverse {
+                flex-direction: column;
+            }
+            
+            .experience-logo {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 150px;
+                margin: 0 auto;
+            }
+            
+            .experience-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Placeholder -->
@@ -21,35 +138,9 @@
                 <ul class="nav-menu">
                     <li><a href="/" class="nav-link">Home</a></li>
                     <li><a href="/about" class="nav-link">About</a></li>
-                    <li class="dropdown">
-                        <a href="work-portfolio.html" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="my-shelf">My Shelf</a>
-                            <a href="artefacts">Artefacts</a>
-                            <a href="cv">CV</a>
-                            <a href="graphic-design">Graphic Design</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="experience-overview.html" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="african-leadership-university">African Leadership University</a>
-                            <a href="education-bridge">Education Bridge</a>
-                            <a href="african-leadership-academy">African Leadership Academy</a>
-                            <a href="ashinaga-foundation">Ashinaga Foundation</a>
-                            <a href="uganics-repellents">Uganics Repellents Ltd</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="programs-overview.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="cnn-academy">CNN Academy Fellow</a>
-                            <a href="take-action-lab">Take Action Lab</a>
-                            <a href="unleash-innovation-lab">UNLEASH Innovation Lab</a>
-                            <a href="accra-fusion">Accra Fusion</a>
-                            <a href="yali-east-africa">YALI East Africa</a>
-                        </div>
-                    </li>
+                    <li><a href="work-portfolio.html" class="nav-link">Work Portfolio</a></li>
+                    <li><a href="experience-overview.html" class="nav-link">Experience</a></li>
+                    <li><a href="programs-consolidated.html" class="nav-link">Programs</a></li>
                     <li><a href="/services" class="nav-link">Services</a></li>
                     <li><a href="/contact" class="nav-link">Contact</a></li>
                     <li><a href="/poems" class="nav-link">Poems</a></li>
@@ -111,100 +202,238 @@
         </div>
     </section>
 
-    <!-- Experience Grid -->
+    <!-- Experience Details -->
     <section class="posts-section">
         <div class="container">
-            <div class="categories-grid">
-                <a href="african-leadership-university" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-african-leadership-university-hero.jpg" alt="African Leadership University">
+            <!-- Experience 1: Education Bridge - Normal Layout -->
+            <a href="education-bridge" class="category-card experience-detail-card">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Education Bridge Ex.png" alt="Education Bridge">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Education Bridge</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Communications Lead</span>
+                        <span><i class="fas fa-calendar"></i> May 2025 – Present</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
+                        <span><i class="fas fa-location-dot"></i> In-person</span>
                     </div>
-                    <div class="category-content">
-                        <h3>African Leadership University</h3>
-                        <p>Learning Assistant & Hub Ambassador — Supported 200+ students across the BEL programme and led ALU's first Signature Immersive Experience in Accra, Ghana.</p>
+                    <div class="experience-about">
+                        <h4>About Education Bridge</h4>
+                        <p>Education Bridge is a non-profit organization founded in 2013 dedicated to providing South Sudanese youth with quality education and leadership development.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Lead strategic storytelling, stakeholder engagement, and brand positioning</li>
+                        <li>Create compelling narratives showcasing student journeys and organizational milestones</li>
+                        <li>Manage digital communications and strategic content creation</li>
+                        <li>Explored and documented post-secondary transition mechanisms</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="education-bridge" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-education-bridge.png" alt="Education Bridge">
+            <!-- Experience 2: African Leadership Academy - Reverse Layout -->
+            <a href="african-leadership-academy" class="category-card experience-detail-card flex-row-reverse">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/The African Leadership Academy Ex.png" alt="African Leadership Academy">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>African Leadership Academy</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> ALforEducation Apprentice</span>
+                        <span><i class="fas fa-calendar"></i> April 2025 - August 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
+                        <span><i class="fas fa-location-dot"></i> Remote</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Education Bridge</h3>
-                        <p>Communications Lead — Amplifying the stories of South Sudanese youth through strategic storytelling, brand positioning, and stakeholder engagement.</p>
+                    <div class="experience-about">
+                        <h4>About African Leadership Academy</h4>
+                        <p>Premier pan-African educational institution established in 2004 to transform the continent by developing its next generation of leaders.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Participated in selective pan-African cohort focused on analyzing and designing equitable education systems</li>
+                        <li>Completed intensive online immersion analyzing systemic educational challenges</li>
+                        <li>Engaged in rigorous community dialogues and collaborative problem solving</li>
+                        <li>Designed and executed innovative practical field project with partner organization</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="african-leadership-academy" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-african-leadership-academy.png" alt="African Leadership Academy">
+            <!-- Experience 3: Ashinaga Foundation - Normal Layout -->
+            <a href="ashinaga-foundation" class="category-card experience-detail-card">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Ashinaga Foundation Ex.png" alt="Ashinaga Foundation">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Ashinaga Foundation</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Learning Facilitator</span>
+                        <span><i class="fas fa-calendar"></i> July 2024 - Present</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</span>
+                        <span><i class="fas fa-location-dot"></i> In-person</span>
                     </div>
-                    <div class="category-content">
-                        <h3>African Leadership Academy</h3>
-                        <p>ALforEducation Apprentice — Exploring education systems across Africa and co-creating innovative solutions with a partner organisation in Johannesburg.</p>
+                    <div class="experience-about">
+                        <h4>About Ashinaga Foundation</h4>
+                        <p>International non-profit headquartered in Tokyo providing educational funding and support to orphaned students. Raised over $1 billion since 1993.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Mentored 25+ students, designed and delivered 60+ active-learning lesson plans</li>
+                        <li>Achieved verified 100% student pass rate on SAT examinations</li>
+                        <li>Facilitated 13 specialized workshops on leadership, communication, and goal-setting (80% confidence growth)</li>
+                        <li>Co-led community bonding sessions and peer-support networks</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="ashinaga-foundation" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-ashinaga-foundation.png" alt="Ashinaga Foundation">
+            <!-- Experience 4: Uganics Repellents - Reverse Layout -->
+            <a href="uganics-repellents" class="category-card experience-detail-card flex-row-reverse">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Uganics Logo.png" alt="Uganics Repellents">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Uganics Repellents Ltd</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Media & Communications Manager</span>
+                        <span><i class="fas fa-calendar"></i> Sept 2023 - April 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kabasanda, Uganda</span>
+                        <span><i class="fas fa-location-dot"></i> Hybrid</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Ashinaga Foundation</h3>
-                        <p>Learning Facilitator — Designed 60+ lesson plans, achieved a 100% SAT pass rate, and led 13 leadership workshops for a cohort of 25+ students in Kampala.</p>
+                    <div class="experience-about">
+                        <h4>About Uganics Repellents</h4>
+                        <p>Social enterprise established in 2017 manufacturing organic mosquito-repellent soap to combat malaria across East Africa.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Managed comprehensive public relations and press operations, prepared CEO for media interviews</li>
+                        <li>Engineered data-driven content strategy yielding 68% increase in social media follower growth</li>
+                        <li>Designed over 100 educational graphics and product infographics</li>
+                        <li>Researched and identified 20+ global grant opportunities, co-authored funding proposals</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="uganics-repellents" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-uganics-repellents.png" alt="Uganics Repellents">
+            <!-- Experience 5: Africa Inventor Alliance - Normal Layout -->
+            <a href="africa-inventor-alliance" class="category-card experience-detail-card">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Africa Inventor Alliance Ex.png" alt="Africa Inventor Alliance">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Africa Inventor Alliance</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Communications Lead</span>
+                        <span><i class="fas fa-calendar"></i> October 2024 - Present</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                        <span><i class="fas fa-location-dot"></i> Hybrid</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Uganics Repellents Ltd</h3>
-                        <p>Media & Communications Manager — Grew social media by 68%, created 100+ graphics, and identified 20+ grant opportunities for this Uganda-based social enterprise.</p>
+                    <div class="experience-about">
+                        <h4>About Africa Inventor Alliance</h4>
+                        <p>Strategic ecosystem developer empowering continental talent to build impactful technology, healthcare, and sustainable development products.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Direct comprehensive marketing portfolio: global press relations, international digital campaigns, multi-channel brand messaging</li>
+                        <li>Optimized SEO architecture achieving 90% increase in brand search visibility</li>
+                        <li>Spearheaded educational capacity-building workshops across innovation hubs and universities in Huye</li>
+                        <li>Built early-stage startup digital footprint from scratch during organization's first six months</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="africa-inventor-alliance" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-africa-inventor-alliance.png" alt="Africa Inventor Alliance">
+            <!-- Experience 6: Surplus People Project - Reverse Layout -->
+            <a href="surplus-people-project" class="category-card experience-detail-card flex-row-reverse">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Surplus People Project Ex.png" alt="Surplus People Project">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Surplus People Project</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Multimedia Manager</span>
+                        <span><i class="fas fa-calendar"></i> March 2024 - June 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</span>
+                        <span><i class="fas fa-location-dot"></i> In-person</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Africa Inventor Alliance</h3>
-                        <p>Communications Lead — Grew the Alliance's brand from the ground up, raised SEO visibility by 90%, and supported innovation clubs across Rwanda.</p>
+                    <div class="experience-about">
+                        <h4>About Surplus People Project</h4>
+                        <p>Historic South African non-profit established in 1983 combating apartheid-era forced removals, now promoting food sovereignty and agrarian reform.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Produced 50+ custom multimedia pieces driving 170% increase in digital engagement</li>
+                        <li>Launched and scaled official LinkedIn presence from scratch, securing 700+ professional followers</li>
+                        <li>Coordinated communications for 8 community outreach events (15% growth in attendee turnout)</li>
+                        <li>Executed daily multi-channel social media management (60% boost in followers, 30% increase in engagement)</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="surplus-people-project" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-surplus-people-project.png" alt="Surplus People Project">
+            <!-- Experience 7: Creative Connect - Normal Layout -->
+            <a href="creative-connect" class="category-card experience-detail-card">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/Creative Connect Ex.png" alt="Creative Connect">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Creative Connect</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Social Media Manager</span>
+                        <span><i class="fas fa-calendar"></i> February 2025 - May 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
+                        <span><i class="fas fa-location-dot"></i> Remote</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Surplus People Project</h3>
-                        <p>Multimedia Manager — Created 50+ multimedia pieces, grew digital engagement by 170%, and launched the organisation's LinkedIn presence from scratch in Cape Town.</p>
+                    <div class="experience-about">
+                        <h4>About Creative Connect</h4>
+                        <p>Non-profit established in 2018 accelerating career development of independent creators across Africa and Global South. 600+ artists in 39 countries.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Curated and produced digital content spotlighting contemporary African art</li>
+                        <li>Drafted all professional captions and contextual copy for Instagram and LinkedIn</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="creative-connect" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-creative-connect.png" alt="Creative Connect">
+            <!-- Experience 8: Nalafem Collective - Reverse Layout -->
+            <a href="nalafem-collective" class="category-card experience-detail-card flex-row-reverse">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="Nalafem Collective">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>Nalafem Collective</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Graphic Designer</span>
+                        <span><i class="fas fa-calendar"></i> May 2025 - August 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Creative Connect</h3>
-                        <p>Social Media Manager — Curated and produced content spotlighting African contemporary art for a network of 600+ creatives across 39 countries.</p>
+                    <div class="experience-about">
+                        <h4>About Nalafem Collective</h4>
+                        <p>Pan-African, multigenerational movement founded in 2020 advancing women's leadership, rights, and liberation across Africa.</p>
                     </div>
-                </a>
+                    <ul class="experience-accomplishments">
+                        <li>Designed comprehensive visual support for 4th Nalafem Summit (pre, during, post phases)</li>
+                        <li>Created slide decks for webinars and summit sessions reflecting Pan-African feminist identity</li>
+                        <li>Built unified visual materials from social media graphics to summit banners</li>
+                        <li>Strategic visual communication maintaining brand consistency across all touchpoints</li>
+                    </ul>
+                </div>
+            </a>
 
-                <a href="nalafem-collective" class="category-card">
-                    <div class="category-image">
-                        <img src="static/Pictures/john-ngor-deng-garang-nalafem-collective.png" alt="Nala Feminist Collective">
+            <!-- Experience 9: African Leadership University - Normal Layout -->
+            <a href="african-leadership-university" class="category-card experience-detail-card">
+                <div class="category-image experience-logo">
+                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="African Leadership University">
+                </div>
+                <div class="category-content experience-info">
+                    <h3>African Leadership University</h3>
+                    <div class="experience-meta">
+                        <span><i class="fas fa-briefcase"></i> Learning Assistant & Hub Ambassador</span>
+                        <span><i class="fas fa-calendar"></i> Jan 2025 - April 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Accra, Ghana / Remote</span>
                     </div>
-                    <div class="category-content">
-                        <h3>Nala Feminist Collective</h3>
-                        <p>Graphic Designer — Designed all visual materials for the 4th Nalafem Summit, from promotional graphics to live event slides, rooted in Pan-African feminist identity.</p>
+                    <div class="experience-about">
+                        <h4>About African Leadership University</h4>
+                        <p>ALU established in 2015 is a pioneering network of tertiary institutions with mission to produce 3 million young African leaders over 50 years.</p>
                     </div>
-                </a>
-            </div>
+                    <ul class="experience-accomplishments">
+                        <li>Managed 200+ students across BEL programme with 437 engagement cases (97.5% success rate, 426 resolved)</li>
+                        <li>Built structured follow-up process using Google Forms, spreadsheets, and multi-channel outreach</li>
+                        <li>Selected as Hub Ambassador for first Signature Immersive Experience rollout in Ghana</li>
+                        <li>Secured externship placements with 8 organizations across Accra, managed GLE social media platforms</li>
+                    </ul>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -227,7 +456,3 @@
     </script>
 </body>
 </html>
-
-
-
-
