@@ -46,10 +46,19 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     
     def do_GET(self):
         """Handle routing with HTML auto-append"""
-        if self.path == '/':
-            self.path = os.path.join('templates', 'index.html')
-        elif not '.' in self.path.split('/')[-1]:
-            self.path = os.path.join('templates', self.path.lstrip('/') + '.html')
+        clean = self.path.split('?')[0]
+        if clean == '/':
+            self.path = 'templates/index.html'
+        elif '.' in clean.split('/')[-1]:
+            # Has a file extension — serve from templates/
+            self.path = 'templates/' + clean.lstrip('/')
+        else:
+            # Try direct .html file first, then directory/index.html
+            direct = 'templates/' + clean.lstrip('/') + '.html'
+            if os.path.exists(direct):
+                self.path = direct
+            else:
+                self.path = 'templates/' + clean.lstrip('/') + '/index.html'
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 # Enable address reuse

@@ -22,26 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="graphic-design.html">Graphic Design</a>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="/experience-overview" class="nav-link">Experience <i class="fas fa-chevron-down"></i></a>
-                            <div class="dropdown-content">
-                                <a href="african-leadership-university.html">African Leadership University</a>
-                                <a href="education-bridge.html">Education Bridge</a>
-                                <a href="african-leadership-academy.html">African Leadership Academy</a>
-                                <a href="ashinaga-foundation.html">Ashinaga Foundation</a>
-                                <a href="uganics-repellents.html">Uganics Repellents Ltd</a>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="/programs-overview" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                            <div class="dropdown-content">
-                                <a href="cnn-academy.html">CNN Academy Fellow</a>
-                                <a href="take-action-lab.html">Take Action Lab</a>
-                                <a href="unleash-innovation-lab.html">UNLEASH Innovation Lab</a>
-                                <a href="accra-fusion.html">Accra Fusion</a>
-                                <a href="yali-east-africa.html">YALI East Africa</a>
-                            </div>
-                        </li>
+                        <li><a href="/experience-overview" class="nav-link">Experience</a></li>
+                        <li><a href="/programs-overview" class="nav-link">Programs</a></li>
                         <li><a href="/services" class="nav-link">Services</a></li>
                         <li><a href="/contact" class="nav-link">Contact</a></li>
                         <li><a href="/poems" class="nav-link">Poems</a></li>

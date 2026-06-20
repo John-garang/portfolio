@@ -4,79 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | John Garang</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder">
-        <!-- Temporary Navigation -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="static/Pictures/john-ngor-deng-garang-logo.png" alt="John Garang Logo">
-                    <span class="logo-name">John Ngor Deng Garang</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="work-portfolio.html" class="nav-link">Work Portfolio</a></li>
-                    <li><a href="experience-overview.html" class="nav-link">Experience</a></li>
-                    <li><a href="programs-consolidated.html" class="nav-link">Programs</a></li>
-                    <li><a href="/services" class="nav-link active">Services</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
-                    <li><a href="/poems" class="nav-link">Poems</a></li>
-                </ul>
-                <div class="nav-right">
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <div class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-overlay" id="mobileOverlay"></div>
-        </nav>
-    </div>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-                
-                mobileOverlay.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            }
-        });
-    </script>
-    <script src="static/load-header.js"></script>
+    <div id="header-placeholder"></div>
+    <script src="/static/load-header.js"></script>
 
     <!-- Hero Section -->
     <section class="services-hero">
@@ -92,7 +26,7 @@
             <div class="services-grid-page">
                 <div class="service-card-page" data-service="web-development">
                     <div class="service-image">
-                        <img src="static/Pictures/Web Development.png" alt="Web Development">
+                        <img src="/static/Pictures/Web Development.png" alt="Web Development">
                     </div>
                     <div class="service-content">
                         <h3>Web Development</h3>
@@ -109,7 +43,7 @@
 
                 <div class="service-card-page" data-service="graphic-design">
                     <div class="service-image">
-                        <img src="static/Pictures/Graphic Design.png" alt="Graphic Design">
+                        <img src="/static/Pictures/Graphic Design.png" alt="Graphic Design">
                     </div>
                     <div class="service-content">
                         <h3>Graphic Design</h3>
@@ -126,7 +60,7 @@
 
                 <div class="service-card-page" data-service="ghost-writing">
                     <div class="service-image">
-                        <img src="static/Pictures/Ghost Writing Services.png" alt="Ghost Writing">
+                        <img src="/static/Pictures/Ghost Writing Services.png" alt="Ghost Writing">
                     </div>
                     <div class="service-content">
                         <h3>Ghost Writing Services</h3>
@@ -244,10 +178,10 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js"></script>
+    <script src="/static/load-footer.js"></script>
 
-    <script src="static/script.js"></script>
-    <script src="static/brand-notifications.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/brand-notifications.js"></script>
     <script>
         // Services page functionality
         document.addEventListener('DOMContentLoaded', () => {
