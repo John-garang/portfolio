@@ -15,16 +15,37 @@
     <link rel="stylesheet" href="/static/styles.css?v=1.0.9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <style>
-        .program-card {
-            text-align: left;
+        .program-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #f0f0f0;
         }
-        .program-card .program-content {
-            padding: 0 0.5rem 1rem;
+        .program-section:nth-child(even) {
+            background: #fafafa;
         }
-        .program-card .program-content h3 {
+        .program-section-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .program-section:nth-child(even) .program-section-inner {
+            direction: rtl;
+        }
+        .program-section:nth-child(even) .program-section-inner > * {
+            direction: ltr;
+        }
+        .program-section-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+        .program-section-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.35rem;
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+            color: #1a1a1a;
         }
         .program-meta-line {
             font-family: 'Lato', sans-serif;
@@ -32,30 +53,41 @@
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            margin-bottom: 0.85rem;
+            margin-bottom: 1.2rem;
         }
         .program-meta-line i {
             color: #16b2dc;
             margin-right: 0.3rem;
         }
-        .program-card .program-content p {
-            font-size: 0.95rem;
-            line-height: 1.65;
-            margin-bottom: 1rem;
+        .program-section-content p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #444;
+            margin-bottom: 1.2rem;
         }
         .program-quote {
             font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-style: italic;
             color: #444;
             border-left: 3px solid #16b2dc;
-            padding-left: 0.85rem;
-            margin: 0.85rem 0 0;
-            line-height: 1.55;
+            padding-left: 1rem;
+            margin: 0;
+            line-height: 1.6;
         }
-        .program-image img {
-            height: 220px;
-            object-fit: cover;
+        @media (max-width: 768px) {
+            .program-section-inner,
+            .program-section:nth-child(even) .program-section-inner {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2rem;
+            }
+            .program-section-image img {
+                height: 240px;
+            }
+            .program-section-content h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -77,85 +109,97 @@
         </div>
     </section>
 
-    <section class="posts-section">
+    <!-- CNN Academy -->
+    <section class="program-section">
         <div class="container">
-            <div class="programs-grid">
-
-                <!-- CNN Academy -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow">
-                    </div>
-                    <div class="program-content">
-                        <h3>CNN Academy Fellow</h3>
-                        <p class="program-meta-line">
-                            <i class="fas fa-calendar"></i>July 2025 – Nov 2025 &nbsp;·&nbsp; <i class="fas fa-globe"></i>Global (Online)
-                        </p>
-                        <p>An immersive journalism fellowship sharpening editorial skills through newsroom-style learning, masterclasses with CNN correspondents, and peer collaboration focused on climate storytelling from a Global South perspective.</p>
-                        <blockquote class="program-quote">"The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."</blockquote>
-                    </div>
+            <div class="program-section-inner">
+                <div class="program-section-image">
+                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow">
                 </div>
-
-                <!-- UNLEASH Innovation Lab -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab">
-                    </div>
-                    <div class="program-content">
-                        <h3>UNLEASH Global Innovation Lab</h3>
-                        <p class="program-meta-line">
-                            <i class="fas fa-calendar"></i>December 2–9, 2023 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Kigali, Rwanda
-                        </p>
-                        <p>Selected as one of 1,000 young talents worldwide to co-create scalable solutions for the UN Sustainable Development Goals — developing PappyBags, a sustainable alternative to single-use plastics using papyrus reeds.</p>
-                        <blockquote class="program-quote">"The experience deepened my commitment to applying creativity and local resources toward climate resilience."</blockquote>
-                    </div>
+                <div class="program-section-content">
+                    <h2>CNN Academy Fellow</h2>
+                    <p class="program-meta-line">
+                        <i class="fas fa-calendar"></i>July 2025 – Nov 2025 &nbsp;·&nbsp; <i class="fas fa-globe"></i>Global (Online)
+                    </p>
+                    <p>An immersive journalism fellowship sharpening editorial skills through newsroom-style learning, masterclasses with CNN correspondents, and peer collaboration focused on climate storytelling from a Global South perspective.</p>
+                    <blockquote class="program-quote">"The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."</blockquote>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Take Action Lab -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
-                    </div>
-                    <div class="program-content">
-                        <h3>Take Action Lab</h3>
-                        <p class="program-meta-line">
-                            <i class="fas fa-calendar"></i>Sept – Dec 2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa
-                        </p>
-                        <p>An immersive leadership program equipping young African leaders with frameworks for systemic change — intensive workshops on systems thinking, community organizing, and social entrepreneurship.</p>
-                        <blockquote class="program-quote">"Real change starts with understanding the systems that shape our communities and having the courage to challenge them."</blockquote>
-                    </div>
+    <!-- UNLEASH Innovation Lab -->
+    <section class="program-section">
+        <div class="container">
+            <div class="program-section-inner">
+                <div class="program-section-image">
+                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab">
                 </div>
-
-                <!-- Accra Fusion -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
-                    </div>
-                    <div class="program-content">
-                        <h3>Accra Fusion</h3>
-                        <p class="program-meta-line">
-                            <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Accra, Ghana
-                        </p>
-                        <p>A dynamic program bringing together young African leaders, entrepreneurs, and innovators to foster cross-cultural understanding. Built lasting partnerships with changemakers across the continent.</p>
-                        <blockquote class="program-quote">"Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."</blockquote>
-                    </div>
+                <div class="program-section-content">
+                    <h2>UNLEASH Global Innovation Lab</h2>
+                    <p class="program-meta-line">
+                        <i class="fas fa-calendar"></i>December 2–9, 2023 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Kigali, Rwanda
+                    </p>
+                    <p>Selected as one of 1,000 young talents worldwide to co-create scalable solutions for the UN Sustainable Development Goals — developing PappyBags, a sustainable alternative to single-use plastics using papyrus reeds.</p>
+                    <blockquote class="program-quote">"The experience deepened my commitment to applying creativity and local resources toward climate resilience."</blockquote>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- YALI East Africa -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa">
-                    </div>
-                    <div class="program-content">
-                        <h3>YALI East Africa</h3>
-                        <p class="program-meta-line">
-                            <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa Region
-                        </p>
-                        <p>A signature Young African Leaders Initiative empowering young leaders through intensive training, mentorship, and networking across Business & Entrepreneurship, Public Management, and Civic Leadership tracks.</p>
-                        <blockquote class="program-quote">"Leadership is not about titles or positions — it's about taking responsibility for the future you want to see."</blockquote>
-                    </div>
+    <!-- Take Action Lab -->
+    <section class="program-section">
+        <div class="container">
+            <div class="program-section-inner">
+                <div class="program-section-image">
+                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
                 </div>
+                <div class="program-section-content">
+                    <h2>Take Action Lab</h2>
+                    <p class="program-meta-line">
+                        <i class="fas fa-calendar"></i>Sept – Dec 2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa
+                    </p>
+                    <p>An immersive leadership program equipping young African leaders with frameworks for systemic change — intensive workshops on systems thinking, community organizing, and social entrepreneurship.</p>
+                    <blockquote class="program-quote">"Real change starts with understanding the systems that shape our communities and having the courage to challenge them."</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Accra Fusion -->
+    <section class="program-section">
+        <div class="container">
+            <div class="program-section-inner">
+                <div class="program-section-image">
+                    <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
+                </div>
+                <div class="program-section-content">
+                    <h2>Accra Fusion</h2>
+                    <p class="program-meta-line">
+                        <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Accra, Ghana
+                    </p>
+                    <p>A dynamic program bringing together young African leaders, entrepreneurs, and innovators to foster cross-cultural understanding. Built lasting partnerships with changemakers across the continent.</p>
+                    <blockquote class="program-quote">"Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YALI East Africa -->
+    <section class="program-section">
+        <div class="container">
+            <div class="program-section-inner">
+                <div class="program-section-image">
+                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa">
+                </div>
+                <div class="program-section-content">
+                    <h2>YALI East Africa</h2>
+                    <p class="program-meta-line">
+                        <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa Region
+                    </p>
+                    <p>A signature Young African Leaders Initiative empowering young leaders through intensive training, mentorship, and networking across Business & Entrepreneurship, Public Management, and Civic Leadership tracks.</p>
+                    <blockquote class="program-quote">"Leadership is not about titles or positions — it's about taking responsibility for the future you want to see."</blockquote>
+                </div>
             </div>
         </div>
     </section>
