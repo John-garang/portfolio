@@ -177,58 +177,83 @@
     <!-- Programs Pages -->
     <url>
         <loc>https://johngarang.com/programs-overview</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png</image:loc>
+            <image:title>John Ngor Deng Garang — CNN Academy Voices of the Global South Climate Storytelling Fellow 2025</image:title>
+            <image:caption>John Ngor Deng Garang, CNN Academy Voices of the Global South Climate Storytelling Fellow, international journalism fellowship, Global South climate reporting</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png</image:loc>
+            <image:title>John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023</image:title>
+            <image:caption>John Ngor Deng Garang at UNLEASH Global Innovation Lab, selected on full scholarship as one of 1,000 young innovators, co-created PappyBags sustainable innovation</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-take-action-lab.png</image:loc>
+            <image:title>John Ngor Deng Garang — Take Action Lab, Tilting Futures, South Africa 2024</image:title>
+            <image:caption>John Ngor Deng Garang, Take Action Lab alumnus and Multimedia Apprentice at Surplus People Project, documenting agroecology and human rights across Western, Northern, Eastern Cape and Gauteng</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-accra-fusion.png</image:loc>
+            <image:title>John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025</image:title>
+            <image:caption>John Ngor Deng Garang as Student Ambassador for Accra Fusion, secured 8 Ghanaian organisational partnerships, supported 25+ students</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-yali-east-africa.png</image:loc>
+            <image:title>John Ngor Deng Garang — YALI East Africa Cohort 60, U.S. Department of State Young African Leaders Initiative 2024</image:title>
+            <image:caption>John Ngor Deng Garang, YALI East Africa Regional Leadership Centre Cohort 60 alumnus, Business and Entrepreneurship Track</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://johngarang.com/cnn-academy</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png</image:loc>
-            <image:title>John Ngor Deng Garang - CNN Academy Global South Fellow, Climate Journalism</image:title>
+            <image:title>John Ngor Deng Garang — CNN Academy Voices of the Global South Climate Storytelling Fellow</image:title>
         </image:image>
     </url>
     <url>
         <loc>https://johngarang.com/take-action-lab</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-take-action-lab.png</image:loc>
-            <image:title>John Ngor Deng Garang - Take Action Lab, Tilting Futures Gap Year Programme</image:title>
+            <image:title>John Ngor Deng Garang — Take Action Lab, Tilting Futures, South Africa 2024</image:title>
         </image:image>
     </url>
     <url>
         <loc>https://johngarang.com/unleash-innovation-lab</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png</image:loc>
-            <image:title>John Ngor Deng Garang - UNLEASH Global Innovation Lab Talent, Kigali Rwanda</image:title>
+            <image:title>John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023</image:title>
         </image:image>
     </url>
     <url>
         <loc>https://johngarang.com/accra-fusion</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-accra-fusion.png</image:loc>
-            <image:title>John Ngor Deng Garang - Hub Ambassador, Accra Fusion Signature Immersive Experience</image:title>
+            <image:title>John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University Ghana 2025</image:title>
         </image:image>
     </url>
     <url>
         <loc>https://johngarang.com/yali-east-africa</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-yali-east-africa.png</image:loc>
-            <image:title>John Ngor Deng Garang - YALI East Africa Alumnus, Cohort 60</image:title>
+            <image:title>John Ngor Deng Garang — YALI East Africa Cohort 60 Alumnus 2024</image:title>
         </image:image>
     </url>
 
