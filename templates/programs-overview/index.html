@@ -5,89 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Programs & Fellowships | John Ngor Deng Garang</title>
-    <meta name="description" content="Explore John Ngor Deng Garang's participation in prestigious global programs including CNN Academy, UNLEASH Innovation Lab, Take Action Lab, Accra Fusion, and YALI East Africa.">
+    <meta name="description" content="John Ngor Deng Garang's international fellowships and leadership programs — CNN Academy Climate Journalism Fellow, UNLEASH Global Innovation Lab, Take Action Lab, Accra Fusion Student Ambassador, and YALI East Africa alumnus. A record of global leadership, digital communications, and social impact.">
+    <meta name="keywords" content="John Ngor Deng Garang, Leadership Fellowship, International Fellowship, Global Leadership, Youth Leadership, Climate Journalism, Climate Innovation, Digital Communications, Multimedia Storytelling, Strategic Communications, African Leadership, Entrepreneurship, Sustainable Development Goals, Community Development, Human Rights, Agroecology, Food Sovereignty, Journalism Fellowship, Global Citizenship, UNLEASH, CNN Academy, YALI, Take Action Lab, Accra Fusion">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://johngarang.com/programs-overview">
     <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://johngarang.com/programs-overview">
+    <meta property="og:title" content="Programs & Fellowships | John Ngor Deng Garang">
+    <meta property="og:description" content="A record of international leadership programs, journalism fellowships, and innovation labs — from CNN Academy to UNLEASH Global Innovation Lab.">
+    <meta property="og:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-cnn-academy-hero.jpg">
+
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap"></noscript>
     <link rel="stylesheet" href="/static/loading.css">
     <link rel="stylesheet" href="/static/styles.css?v=1.0.9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+
     <style>
-        .program-section {
-            padding: 5rem 0;
-            border-bottom: 1px solid #f0f0f0;
+        /* ── Page-level overrides ── */
+        body { padding-top: 0; }
+
+        /* ── Hero ── */
+        .programs-hero {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            text-align: center;
+            padding: 140px 20px 90px;
+            position: relative;
+            overflow: hidden;
         }
-        .program-section:nth-child(even) {
-            background: #fafafa;
+        .programs-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        .program-section-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .programs-hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .programs-hero-tag {
+            display: inline-block;
+            background: rgba(22, 178, 220, 0.2);
+            border: 1px solid rgba(22, 178, 220, 0.5);
+            color: #16b2dc;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
-        .program-section:nth-child(even) .program-section-inner {
-            direction: rtl;
+        .programs-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
         }
-        .program-section:nth-child(even) .program-section-inner > * {
-            direction: ltr;
+        .programs-hero p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
         }
-        .program-section-image img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 8px;
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat-number {
             display: block;
-        }
-        .program-section-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
-            margin-bottom: 0.4rem;
-            color: #1a1a1a;
-        }
-        .program-meta-line {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.8rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.2rem;
-        }
-        .program-meta-line i {
+            font-weight: 700;
             color: #16b2dc;
-            margin-right: 0.3rem;
         }
-        .program-section-content p {
-            font-size: 1rem;
-            line-height: 1.75;
+        .hero-stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
+        }
+
+        /* ── Program Sections ── */
+        .program-section {
+            padding: 6rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+        .program-section:nth-child(even) { background: #fafafa; }
+        .program-section:last-child { border-bottom: none; }
+
+        .program-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .program-section:nth-child(even) .program-inner { direction: rtl; }
+        .program-section:nth-child(even) .program-inner > * { direction: ltr; }
+
+        /* Image */
+        .program-visual {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f0f4f8;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: box-shadow 0.4s ease;
+        }
+        .program-visual:hover { box-shadow: 0 30px 80px rgba(0,0,0,0.15); }
+        .program-visual img {
+            width: 100%;
+            height: auto;
+            max-height: 460px;
+            object-fit: contain;
+            display: block;
+            padding: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+        .program-visual:hover img { transform: scale(1.03); }
+        .program-visual-badge {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            background: rgba(22, 178, 220, 0.92);
+            backdrop-filter: blur(6px);
+            color: white;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Content */
+        .program-content { padding: 0.5rem 0; }
+        .program-org {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #16b2dc;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.6rem;
+        }
+        .program-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .program-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .program-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            color: #888;
+            font-family: 'Lato', sans-serif;
+        }
+        .program-meta-item i { color: #16b2dc; font-size: 0.75rem; }
+
+        .program-desc {
+            font-size: 0.98rem;
+            line-height: 1.8;
             color: #444;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
+
+        /* Tags */
+        .program-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .program-tag {
+            background: #f0f8fc;
+            border: 1px solid #c8e8f5;
+            color: #1a7fa0;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Lato', sans-serif;
+            transition: all 0.25s ease;
+        }
+        .program-tag:hover {
+            background: #16b2dc;
+            border-color: #16b2dc;
+            color: white;
+        }
+
+        /* Quote */
         .program-quote {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 0.97rem;
             font-style: italic;
-            color: #444;
+            color: #333;
             border-left: 3px solid #16b2dc;
-            padding-left: 1rem;
+            padding: 0.75rem 1.25rem;
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.65;
+            background: #f8fdff;
+            border-radius: 0 8px 8px 0;
         }
-        @media (max-width: 768px) {
-            .program-section-inner,
-            .program-section:nth-child(even) .program-section-inner {
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .program-inner,
+            .program-section:nth-child(even) .program-inner {
                 grid-template-columns: 1fr;
                 direction: ltr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
-            .program-section-image img {
-                height: 240px;
-            }
-            .program-section-content h2 {
-                font-size: 1.5rem;
-            }
+            .program-visual img { max-height: 320px; }
+            .program-section { padding: 4rem 0; }
+        }
+        @media (max-width: 600px) {
+            .programs-hero { padding: 110px 20px 70px; }
+            .hero-stats { gap: 2rem; }
+            .program-section { padding: 3rem 0; }
+            .program-inner { gap: 2rem; }
+            .program-visual img { max-height: 260px; padding: 1rem; }
         }
     </style>
 </head>
@@ -102,103 +258,200 @@
 
     <div id="header-placeholder"></div>
 
-    <section class="category-hero">
-        <div class="container">
-            <h1>Programs & Fellowships</h1>
-            <p>A curated journey through global innovation, leadership development, and transformative learning experiences</p>
-        </div>
-    </section>
-
-    <!-- CNN Academy -->
-    <section class="program-section">
-        <div class="container">
-            <div class="program-section-inner">
-                <div class="program-section-image">
-                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="CNN Academy Fellow">
+    <!-- Hero -->
+    <section class="programs-hero">
+        <div class="programs-hero-inner">
+            <div class="programs-hero-tag">International Programs & Fellowships</div>
+            <h1>Global Leadership in Action</h1>
+            <p>A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">5</span>
+                    <span class="hero-stat-label">Programs</span>
                 </div>
-                <div class="program-section-content">
-                    <h2>CNN Academy Fellow</h2>
-                    <p class="program-meta-line">
-                        <i class="fas fa-calendar"></i>July 2025 – Nov 2025 &nbsp;·&nbsp; <i class="fas fa-globe"></i>Global (Online)
-                    </p>
-                    <p>An immersive journalism fellowship sharpening editorial skills through newsroom-style learning, masterclasses with CNN correspondents, and peer collaboration focused on climate storytelling from a Global South perspective.</p>
-                    <blockquote class="program-quote">"The program challenged us to think critically about representation, ensuring that stories from our regions are told with accuracy, dignity, and urgency."</blockquote>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">8+</span>
+                    <span class="hero-stat-label">Countries</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4+</span>
+                    <span class="hero-stat-label">Years</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- UNLEASH Innovation Lab -->
-    <section class="program-section">
+    <!-- CNN Academy -->
+    <section class="program-section" id="cnn-academy">
         <div class="container">
-            <div class="program-section-inner">
-                <div class="program-section-image">
-                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="UNLEASH Innovation Lab">
+            <div class="program-inner">
+                <div class="program-visual">
+                    <span class="program-visual-badge">Journalism Fellowship</span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="John Ngor Deng Garang — CNN Academy Climate Storytelling Fellow" loading="lazy">
                 </div>
-                <div class="program-section-content">
-                    <h2>UNLEASH Global Innovation Lab</h2>
-                    <p class="program-meta-line">
-                        <i class="fas fa-calendar"></i>December 2–9, 2023 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Kigali, Rwanda
+                <div class="program-content">
+                    <p class="program-org">CNN Academy</p>
+                    <h2>CNN Academy Climate Storytelling Fellowship</h2>
+                    <div class="program-meta">
+                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> July – November 2025</span>
+                        <span class="program-meta-item"><i class="fas fa-globe"></i> Global (Online)</span>
+                    </div>
+                    <p class="program-desc">
+                        The CNN Academy Climate Storytelling Fellowship is a highly competitive international journalism fellowship that prepares emerging journalists from the Global South to report on climate issues with accuracy, editorial rigour, and ethical responsibility. Selected as a fellow, I completed an intensive curriculum on the CNN Academy Learning Hub covering journalism ethics, digital storytelling, breaking news reporting, social storytelling, television scriptwriting, mobile journalism, mobile editing using LumaFusion, Open Source Intelligence (OSINT), artificial intelligence in journalism, health reporting, and professional newsroom workflows.
                     </p>
-                    <p>Selected as one of 1,000 young talents worldwide to co-create scalable solutions for the UN Sustainable Development Goals — developing PappyBags, a sustainable alternative to single-use plastics using papyrus reeds.</p>
-                    <blockquote class="program-quote">"The experience deepened my commitment to applying creativity and local resources toward climate resilience."</blockquote>
+                    <p class="program-desc">
+                        I developed and submitted a story pitch exploring how a new generation of South Sudanese poets and writers are using art to rebuild social bonds and promote reconciliation in communities divided by decades of conflict — a story at the intersection of multimedia storytelling, human rights, and peacebuilding. As a CNN Academy Fellow, I retain lifetime access to the CNN Academy Learning Hub, one of the world's leading journalism training platforms.
+                    </p>
+                    <div class="program-tags">
+                        <span class="program-tag">Climate Journalism</span>
+                        <span class="program-tag">Multimedia Storytelling</span>
+                        <span class="program-tag">Digital Communications</span>
+                        <span class="program-tag">OSINT</span>
+                        <span class="program-tag">Mobile Journalism</span>
+                        <span class="program-tag">Global South</span>
+                    </div>
+                    <blockquote class="program-quote">"Powerful journalism doesn't just report change. It helps people imagine it."</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNLEASH -->
+    <section class="program-section" id="unleash">
+        <div class="container">
+            <div class="program-inner">
+                <div class="program-visual">
+                    <span class="program-visual-badge">Innovation Lab</span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="John Ngor Deng Garang — UNLEASH Global Innovation Lab, Kigali Rwanda" loading="lazy">
+                </div>
+                <div class="program-content">
+                    <p class="program-org">UNLEASH</p>
+                    <h2>UNLEASH Global Innovation Lab</h2>
+                    <div class="program-meta">
+                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> December 2–9, 2023</span>
+                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                    </div>
+                    <p class="program-desc">
+                        Selected on a full scholarship as one of approximately 1,000 young innovators from around the world, I participated in the UNLEASH Global Innovation Lab in Kigali, Rwanda — one of the world's most prestigious platforms for youth-led innovation aligned with the UN Sustainable Development Goals. Using UNLEASH's internationally recognised design thinking and innovation methodology, participants collaborated in diverse teams to develop scalable, locally grounded solutions to global challenges.
+                    </p>
+                    <p class="program-desc">
+                        Working alongside teammates from The Gambia, Chile, the United Kingdom, Pakistan, and Cambodia, our team created <strong>PappyBags</strong> — a sustainable innovation that transforms papyrus reeds growing along the River Nile in South Sudan into biodegradable shopping bags as an alternative to single-use plastics. Our solution advanced to the knockout stage before the finals, demonstrating the viability of using local natural resources to address climate innovation and environmental sustainability challenges.
+                    </p>
+                    <div class="program-tags">
+                        <span class="program-tag">Sustainable Development Goals</span>
+                        <span class="program-tag">Climate Innovation</span>
+                        <span class="program-tag">Entrepreneurship</span>
+                        <span class="program-tag">Design Thinking</span>
+                        <span class="program-tag">African Leadership</span>
+                        <span class="program-tag">Innovation</span>
+                    </div>
+                    <blockquote class="program-quote">"Innovation begins by seeing opportunity where everyone else sees ordinary."</blockquote>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Take Action Lab -->
-    <section class="program-section">
+    <section class="program-section" id="take-action-lab">
         <div class="container">
-            <div class="program-section-inner">
-                <div class="program-section-image">
-                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="Take Action Lab">
+            <div class="program-inner">
+                <div class="program-visual">
+                    <span class="program-visual-badge">Global Citizenship</span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="John Ngor Deng Garang — Take Action Lab, Tilting Futures, Cape Town South Africa" loading="lazy">
                 </div>
-                <div class="program-section-content">
+                <div class="program-content">
+                    <p class="program-org">Tilting Futures (formerly Global Citizen Year)</p>
                     <h2>Take Action Lab</h2>
-                    <p class="program-meta-line">
-                        <i class="fas fa-calendar"></i>Sept – Dec 2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa
+                    <div class="program-meta">
+                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> March – June 2024</span>
+                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</span>
+                    </div>
+                    <p class="program-desc">
+                        The Take Action Lab is a highly selective international leadership and global citizenship program for young adults aged 17–22. I attended on a full scholarship as part of a cohort of 52 young leaders representing 37 countries, living and working alongside peers from Nigeria, Ethiopia, Nepal, Bangladesh, Ukraine, and Chile — an experience that fundamentally expanded my understanding of cross-cultural communication, community development, and global citizenship.
                     </p>
-                    <p>An immersive leadership program equipping young African leaders with frameworks for systemic change — intensive workshops on systems thinking, community organizing, and social entrepreneurship.</p>
-                    <blockquote class="program-quote">"Real change starts with understanding the systems that shape our communities and having the courage to challenge them."</blockquote>
+                    <p class="program-desc">
+                        My apprenticeship began with Tshintsha Amakhaya before I was placed at the <strong>Surplus People Project (SPP)</strong> as a Multimedia Apprentice. Founded in 1979, SPP is a South African social justice organisation advancing food sovereignty, agroecology, land rights, and human rights for rural communities. I travelled extensively across the Western, Northern, and Eastern Cape documenting grassroots initiatives through photography, video production, graphic design, and strategic communications — including donor visits, agroecology workshops, national conferences, and community projects. I also facilitated a three-day social media workshop for SAFE Youth, strengthening my skills in communications for social change.
+                    </p>
+                    <div class="program-tags">
+                        <span class="program-tag">Human Rights</span>
+                        <span class="program-tag">Agroecology</span>
+                        <span class="program-tag">Food Sovereignty</span>
+                        <span class="program-tag">Strategic Communications</span>
+                        <span class="program-tag">Community Development</span>
+                        <span class="program-tag">Global Leadership</span>
+                    </div>
+                    <blockquote class="program-quote">"The most powerful stories are those told alongside the communities living them."</blockquote>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Accra Fusion -->
-    <section class="program-section">
+    <section class="program-section" id="accra-fusion">
         <div class="container">
-            <div class="program-section-inner">
-                <div class="program-section-image">
-                    <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="Accra Fusion">
+            <div class="program-inner">
+                <div class="program-visual">
+                    <span class="program-visual-badge">Student Ambassador</span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="John Ngor Deng Garang — Accra Fusion, African Leadership University, Ghana" loading="lazy">
                 </div>
-                <div class="program-section-content">
+                <div class="program-content">
+                    <p class="program-org">African Leadership University — Global Learning Experiences</p>
                     <h2>Accra Fusion</h2>
-                    <p class="program-meta-line">
-                        <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>Accra, Ghana
+                    <div class="program-meta">
+                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> February – April 2025</span>
+                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Accra, Ghana</span>
+                    </div>
+                    <p class="program-desc">
+                        Accra Fusion is an immersive international learning experience organised by the African Leadership University's Global Learning Experiences Department. Following a competitive selection process, I was selected as one of only two Student Ambassadors responsible for supporting the planning and successful execution of the Ghana immersion — a role that placed me at the intersection of operations, stakeholder engagement, and international program management.
                     </p>
-                    <p>A dynamic program bringing together young African leaders, entrepreneurs, and innovators to foster cross-cultural understanding. Built lasting partnerships with changemakers across the continent.</p>
-                    <blockquote class="program-quote">"Africa's future is being shaped by young people who refuse to accept limitations and dare to reimagine what's possible."</blockquote>
+                    <p class="program-desc">
+                        I coordinated communications, planned travel itineraries, arranged accommodation, and provided day-to-day pastoral support while living alongside more than 25 participating students. I also initiated and secured partnerships with eight Ghanaian organisations where students completed externships, while coordinating company visits, networking opportunities, cultural experiences, and operational logistics throughout the program. The experience deepened my skills in international program management, partnership development, cross-cultural communication, and leadership — reinforcing my belief that effective leadership is often invisible, built on preparation and trust.
+                    </p>
+                    <div class="program-tags">
+                        <span class="program-tag">International Programs</span>
+                        <span class="program-tag">African Leadership</span>
+                        <span class="program-tag">Partnership Development</span>
+                        <span class="program-tag">Project Management</span>
+                        <span class="program-tag">Global Citizenship</span>
+                        <span class="program-tag">Communications Specialist</span>
+                    </div>
+                    <blockquote class="program-quote">"Leadership is often invisible. Success is when everything works because of preparation."</blockquote>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- YALI East Africa -->
-    <section class="program-section">
+    <!-- YALI -->
+    <section class="program-section" id="yali">
         <div class="container">
-            <div class="program-section-inner">
-                <div class="program-section-image">
-                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="YALI East Africa">
+            <div class="program-inner">
+                <div class="program-visual">
+                    <span class="program-visual-badge">Youth Leadership</span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="John Ngor Deng Garang — YALI East Africa Regional Leadership Centre, Cohort 60" loading="lazy">
                 </div>
-                <div class="program-section-content">
-                    <h2>YALI East Africa</h2>
-                    <p class="program-meta-line">
-                        <i class="fas fa-calendar"></i>2024 &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i>East Africa Region
+                <div class="program-content">
+                    <p class="program-org">U.S. Department of State · USAID · Kenyatta University</p>
+                    <h2>YALI East Africa Regional Leadership Centre</h2>
+                    <div class="program-meta">
+                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> November – December 2024</span>
+                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya (Virtual)</span>
+                        <span class="program-meta-item"><i class="fas fa-users"></i> Cohort 60</span>
+                    </div>
+                    <p class="program-desc">
+                        The Young African Leaders Initiative (YALI) East Africa Regional Leadership Centre is one of the U.S. Department of State's flagship leadership development programs for emerging African leaders, funded by USAID and implemented by Kenyatta University. I participated virtually in the Business and Entrepreneurship Track as part of Cohort 60, joining young innovators from across East Africa to strengthen my entrepreneurial, leadership, and business development skills.
                     </p>
-                    <p>A signature Young African Leaders Initiative empowering young leaders through intensive training, mentorship, and networking across Business & Entrepreneurship, Public Management, and Civic Leadership tracks.</p>
-                    <blockquote class="program-quote">"Leadership is not about titles or positions — it's about taking responsibility for the future you want to see."</blockquote>
+                    <p class="program-desc">
+                        During the program, I developed an AI-powered agricultural venture that analyses crop health through image recognition and provides underserved farmers with disease diagnosis and treatment recommendations — applying innovation and entrepreneurship to address food security challenges across the region. The experience significantly strengthened my understanding of customer-centred design, business modelling, innovation strategy, and leadership. Becoming a YALI alumnus connected me to one of Africa's largest youth leadership networks, opening doors to future opportunities in entrepreneurship, international programs, and community development.
+                    </p>
+                    <div class="program-tags">
+                        <span class="program-tag">Youth Leadership</span>
+                        <span class="program-tag">Entrepreneurship</span>
+                        <span class="program-tag">Innovation</span>
+                        <span class="program-tag">African Leadership</span>
+                        <span class="program-tag">International Experience</span>
+                        <span class="program-tag">Business Development</span>
+                    </div>
+                    <blockquote class="program-quote">"Every great venture starts with solving one real problem well."</blockquote>
                 </div>
             </div>
         </div>
