@@ -116,20 +116,15 @@
         /* Image */
         .program-visual {
             position: relative;
-            border-radius: 16px;
+            border-radius: 15px;
             overflow: hidden;
-            background: #f0f4f8;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            transition: box-shadow 0.4s ease;
         }
-        .program-visual:hover { box-shadow: 0 30px 80px rgba(0,0,0,0.15); }
         .program-visual img {
             width: 100%;
-            height: auto;
-            max-height: 460px;
-            object-fit: contain;
+            height: 380px;
+            object-fit: cover;
             display: block;
-            padding: 1.5rem;
+            border-radius: 15px;
             transition: transform 0.5s ease;
         }
         .program-visual:hover img { transform: scale(1.03); }
@@ -235,7 +230,7 @@
                 direction: ltr;
                 gap: 2.5rem;
             }
-            .program-visual img { max-height: 320px; }
+            .program-visual img { height: 280px; }
             .program-section { padding: 4rem 0; }
         }
         @media (max-width: 600px) {
@@ -243,7 +238,7 @@
             .hero-stats { gap: 2rem; }
             .program-section { padding: 3rem 0; }
             .program-inner { gap: 2rem; }
-            .program-visual img { max-height: 260px; padding: 1rem; }
+            .program-visual img { height: 220px; }
         }
     </style>
 </head>
