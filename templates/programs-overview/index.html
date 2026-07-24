@@ -25,9 +25,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <style>
-        /* ── Page-level overrides ── */
-        body { padding-top: 0; }
-
         /* ── Hero (services style) ── */
         .programs-hero {
             background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
@@ -36,54 +33,15 @@
             padding: 120px 0 80px;
         }
         .programs-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            color: white;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            line-height: 1.2;
         }
-        .programs-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        .programs-social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.25s ease-in-out;
-        }
-        .programs-social-links a:hover { transform: scale(1.1); opacity: 0.85; }
-        .programs-social-links a i { font-size: 20px; color: #fff; }
-        .programs-social-links a:nth-child(1) { background: rgba(225,48,108,0.85); }
-        .programs-social-links a:nth-child(2) { background: rgba(29,161,242,0.85); }
-        .programs-social-links a:nth-child(3) { background: rgba(10,102,194,0.85); }
-        .programs-social-links a:nth-child(4) { background: rgba(24,119,242,0.85); }
-        .programs-social-links a:nth-child(5) { background: rgba(219,68,55,0.85); }
-        .programs-hero-subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 400;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 1.25rem;
-        }
-        .programs-hero-quote {
-            font-family: 'Lato', sans-serif;
-            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-            font-weight: 400;
-            line-height: 1.7;
-            max-width: 700px;
-            margin: 0 auto;
-            color: rgba(255,255,255,0.8);
+        .programs-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         @media (max-width: 768px) {
-            .programs-hero { padding: 100px 20px 60px; }
+            .programs-hero { padding: 100px 15px 60px; }
         }
 
         /* ── Program Sections ── */
@@ -454,17 +412,7 @@
     <section class="programs-hero">
         <div class="container">
             <h1>Programs &amp; Fellowships</h1>
-            <div class="programs-social-links">
-                <a href="https://www.instagram.com/john__garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/John_Ngor_Deng" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/ngor.johngarang" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="programs-hero-subtitle">Global Leadership &amp; International Experience</p>
-            <blockquote class="programs-hero-quote">
-                "A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship."
-            </blockquote>
+            <p>A curated record of international fellowships, innovation labs, and leadership programs</p>
         </div>
     </section>
 
