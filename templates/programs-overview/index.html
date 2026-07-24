@@ -28,29 +28,44 @@
         /* ── Page-level overrides ── */
         body { padding-top: 0; }
 
-        /* ── Hero ── */
+        /* ── Hero (services style) ── */
         .programs-hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                        url('/static/Pictures/WhatsApp Image 2024-03-10 at 21.07.34_25525518.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 100px 15px 50px;
+            padding: 100px 0 60px;
+            background: white;
         }
-        .programs-hero-inner { max-width: 900px; margin: 0 auto; }
+        .programs-hero-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .programs-hero-image {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .programs-hero-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+        .programs-hero-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        .programs-hero-content:hover { transform: translateY(-5px); }
         .programs-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
-            color: #F5F5F5;
-            margin-bottom: clamp(1rem, 3vw, 2rem);
-            line-height: 1.1;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
         .programs-social-links {
             display: flex;
@@ -77,25 +92,23 @@
         .programs-social-links a:nth-child(5) { background: #DB4437; }
         .programs-hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
             font-weight: 400;
-            color: #D1D1D1;
-            margin-bottom: 24px;
+            color: #555;
+            margin-bottom: 1.25rem;
         }
         .programs-hero-quote {
             font-family: 'Lato', sans-serif;
-            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
             font-weight: 400;
-            line-height: 1.6;
-            max-width: 600px;
+            line-height: 1.7;
+            max-width: 700px;
             margin: 0 auto;
-            color: #CFCFCF;
+            color: #666;
         }
         @media (max-width: 768px) {
-            .programs-hero {
-                background-attachment: scroll;
-                padding: 80px 15px 40px;
-            }
+            .programs-hero { padding: 80px 0 40px; }
+            .programs-hero-image img { height: 260px; }
         }
 
         /* ── Program Sections ── */
@@ -107,16 +120,7 @@
         .program-section:nth-child(even) { background: #fafafa; }
         .program-section:last-child { border-bottom: none; }
 
-        .program-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-        .program-section:nth-child(even) .program-inner { direction: rtl; }
-        .program-section:nth-child(even) .program-inner > * { direction: ltr; }
 
-        /* Image */
         .program-visual {
             border-radius: 15px;
             overflow: hidden;
@@ -217,13 +221,23 @@
             border-radius: 0 8px 8px 0;
         }
 
+        /* ── Grid sections (with gallery) use standard 2-col grid ── */
+        .program-inner:not(.float-layout) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .program-section:nth-child(even) .program-inner:not(.float-layout) { direction: rtl; }
+        .program-section:nth-child(even) .program-inner:not(.float-layout) > * { direction: ltr; }
+
         /* ── Float layout for virtual programs (CNN, YALI) ── */
         .program-inner.float-layout {
             display: block;
         }
         .program-inner.float-layout .program-visual {
             float: left;
-            width: 45%;
+            width: 42%;
             margin: 0 2.5rem 1.5rem 0;
         }
         .program-inner.float-layout .program-content {
@@ -245,30 +259,36 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            background: #111;
-            aspect-ratio: 16/9;
+            background: #0d1b2a;
             user-select: none;
         }
+        /* Slides stack via absolute positioning; gallery height set by JS */
         .gallery-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.4s ease;
+            position: relative;
+            width: 100%;
         }
         .gallery-slide {
-            min-width: 100%;
-            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .gallery-slide.active {
             position: relative;
+            opacity: 1;
+            pointer-events: auto;
         }
         .gallery-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
-            border-radius: 0;
         }
         .gallery-slide .gallery-placeholder {
             width: 100%;
-            height: 100%;
+            min-height: 220px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -337,26 +357,13 @@
             font-style: italic;
         }
 
-        /* Desktop: gallery sits in the image column, below the figure */
+        /* Desktop: program-visual-col is a normal grid child containing figure + gallery */
         .program-visual-col {
-            display: contents; /* children participate directly in the grid */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-width: 0;
         }
-        .program-visual-col figure { grid-row: 1; }
-        .program-visual-col .gallery-wrap { grid-row: 2; }
-
-        /* gallery-wrap spans the image column on desktop */
-        .program-inner { grid-template-rows: auto auto; }
-        .program-visual-col figure,
-        .program-visual-col .gallery-wrap {
-            grid-column: 1;
-        }
-        .program-section:nth-child(even) .program-visual-col figure,
-        .program-section:nth-child(even) .program-visual-col .gallery-wrap {
-            grid-column: 2;
-        }
-        .program-content { grid-row: 1 / span 2; grid-column: 2; }
-        .program-section:nth-child(even) .program-content { grid-column: 1; }
-
         .gallery-wrap {
             display: flex;
             flex-direction: column;
@@ -365,40 +372,33 @@
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .program-inner,
-            .program-section:nth-child(even) .program-inner {
-                display: flex;
-                flex-direction: column;
+            .program-inner:not(.float-layout) {
+                grid-template-columns: 1fr;
                 direction: ltr;
                 gap: 2rem;
             }
-            /* Float layout collapses to normal flow on mobile */
+            .program-section:nth-child(even) .program-inner:not(.float-layout) { direction: ltr; }
+            /* Float layout collapses on mobile */
             .program-inner.float-layout .program-visual,
             .program-section:nth-child(even) .program-inner.float-layout .program-visual {
                 float: none;
                 width: 100%;
                 margin: 0 0 1.5rem 0;
             }
-            /* On mobile: figure first, content second, gallery last */
-            .program-visual-col { display: contents; }
-            .program-visual-col figure { order: 1; }
+            /* On mobile: gallery moves after text */
+            .program-visual-col { order: 1; }
             .program-content { order: 2; }
             .program-visual-col .gallery-wrap { order: 3; }
-            .program-visual img { height: auto; }
+            .program-inner:not(.float-layout) {
+                display: flex;
+                flex-direction: column;
+            }
             .program-section { padding: 4rem 0; }
-            /* Reset grid column assignments */
-            .program-visual-col figure,
-            .program-visual-col .gallery-wrap,
-            .program-section:nth-child(even) .program-visual-col figure,
-            .program-section:nth-child(even) .program-visual-col .gallery-wrap,
-            .program-content,
-            .program-section:nth-child(even) .program-content { grid-column: unset; grid-row: unset; }
         }
         @media (max-width: 600px) {
             .programs-hero { padding: 110px 20px 70px; }
             .program-section { padding: 3rem 0; }
             .program-inner { gap: 1.5rem; }
-            .program-visual img { height: auto; }
         }
     </style>
 </head>
@@ -476,19 +476,28 @@
 
     <div id="header-placeholder"></div>
     <section class="programs-hero">
-        <div class="programs-hero-inner">
-            <h1>Programs & Fellowships</h1>
-            <div class="programs-social-links">
-                <a href="https://www.instagram.com/john__garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/John_Ngor_Deng" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/ngor.johngarang" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
+        <div class="container">
+            <div class="programs-hero-inner">
+                <div class="programs-hero-image">
+                    <img src="/static/Pictures/WhatsApp Image 2024-03-10 at 21.07.34_25525518.jpg"
+                         alt="John Ngor Deng Garang — Programs and Fellowships overview"
+                         loading="eager">
+                </div>
+                <div class="programs-hero-content">
+                    <h1>Programs &amp; Fellowships</h1>
+                    <div class="programs-social-links">
+                        <a href="https://www.instagram.com/john__garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/John_Ngor_Deng" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/ngor.johngarang" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="programs-hero-subtitle">Global Leadership &amp; International Experience</p>
+                    <blockquote class="programs-hero-quote">
+                        "A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship."
+                    </blockquote>
+                </div>
             </div>
-            <p class="programs-hero-subtitle">Global Leadership &amp; International Experience</p>
-            <blockquote class="programs-hero-quote">
-                "A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship."
-            </blockquote>
         </div>
     </section>
 
@@ -768,10 +777,13 @@
     <script>
     document.querySelectorAll('.program-gallery').forEach(function(gallery) {
         var track = gallery.querySelector('.gallery-track');
-        var slides = track.querySelectorAll('.gallery-slide');
+        var slides = Array.from(track.querySelectorAll('.gallery-slide'));
         var dotsContainer = gallery.querySelector('.gallery-dots');
         var current = 0;
         var total = slides.length;
+
+        // Activate first slide
+        slides[0].classList.add('active');
 
         // Build dots
         slides.forEach(function(_, i) {
@@ -782,8 +794,9 @@
         });
 
         function goTo(n) {
+            slides[current].classList.remove('active');
             current = (n + total) % total;
-            track.style.transform = 'translateX(-' + (current * 100) + '%)';
+            slides[current].classList.add('active');
             dotsContainer.querySelectorAll('.gallery-dot').forEach(function(d, i) {
                 d.classList.toggle('active', i === current);
             });
