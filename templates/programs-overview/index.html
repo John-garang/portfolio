@@ -30,69 +30,72 @@
 
         /* ── Hero ── */
         .programs-hero {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url('/static/Pictures/WhatsApp Image 2024-03-10 at 21.07.34_25525518.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             text-align: center;
-            padding: 140px 20px 90px;
-            position: relative;
-            overflow: hidden;
+            padding: 100px 15px 50px;
         }
-        .programs-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .programs-hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .programs-hero-tag {
-            display: inline-block;
-            background: rgba(22, 178, 220, 0.2);
-            border: 1px solid rgba(22, 178, 220, 0.5);
-            color: #16b2dc;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
+        .programs-hero-inner { max-width: 900px; margin: 0 auto; }
         .programs-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 1.25rem;
-            line-height: 1.15;
+            color: #F5F5F5;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            line-height: 1.1;
         }
-        .programs-hero p {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.75);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
-        }
-        .hero-stats {
+        .programs-social-links {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        .hero-stat { text-align: center; }
-        .hero-stat-number {
-            display: block;
+        .programs-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.25s ease-in-out;
+        }
+        .programs-social-links a:hover { transform: scale(1.1); opacity: 0.85; }
+        .programs-social-links a i { font-size: 20px; color: #fff; }
+        .programs-social-links a:nth-child(1) { background: #E1306C; }
+        .programs-social-links a:nth-child(2) { background: #1DA1F2; }
+        .programs-social-links a:nth-child(3) { background: #0A66C2; }
+        .programs-social-links a:nth-child(4) { background: #1877F2; }
+        .programs-social-links a:nth-child(5) { background: #DB4437; }
+        .programs-hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #16b2dc;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            color: #D1D1D1;
+            margin-bottom: 24px;
         }
-        .hero-stat-label {
-            display: block;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.2rem;
+        .programs-hero-quote {
+            font-family: 'Lato', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #CFCFCF;
+        }
+        @media (max-width: 768px) {
+            .programs-hero {
+                background-attachment: scroll;
+                padding: 80px 15px 40px;
+            }
         }
 
         /* ── Program Sections ── */
@@ -309,23 +312,18 @@
     <div id="header-placeholder"></div>
     <section class="programs-hero">
         <div class="programs-hero-inner">
-            <div class="programs-hero-tag">International Programs & Fellowships</div>
-            <h1>Global Leadership in Action</h1>
-            <p>A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship.</p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number">5</span>
-                    <span class="hero-stat-label">Programs</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">8+</span>
-                    <span class="hero-stat-label">Countries</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">4+</span>
-                    <span class="hero-stat-label">Years</span>
-                </div>
+            <h1>Programs & Fellowships</h1>
+            <div class="programs-social-links">
+                <a href="https://www.instagram.com/john__garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/John_Ngor_Deng" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/ngor.johngarang" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
+            <p class="programs-hero-subtitle">Global Leadership &amp; International Experience</p>
+            <blockquote class="programs-hero-quote">
+                "A curated record of international fellowships, innovation labs, and leadership programs that have shaped my work in digital communications, climate journalism, social impact, and entrepreneurship."
+            </blockquote>
         </div>
     </section>
 
