@@ -121,13 +121,20 @@
         }
         .program-visual img {
             width: 100%;
-            height: 380px;
-            object-fit: cover;
+            height: auto;
             display: block;
             border-radius: 15px;
             transition: transform 0.5s ease;
         }
         .program-visual:hover img { transform: scale(1.03); }
+        .program-visual figcaption {
+            font-size: 0.78rem;
+            color: #999;
+            text-align: center;
+            margin-top: 0.6rem;
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+        }
         .program-visual-badge {
             position: absolute;
             top: 1.25rem;
@@ -230,7 +237,7 @@
                 direction: ltr;
                 gap: 2.5rem;
             }
-            .program-visual img { height: 280px; }
+            .program-visual img { height: auto; }
             .program-section { padding: 4rem 0; }
         }
         @media (max-width: 600px) {
@@ -238,7 +245,7 @@
             .hero-stats { gap: 2rem; }
             .program-section { padding: 3rem 0; }
             .program-inner { gap: 2rem; }
-            .program-visual img { height: 220px; }
+            .program-visual img { height: auto; }
         }
     </style>
 </head>
@@ -251,9 +258,70 @@
         </div>
     </div>
 
-    <div id="header-placeholder"></div>
+    <!-- Structured Data: John Ngor Deng Garang linked to each program -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "John Ngor Deng Garang",
+      "alternateName": ["John Garang", "John N.D. Garang", "John Ngor Garang"],
+      "url": "https://johngarang.com",
+      "image": "https://johngarang.com/static/Pictures/john-ngor-deng-garang-profile-photo.jpg",
+      "jobTitle": "Media and Communications Professional",
+      "description": "John Ngor Deng Garang is a South Sudanese communications professional, journalist, and innovator. CNN Academy Climate Storytelling Fellow, UNLEASH Global Innovation Lab talent, Take Action Lab alumnus, Accra Fusion Student Ambassador, and YALI East Africa Cohort 60 alumnus.",
+      "nationality": {"@type": "Country", "name": "South Sudan"},
+      "sameAs": [
+        "https://johngarang.com",
+        "https://www.wikidata.org/wiki/Q140194416",
+        "https://www.linkedin.com/in/j-garang/",
+        "https://x.com/John_Ngor_Deng"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "CNN Academy Climate Storytelling Fellowship",
+          "credentialCategory": "Journalism Fellowship",
+          "recognizedBy": {"@type": "Organization", "name": "CNN Academy", "url": "https://cnnacademy.com"},
+          "dateCreated": "2025",
+          "description": "International climate journalism fellowship training emerging journalists from the Global South in multimedia storytelling, digital reporting, and editorial standards."
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "UNLEASH Global Innovation Lab — Talent",
+          "credentialCategory": "Innovation Fellowship",
+          "recognizedBy": {"@type": "Organization", "name": "UNLEASH", "url": "https://unleash.org"},
+          "dateCreated": "2023",
+          "description": "Selected on full scholarship as one of 1,000 global innovators to develop SDG-aligned solutions. Co-created PappyBags, a sustainable alternative to single-use plastics using papyrus reeds from South Sudan."
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Take Action Lab — Global Citizenship Program",
+          "credentialCategory": "Leadership Fellowship",
+          "recognizedBy": {"@type": "Organization", "name": "Tilting Futures", "url": "https://tiltingfutures.org"},
+          "dateCreated": "2024",
+          "description": "Full-scholarship international leadership program. Served as Multimedia Apprentice at Surplus People Project in South Africa, documenting agroecology, food sovereignty, and human rights work across the Western, Northern, and Eastern Cape."
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Accra Fusion — Student Ambassador",
+          "credentialCategory": "International Program",
+          "recognizedBy": {"@type": "Organization", "name": "African Leadership University", "url": "https://www.alueducation.com"},
+          "dateCreated": "2025",
+          "description": "Selected as one of two Student Ambassadors for the ALU Ghana immersion. Secured partnerships with 8 Ghanaian organisations and managed logistics, communications, and pastoral support for 25+ students."
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "YALI East Africa Regional Leadership Centre — Cohort 60",
+          "credentialCategory": "Youth Leadership Fellowship",
+          "recognizedBy": {"@type": "Organization", "name": "Young African Leaders Initiative", "url": "https://yali.state.gov"},
+          "dateCreated": "2024",
+          "description": "U.S. Department of State flagship youth leadership program. Participated in the Business and Entrepreneurship Track, developing an AI-powered agricultural venture for underserved farmers."
+        }
+      ]
+    }
+    </script>
 
-    <!-- Hero -->
+    <div id="header-placeholder"></div>
     <section class="programs-hero">
         <div class="programs-hero-inner">
             <div class="programs-hero-tag">International Programs & Fellowships</div>
@@ -280,10 +348,14 @@
     <section class="program-section" id="cnn-academy">
         <div class="container">
             <div class="program-inner">
-                <div class="program-visual">
+                <figure class="program-visual">
                     <span class="program-visual-badge">Journalism Fellowship</span>
-                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png" alt="John Ngor Deng Garang — CNN Academy Climate Storytelling Fellow" loading="lazy">
-                </div>
+                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png"
+                         alt="John Ngor Deng Garang, CNN Academy Climate Storytelling Fellow — South Sudanese journalist and communications professional selected for the CNN Academy international journalism fellowship focused on climate reporting from the Global South"
+                         title="John Ngor Deng Garang — CNN Academy Climate Storytelling Fellow"
+                         loading="lazy">
+                    <figcaption>John Ngor Deng Garang · CNN Academy Climate Storytelling Fellow · 2025</figcaption>
+                </figure>
                 <div class="program-content">
                     <p class="program-org">CNN Academy</p>
                     <h2>CNN Academy Climate Storytelling Fellowship</h2>
@@ -315,10 +387,14 @@
     <section class="program-section" id="unleash">
         <div class="container">
             <div class="program-inner">
-                <div class="program-visual">
+                <figure class="program-visual">
                     <span class="program-visual-badge">Innovation Lab</span>
-                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png" alt="John Ngor Deng Garang — UNLEASH Global Innovation Lab, Kigali Rwanda" loading="lazy">
-                </div>
+                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png"
+                         alt="John Ngor Deng Garang at the UNLEASH Global Innovation Lab in Kigali, Rwanda — selected on full scholarship as one of 1,000 young innovators worldwide to develop sustainable solutions for the UN Sustainable Development Goals"
+                         title="John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023"
+                         loading="lazy">
+                    <figcaption>John Ngor Deng Garang · UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023</figcaption>
+                </figure>
                 <div class="program-content">
                     <p class="program-org">UNLEASH</p>
                     <h2>UNLEASH Global Innovation Lab</h2>
@@ -350,10 +426,14 @@
     <section class="program-section" id="take-action-lab">
         <div class="container">
             <div class="program-inner">
-                <div class="program-visual">
+                <figure class="program-visual">
                     <span class="program-visual-badge">Global Citizenship</span>
-                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png" alt="John Ngor Deng Garang — Take Action Lab, Tilting Futures, Cape Town South Africa" loading="lazy">
-                </div>
+                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png"
+                         alt="John Ngor Deng Garang at the Take Action Lab by Tilting Futures in Cape Town, South Africa — full-scholarship international leadership program alumnus and Multimedia Apprentice at the Surplus People Project documenting agroecology and human rights"
+                         title="John Ngor Deng Garang — Take Action Lab, Tilting Futures, Cape Town South Africa 2024"
+                         loading="lazy">
+                    <figcaption>John Ngor Deng Garang · Take Action Lab · Cape Town, South Africa · 2024</figcaption>
+                </figure>
                 <div class="program-content">
                     <p class="program-org">Tilting Futures (formerly Global Citizen Year)</p>
                     <h2>Take Action Lab</h2>
@@ -385,10 +465,14 @@
     <section class="program-section" id="accra-fusion">
         <div class="container">
             <div class="program-inner">
-                <div class="program-visual">
+                <figure class="program-visual">
                     <span class="program-visual-badge">Student Ambassador</span>
-                    <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png" alt="John Ngor Deng Garang — Accra Fusion, African Leadership University, Ghana" loading="lazy">
-                </div>
+                    <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png"
+                         alt="John Ngor Deng Garang as Student Ambassador for Accra Fusion, African Leadership University Ghana immersion program — led logistics, secured 8 organisational partnerships, and supported 25+ students during the international learning experience"
+                         title="John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025"
+                         loading="lazy">
+                    <figcaption>John Ngor Deng Garang · Accra Fusion Student Ambassador · Accra, Ghana · 2025</figcaption>
+                </figure>
                 <div class="program-content">
                     <p class="program-org">African Leadership University — Global Learning Experiences</p>
                     <h2>Accra Fusion</h2>
@@ -420,10 +504,14 @@
     <section class="program-section" id="yali">
         <div class="container">
             <div class="program-inner">
-                <div class="program-visual">
+                <figure class="program-visual">
                     <span class="program-visual-badge">Youth Leadership</span>
-                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png" alt="John Ngor Deng Garang — YALI East Africa Regional Leadership Centre, Cohort 60" loading="lazy">
-                </div>
+                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png"
+                         alt="John Ngor Deng Garang, YALI East Africa Regional Leadership Centre Cohort 60 alumnus — U.S. Department of State Young African Leaders Initiative, Business and Entrepreneurship Track, developing an AI-powered agricultural solution for underserved farmers"
+                         title="John Ngor Deng Garang — YALI East Africa Cohort 60, U.S. Department of State Young African Leaders Initiative 2024"
+                         loading="lazy">
+                    <figcaption>John Ngor Deng Garang · YALI East Africa · Cohort 60 · 2024</figcaption>
+                </figure>
                 <div class="program-content">
                     <p class="program-org">U.S. Department of State · USAID · Kenyatta University</p>
                     <h2>YALI East Africa Regional Leadership Centre</h2>
