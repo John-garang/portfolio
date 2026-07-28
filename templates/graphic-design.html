@@ -7,6 +7,151 @@
     <link rel="stylesheet" href="static/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Slideshow Group Card ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .design-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            background: #000;
+        }
+
+        /* Slideshow track */
+        .slide-track {
+            display: flex;
+            transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+            display: block;
+            background: #111;
+        }
+
+        /* ── Overlay: visible only on slide 0 ── */
+        .design-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.82));
+            color: #fff;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        /* Cover state: overlay slides up on hover */
+        .design-item.on-cover:hover .design-overlay { transform: translateY(0); }
+
+        /* Gallery state (slide ≥ 1): overlay hidden regardless of hover */
+        .design-item.on-gallery .design-overlay {
+            transform: translateY(100%) !important;
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        /* Cover hover scale */
+        .design-item.on-cover:hover .slide-track .slide:first-child img {
+            transform: scale(1.04);
+            transition: transform 0.3s ease;
+        }
+
+        .design-overlay h3 { margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .design-overlay p  { margin: 0; opacity: 0.88; font-size: 0.88rem; }
+
+        /* ── Navigation arrows ── */
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .design-item:hover .slide-btn { opacity: 1; pointer-events: auto; }
+        .slide-btn:hover { background: rgba(22,178,220,0.85); }
+        .slide-btn.prev { left: 8px; }
+        .slide-btn.next { right: 8px; }
+
+        /* ── Dot indicators ── */
+        .slide-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            padding: 0;
+        }
+
+        .dot.active {
+            background: #16b2dc;
+            transform: scale(1.3);
+        }
+
+        /* ── Slide counter badge ── */
+        .slide-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            z-index: 10;
+            font-family: 'Lato', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .slide-btn { opacity: 1; pointer-events: auto; }
+            .slide img { max-height: 280px; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -26,74 +171,302 @@
     <!-- Design Gallery -->
     <section class="design-gallery">
         <div class="container">
-            <div class="gallery-grid">
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop" alt="Brand Identity Design">
-                    <div class="design-overlay">
-                        <h3>Brand Identity</h3>
-                        <p>Logo & Visual Identity Systems</p>
-                    </div>
-                </div>
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" alt="Social Media Graphics">
-                    <div class="design-overlay">
-                        <h3>Social Media Graphics</h3>
-                        <p>Engaging Visual Content</p>
-                    </div>
-                </div>
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=300&fit=crop" alt="Marketing Materials">
-                    <div class="design-overlay">
-                        <h3>Marketing Materials</h3>
-                        <p>Brochures & Promotional Design</p>
-                    </div>
-                </div>
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1558655146-364adaf25c18?w=400&h=300&fit=crop" alt="Web Design">
-                    <div class="design-overlay">
-                        <h3>Web Design</h3>
-                        <p>Digital Interface Design</p>
-                    </div>
-                </div>
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&h=300&fit=crop" alt="Print Design">
-                    <div class="design-overlay">
-                        <h3>Print Design</h3>
-                        <p>Business Cards & Stationery</p>
-                    </div>
-                </div>
-                <div class="design-item">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" alt="Packaging Design">
-                    <div class="design-overlay">
-                        <h3>Packaging Design</h3>
-                        <p>Product Packaging Solutions</p>
-                    </div>
-                </div>
-            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
         </div>
     </section>
 
-    <!-- Footer -->
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
-
     <script src="static/script.js"></script>
 
     <script>
-        // Set active page
-        document.addEventListener('DOMContentLoaded', function() {
+        // ── Group definitions ──────────────────────────────────────────────
+        const BASE = 'static/Pictures/Graphic Design Portfolio/';
+
+        const GROUPS = [
+            {
+                key: 'Nalafem',
+                label: 'Nalafem',
+                desc: 'Brand & Visual Identity',
+                slides: [
+                    'John_Ngor_Deng_Garang_Nalafem_01.png','John_Ngor_Deng_Garang_Nalafem_02.png',
+                    'John_Ngor_Deng_Garang_Nalafem_03.jpg','John_Ngor_Deng_Garang_Nalafem_04.png',
+                    'John_Ngor_Deng_Garang_Nalafem_05.png','John_Ngor_Deng_Garang_Nalafem_06.png',
+                    'John_Ngor_Deng_Garang_Nalafem_07.png','John_Ngor_Deng_Garang_Nalafem_08.jpg',
+                    'John_Ngor_Deng_Garang_Nalafem_09.png','John_Ngor_Deng_Garang_Nalafem_10.png',
+                    'John_Ngor_Deng_Garang_Nalafem_11.png','John_Ngor_Deng_Garang_Nalafem_12.png',
+                    'John_Ngor_Deng_Garang_Nalafem_13.png','John_Ngor_Deng_Garang_Nalafem_14.jpg',
+                    'John_Ngor_Deng_Garang_Nalafem_15.jpg'
+                ]
+            },
+            {
+                key: 'Africa_Inventor_Alliance',
+                label: 'Africa Inventor Alliance',
+                desc: 'Campaign & Social Graphics',
+                slides: [
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_01.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_02.jpg',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_03.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_04.jpg',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_05.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_06.png',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_07.jpg','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_08.png',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_09.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_10.png',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_11.jpg','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_12.png',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_13.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_14.png',
+                    'John_Ngor_Deng_Garang_Africa_Inventor_Alliance_15.png','John_Ngor_Deng_Garang_Africa_Inventor_Alliance_16.png'
+                ]
+            },
+            {
+                key: 'nFIX',
+                label: 'nFIX',
+                desc: 'Product & App Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_nFIX_01.png','John_Ngor_Deng_Garang_nFIX_02.png',
+                    'John_Ngor_Deng_Garang_nFIX_03.png','John_Ngor_Deng_Garang_nFIX_05.png',
+                    'John_Ngor_Deng_Garang_nFIX_08.png','John_Ngor_Deng_Garang_nFIX_09.png',
+                    'John_Ngor_Deng_Garang_nFIX_10.png','John_Ngor_Deng_Garang_nFIX_11.png'
+                ]
+            },
+            {
+                key: 'Education_Bridge',
+                label: 'Education Bridge',
+                desc: 'Educational Campaign Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_Education_Bridge_01.jpg','John_Ngor_Deng_Garang_Education_Bridge_02.jpg',
+                    'John_Ngor_Deng_Garang_Education_Bridge_03.png','John_Ngor_Deng_Garang_Education_Bridge_04.png',
+                    'John_Ngor_Deng_Garang_Education_Bridge_05.png','John_Ngor_Deng_Garang_Education_Bridge_06.png',
+                    'John_Ngor_Deng_Garang_Education_Bridge_07.png','John_Ngor_Deng_Garang_Education_Bridge_08.jpg',
+                    'John_Ngor_Deng_Garang_Education_Bridge_09.jpg'
+                ]
+            },
+            {
+                key: 'Uganics',
+                label: 'Uganics',
+                desc: 'Brand & Packaging Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_Uganics_01.png','John_Ngor_Deng_Garang_Uganics_02.jpg',
+                    'John_Ngor_Deng_Garang_Uganics_03.png','John_Ngor_Deng_Garang_Uganics_04.png',
+                    'John_Ngor_Deng_Garang_Uganics_05.jpg','John_Ngor_Deng_Garang_Uganics_06.png',
+                    'John_Ngor_Deng_Garang_Uganics_07.png','John_Ngor_Deng_Garang_Uganics_08.png',
+                    'John_Ngor_Deng_Garang_Uganics_09.png','John_Ngor_Deng_Garang_Uganics_10.png',
+                    'John_Ngor_Deng_Garang_Uganics_11.png','John_Ngor_Deng_Garang_Uganics_12.png',
+                    'John_Ngor_Deng_Garang_Uganics_13.png','John_Ngor_Deng_Garang_Uganics_14.png'
+                ]
+            },
+            {
+                key: 'Accra_Fusion',
+                label: 'Accra Fusion',
+                desc: 'Event & Promotional Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_Accra_Fusion_01.png','John_Ngor_Deng_Garang_Accra_Fusion_02.png'
+                ]
+            },
+            {
+                key: 'ALU',
+                label: 'ALU',
+                desc: 'Institutional Visual Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_ALU_01.webp','John_Ngor_Deng_Garang_ALU_02.webp',
+                    'John_Ngor_Deng_Garang_ALU_03.webp'
+                ]
+            },
+            {
+                key: 'BK',
+                label: 'BK',
+                desc: 'Brand & Marketing Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_BK_01.jpg','John_Ngor_Deng_Garang_BK_02.png',
+                    'John_Ngor_Deng_Garang_BK_03.jpg','John_Ngor_Deng_Garang_BK_04.jpg',
+                    'John_Ngor_Deng_Garang_BK_05.jpg'
+                ]
+            },
+            {
+                key: 'Creative_Connect',
+                label: 'Creative Connect',
+                desc: 'Community & Event Graphics',
+                slides: [
+                    'John_Ngor_Deng_Garang_Creative_Connect_01.jpg','John_Ngor_Deng_Garang_Creative_Connect_02.jpg',
+                    'John_Ngor_Deng_Garang_Creative_Connect_03.jpg','John_Ngor_Deng_Garang_Creative_Connect_04.jpg'
+                ]
+            },
+            {
+                key: 'Indaba',
+                label: 'Indaba',
+                desc: 'Conference & Summit Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_Indaba_01.png','John_Ngor_Deng_Garang_Indaba_02.png',
+                    'John_Ngor_Deng_Garang_Indaba_03.png'
+                ]
+            },
+            {
+                key: 'John_Ngor',
+                label: 'John Ngor',
+                desc: 'Personal Brand Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_John_Ngor_01.png','John_Ngor_Deng_Garang_John_Ngor_02.png',
+                    'John_Ngor_Deng_Garang_John_Ngor_03.png','John_Ngor_Deng_Garang_John_Ngor_04.png'
+                ]
+            },
+            {
+                key: 'Little_Bet_Innovations',
+                label: 'Little Bet Innovations',
+                desc: 'Startup & Innovation Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_Little_Bet_Innovations_01.png','John_Ngor_Deng_Garang_Little_Bet_Innovations_02.png',
+                    'John_Ngor_Deng_Garang_Little_Bet_Innovations_03.png','John_Ngor_Deng_Garang_Little_Bet_Innovations_04.png',
+                    'John_Ngor_Deng_Garang_Little_Bet_Innovations_05.png','John_Ngor_Deng_Garang_Little_Bet_Innovations_06.png'
+                ]
+            },
+            {
+                key: 'UNLEASH',
+                label: 'UNLEASH',
+                desc: 'Innovation Lab Visual Design',
+                slides: [
+                    'John_Ngor_Deng_Garang_UNLEASH_01.png','John_Ngor_Deng_Garang_UNLEASH_02.png',
+                    'John_Ngor_Deng_Garang_UNLEASH_03.png','John_Ngor_Deng_Garang_UNLEASH_04.png',
+                    'John_Ngor_Deng_Garang_UNLEASH_05.png'
+                ]
+            },
+            {
+                key: 'General_Graphic_Design',
+                label: 'General Graphic Design',
+                desc: 'Miscellaneous Creative Works',
+                slides: [
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_01.png','John_Ngor_Deng_Garang_General_Graphic_Design_02.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_03.png','John_Ngor_Deng_Garang_General_Graphic_Design_04.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_05.png','John_Ngor_Deng_Garang_General_Graphic_Design_06.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_07.jpg',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_09.png','John_Ngor_Deng_Garang_General_Graphic_Design_10.jpg',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_11.png','John_Ngor_Deng_Garang_General_Graphic_Design_12.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_13.png','John_Ngor_Deng_Garang_General_Graphic_Design_14.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_15.png','John_Ngor_Deng_Garang_General_Graphic_Design_16.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_17.png','John_Ngor_Deng_Garang_General_Graphic_Design_18.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_19.png','John_Ngor_Deng_Garang_General_Graphic_Design_20.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_21.png','John_Ngor_Deng_Garang_General_Graphic_Design_22.jpg',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_23.png','John_Ngor_Deng_Garang_General_Graphic_Design_24.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_25.png','John_Ngor_Deng_Garang_General_Graphic_Design_26.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_27.jpg','John_Ngor_Deng_Garang_General_Graphic_Design_28.jpg',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_29.png','John_Ngor_Deng_Garang_General_Graphic_Design_30.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_31.png','John_Ngor_Deng_Garang_General_Graphic_Design_32.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_33.jpg','John_Ngor_Deng_Garang_General_Graphic_Design_34.png',
+                    'John_Ngor_Deng_Garang_General_Graphic_Design_35.jpg','John_Ngor_Deng_Garang_General_Graphic_Design_36.png'
+                ]
+            }
+        ];
+
+        // ── Build & mount cards ────────────────────────────────────────────
+        function buildCard(group) {
+            const item = document.createElement('div');
+            item.className = 'design-item on-cover';
+            item.dataset.current = '0';
+
+            // Slide track
+            const track = document.createElement('div');
+            track.className = 'slide-track';
+
+            group.slides.forEach((file, i) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                const img = document.createElement('img');
+                img.src = BASE + file;
+                img.alt = group.label + ' — slide ' + (i + 1);
+                img.loading = i === 0 ? 'eager' : 'lazy';
+                slide.appendChild(img);
+                track.appendChild(slide);
+            });
+
+            // Overlay (cover state only)
+            const overlay = document.createElement('div');
+            overlay.className = 'design-overlay';
+            overlay.innerHTML = '<h3>' + group.label + '</h3><p>' + group.desc + '</p>';
+
+            // Counter
+            const counter = document.createElement('div');
+            counter.className = 'slide-counter';
+            counter.textContent = '1 / ' + group.slides.length;
+
+            // Prev / Next buttons
+            const prev = document.createElement('button');
+            prev.className = 'slide-btn prev';
+            prev.setAttribute('aria-label', 'Previous');
+            prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+            const next = document.createElement('button');
+            next.className = 'slide-btn next';
+            next.setAttribute('aria-label', 'Next');
+            next.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+            // Dots (max 12 shown to avoid overflow)
+            const dotsWrap = document.createElement('div');
+            dotsWrap.className = 'slide-dots';
+            const dotCount = Math.min(group.slides.length, 12);
+            for (let d = 0; d < dotCount; d++) {
+                const dot = document.createElement('button');
+                dot.className = 'dot' + (d === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (d + 1));
+                dot.dataset.index = d;
+                dotsWrap.appendChild(dot);
+            }
+
+            item.appendChild(track);
+            item.appendChild(overlay);
+            item.appendChild(counter);
+            if (group.slides.length > 1) {
+                item.appendChild(prev);
+                item.appendChild(next);
+                item.appendChild(dotsWrap);
+            }
+
+            // ── Navigation logic ──
+            function goTo(idx) {
+                const total = group.slides.length;
+                idx = (idx + total) % total;
+                item.dataset.current = idx;
+                track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+                counter.textContent = (idx + 1) + ' / ' + total;
+
+                // Overlay state
+                if (idx === 0) {
+                    item.classList.replace('on-gallery', 'on-cover');
+                } else {
+                    item.classList.replace('on-cover', 'on-gallery');
+                }
+
+                // Dots
+                dotsWrap.querySelectorAll('.dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === idx);
+                });
+            }
+
+            prev.addEventListener('click', e => { e.stopPropagation(); goTo(+item.dataset.current - 1); });
+            next.addEventListener('click', e => { e.stopPropagation(); goTo(+item.dataset.current + 1); });
+            dotsWrap.addEventListener('click', e => {
+                const dot = e.target.closest('.dot');
+                if (dot) { e.stopPropagation(); goTo(+dot.dataset.index); }
+            });
+
+            // Touch / swipe
+            let touchX = null;
+            item.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+            item.addEventListener('touchend', e => {
+                if (touchX === null) return;
+                const dx = e.changedTouches[0].clientX - touchX;
+                if (Math.abs(dx) > 40) goTo(+item.dataset.current + (dx < 0 ? 1 : -1));
+                touchX = null;
+            });
+
+            return item;
+        }
+
+        const grid = document.getElementById('galleryGrid');
+        GROUPS.forEach(g => grid.appendChild(buildCard(g)));
+
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function () {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === currentPage) link.classList.add('active');
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
