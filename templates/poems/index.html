@@ -45,7 +45,7 @@
         }
         .article-cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -88,6 +88,16 @@
         .article-content p {
             color: #666;
             line-height: 1.6;
+        }
+        @media (max-width: 600px) {
+            .article-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .posts-section .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
         }
     </style>
 </head>
