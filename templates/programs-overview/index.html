@@ -306,27 +306,23 @@
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .program-inner:not(.float-layout) {
-                grid-template-columns: 1fr;
-                direction: ltr;
-                gap: 2rem;
-            }
             .program-section:nth-child(even) .program-inner:not(.float-layout) { direction: ltr; }
-            /* Float layout collapses on mobile */
             .program-inner.float-layout .program-visual,
             .program-section:nth-child(even) .program-inner.float-layout .program-visual {
                 float: none;
                 width: 100%;
                 margin: 0 0 1.5rem 0;
             }
-            /* On mobile: gallery moves after text */
-            .program-visual-col { order: 1; }
-            .program-content { order: 2; }
-            .program-visual-col .gallery-wrap { order: 3; }
             .program-inner:not(.float-layout) {
                 display: flex;
                 flex-direction: column;
+                direction: ltr;
+                gap: 2rem;
             }
+            .program-visual-col { display: contents; }
+            .program-visual-col .program-visual { order: 1; }
+            .program-content { order: 2; }
+            .program-visual-col .gallery-wrap { order: 3; }
             .program-section { padding: 4rem 0; }
         }
         @media (max-width: 600px) {
@@ -563,7 +559,7 @@
                     <h2>Take Action Lab</h2>
                     <div class="program-meta">
                         <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> March – June 2024</span>
-                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Cape Town &amp; Gauteng, South Africa</span>
+                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Cape Town, Western Cape, South Africa</span>
                     </div>
                     <p class="program-desc">
                         The Take Action Lab is a highly selective international leadership and global citizenship program for young adults aged 17–22. I attended the program on a full scholarship as part of a cohort of 52 young leaders representing 37 countries. Living and learning alongside peers from Nigeria, Ethiopia, Nepal, Bangladesh, Ukraine, Chile, and other parts of the world expanded my understanding of cross-cultural communication, community development, and the role of young people in addressing global challenges.
