@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -24,26 +24,26 @@ html {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 0.5em;
 }
 
 p {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1em;
 }
 
 span {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
 
 li {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
 
@@ -154,7 +154,7 @@ li {
 }
 
 .logo-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: white;
@@ -170,7 +170,7 @@ li {
 }
 
 .nav-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: #333;
@@ -326,7 +326,7 @@ li {
     border: none;
     font-size: 1.1rem;
     outline: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 #searchInput::placeholder {
@@ -374,7 +374,7 @@ li {
 }
 
 .search-result-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     color: #1a1a2e;
     margin-bottom: 5px;
@@ -382,7 +382,7 @@ li {
 }
 
 .search-result-desc {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     color: #666;
     line-height: 1.4;
@@ -393,7 +393,7 @@ li {
     padding: 60px 20px;
     color: #999;
     font-size: 1.1rem;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     align-items: center;
     justify-content: center;
 }
@@ -553,7 +553,7 @@ li {
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 700;
     color: #F5F5F5;
@@ -596,7 +596,7 @@ li {
 .social-links-hero a:nth-child(5) { background: #DB4437; }
 
 .hero-subtitle {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 38px;
     font-weight: 400;
     color: #D1D1D1;
@@ -604,7 +604,7 @@ li {
 }
 
 .hero-quote {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 19px;
     font-weight: 400;
     line-height: 1.6;
@@ -623,7 +623,7 @@ li {
 .highlight-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 0;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease;
@@ -664,7 +664,7 @@ li {
 .service-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 2.5rem;
-    border-radius: 15px;
+    border-radius: 0;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease;
@@ -781,7 +781,7 @@ li {
 }
 
 .skill-card {
-    border-radius: 16px;
+    border-radius: 0;
     padding: clamp(1.5rem, 4vw, 2rem);
     text-align: center;
     cursor: pointer;
@@ -837,7 +837,7 @@ li {
 .skill-card i.fas.fa-pen-fancy { color: #45B7D1; }
 
 .skill-title {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 17px;
     font-weight: 600;
     color: #333;
@@ -846,7 +846,7 @@ li {
 }
 
 .rotating-text {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #16b2dc;
@@ -925,9 +925,8 @@ li {
 .method-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 20px;
+    border-radius: 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-top: 4px solid #16b2dc;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
@@ -951,8 +950,7 @@ li {
 .method-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    border-top-color: #1a1a1a;
-}
+    }
 
 .method-card h3 {
     font-size: 1.5rem;
@@ -1049,7 +1047,7 @@ li {
 .about-social-links a:nth-child(5) { background: #DB4437; }
 
 .about h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 54px;
     font-weight: 700;
     color: #F5F5F5;
@@ -1063,7 +1061,7 @@ li {
 }
 
 .favorite-quote .quote-label {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 700;
     color: #9CA3AF;
@@ -1073,7 +1071,7 @@ li {
 }
 
 .favorite-quote blockquote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-style: italic;
     line-height: 1.6;
@@ -1086,7 +1084,7 @@ li {
 }
 
 .favorite-quote .quote-source {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     color: #DC2626;
     margin-top: 10px;
@@ -1124,14 +1122,13 @@ li {
 .bio-card {
     background: #f8f9fa;
     padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid #16b2dc;
+    border-radius: 0;
     transition: all 0.3s ease;
 }
 
 .bio-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(22, 178, 220, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .bio-icon {
@@ -1256,7 +1253,7 @@ li {
     gap: 1rem;
     padding: 1.5rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
+    border-radius: 0;
     border: 2px solid transparent;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -1265,8 +1262,8 @@ li {
 
 .contact-card:hover {
     transform: translateY(-3px);
-    border-color: #16b2dc;
-    box-shadow: 0 8px 20px rgba(22, 178, 220, 0.15);
+    border-color: #ccc;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     background: white;
 }
 
@@ -1471,9 +1468,8 @@ li {
 .project-card {
     background: #f8f9fa;
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 0;
     margin-bottom: 2rem;
-    border-left: 4px solid #16b2dc;
 }
 
 .project-card h3 {
@@ -1596,7 +1592,7 @@ li {
 /* New Article Card Styles */
 .article-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1611,7 +1607,7 @@ li {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #16b2dc, #1a1a1a);
+    background: linear-gradient(90deg, #d0d0d0, #1a1a1a);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -1623,7 +1619,7 @@ li {
 .article-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    border-color: rgba(22, 178, 220, 0.2);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .article-content {
@@ -1829,7 +1825,7 @@ li {
 .program-card {
     background: white;
     padding: 0.5rem;
-    border-radius: 20px;
+    border-radius: 0;
     text-align: center;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1848,7 +1844,7 @@ li {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #16b2dc, #1a1a1a);
+    background: linear-gradient(90deg, #d0d0d0, #1a1a1a);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -1860,7 +1856,7 @@ li {
 .program-card:hover {
     transform: translateY(-15px) scale(1.03);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    border-color: rgba(22, 178, 220, 0.2);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .program-card:hover .program-image img {
@@ -2144,7 +2140,7 @@ li {
 }
 
 .alu-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 3rem;
@@ -2241,7 +2237,7 @@ li {
 .role-card {
     background: white;
     margin-bottom: 4rem;
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
@@ -2400,7 +2396,7 @@ li {
 .learning-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 20px;
+    border-radius: 0;
     text-align: center;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -2526,7 +2522,7 @@ li {
 }
 
 .contact-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
@@ -2743,7 +2739,7 @@ li {
 }
 
 .blog-header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -2751,7 +2747,7 @@ li {
 }
 
 .blog-meta {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     opacity: 0.9;
 }
@@ -2773,7 +2769,7 @@ li {
 .blog-text {
     max-width: 800px;
     margin: 0 auto;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
     color: #333;
@@ -2799,7 +2795,7 @@ li {
 }
 
 .comments-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 2rem;
     margin-bottom: 2rem;
     color: #1a1a1a;
@@ -2819,7 +2815,7 @@ li {
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .comment-form button {
@@ -2961,7 +2957,7 @@ li {
 
 .category-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 0;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     text-decoration: none;
     color: inherit;
@@ -3082,12 +3078,11 @@ li {
 .post-card {
     background: white;
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 0;
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-left: 4px solid #16b2dc;
 }
 
 .post-card:hover {
@@ -3158,7 +3153,7 @@ li {
 
 .article-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 0;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
@@ -3175,7 +3170,7 @@ li {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #16b2dc, #1a1a1a);
+    background: linear-gradient(90deg, #d0d0d0, #1a1a1a);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -3187,7 +3182,7 @@ li {
 .article-card:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    border-color: rgba(22, 178, 220, 0.2);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Featured Article Layout */
@@ -3389,7 +3384,7 @@ li {
     }
     
     .article-card {
-        border-radius: 10px;
+        border-radius: 0;
     }
     
     .article-content {
@@ -3730,7 +3725,7 @@ li {
 
 .service-card-page {
     background: white;
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
@@ -4073,7 +4068,7 @@ li {
 .request-card {
     background: white;
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 0;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
@@ -4200,7 +4195,7 @@ li {
 .stat-card {
     background: white;
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 0;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
@@ -4515,7 +4510,7 @@ li {
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
@@ -4563,7 +4558,7 @@ li {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(22, 178, 220, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -4744,8 +4739,9 @@ li {
 }
 
 /* Responsive Design */
-/* Mobile-First Responsive Design */
-@media (max-width: 768px) {
+/* Nav collapses to hamburger from tablet/small-laptop widths down, so the
+   full link row + logo text never has to squeeze and wrap on mid-size screens */
+@media (max-width: 1250px) {
     .navbar {
         height: 60px;
         border-bottom: 1px solid #e8eaed;
@@ -4826,7 +4822,7 @@ li {
         box-shadow: 4px 0 20px rgba(0,0,0,0.15);
         z-index: 999;
         overflow-y: auto;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Inter', sans-serif;
         border-right: 1px solid #e9ecef;
         display: flex;
     }
@@ -5015,7 +5011,10 @@ li {
     body.menu-open {
         overflow: hidden;
     }
+}
 
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 42px;
     }
@@ -5382,7 +5381,7 @@ li {
 }
 
 .popup-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #333;
@@ -5390,7 +5389,7 @@ li {
 }
 
 .popup-message {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
@@ -5412,7 +5411,7 @@ li {
     padding: 0.75rem 2rem;
     border: none;
     border-radius: 8px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -5518,7 +5517,7 @@ li {
 }
 
 .search-results-section h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3rem;
     margin-bottom: 15px;
     color: #1a1a2e;
@@ -5531,7 +5530,7 @@ li {
     color: #555;
     margin-bottom: 50px;
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .search-query span {
@@ -5563,7 +5562,7 @@ li {
 
 .search-result-item h3 {
     margin: 0 0 12px 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
 }
@@ -5582,7 +5581,7 @@ li {
     color: #16b2dc;
     font-size: 0.95rem;
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     opacity: 0.8;
 }
 
@@ -5591,7 +5590,7 @@ li {
     font-size: 1.3rem;
     color: #555;
     padding: 80px 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -5604,7 +5603,7 @@ li {
     font-size: 1rem;
     margin: 8px 0;
     line-height: 1.6;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 @media (max-width: 768px) {
     .about {
@@ -5663,15 +5662,15 @@ li {
     text-align: center;
     padding: 1.5rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
+    border-radius: 0;
     border: 1px solid #dee2e6;
     transition: all 0.3s ease;
 }
 
 .stat-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(22, 178, 220, 0.15);
-    border-color: #16b2dc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: #ccc;
 }
 
 .stat-number {
@@ -5679,7 +5678,7 @@ li {
     font-size: 2.5rem;
     font-weight: 700;
     color: #16b2dc;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     margin-bottom: 0.5rem;
 }
 
@@ -5796,7 +5795,7 @@ li {
 .value-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 20px;
+    border-radius: 0;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5806,7 +5805,7 @@ li {
 .value-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    border-color: #16b2dc;
+    border-color: #ccc;
 }
 
 .value-icon {

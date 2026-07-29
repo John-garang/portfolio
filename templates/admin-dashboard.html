@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; background: #f8f9fa; color: #333; }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fa; color: #333; }
         .admin-container { display: flex; min-height: 100vh; }
         .sidebar { width: 280px; background: #2d3436; color: white; position: fixed; height: 100vh; overflow-y: auto; transition: transform 0.3s ease; z-index: 1000; }
         .sidebar-header { padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -26,7 +26,7 @@
         .page-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; color: #1e293b; }
         .page-subtitle { color: #64748b; margin-bottom: 2rem; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .stat-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.2s ease; }
+        .stat-card { background: white; padding: 2rem; border-radius: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.2s ease; }
         .stat-card:hover { transform: translateY(-2px); }
         .stat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
         .stat-title { font-size: 0.9rem; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -47,7 +47,7 @@
         .btn-secondary { background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-left: 0.5rem; }
         .btn-delete { background: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
         .btn-delete:hover { background: #c82333; }
-        .message-card { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #16b2dc; }
+        .message-card { background: #f9f9f9; padding: 1.5rem; border-radius: 0; margin-bottom: 1rem; border: 1px solid #e2e8f0; }
         .message-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
         .message-header h3 { color: #333; font-size: 1.1rem; }
         .message-meta { color: #666; font-size: 0.9rem; }

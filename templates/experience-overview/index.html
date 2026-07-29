@@ -9,135 +9,169 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://johngarang.com/experience-overview">
     <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo.png">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="/static/loading.css">
     <link rel="stylesheet" href="/static/styles.css?v=1.0.9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <style>
-        .exp-cards-section {
+        .exp-stack-section {
             padding: 80px 0;
             background: #f8f9fa;
         }
-        .exp-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .exp-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
-        .exp-card {
+        .exp-block {
             background: white;
-            border-radius: 15px;
+            border-radius: 0;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s ease;
         }
-        .exp-card:hover {
-            transform: translateY(-6px);
+        .exp-block:hover {
             box-shadow: 0 20px 45px rgba(0,0,0,0.12);
         }
-        .exp-card-header {
-            background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
-            padding: 1.5rem;
+        .exp-block-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        @media (min-width: 769px) {
+            .exp-block-inner {
+                grid-template-columns: 160px 1fr;
+                gap: 2.5rem;
+                align-items: start;
+            }
+        }
+        .exp-logo-frame {
+            width: 100%;
+            max-width: 160px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            background: transparent;
+            border: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
+            padding: 10px;
         }
-        .exp-card-logo {
-            width: 52px;
-            height: 52px;
-            border-radius: 10px;
+        .exp-logo-frame img {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            background: white;
-            padding: 4px;
-            flex-shrink: 0;
+            background: transparent;
+            border-radius: 0;
+            padding: 8px;
         }
-        .exp-card-header-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 0 0.2rem;
-            line-height: 1.3;
-        }
-        .exp-card-role {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.8);
-            font-style: italic;
-        }
-        .exp-card-body {
-            padding: 1.25rem 1.5rem;
-            flex: 1;
+        .exp-header-group {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.35rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid #f0f0f0;
         }
-        .exp-card-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.25rem;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.78rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #f0f0f0;
+        .exp-company-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+            line-height: 1.3;
         }
-        .exp-card-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .exp-card-meta i {
+        .exp-role-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 600;
             color: #16b2dc;
         }
-        .exp-card-desc {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.65;
-            color: #555;
+        .exp-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.4rem;
         }
-        .exp-card-list {
+        .exp-meta-row span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .exp-meta-row i {
+            color: #16b2dc;
+        }
+        .exp-subhead {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+        .exp-subhead i {
+            color: #16b2dc;
+            font-size: 0.9rem;
+        }
+        .exp-journey-block {
+            margin-bottom: 1.5rem;
+        }
+        .exp-journey-block p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            margin: 0;
+        }
+        .exp-achievements-block ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .exp-card-list li {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.85rem;
+        .exp-achievements-block li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
             color: #555;
-            padding: 0.35rem 0 0.35rem 1.35rem;
+            padding: 0.5rem 0 0.5rem 1.5rem;
             position: relative;
-            line-height: 1.5;
             border-bottom: 1px solid #f5f5f5;
         }
-        .exp-card-list li:last-child {
+        .exp-achievements-block li:last-child {
             border-bottom: none;
         }
-        .exp-card-list li::before {
+        .exp-achievements-block li::before {
             content: "▸";
             position: absolute;
             left: 0;
             color: #16b2dc;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
-        .exp-card-tag {
-            display: inline-block;
-            background: rgba(22,178,220,0.1);
-            color: #16b2dc;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            margin-top: auto;
-            align-self: flex-start;
+        @media (max-width: 768px) {
+            .exp-block-inner {
+                padding: 1.5rem;
+            }
+            .exp-company-name {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+            .exp-role-title {
+                text-align: center;
+            }
+            .exp-meta-row {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -155,279 +189,390 @@
     <section class="category-hero">
         <div class="container">
             <h1>Professional Experience</h1>
-            <p>4 years · 11 organizations · 5 countries — digital communications, education, and social impact across Africa</p>
+            <p>4 years · 12 organizations · 5 countries — digital communications, education, and social impact across Africa</p>
         </div>
     </section>
 
-    <section class="exp-cards-section">
+    <section class="exp-stack-section">
         <div class="container">
-            <div class="exp-cards-grid">
-
-                <!-- Education Bridge -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Education_Bridge_Logo_John_Ngor_Deng_Garang.png" alt="Education Bridge" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Education Bridge</h3>
-                            <span class="exp-card-role">Communications Lead</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>May 2025 – Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda</span>
-                        </div>
-                        <p class="exp-card-desc">Leading strategic storytelling and brand positioning for a non-profit dedicated to providing South Sudanese youth with quality education and leadership development.</p>
-                        <ul class="exp-card-list">
-                            <li>Lead strategic storytelling, stakeholder engagement, and brand positioning</li>
-                            <li>Create compelling narratives showcasing student journeys and milestones</li>
-                            <li>Manage digital communications and strategic content creation</li>
-                        </ul>
-                        <span class="exp-card-tag">Education & Non-profit</span>
-                    </div>
-                </div>
-
-                <!-- African Leadership Academy -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/ALA_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership Academy" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>African Leadership Academy</h3>
-                            <span class="exp-card-role">ALforEducation Apprentice</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>April – August 2025</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Johannesburg, SA</span>
-                            <span><i class="fas fa-laptop"></i>Remote</span>
-                        </div>
-                        <p class="exp-card-desc">Participated in a selective pan-African cohort focused on analyzing and designing equitable education systems through intensive online immersion.</p>
-                        <ul class="exp-card-list">
-                            <li>Completed intensive immersion analyzing systemic educational challenges</li>
-                            <li>Engaged in rigorous community dialogues and collaborative problem solving</li>
-                            <li>Designed innovative field project with partner organization</li>
-                        </ul>
-                        <span class="exp-card-tag">Education & Leadership</span>
-                    </div>
-                </div>
-
-                <!-- Ashinaga Foundation -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Ashinaga_Foundation_Logo_John_Ngor_Deng_Garang.png" alt="Ashinaga Foundation" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Ashinaga Foundation</h3>
-                            <span class="exp-card-role">Learning Facilitator</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>July 2024 – Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda</span>
-                        </div>
-                        <p class="exp-card-desc">Mentored 25+ orphaned students and designed 60+ active-learning lesson plans, achieving a verified 100% student pass rate on SAT examinations.</p>
-                        <ul class="exp-card-list">
-                            <li>Designed and delivered 60+ active-learning lesson plans</li>
-                            <li>Achieved verified 100% student pass rate on SAT examinations</li>
-                            <li>Facilitated 13 workshops — 80% confidence growth reported</li>
-                        </ul>
-                        <span class="exp-card-tag">Education & Mentorship</span>
-                    </div>
-                </div>
-
-                <!-- Uganics Repellents -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Uganics_Logo_John_Ngor_Deng_Garang.png" alt="Uganics Repellents" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Uganics Repellents Ltd</h3>
-                            <span class="exp-card-role">Media & Communications Manager</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>Sept 2023 – Apr 2024</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Kabasanda, Uganda</span>
-                        </div>
-                        <p class="exp-card-desc">Managed comprehensive PR and digital communications for a social enterprise manufacturing organic mosquito-repellent soap to combat malaria across East Africa.</p>
-                        <ul class="exp-card-list">
-                            <li>Data-driven content strategy yielding 68% follower growth</li>
-                            <li>Designed over 100 educational graphics and product infographics</li>
-                            <li>Researched 20+ global grant opportunities, co-authored proposals</li>
-                        </ul>
-                        <span class="exp-card-tag">Social Enterprise</span>
-                    </div>
-                </div>
-
-                <!-- Africa Inventor Alliance -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Africa_Inventor_Alliance_Logo_John_Ngor_Deng_Garang.png" alt="Africa Inventor Alliance" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Africa Inventor Alliance</h3>
-                            <span class="exp-card-role">Communications Lead</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>October 2024 – Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Kigali, Rwanda</span>
-                        </div>
-                        <p class="exp-card-desc">Directing comprehensive marketing portfolio for a strategic ecosystem developer empowering continental talent to build impactful technology and sustainable development products.</p>
-                        <ul class="exp-card-list">
-                            <li>90% increase in brand search visibility via SEO optimization</li>
-                            <li>Spearheaded capacity-building workshops across innovation hubs</li>
-                            <li>Built startup digital footprint from scratch in first six months</li>
-                        </ul>
-                        <span class="exp-card-tag">Innovation & Technology</span>
-                    </div>
-                </div>
-
-                <!-- Surplus People Project -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Surplus_People_Project_Logo_John_Ngor_Deng_Garang.png" alt="Surplus People Project" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Surplus People Project</h3>
-                            <span class="exp-card-role">Multimedia Manager</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>March – June 2024</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Cape Town, South Africa</span>
-                        </div>
-                        <p class="exp-card-desc">Produced 50+ custom multimedia pieces and launched official LinkedIn presence for a historic South African non-profit combating apartheid-era forced removals.</p>
-                        <ul class="exp-card-list">
-                            <li>170% increase in digital engagement from multimedia content</li>
-                            <li>Grew LinkedIn from zero to 700+ professional followers</li>
-                            <li>Coordinated 8 community outreach events (15% attendee growth)</li>
-                        </ul>
-                        <span class="exp-card-tag">Social Justice</span>
-                    </div>
-                </div>
-
-                <!-- Creative Connect -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Creative Connect_Logo_John_Ngor_Deng_Garang.png" alt="Creative Connect" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Creative Connect</h3>
-                            <span class="exp-card-role">Social Media Manager</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>February – May 2025</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Johannesburg, SA</span>
-                            <span><i class="fas fa-laptop"></i>Remote</span>
-                        </div>
-                        <p class="exp-card-desc">Curated and produced digital content spotlighting contemporary African art for a non-profit accelerating career development of independent creators across the Global South.</p>
-                        <ul class="exp-card-list">
-                            <li>Curated digital content spotlighting contemporary African art</li>
-                            <li>Drafted all professional captions and copy for Instagram and LinkedIn</li>
-                        </ul>
-                        <span class="exp-card-tag">Arts & Culture</span>
-                    </div>
-                </div>
-
-                <!-- Nalafem Collective -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Nalafem_Logo_John_Ngor_Deng_Garang.png" alt="Nalafem Collective" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Nalafem Collective</h3>
-                            <span class="exp-card-role">Graphic Designer</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>May – August 2025</span>
-                            <span><i class="fas fa-laptop"></i>Remote</span>
-                        </div>
-                        <p class="exp-card-desc">Designed comprehensive visual support for the 4th Nalafem Summit, creating unified visual materials across all phases for a Pan-African feminist movement.</p>
-                        <ul class="exp-card-list">
-                            <li>Full visual package for Summit — pre, during, and post phases</li>
-                            <li>Slide decks for webinars reflecting Pan-African feminist identity</li>
-                            <li>Maintained brand consistency across all communication touchpoints</li>
-                        </ul>
-                        <span class="exp-card-tag">Women's Leadership</span>
-                    </div>
-                </div>
-
-                <!-- African Leadership University -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/ALU_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership University" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>African Leadership University</h3>
-                            <span class="exp-card-role">Learning Assistant & Hub Ambassador</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>Jan – April 2025</span>
-                            <span><i class="fas fa-map-marker-alt"></i>Accra, Ghana / Remote</span>
-                        </div>
-                        <p class="exp-card-desc">Managed 200+ students across BEL programme with 437 engagement cases and served as Hub Ambassador for the first Signature Immersive Experience rollout in Ghana.</p>
-                        <ul class="exp-card-list">
-                            <li>437 engagement cases managed — 97.5% resolution rate</li>
-                            <li>Selected as Hub Ambassador for first Ghana SIE rollout</li>
-                            <li>Secured externship placements with 8 organizations in Accra</li>
-                        </ul>
-                        <span class="exp-card-tag">Higher Education</span>
-                    </div>
-                </div>
-
-                <!-- Africa Careers Network × Jetstream Global -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/ACN_Logo_John_Ngor_Deng_Garang.png" alt="Africa Careers Network" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Africa Careers Network × Jetstream Global</h3>
-                            <span class="exp-card-role">GTM Strategy Consultant & Marketing Lead</span>
-                        </div>
-                    </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>Jan – March 2026</span>
-                            <span><i class="fas fa-laptop"></i>Remote / Regional</span>
-                        </div>
-                        <p class="exp-card-desc">Selected into an elite group of 50 young professionals to solve a live enterprise trade-finance challenge for Jetstream Global. Co-steered Team Nomad to the Grand Finale Showcase, presenting a fintech distribution model directly to executive industry judges.</p>
-                        <ul class="exp-card-list">
-                            <li>Anchored marketing and narrative strategy for a multidisciplinary team to make fintech concepts highly pitchable</li>
-                            <li>Formulated a "Low-CAC" bank-led embedded strategy integrating Jetvision into major banking workflows to unlock 1M+ African SMEs</li>
-                            <li>Co-designed a 9-month execution framework targeting 500+ SMEs and 50+ warehouses — addressing Africa's $100B+ trade finance gap</li>
-                            <li>Refined investor messaging enabling tier-1 pan-African banks to monitor vetted deal flows via automated fraud detection</li>
-                        </ul>
-                        <span class="exp-card-tag">Fintech & Strategy</span>
-                    </div>
-                </div>
+            <div class="exp-stack">
 
                 <!-- Silicon High School -->
-                <div class="exp-card">
-                    <div class="exp-card-header">
-                        <img src="/static/Pictures/Silicon_High_School_Logo_John_Ngor_Deng_Garang.png" alt="Silicon High School" class="exp-card-logo">
-                        <div class="exp-card-header-text">
-                            <h3>Silicon High School</h3>
-                            <span class="exp-card-role">Board Member, Governance & Ethics Committee</span>
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Silicon_High_School_Logo_John_Ngor_Deng_Garang.png" alt="Silicon High School">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Silicon High School</h2>
+                                <span class="exp-role-title">Board Member (Governance and Ethics Committee)</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Remote / Governance Hub</span>
+                                    <span><i class="fas fa-calendar"></i>June 2026 – Present</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Appointed to the Board of Directors to serve on the Governance and Ethics Committee, providing strategic oversight, policy evaluation, and ethical compliance frameworks for institutional advancement.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Advise on institutional governance, policy adjustments, and ethical standard enforcement across school operations.</li>
+                                    <li>Evaluate institutional compliance risks and streamline accountability pipelines for board-level decision-making.</li>
+                                    <li>Collaborate with cross-functional committee members to safeguard the organization's cultural and legal integrity.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="exp-card-body">
-                        <div class="exp-card-meta">
-                            <span><i class="fas fa-calendar"></i>June 2026 – Present</span>
-                            <span><i class="fas fa-laptop"></i>Remote / Governance Hub</span>
+                </article>
+
+                <!-- Africa Careers Network × Jetstream Global -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/ACN_Logo_John_Ngor_Deng_Garang.png" alt="Africa Careers Network">
                         </div>
-                        <p class="exp-card-desc">Appointed to the Board of Directors to serve on the Governance and Ethics Committee, providing strategic oversight, policy evaluation, and ethical compliance frameworks for institutional advancement.</p>
-                        <ul class="exp-card-list">
-                            <li>Advise on institutional governance, policy adjustments, and ethical standard enforcement across school operations</li>
-                            <li>Evaluate institutional compliance risks and streamline accountability pipelines for board-level decision-making</li>
-                            <li>Collaborate with cross-functional committee members to safeguard cultural and legal integrity</li>
-                        </ul>
-                        <span class="exp-card-tag">Governance & Education</span>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Africa Careers Network × Jetstream Global</h2>
+                                <span class="exp-role-title">GTM Strategy Consultant & Marketing Lead | 2026 Unity Challenge</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Remote / Regional</span>
+                                    <span><i class="fas fa-calendar"></i>January 2026 – March 2026 (8-Week High-Stakes Sprint)</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Selected into an elite group of 50 young professionals to solve a live enterprise trade-finance challenge for Jetstream Global. Co-steered Team Nomad to the Grand Finale Showcase, presenting a fintech distribution model directly to executive industry judges.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Anchored marketing and narrative strategy for a multidisciplinary team of engineers and software developers to make fintech concepts highly pitchable.</li>
+                                    <li>Formulated a "Low-CAC" bank-led embedded strategy to integrate Jetstream's "Jetvision" product directly into major banking workflows (e.g., Ecobank Omni Lite) to unlock access to 1 Million+ African SMEs.</li>
+                                    <li>Co-designed a 9-month execution framework targeted at onboarding 500+ SMEs and 50+ warehouses to address Africa's $100B+ trade finance gap and reach $2M Y1 revenue.</li>
+                                    <li>Refined investor messaging allowing tier-1 pan-African banks to monitor vetted deal flows via automated fraud detection and 24/7 inventory visibility.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <!-- Education Bridge -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Education_Bridge_Logo_John_Ngor_Deng_Garang.png" alt="Education Bridge">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Education Bridge</h2>
+                                <span class="exp-role-title">Communications Lead (Promoted from Student Researcher)</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda &amp; South Sudan (Remote/Hybrid)</span>
+                                    <span><i class="fas fa-calendar"></i>May 2025 – Present</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Joined as a Student Researcher under the "AI for Education" initiative, investigating technology integration in youth learning models. Promoted to Communications Lead to spearhead regional brand visibility and strategic storytelling.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Lead strategic storytelling, stakeholder engagement, and brand positioning for a non-profit dedicated to providing South Sudanese youth with quality education and leadership development.</li>
+                                    <li>Create compelling narratives showcasing student journeys and milestones to drive donor engagement.</li>
+                                    <li>Manage digital communications, strategic content creation, and collaborate with the Chief of Staff and "Partners for Equity" on communications capacity building.</li>
+                                    <li>Maintain strict adherence to international Child Protection Policies across all regional communication touchpoints.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Nalafem Collective -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Nalafem_Logo_John_Ngor_Deng_Garang.png" alt="Nalafem Collective">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Nalafem Collective</h2>
+                                <span class="exp-role-title">Graphic Designer</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-laptop"></i>Remote</span>
+                                    <span><i class="fas fa-calendar"></i>May 2025 – August 2025</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Retained to provide end-to-end design and comprehensive visual assets for the flagship 4th Nalafem Summit, supporting a Pan-African feminist movement.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Designed a full visual package for the Summit, covering pre-launch, real-time event, and post-summit documentation phases.</li>
+                                    <li>Engineered professional presentation slide decks for webinars and high-level panels reflecting Pan-African identity elements.</li>
+                                    <li>Maintained absolute brand consistency and visual continuity across all external digital communication touchpoints.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- African Leadership Academy -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/ALA_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership Academy">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">African Leadership Academy</h2>
+                                <span class="exp-role-title">ALforEducation Apprentice</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Johannesburg, South Africa (Remote)</span>
+                                    <span><i class="fas fa-calendar"></i>April 2025 – August 2025</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Participated in a selective pan-African cohort focused on analyzing and designing equitable education systems through intensive online immersion.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Completed intensive immersion analyzing systemic educational challenges and design flaws across Africa.</li>
+                                    <li>Engaged in rigorous community dialogues and collaborative problem solving regarding socio-economic learning gaps.</li>
+                                    <li>Designed an innovative field project framework with a partner organization to address localized academic distribution barriers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Creative Connect -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Creative Connect_Logo_John_Ngor_Deng_Garang.png" alt="Creative Connect">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Creative Connect</h2>
+                                <span class="exp-role-title">Social Media Manager</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Johannesburg, South Africa (Remote)</span>
+                                    <span><i class="fas fa-calendar"></i>February 2025 – May 2025</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Curated and produced digital content spotlighting contemporary African art for a non-profit accelerating career development of independent creators across the Global South.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Curated high-aesthetic digital content showcasing contemporary African artists and visual narrative shifts.</li>
+                                    <li>Drafted all professional contextual captions, educational copy, and ecosystem resource maps for Instagram and LinkedIn.</li>
+                                    <li>Maintained brand voice integrity to connect independent creators with international exhibition frameworks.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- African Leadership University — Learning Assistant -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/ALU_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership University">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">African Leadership University</h2>
+                                <span class="exp-role-title">Learning Assistant (BEL Programme)</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-laptop"></i>Remote</span>
+                                    <span><i class="fas fa-calendar"></i>January 2025 – April 2025</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Managed operational pipelines for the Business, Entrepreneurship, and Leadership (BEL) program, providing academic and administrative support to enrolled students remotely.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Managed 200+ students across the BEL programme, resolving 437 individual student engagement cases with a 97.5% verified resolution rate.</li>
+                                    <li>Provided academic support and guidance to 200+ enrolled students.</li>
+                                    <li>Coordinated remote learning logistics across multiple student cohorts.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ALU Global Learning Experiences — Hub Ambassador -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/ALU_GLE_Logo_John_Ngor_Deng_Garang.png" alt="ALU Global Learning Experiences">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">ALU Global Learning Experiences</h2>
+                                <span class="exp-role-title">Hub Ambassador</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Accra, Ghana</span>
+                                    <span><i class="fas fa-calendar"></i>January 2025 – April 2025</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Selected as Hub Ambassador for the first-ever Signature Immersive Experience (SIE) rollout in Ghana, serving as the on-the-ground liaison between students, host organizations, and the ALU GLE department.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Selected as Hub Ambassador for the inaugural Ghana SIE rollout.</li>
+                                    <li>Secured high-value professional externship placements with 8 prominent organizations across Accra for traveling student cohorts.</li>
+                                    <li>Bridged student experience on the ground with ALU's global programming team.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Africa Inventor Alliance -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Africa_Inventor_Alliance_Logo_John_Ngor_Deng_Garang.png" alt="Africa Inventor Alliance">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Africa Inventor Alliance (AIA)</h2>
+                                <span class="exp-role-title">Social Media Manager (Promoted from Social Media Intern)</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Kigali, Rwanda (Camp Kigali - KCEV)</span>
+                                    <span><i class="fas fa-calendar"></i>October 2024 – Present</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Selected based on high-performance technical assignments to design foundational online engagement frameworks. Promoted to part-time manager to design long-term strategic plans and advise executive leadership on digital footprint scaling.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Direct comprehensive marketing portfolio for a strategic ecosystem developer empowering continental talent to build impactful technology.</li>
+                                    <li>Engineered targeted SEO optimizations and distribution strategies that yielded a 90% net increase in organic brand search visibility.</li>
+                                    <li>Built the deep-tech startup's entire digital architecture, audience tracking, and footprint from the ground up within the first six months.</li>
+                                    <li>Spearheaded and coordinated marketing-focused capacity-building workshops across physical and digital innovation hubs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ashinaga Foundation -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Ashinaga_Foundation_Logo_John_Ngor_Deng_Garang.png" alt="Ashinaga Foundation">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Ashinaga Foundation</h2>
+                                <span class="exp-role-title">Learning Facilitator & Curriculum Consultant</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda</span>
+                                    <span><i class="fas fa-calendar"></i>July 2024 – Present</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Selected to support the Ashinaga Africa Initiative (AAI) Preparation Year, directly mentoring high-potential orphaned students and expanding institutional capacities through curriculum development and ecosystem research.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Designed and executed over 60 active-learning lesson plans spanning English, Academic Writing, Critical Thinking, and Leadership Development.</li>
+                                    <li>Achieved a verified 100% student pass rate on SAT examinations through customized testing schedules and targeted academic intervention.</li>
+                                    <li>Facilitated 13 targeted leadership workshops, yielding an 80% self-reported confidence and presentation capability growth among 25+ scholars.</li>
+                                    <li>Conducted strategic landscape research on ministries, embassies, and peer NGOs to build mutual cooperation pipelines, while streamlining student university and visa application collection tracking.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Surplus People Project -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Surplus_People_Project_Logo_John_Ngor_Deng_Garang.png" alt="Surplus People Project">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Surplus People Project</h2>
+                                <span class="exp-role-title">Multimedia Manager</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Cape Town, South Africa</span>
+                                    <span><i class="fas fa-calendar"></i>March 2024 – June 2024</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Directed multimedia operations and launched the first-ever institutional LinkedIn presence for a historic South African non-profit combatting apartheid-era forced land removals.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Produced 50+ custom multimedia assets, generating a 170% increase in digital engagement from human-interest and social justice content.</li>
+                                    <li>Built and scaled the organization's LinkedIn presence from zero to 700+ professional followers within 4 months.</li>
+                                    <li>Coordinated 8 community outreach events, driving a 15% net increase in local community attendee growth.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Uganics Repellents Ltd -->
+                <article class="exp-block">
+                    <div class="exp-block-inner">
+                        <div class="exp-logo-frame">
+                            <img src="/static/Pictures/Uganics_Logo_John_Ngor_Deng_Garang.png" alt="Uganics Repellents Ltd">
+                        </div>
+                        <div class="exp-block-main">
+                            <div class="exp-header-group">
+                                <h2 class="exp-company-name">Uganics Repellents Ltd</h2>
+                                <span class="exp-role-title">Media & Communications Manager (Promoted from Intern)</span>
+                                <div class="exp-meta-row">
+                                    <span><i class="fas fa-map-marker-alt"></i>Kabasanda &amp; Kampala, Uganda</span>
+                                    <span><i class="fas fa-calendar"></i>September 2023 – April 2024</span>
+                                </div>
+                            </div>
+                            <div class="exp-journey-block">
+                                <h3 class="exp-subhead">My Journey &amp; Scope</h3>
+                                <p>Joined the administrative team as a Communications & Social Media Intern to execute on-ground regional campaigns. Promoted to a Part-Time Manager and Personal Assistant to the CEO to handle corporate operations, grant pipelines, and executive scheduling.</p>
+                            </div>
+                            <div class="exp-achievements-block">
+                                <h3 class="exp-subhead"><i class="fas fa-star"></i>Key Deliverables &amp; Achievements</h3>
+                                <ul>
+                                    <li>Managed comprehensive PR and digital communications for a social enterprise manufacturing organic mosquito-repellent soap to combat malaria across East Africa.</li>
+                                    <li>Engineered an aggressive data-driven digital content strategy that yielded a 68% net surge in brand community followers within months.</li>
+                                    <li>Designed over 100+ bespoke educational graphics and product infographics to boost on-ground public health campaign efficacy.</li>
+                                    <li>Researched 20+ global grant opportunities and co-authored technical proposal drafts to scale the business footprint.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
             </div>
         </div>
