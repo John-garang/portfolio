@@ -1106,8 +1106,8 @@ li {
 }
 
 .about-bio p {
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-bottom: 2rem;
     color: #666;
     text-align: justify;
@@ -1156,8 +1156,8 @@ li {
 .bio-card p {
     margin: 0;
     text-align: left;
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -1291,7 +1291,7 @@ li {
 }
 
 .contact-label {
-    font-size: 10px;
+    font-size: 0.75rem;
     color: #999;
     font-weight: 500;
     text-transform: uppercase;
@@ -1299,7 +1299,7 @@ li {
 }
 
 .contact-value {
-    font-size: 10px;
+    font-size: 0.9rem;
     color: #333;
     font-weight: 600;
 }
@@ -1345,8 +1345,8 @@ li {
 
 .detail-item p {
     color: #666;
-    line-height: 1.5;
-    font-size: 10px;
+    line-height: 1.6;
+    font-size: 0.9rem;
 }
 
 .detail-item ul {
@@ -1359,7 +1359,7 @@ li {
     margin-bottom: 0.5rem;
     padding-left: 1rem;
     position: relative;
-    font-size: 10px;
+    font-size: 0.9rem;
 }
 
 .detail-item li::before {
@@ -1929,6 +1929,13 @@ li {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     text-align: center;
+}
+
+@media (max-width: 900px) {
+    .services-detailed {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .service-detail {
@@ -5607,6 +5614,7 @@ li {
 }
 @media (max-width: 768px) {
     .about {
+        background-attachment: scroll;
         background-position: center center;
     }
 }
