@@ -1,23 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://johngarang.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-    <url><loc>https://johngarang.com/about</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://johngarang.com/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://johngarang.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/work-portfolio</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/experience-overview</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/africa-careers-network</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/silicon-high-school</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/alu-global-learning-experiences</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/programs-overview</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://johngarang.com/my-shelf</loc><lastmod>2025-07-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/poems</loc><lastmod>2025-07-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/cnn-academy</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/unleash-innovation-lab</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/take-action-lab</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://johngarang.com/yali-east-africa</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/accra-fusion</loc><lastmod>2025-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/african-leadership-university</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/graphic-design</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://johngarang.com/cv</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- CORE PAGES -->
+    <url>
+        <loc>https://johngarang.com/</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-homepage-background.jpg</image:loc>
+            <image:title>John Ngor Deng Garang - Digital Communications Professional</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/DSC05479.jpg</image:loc>
+            <image:title>John Ngor Deng Garang - Communications Specialist and Mastercard Foundation Scholar</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/about</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang_picture.JPG</image:loc>
+            <image:title>John Ngor Deng Garang - About Me</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/Sciences_Po_Logo.png</image:loc>
+            <image:title>Sciences Po - School of Management and Impact, Paris</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/African_Leadership_University_Logo.png</image:loc>
+            <image:title>African Leadership University, Kigali Rwanda</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/services</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/contact</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/cv</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- PORTFOLIO & SHELF -->
+    <url>
+        <loc>https://johngarang.com/work-portfolio</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/graphic-design</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.png</image:loc>
+            <image:title>John Ngor Deng Garang - Graphic Design Portfolio</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/my-shelf</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-my-shelf.jpg</image:loc>
+            <image:title>John Ngor Deng Garang - My Shelf: Writings, Poems, and Academic Works</image:title>
+        </image:image>
+    </url>
+
+    <!-- EXPERIENCE & PROGRAMS -->
+    <url>
+        <loc>https://johngarang.com/experience-overview</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-work-experience.jpg</image:loc>
+            <image:title>John Ngor Deng Garang - Work Experience Overview</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/programs-overview</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png</image:loc>
+            <image:title>John Ngor Deng Garang — CNN Academy Voices of the Global South Climate Storytelling Fellow 2025</image:title>
+            <image:caption>John Ngor Deng Garang, CNN Academy Voices of the Global South Climate Storytelling Fellow, international journalism fellowship, Global South climate reporting</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png</image:loc>
+            <image:title>John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023</image:title>
+            <image:caption>John Ngor Deng Garang at UNLEASH Global Innovation Lab, selected on full scholarship as one of 1,000 young innovators, co-created PappyBags sustainable innovation</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-take-action-lab.png</image:loc>
+            <image:title>John Ngor Deng Garang — Take Action Lab, Tilting Futures, South Africa 2024</image:title>
+            <image:caption>John Ngor Deng Garang, Take Action Lab alumnus and Multimedia Apprentice at Surplus People Project, documenting agroecology and human rights across Western, Northern, Eastern Cape and Gauteng</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-accra-fusion.png</image:loc>
+            <image:title>John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025</image:title>
+            <image:caption>John Ngor Deng Garang as Student Ambassador for Accra Fusion, secured 8 Ghanaian organisational partnerships, supported 25+ students</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-yali-east-africa.png</image:loc>
+            <image:title>John Ngor Deng Garang — YALI East Africa Cohort 60, U.S. Department of State Young African Leaders Initiative 2024</image:title>
+            <image:caption>John Ngor Deng Garang, YALI East Africa Regional Leadership Centre Cohort 60 alumnus, Business and Entrepreneurship Track</image:caption>
+        </image:image>
+    </url>
+
+    <!-- TRAVELS & BLOG -->
+    <url>
+        <loc>https://johngarang.com/travels</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-travels.png</image:loc>
+            <image:title>John Ngor Deng Garang - Travels and Adventures</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/blogs</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-blog.png</image:loc>
+            <image:title>John Ngor Deng Garang - Blog Posts and Articles</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/cape-town-travel-guide</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/A%20First-time%20Traveller%27s%20Guide%20to%20Cape%20Town.jpg</image:loc>
+            <image:title>A First-time Traveller's Guide to Cape Town by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <!-- ACADEMIC WRITINGS -->
+    <url>
+        <loc>https://johngarang.com/academia</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-academia.png</image:loc>
+            <image:title>John Ngor Deng Garang - Academic Writings and Research</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/development-trajectory-south-sudan</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-development-trajectory-south-sudan.jpg</image:loc>
+            <image:title>Development Trajectory of South Sudan by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/entrepreneurial-gaps-south-sudan</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/Addressing%20Entrepreneurial%20Gaps%20in%20South%20Sudan.jpg</image:loc>
+            <image:title>Addressing Entrepreneurial Gaps in South Sudan by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <!-- POETRY -->
+    <url>
+        <loc>https://johngarang.com/poems</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-personal-writings.png</image:loc>
+            <image:title>John Ngor Deng Garang - Poetry Collection</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/a-fool-of-warmth</loc>
+        <lastmod>2026-05-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-if-equality-means-this.jpg</image:loc>
+            <image:title>A Fool of Warmth — Africa Regional Champion, Shakespeare's Pen 2026 by John N.D. Garang</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/if-equality-means-this</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-if-equality-means-this.jpg</image:loc>
+            <image:title>If Equality Means This, Burn the World Already — Poem by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/making-of-dinka-woman</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-making-of-dinka-woman.jpg</image:loc>
+            <image:title>The Making of a Dinka Woman: A Survival Manual Disguised as Culture — Poem by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/when-educated-woman-says-no</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-when-educated-woman-says-no.jpg</image:loc>
+            <image:title>When an Educated Woman Says No — Poem by John Ngor Deng Garang</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/an-unbalanced-man</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/a-sour-vow</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/the-price-of-truth</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/the-son-mama-couldnt-save</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/the-boy-who-taught-his-nation-to-speak</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/learning-to-write-without-permission</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
+    <url>
+        <loc>https://johngarang.com/the-words-i-never-said</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+
 </urlset>
