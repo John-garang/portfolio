@@ -75,12 +75,42 @@
     <!-- Experience Pages -->
     <url>
         <loc>https://johngarang.com/experience-overview</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2026-07-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
         <image:image>
             <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-work-experience.jpg</image:loc>
             <image:title>John Ngor Deng Garang - Work Experience Overview</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://johngarang.com/africa-careers-network</loc>
+        <lastmod>2026-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/ACN_Logo_John_Ngor_Deng_Garang.png</image:loc>
+            <image:title>John Ngor Deng Garang - GTM Strategy Consultant at Africa Careers Network × Jetstream Global 2026 Unity Challenge</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://johngarang.com/silicon-high-school</loc>
+        <lastmod>2026-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/Silicon_High_School_Logo_John_Ngor_Deng_Garang.png</image:loc>
+            <image:title>John Ngor Deng Garang - Board Member, Governance and Ethics Committee at Silicon High School</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://johngarang.com/alu-global-learning-experiences</loc>
+        <lastmod>2026-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://johngarang.com/static/Pictures/ALU_GLE_Logo_John_Ngor_Deng_Garang.png</image:loc>
+            <image:title>John Ngor Deng Garang - Hub Ambassador at ALU Global Learning Experiences, Accra Ghana</image:title>
         </image:image>
     </url>
     <url>
