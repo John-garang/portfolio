@@ -42,6 +42,10 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             return 'text/css'
         elif path.endswith('.js'):
             return 'application/javascript'
+        elif path.endswith('.xml'):
+            return 'application/xml'
+        elif path.endswith('.txt'):
+            return 'text/plain'
         return 'application/octet-stream'
     
     def do_GET(self):
@@ -49,6 +53,9 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         clean = self.path.split('?')[0]
         if clean == '/':
             self.path = 'templates/index.html'
+        elif clean in ('/sitemap.xml', '/robots.txt'):
+            # Serve sitemap and robots from templates/ with correct type
+            self.path = 'templates/' + clean.lstrip('/')
         elif '.' in clean.split('/')[-1]:
             # Has a file extension — serve from templates/
             self.path = 'templates/' + clean.lstrip('/')
