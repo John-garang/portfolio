@@ -143,7 +143,9 @@
             .about h1 { font-size: 2.5rem !important; }
             .bio-grid { grid-template-columns: 1fr !important; }
             .details-grid { grid-template-columns: 1fr !important; }
-            .about-bio, .contact-info, .personal-details { padding: 1.5rem !important; }
+            .about-content .container { padding-left: 8px !important; padding-right: 8px !important; }
+            .bio-grid { gap: 8px !important; }
+            .bio-card { border-left: none !important; border-right: none !important; }
         }
     </style>
 </head>
@@ -176,8 +178,7 @@
     <!-- About Content Section -->
     <section class="about-content">
         <div class="container">
-            <div class="about-bio">
-                <div class="bio-grid">
+            <div class="bio-grid">
                     <div class="bio-card bio-card--who" style="grid-column: 1 / -1;">
                         <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
                             <figure style="margin: 0; flex-shrink: 0; width: 33%;">
@@ -190,38 +191,31 @@
                                 <figcaption style="font-size: 0.72rem; color: #888; text-align: center; margin-top: 0.4rem; font-style: italic;">John Ngor Deng Garang — Communications Professional</figcaption>
                             </figure>
                             <div style="flex: 1; min-width: 220px;">
-                                <div class="bio-icon"><i class="fas fa-user-tie"></i></div>
-                                <h3>About John Ngor Deng Garang</h3>
+                                <h3><span class="bio-icon"><i class="fas fa-user-tie"></i></span> About John Ngor Deng Garang</h3>
                                 <p>John Ngor Deng Garang is a South Sudanese communications professional, graphic designer, and social impact leader specializing in regional development and community storytelling. He has managed corporate and non-profit communications initiatives across multiple African nations, including South Africa, Uganda, Rwanda, Kenya, and Ghana, and currently serves as the Communications Lead for Education Bridge. Recognized globally for his leadership and media acumen, Garang is a CNN Academy Fellow, a UNLEASH Innovation Lab Talent, and a Young African Leaders Initiative (YALI) alumnus. He holds a Bachelor of Science from the African Leadership University and is a Mastercard Foundation Scholar pursuing a Master's degree at Sciences Po Paris.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="bio-card">
-                        <div class="bio-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>Current Focus</h3>
+                        <h3><span class="bio-icon"><i class="fas fa-graduation-cap"></i></span> Current Focus</h3>
                         <p>A Mastercard Foundation Scholar and alumnus of the African Leadership University (First Class Honours, Entrepreneurial Leadership), John is now pursuing a Master of Communications, Media, and Creative Industries at Sciences Po France — School of Management and Impact, in Paris. He applies his skills in communication, strategy, and engagement to create meaningful impact. Whether managing projects, writing compelling narratives, or leading partnerships, his work consistently stands out and strengthens organizations.</p>
                     </div>
                     
                     <div class="bio-card">
-                        <div class="bio-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Track Record</h3>
+                        <h3><span class="bio-icon"><i class="fas fa-chart-line"></i></span> Track Record</h3>
                         <p>Throughout his career, John has developed close to 1000 content pieces, managed social media platforms that saw rapid growth, expanded the online presence of organizations, and facilitated key partnerships through strategic communication. He has also facilitated learning experiences, coordinated projects, and built meaningful partnerships. His greatest strength lies in communication and engagement; understanding people, bridging gaps, and ensuring messages resonate.</p>
                     </div>
                     
                     <div class="bio-card">
-                        <div class="bio-icon"><i class="fas fa-globe-africa"></i></div>
-                        <h3>Global Experience</h3>
+                        <h3><span class="bio-icon"><i class="fas fa-globe-africa"></i></span> Global Experience</h3>
                         <p>Beyond his professional work, John has been actively involved in several programs that have shaped his leadership and entrepreneurial mindset. He has participated in the UNLEASH Global Innovation Lab as talent, the Young African Leaders Initiative (YALI), the UN Conference of Youth on Climate Change as a delegate, the Take Action Lab, and the Jim Leech Mastercard Foundation on Entrepreneurship. Each of these experiences has refined his ability to lead, innovate, and create lasting change.</p>
                     </div>
                     
                     <div class="bio-card" style="grid-column: 1 / -1;">
-                        <div class="bio-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Leadership Philosophy</h3>
+                        <h3><span class="bio-icon"><i class="fas fa-heart"></i></span> Leadership Philosophy</h3>
                         <p>John believes leadership is about more than just results; it's about relationships, trust, and lasting impact. His journey reflects resilience, skill, and the power of opportunity. John dedicates every interaction to proving that South Sudanese professionals can thrive and contribute on the global stage.</p>
                     </div>
-                </div>
-            </div>
 
             <!-- Education Section -->
             <div class="personal-details" style="margin-bottom: 2rem;">
