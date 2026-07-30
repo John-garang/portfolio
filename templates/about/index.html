@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://johngarang.com/about">
     <meta property="og:title" content="About John Ngor Deng Garang | South Sudanese Communications Professional">
     <meta property="og:description" content="South Sudanese leader, communicator, and designer. Mastercard Foundation Scholar at Sciences Po Paris. ALU First Class Honours. 4 years across 12 organisations and 5 countries.">
-    <meta property="og:image" content="https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang_picture.JPG">
+    <meta property="og:image" content="https://johngarang.com/static/Pictures/john_ngor_deng_garang_profile_picture.png">
     <meta property="og:site_name" content="John Ngor Deng Garang Portfolio">
 
     <!-- Twitter Card -->
@@ -23,7 +23,7 @@
     <meta name="twitter:site" content="@John_Ngor_Deng">
     <meta name="twitter:title" content="About John Ngor Deng Garang | South Sudanese Communications Professional">
     <meta name="twitter:description" content="South Sudanese leader, communicator, and designer. Mastercard Foundation Scholar at Sciences Po Paris. ALU First Class Honours.">
-    <meta name="twitter:image" content="https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang_picture.JPG">
+    <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john_ngor_deng_garang_profile_picture.png">
 
     <!-- Person Schema -->
     <script type="application/ld+json">
@@ -37,7 +37,7 @@
         "name": "John Ngor Deng Garang",
         "alternateName": ["John Garang", "John N.D. Garang"],
         "url": "https://johngarang.com",
-        "image": "https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang_picture.JPG",
+        "image": "https://johngarang.com/static/Pictures/john_ngor_deng_garang_profile_picture.png",
         "jobTitle": "Digital Communications Professional",
         "description": "South Sudanese communications professional, designer, and Mastercard Foundation Scholar. ALU First Class Honours graduate, now pursuing a Master of Communications, Media and Creative Industries at Sciences Po France.",
         "nationality": {"@type": "Country", "name": "South Sudan"},
@@ -72,6 +72,16 @@
         .contact-label { font-size: 0.75rem !important; color: #999 !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
         .contact-value { font-size: 0.95rem !important; color: #333 !important; font-weight: 500 !important; }
         
+        @media (max-width: 600px) {
+            .bio-card--who > div {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .bio-card--who img {
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
         @media (max-width: 768px) {
             .contact-info { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
             .profile-section { order: -1 !important; }
@@ -115,10 +125,19 @@
         <div class="container">
             <div class="about-bio">
                 <div class="bio-grid">
-                    <div class="bio-card">
-                        <div class="bio-icon"><i class="fas fa-user-tie"></i></div>
-                        <h3>Who I Am</h3>
-                        <p>John Ngor Deng Garang is a South Sudanese leader, communicator, and designer with a strong passion for storytelling, engagement, and social impact. Coming from a country that has faced its share of challenges, he has walked out of the rubble to prove what is possible when talent meets opportunity. Through education, leadership, and commitment, he has built a career that spans multiple countries, working in South Africa, Uganda, Rwanda, and Ghana; while leaving a strong reputation for both his homeland and his university.</p>
+                    <div class="bio-card bio-card--who" style="grid-column: 1 / -1;">
+                        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                            <img
+                                src="/static/Pictures/john_ngor_deng_garang_profile_picture.png"
+                                alt="John Ngor Deng Garang — South Sudanese Communications Professional"
+                                loading="eager"
+                                style="width: 220px; height: 220px; object-fit: cover; border-radius: 12px; flex-shrink: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.12);">
+                            <div style="flex: 1; min-width: 220px;">
+                                <div class="bio-icon"><i class="fas fa-user-tie"></i></div>
+                                <h3>Who I Am</h3>
+                                <p>John Ngor Deng Garang is a South Sudanese leader, communicator, and designer with a strong passion for storytelling, engagement, and social impact. Coming from a country that has faced its share of challenges, he has walked out of the rubble to prove what is possible when talent meets opportunity. Through education, leadership, and commitment, he has built a career that spans multiple countries, working in South Africa, Uganda, Rwanda, and Ghana; while leaving a strong reputation for both his homeland and his university.</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="bio-card">
@@ -193,7 +212,7 @@
 
             <div class="contact-info" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 2rem; align-items: start;">
                 <div class="profile-section" style="text-align: center;">
-                    <img src="/static/Pictures/John_Ngor_Deng_Garang_picture.JPG" alt="John Ngor Deng Garang" class="profile-picture">
+                    <img src="/static/Pictures/john_ngor_deng_garang_profile_picture.png" alt="John Ngor Deng Garang" class="profile-picture">
                     <h3>Communications Professional</h3>
                     <div class="profile-social-links">
                         <a href="https://www.instagram.com/john._garang/" target="_blank"><i class="fab fa-instagram"></i></a>
