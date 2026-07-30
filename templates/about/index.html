@@ -110,7 +110,7 @@
             left: 0;
             color: #16b2dc;
         }
-        .bio-grid { gap: 1.5rem !important; }
+        .bio-grid { gap: 1.5rem !important; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)) !important; }
 
         /* ── Contact / detail cards ── */
         .detail-item p, .detail-item li, .contact-label, .contact-value { font-size: 15px !important; line-height: 1.5 !important; }
@@ -135,6 +135,46 @@
                 width: 85% !important;
             }
         }
+        /* Override global styles that conflict on this page */
+        .about-content .contact-info {
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 2rem !important;
+            text-align: left !important;
+        }
+        .about-content .personal-details {
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 2rem !important;
+        }
+        .about-content .personal-details h3 {
+            text-align: left !important;
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            color: #999 !important;
+            letter-spacing: 0.08em !important;
+            text-transform: uppercase !important;
+            margin-bottom: 1.25rem !important;
+        }
+        .about-content .detail-item {
+            background: #f8f9fa !important;
+            border-radius: 0 !important;
+            border-left: 3px solid #16b2dc !important;
+            padding: 1rem 1.25rem !important;
+        }
+        .about-content .details-grid {
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)) !important;
+            gap: 1rem !important;
+        }
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 2.5rem 0;
+        }
         @media (max-width: 768px) {
             .contact-info { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
             .profile-section { order: -1 !important; }
@@ -142,7 +182,7 @@
             .about { padding: 80px 15px 40px !important; }
             .about h1 { font-size: 2.5rem !important; }
             .bio-grid { grid-template-columns: 1fr !important; }
-            .details-grid { grid-template-columns: 1fr !important; }
+            .about-content .details-grid { grid-template-columns: 1fr !important; }
             .about-content .container { padding-left: 8px !important; padding-right: 8px !important; }
             .bio-grid { gap: 8px !important; }
             .bio-card { border-left: none !important; border-right: none !important; }
@@ -217,6 +257,10 @@
                         <p>John believes leadership is about more than just results; it's about relationships, trust, and lasting impact. His journey reflects resilience, skill, and the power of opportunity. John dedicates every interaction to proving that South Sudanese professionals can thrive and contribute on the global stage.</p>
                     </div>
 
+            </div><!-- end bio-grid -->
+
+            <hr class="section-divider">
+
             <!-- Education Section -->
             <div class="personal-details" style="margin-bottom: 2rem;">
                 <h3>EDUCATION</h3>
@@ -260,6 +304,8 @@
 
                 </div>
             </div>
+
+            <hr class="section-divider">
 
             <div class="contact-info" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 2rem; align-items: start;">
                 <div class="profile-section" style="text-align: center;">
@@ -308,6 +354,8 @@
                 </div>
             </div>
             
+            <hr class="section-divider">
+
             <div class="personal-details">
                 <h3>A LITTLE BIT MORE ABOUT ME...</h3>
                 <div class="details-grid">
@@ -352,6 +400,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
