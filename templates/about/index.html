@@ -58,11 +58,65 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .bio-card p, .detail-item p, .detail-item li, .contact-label, .contact-value { font-size: 15px !important; line-height: 1.5 !important; }
-        .bio-card h3 { font-size: 15px !important; }
-        .bio-card, .detail-item, .contact-card { padding: 1rem !important; }
+        /* ── Bio cards — experience-page style ── */
+        .bio-card {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s ease;
+            padding: 2rem;
+        }
+        .bio-card:hover { box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
+        .bio-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .bio-card .bio-icon {
+            color: #16b2dc;
+            font-size: 1rem;
+            display: inline-flex;
+        }
+        .bio-card p, .bio-card li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #555;
+            margin: 0;
+        }
+        .bio-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .bio-card ul li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .bio-card ul li:last-child { border-bottom: none; }
+        .bio-card ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #16b2dc;
+        }
+        .bio-grid { gap: 1.5rem !important; }
+
+        /* ── Contact / detail cards ── */
+        .detail-item p, .detail-item li, .contact-label, .contact-value { font-size: 15px !important; line-height: 1.5 !important; }
+        .detail-item { padding: 1rem !important; }
         .favorite-quote .quote-source { color: #8B0000 !important; }
-        .bio-grid, .details-grid { gap: 1rem !important; }
+        .details-grid { gap: 1rem !important; }
         .contact-details { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
         .contact-card { background: white !important; border: 1px solid #e0e0e0 !important; border-radius: 0 !important; padding: 1rem 1.25rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; transition: all 0.3s ease !important; }
         .contact-card:hover { border-color: #999 !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important; transform: translateX(3px) !important; }
@@ -215,7 +269,7 @@
 
             <div class="contact-info" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 2rem; align-items: start;">
                 <div class="profile-section" style="text-align: center;">
-                    <img src="/static/Pictures/john-ngor-deng-garang-profile-photo.jpg" alt="John Ngor Deng Garang" class="profile-picture">
+                    <img src="/static/Pictures/John_Ngor_Deng_Garang_picture.JPG" alt="John Ngor Deng Garang — Communications Professional" title="John Ngor Deng Garang — Communications Professional" class="profile-picture">
                     <h3>Communications Professional</h3>
                     <div class="profile-social-links">
                         <a href="https://www.instagram.com/john__garang/" target="_blank"><i class="fab fa-instagram"></i></a>
