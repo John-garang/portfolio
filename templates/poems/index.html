@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poems - John Garang</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Poems by John Ngor Deng Garang | Poetry Collection</title>
+    <meta name="description" content="Poetry collection by John Ngor Deng Garang — Africa Regional Champion, Shakespeare's Pen 2026. Read poems including A Fool of Warmth, A Sour Vow, The Price of Truth, and more.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://johngarang.com/poems">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://johngarang.com/poems">
+    <meta property="og:title" content="Poems by John Ngor Deng Garang | Poetry Collection">
+    <meta property="og:description" content="Poetry collection by John Ngor Deng Garang — Africa Regional Champion, Shakespeare's Pen 2026.">
+    <meta property="og:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-if-equality-means-this.jpg">
+    <meta property="og:site_name" content="John Ngor Deng Garang Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@John_Ngor_Deng">
+    <meta name="twitter:title" content="Poems by John Ngor Deng Garang | Poetry Collection">
+    <meta name="twitter:description" content="Poetry collection by John Ngor Deng Garang — Africa Regional Champion, Shakespeare's Pen 2026.">
+    <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-if-equality-means-this.jpg">
+    <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo.png">
+    <link rel="apple-touch-icon" href="/static/Pictures/john-ngor-deng-garang-logo.png">
     <link rel="stylesheet" href="/static/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <style>
         .poems-hero {
             background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
@@ -25,15 +44,8 @@
             font-weight: 700;
             margin-bottom: 1rem;
         }
-        .poems-hero-subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-        .poems-hero-description {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
+        .poems-hero-subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 0.5rem; }
+        .poems-hero-description { font-size: 1.1rem; opacity: 0.8; }
         .feather-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -55,14 +67,15 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
-        .article-content {
-            padding: 1.5rem;
-        }
+        .article-content { padding: 1.5rem; }
         .article-meta {
             display: flex;
             justify-content: space-between;
@@ -77,30 +90,17 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
-        .read-time {
-            color: #666;
-        }
-        .article-content h3 {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            color: #333;
-        }
-        .article-content p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.85rem;
-        }
+        .read-time { color: #666; }
+        .article-content h3 { font-size: 1rem; margin-bottom: 0.8rem; color: #333; }
+        .article-content p { color: #666; line-height: 1.6; font-size: 0.85rem; }
         @media (max-width: 600px) {
-            .article-cards-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            .poems-hero h1 { font-size: 2.5rem; }
+            .article-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
         }
     </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js"></script>
 
     <section class="poems-hero">
         <div class="poems-hero-content">
@@ -114,7 +114,7 @@
     <section class="posts-section">
         <div class="container">
             <div class="article-cards-grid">
-                <div class="article-card" onclick="window.location.href='../an-unbalanced-man.html'" style="cursor: pointer;">
+                <a href="/an-unbalanced-man" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
@@ -123,9 +123,9 @@
                         <h3>An Unbalanced Man</h3>
                         <p>Today I woke up on the wrong side of the bed. That's not to say there's nothing right about me. But the room says otherwise...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../learning-to-write-without-permission.html'" style="cursor: pointer;">
+                <a href="/learning-to-write-without-permission" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
@@ -134,9 +134,9 @@
                         <h3>Learning to Write Without Permission</h3>
                         <p>The first lesson in freedom is the courage to write without asking. Where the Nile flows, silent books of law have been written with guns...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../the-price-of-truth.html'" style="cursor: pointer;">
+                <a href="/the-price-of-truth" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
@@ -145,9 +145,9 @@
                         <h3>The Price of Truth</h3>
                         <p>Mama calls me stupid, She says if the degree I'm studying doesn't teach me the value of my own life, then I'm illiterate...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../the-son-mama-couldnt-save.html'" style="cursor: pointer;">
+                <a href="/the-son-mama-couldnt-save" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
@@ -156,72 +156,57 @@
                         <h3>The Son Mama Couldn't Save</h3>
                         <p>My son, the inspector said your body was found floating, calm, like you always were, the water holding you like a secret it could not keep...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../the-boy-who-taught-his-nation-to-speak.html'" style="cursor: pointer;">
+                <a href="/the-boy-who-taught-his-nation-to-speak" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
                             <span class="read-time"><i class="far fa-clock"></i> April 19, 2026</span>
                         </div>
                         <h3>The Boy Who Taught His Nation to Speak</h3>
-                        <p>They buried him facing East�not so he may greet Christ, the way, the truth, and the life, when he returns�but because his ancestor Deng-Aguet and his gods rest in the East...</p>
+                        <p>They buried him facing East — not so he may greet Christ, the way, the truth, and the life, when he returns — but because his ancestor Deng-Aguet and his gods rest in the East...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../a-sour-vow.html'" style="cursor: pointer;">
+                <a href="/a-sour-vow" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
                             <span class="read-time"><i class="far fa-clock"></i> January 11, 2026</span>
                         </div>
                         <h3>A Sour Vow</h3>
-                        <p>� the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
+                        <p>… the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../a-fool-of-warmth.html'" style="cursor: pointer;">
+                <a href="/a-fool-of-warmth" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
                             <span class="read-time"><i class="far fa-clock"></i> June 5, 2026</span>
                         </div>
                         <h3>A Fool of Warmth</h3>
-                        <p>The curtain hangs half-open, welcoming daybreak. Outside�a rooster screams the day open, reciting yesternight's moans...</p>
+                        <p>The curtain hangs half-open, welcoming daybreak. Outside — a rooster screams the day open, reciting yesternight's moans...</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card" onclick="window.location.href='../the-words-i-never-said.html'" style="cursor: pointer;">
+                <a href="/the-words-i-never-said" class="article-card">
                     <div class="article-content">
                         <div class="article-meta">
                             <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
                             <span class="read-time"><i class="far fa-clock"></i> March 22, 2026</span>
                         </div>
                         <h3>The Words I Never Said</h3>
-                        <p>I never whispered or screamed it out loud, But somehow, I think we both knew. Some words are too soft for sound...</p>
+                        <p>I never whispered or screamed it out loud, but somehow, I think we both knew. Some words are too soft for sound...</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
-    <script src="/static/load-footer.js"></script>
-
-    <script>
-        // Set active page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="/static/load-header.js" defer></script>
+    <script src="/static/load-footer.js" defer></script>
 </body>
 </html>
-
-
-
-
