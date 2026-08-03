@@ -624,6 +624,19 @@ li {
     color: #ffffff;
 }
 
+.hero p,
+.about p,
+.alu-hero p,
+.unleash-hero p,
+.cnn-hero p,
+.blog-hero p,
+.shelf-hero p,
+.contact-hero p,
+.services-hero p,
+.category-hero p {
+    color: #ffffff;
+}
+
 .story-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
