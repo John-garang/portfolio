@@ -133,6 +133,13 @@
         </image:image>
     </url>
 
+    <url>
+        <loc>https://johngarang.com/programs-overview#e4be-hackathon</loc>
+        <lastmod>2025-07-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
     <!-- TRAVELS & BLOG -->
     <url>
         <loc>https://johngarang.com/travels</loc>
