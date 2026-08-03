@@ -68,19 +68,28 @@
         }
         @media (min-width: 769px) {
             .prog-block-inner {
-                display: flow-root;
+                display: grid;
+                grid-template-columns: 320px 1fr;
+                grid-template-rows: auto auto;
+                gap: 0 2rem;
                 padding: 2rem;
+                align-items: start;
             }
             .prog-visual {
-                float: left;
-                width: 340px;
-                margin: 0 1.5rem 0 0;
-                shape-outside: circle(48%);
-                shape-margin: 0.75rem;
+                grid-column: 1;
+                grid-row: 1;
+                width: 100%;
             }
-            .prog-gallery,
+            .prog-content {
+                grid-column: 2;
+                grid-row: 1;
+            }
+            .gallery-title,
+            .prog-gallery-cover,
+            .accra-gallery-cover,
+            .program-gallery,
             .gallery-caption {
-                clear: left;
+                grid-column: 1 / -1;
             }
         }
 
@@ -621,7 +630,7 @@
                 <article class="prog-block" id="accra-fusion">
                     <div class="prog-block-inner">
                         <figure class="prog-visual">
-                            <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg"
+                            <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-18.jpg"
                                  alt="John Ngor Deng Garang as Student Ambassador for Accra Fusion, African Leadership University Ghana immersion program — led logistics, secured 8 organisational partnerships, and supported 25+ students during the international learning experience"
                                  title="John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025"
                                  loading="lazy">
