@@ -25,13 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="/experience-overview" class="nav-link">Experience</a></li>
                         <li><a href="/programs-overview" class="nav-link">Programs</a></li>
                         <li><a href="/services" class="nav-link">Services</a></li>
-                        <li><a href="/contact" class="nav-link">Contact</a></li>
                         <li><a href="/poems" class="nav-link">Poems</a></li>
                     </ul>
                     <div class="nav-right">
-                        <button class="search-btn" id="searchBtn">
-                            <i class="fas fa-search"></i>
-                        </button>
                         <div class="hamburger" id="hamburger">
                             <span></span>
                             <span></span>
@@ -41,19 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="mobile-overlay" id="mobileOverlay"></div>
             </nav>
-            
-            <!-- Search Overlay -->
-            <div class="search-overlay" id="searchOverlay">
-                <div class="search-modal">
-                    <div class="search-header">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="searchInput" placeholder="Search pages...">
-                        <button class="search-close" id="searchClose">&times;</button>
-                    </div>
-                    <div class="search-results" id="searchResults"></div>
-                </div>
-            </div>
-        `;
+`;
         
         headerPlaceholder.innerHTML = header;
         
