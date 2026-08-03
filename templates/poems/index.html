@@ -92,8 +92,25 @@
             font-size: 0.8rem;
         }
         .read-time { color: #666; }
-        .article-content h3 { font-size: 1rem; margin-bottom: 0.8rem; color: #333; }
+        .article-content h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #333; }
         .article-content p { color: #666; line-height: 1.6; font-size: 0.85rem; }
+        .pub-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #1a6b3a;
+            background: #e6f4ec;
+            border: 1px solid #a8d5b5;
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            margin-bottom: 0.7rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .pub-badge:hover { background: #c8ebd4; }
+        .pub-badge i { font-size: 0.65rem; }
         @media (max-width: 600px) {
             .poems-hero h1 { font-size: 2.5rem; }
             .article-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -232,6 +249,9 @@
                                 <span class="read-time"><i class="far fa-clock"></i> February 3, 2026</span>
                             </div>
                             <h3>Learning to Write Without Permission</h3>
+                            <a class="pub-badge" href="https://peppercoastmag.com/current-issue/ohn-n-d-garang" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                                <i class="fas fa-book-open"></i> Published · Pepper Coast Mag
+                            </a>
                             <p>The first lesson in freedom is the courage to write without asking. Where the Nile flows, silent books of law have been written with guns...</p>
                         </div>
                     </div>
@@ -287,6 +307,9 @@
                                 <span class="read-time"><i class="far fa-clock"></i> January 11, 2026</span>
                             </div>
                             <h3>A Sour Vow</h3>
+                            <span class="pub-badge">
+                                <i class="fas fa-book"></i> Anthology · <em>Poems, Tales &amp; Other English Words</em> — Big Thinking Publishing UK
+                            </span>
                             <p>… the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
                         </div>
                     </div>

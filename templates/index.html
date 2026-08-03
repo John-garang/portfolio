@@ -638,15 +638,9 @@
                 const tabBtns = document.querySelectorAll('.tab-btn');
                 const tabContents = document.querySelectorAll('.tab-content');
                 
-                console.log('Tab buttons found:', tabBtns.length);
-                console.log('Tab contents found:', tabContents.length);
-                
                 tabBtns.forEach((btn, index) => {
-                    console.log(`Setting up tab ${index}:`, btn.getAttribute('data-tab'));
-                    
                     // Support both click and touch events for mobile
                     const handleTabClick = (e) => {
-                        console.log('Tab clicked:', btn.getAttribute('data-tab'));
                         e.preventDefault();
                         e.stopPropagation();
                         
@@ -660,7 +654,6 @@
                         // Show corresponding content
                         const targetTab = btn.getAttribute('data-tab');
                         const targetContent = document.getElementById(targetTab);
-                        console.log('Target content:', targetContent);
                         if (targetContent) {
                             targetContent.classList.add('active');
                         }
