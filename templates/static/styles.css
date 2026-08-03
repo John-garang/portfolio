@@ -2610,13 +2610,16 @@ li {
     align-items: flex-start;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    background: white;
+    border-radius: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .contact-method:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.13);
 }
 
 .method-icon {
@@ -2653,9 +2656,11 @@ li {
 }
 
 .social-media-section {
-    background: #f8f9fa;
+    background: white;
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .social-media-section h3 {
