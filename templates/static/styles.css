@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -8,8 +6,8 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
     color: #333;
     overflow-x: hidden;
     margin: 0;
@@ -26,34 +24,38 @@ html {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 0.5em;
 }
 
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+h3 { font-size: 1.2rem; }
+
 p {
-    font-family: 'Crimson Text', Georgia, serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 0.95rem;
     line-height: 1.75;
+    color: #555;
     margin-bottom: 1em;
 }
 
 @media (max-width: 768px) {
     p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         line-height: 1.65;
     }
 }
 
 span {
-    font-family: 'Crimson Text', Georgia, serif;
-    font-size: 1.2rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 li {
-    font-family: 'Crimson Text', Georgia, serif;
-    font-size: 1.2rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.95rem;
 }
 
 .container {
@@ -3971,41 +3973,7 @@ li {
     border-radius: 15px;
 }
 
-/* Newsletter Form */
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.newsletter-form input {
-    padding: 0.75rem;
-    border: 2px solid #636e72;
-    border-radius: 8px;
-    background: #2d3436;
-    color: white;
-    font-family: inherit;
-}
-
-.newsletter-form input::placeholder {
-    color: #b2bec3;
-}
-
-.newsletter-form button {
-    padding: 0.75rem 1rem;
-    background: #16b2dc;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-weight: 600;
-}
-
-.newsletter-form button:hover {
-    background: #1a1a1a;
-}
+/* Newsletter Form — defined in footer block above */
 
 /* Admin Dashboard */
 .admin-header {
@@ -4241,48 +4209,173 @@ li {
     font-size: 0.9rem;
 }
 
-/* Footer */
+/* ── Footer ── */
 .footer {
-    background: #2d3436;
-    color: white;
-    padding: 50px 0 20px;
+    background: #111;
+    color: rgba(255,255,255,.75);
+    padding: 4rem 0 2rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-.footer-content {
+.footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
-.footer-section h3 {
-    margin-bottom: 1.5rem;
-    color: #16b2dc;
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .footer-brand { grid-column: 1 / -1; }
 }
 
-.footer-section p {
-    color: #b2bec3;
-    line-height: 1.8;
+@media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: auto; }
 }
 
-.footer-section ul {
+.footer-logo {
+    height: 44px;
+    width: auto;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.footer-tagline {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 1.25rem;
+}
+
+.footer-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-    color: #b2bec3;
+.footer-links a {
+    color: rgba(255,255,255,.65);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 0.88rem;
+    transition: color .2s ease;
 }
 
-.footer-section ul li a:hover {
-    color: #16b2dc;
+.footer-links a:hover { color: #16b2dc; }
+
+/* Newsletter form in footer */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
+.newsletter-form input {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 6px;
+    background: rgba(255,255,255,.07);
+    color: white;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
+
+.newsletter-form button {
+    padding: 0.65rem 1rem;
+    background: #16b2dc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background .25s ease;
+}
+
+.newsletter-form button:hover { background: #1a9ec7; }
+
+/* Social icons */
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: .88rem;
+    transition: color .2s ease;
+}
+
+.social-icon svg {
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.1);
+    flex-shrink: 0;
+    transition: background .25s ease, transform .25s ease;
+}
+
+.social-icon:hover { color: white; }
+.social-icon:hover svg { transform: translateY(-2px); }
+
+.social-icon[aria-label="LinkedIn"]:hover svg   { background: #0A66C2; }
+.social-icon[aria-label="X (Twitter)"]:hover svg { background: #000; }
+.social-icon[aria-label="Instagram"]:hover svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-icon[aria-label="Facebook"]:hover svg   { background: #1877F2; }
+.social-icon[aria-label="Medium"]:hover svg     { background: #00AB6C; }
+.social-icon[aria-label="Email"]:hover svg      { background: #EA4335; }
+
+/* Footer bottom bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,.4);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-bottom-links a {
+    color: rgba(255,255,255,.4);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer-bottom-links a:hover { color: #16b2dc; }
+
+/* Keep legacy .social-links for hero/about sections */
 .social-links {
     display: flex;
     gap: 0.75rem;
@@ -4297,85 +4390,19 @@ li {
     height: 45px;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-links a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s;
-}
-
-.social-links a:hover::before {
-    left: 100%;
-}
-
-.social-links a:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.social-links a i {
-    font-size: 18px;
-    z-index: 2;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,.1);
 }
 
-.social-links a:hover i {
-    transform: scale(1.1);
-}
+.social-links a:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,.3); }
+.social-links a i { font-size: 18px; color: white; }
 
-/* Individual social media brand colors and gradients */
-.social-linkedin {
-    background: linear-gradient(135deg, #0077B5, #005885);
-    color: white;
-}
-
-.social-twitter {
-    background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
-    color: white;
-}
-
-.social-instagram {
-    background: linear-gradient(135deg, #E4405F, #C13584, #833AB4);
-    color: white;
-}
-
-.social-facebook {
-    background: linear-gradient(135deg, #1877F2, #0d65d9);
-    color: white;
-}
-
-.social-medium {
-    background: linear-gradient(135deg, #00AB6C, #00954A);
-    color: white;
-}
-
-.social-email {
-    background: linear-gradient(135deg, #EA4335, #d33b2c);
-    color: white;
-}
-
-.social-links a:hover {
-    filter: brightness(1.1) saturate(1.2);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #636e72;
-    color: #b2bec3;
-    margin-top: 2rem;
-}
+.social-linkedin { background: linear-gradient(135deg, #0077B5, #005885); color: white; }
+.social-twitter  { background: linear-gradient(135deg, #1DA1F2, #0d8bd9); color: white; }
+.social-instagram{ background: linear-gradient(135deg, #E4405F, #C13584, #833AB4); color: white; }
+.social-facebook { background: linear-gradient(135deg, #1877F2, #0d65d9); color: white; }
+.social-medium   { background: linear-gradient(135deg, #00AB6C, #00954A); color: white; }
+.social-email    { background: linear-gradient(135deg, #EA4335, #d33b2c); color: white; }
 
 /* Advanced Animations */
 @keyframes fadeInUp {
