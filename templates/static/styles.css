@@ -5346,7 +5346,13 @@ li {
     }
     
     .service-image img {
-        height: 200px;
+        height: auto;
+    }
+
+    .program-image img {
+        width: 100%;
+        height: auto;
+        max-height: none;
     }
     
     .search-results-section {
