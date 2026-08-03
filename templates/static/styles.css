@@ -4246,8 +4246,9 @@ li {
 }
 
 @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-brand { grid-column: auto; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-col:last-child { grid-column: 1 / -1; }
 }
 
 .footer-logo {
