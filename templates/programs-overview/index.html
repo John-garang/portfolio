@@ -101,6 +101,8 @@
             width: 100%;
             border-radius: 0;
             overflow: visible;
+            background: transparent;
+            margin: 0;
         }
         .prog-visual img {
             width: 100%;
@@ -841,6 +843,10 @@
     function openTALightbox() {
         var gallery = document.querySelector('.program-gallery[data-gallery="tal"]');
         openLightbox(gallery, 3);
+    }
+    function openAccraLightbox() {
+        var gallery = document.querySelector('.program-gallery[data-gallery="accra"]');
+        openLightbox(gallery, 0);
     }
 
     // ── Lightbox ──
