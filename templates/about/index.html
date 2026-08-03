@@ -145,7 +145,7 @@
             text-align: left !important;
         }
         .about-content .personal-details {
-            background: transparent !important;
+            background: white !important;
             padding: 0 !important;
             border-radius: 0 !important;
             box-shadow: none !important;
@@ -161,10 +161,25 @@
             margin-bottom: 1.25rem !important;
         }
         .about-content .detail-item {
-            background: #f8f9fa !important;
+            background: white !important;
             border-radius: 0 !important;
-            border-left: 3px solid #16b2dc !important;
-            padding: 1rem 1.25rem !important;
+            border-left: none !important;
+            border: 1px solid rgba(0,0,0,0.08) !important;
+            padding: 1.5rem !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+            transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+        }
+        .about-content .detail-item:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.13) !important;
+            transform: translateY(-3px) !important;
+        }
+        .about-content .detail-item h4 {
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 0.6rem !important;
+            padding-bottom: 0.6rem !important;
+            border-bottom: 2px solid #f0f0f0 !important;
         }
         .about-content .details-grid {
             grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)) !important;
