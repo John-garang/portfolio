@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <title>Programs & Fellowships | John Ngor Deng Garang</title>
+    <title>Programs &amp; Fellowships | John Ngor Deng Garang</title>
     <meta name="description" content="John Ngor Deng Garang's international fellowships and leadership programs — CNN Academy Climate Journalism Fellow, UNLEASH Global Innovation Lab, Take Action Lab, Accra Fusion Student Ambassador, and YALI East Africa alumnus. A record of global leadership, digital communications, and social impact.">
     <meta name="keywords" content="John Ngor Deng Garang, Leadership Fellowship, International Fellowship, Global Leadership, Youth Leadership, Climate Journalism, Climate Innovation, Digital Communications, Multimedia Storytelling, Strategic Communications, African Leadership, Entrepreneurship, Sustainable Development Goals, Community Development, Human Rights, Agroecology, Food Sovereignty, Journalism Fellowship, Global Citizenship, UNLEASH, CNN Academy, YALI, Take Action Lab, Accra Fusion">
     <meta name="robots" content="index, follow">
@@ -14,8 +14,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://johngarang.com/programs-overview">
-    <meta property="og:title" content="Programs & Fellowships | John Ngor Deng Garang">
-    <meta property="og:description" content="A record of international leadership programs, journalism fellowships, and innovation labs — from CNN Academy to UNLEASH Global Innovation Lab.">
+    <meta property="og:title" content="Programs &amp; Fellowships | John Ngor Deng Garang">
+    <meta property="og:description" content="A curated record of international leadership programs, journalism fellowships, and innovation labs — from CNN Academy to UNLEASH Global Innovation Lab.">
     <meta property="og:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-cnn-academy-hero.jpg">
 
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -46,7 +46,7 @@
         }
         @media (max-width: 768px) { .programs-hero { padding: 100px 15px 60px; } }
 
-        /* ── Program stack (exp-block style) ── */
+        /* ── Card stack (exp-block style) ── */
         .prog-stack-section { padding: 80px 0; background: #f8f9fa; }
         .prog-stack { display: flex; flex-direction: column; gap: 2.5rem; }
 
@@ -61,34 +61,26 @@
         .prog-block:hover { box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
 
         .prog-block-inner {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 1.5rem;
             padding: 2rem;
         }
         @media (min-width: 769px) {
             .prog-block-inner {
-                flex-direction: row;
-                gap: 2.5rem;
-                align-items: start;
+                display: flow-root;
+                padding: 2rem;
             }
-            
-            /* Programs without gallery: image left, text right */
-            .prog-block-inner.no-gallery {
-                flex-direction: row;
+            .prog-visual {
+                float: left;
+                width: 340px;
+                margin: 0 1.5rem 0 0;
+                shape-outside: circle(48%);
+                shape-margin: 0.75rem;
             }
-            
-            /* Programs with gallery: image top, text middle, gallery bottom */
-            .prog-block-inner.has-gallery {
-                flex-direction: column;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .program-inner.has-gallery {
-                max-width: 860px;
-                margin-left: auto;
-                margin-right: auto;
+            .prog-gallery,
+            .gallery-caption {
+                clear: left;
             }
         }
 
@@ -137,7 +129,7 @@
             margin: 0;
             line-height: 1.3;
         }
-        .prog-meta-row {
+        .prog-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem 1.5rem;
@@ -147,10 +139,14 @@
             letter-spacing: 0.05em;
             margin-top: 0.4rem;
         }
-        .prog-meta-row span { display: flex; align-items: center; gap: 0.35rem; }
-        .prog-meta-row i { color: #16b2dc; }
+        .prog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .prog-meta i { color: #16b2dc; }
 
-        .prog-desc {
+        .prog-content p {
             font-size: 0.95rem;
             line-height: 1.75;
             color: #555;
@@ -308,7 +304,6 @@
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.05em;
         }
-        /* Make gallery slides clickable */
         .gallery-slide img { cursor: zoom-in; }
 
         @media (max-width: 768px) {
@@ -317,136 +312,9 @@
             .lightbox-btn.lb-prev { left: 4px; }
             .lightbox-btn.lb-next { right: 4px; }
         }
-
-        /* ── Program section layout ── */
-        .program-section {
-            padding: 60px 0;
-            background: white;
-        }
-        .program-section:nth-child(even) { background: white; }
-
-        .program-inner {
-            display: grid;
-            grid-template-columns: 420px 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-        .program-inner.float-layout {
-            grid-template-columns: 380px 1fr;
-        }
-
-        .program-visual-col { display: flex; flex-direction: column; gap: 1rem; }
-
-        .program-visual {
-            margin: 0;
-            border-radius: 0;
-            overflow: hidden;
-            background: transparent;
-        }
-        .program-visual img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 0;
-            transition: transform 0.4s ease;
-            object-fit: contain;
-        }
-        .program-visual:hover img { transform: scale(1.02); }
-        .program-visual figcaption {
-            font-size: 0.72rem;
-            color: #888;
-            text-align: center;
-            margin-top: 0.4rem;
-            font-style: italic;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .program-org {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #16b2dc;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin: 0 0 0.35rem;
-        }
-        .program-content h2 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 0 0 0.75rem;
-            line-height: 1.3;
-        }
-        .program-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            font-size: 0.82rem;
-            color: #888;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .program-meta-item { display: flex; align-items: center; gap: 0.35rem; }
-        .program-meta-item i { color: #16b2dc; }
-
-        .program-desc {
-            font-size: 0.95rem;
-            line-height: 1.75;
-            color: #555;
-            margin: 0 0 1rem;
-        }
-
-        .program-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.25rem;
-        }
-        .program-tag {
-            background: #f0f8fc;
-            border: 1px solid #c8e8f5;
-            color: #1a7fa0;
-            padding: 0.3rem 0.85rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-        .program-tag:hover { background: #16b2dc; border-color: #16b2dc; color: white; }
-
-        .program-quote {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: #333;
-            border-left: 3px solid #16b2dc;
-            padding: 0.75rem 1.25rem;
-            margin: 0;
-            line-height: 1.65;
-            background: #f8fdff;
-            border-radius: 0;
-        }
-
-        @media (max-width: 768px) {
-            .program-inner,
-            .program-inner.float-layout {
-                grid-template-columns: 1fr;
-            }
-            .program-visual img { height: auto; }
-            .program-content h2 { font-size: 1.25rem; }
-        }
     </style>
-</head>
-<body>
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <img src="/static/Pictures/john-ngor-deng-garang-logo.png" alt="John Ngor Deng Garang Logo" class="loading-logo">
-            <div class="loading-spinner"></div>
-            <p class="loading-text">Loading...</p>
-        </div>
-    </div>
 
-    <!-- Structured Data: John Ngor Deng Garang linked to each program -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -487,7 +355,7 @@
           "credentialCategory": "Leadership Fellowship",
           "recognizedBy": {"@type": "Organization", "name": "Tilting Futures", "url": "https://tiltingfutures.org"},
           "dateCreated": "2024",
-          "description": "Full-scholarship international leadership program, cohort of 52 leaders from 37 countries. Served as Multimedia Apprentice at Surplus People Project (SPP), documenting agroecology, food sovereignty, and human rights work across the Western, Northern, Eastern Cape, and Gauteng provinces. Travelled to Mamre, Wolseley, Springbok, Loeriesfontein, Namakwa Vanrhynsdorp, Boontjiesrivier, Johannesburg, Pretoria, and Paarl. Facilitated a three-day social media training for SAFE Youth and covered the National Indaba Conference for Tshintsha Amakhaya."
+          "description": "Full-scholarship international leadership program, cohort of 52 leaders from 37 countries. Served as Multimedia Apprentice at Surplus People Project (SPP), documenting agroecology, food sovereignty, and human rights work across the Western, Northern, Eastern Cape and Gauteng provinces. Travelled to Mamre, Wolseley, Springbok, Loeriesfontein, Namakwa Vanrhynsdorp, Boontjiesrivier, Johannesburg, Pretoria, and Paarl. Facilitated a three-day social media training for SAFE Youth and covered the National Indaba Conference for Tshintsha Amakhaya."
         },
         {
           "@type": "EducationalOccupationalCredential",
@@ -517,339 +385,367 @@
         </div>
     </section>
 
-    <!-- CNN Academy -->
-    <section class="program-section" id="cnn-academy">
+    <!-- Programs Card Stack -->
+    <section class="prog-stack-section">
         <div class="container">
-            <div class="program-inner float-layout">
-                <figure class="program-visual">
-                    <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png"
-                         alt="John Ngor Deng Garang, CNN Academy Voices of the Global South Climate Storytelling Fellow — South Sudanese journalist selected for the CNN Academy international journalism fellowship focused on climate reporting, multimedia storytelling, and amplifying Global South perspectives"
-                         title="John Ngor Deng Garang — CNN Academy Voices of the Global South Climate Storytelling Fellow, 2025"
-                         loading="lazy">
-                    <figcaption>John Ngor Deng Garang · CNN Academy Voices of the Global South Climate Storytelling Fellow · 2025</figcaption>
-                </figure>
-                <div class="program-content">
-                    <p class="program-org">CNN Academy</p>
-                    <h2>CNN Academy Voices of the Global South Climate Storytelling Fellowship</h2>
-                    <div class="program-meta">
-                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> July – November 2025</span>
-                        <span class="program-meta-item"><i class="fas fa-globe"></i> Global (Online)</span>
-                    </div>
-                    <p class="program-desc">
-                        The CNN Academy Voices of the Global South Climate Storytelling Fellowship is a competitive journalism program designed to support emerging storytellers from the Global South in producing impactful climate narratives through ethical, evidence-based, and human-centered reporting. The fellowship focuses on amplifying local perspectives and ensuring that communities most connected to climate challenges are represented in global climate conversations.
-                    </p>
-                    <p class="program-desc">
-                        The fellowship began with an intensive online curriculum delivered through the CNN Academy Learning Hub. I successfully completed interactive modules covering journalism ethics, breaking news reporting, digital storytelling, writing for online audiences, social storytelling, field reporting, television scriptwriting, mobile journalism, mobile editing using LumaFusion, Open Source Intelligence (OSINT), artificial intelligence in journalism, health reporting, and newsroom workflows. These courses strengthened my editorial judgment, research and verification skills, interviewing techniques, multimedia production abilities, and capacity to communicate complex issues through engaging storytelling.
-                    </p>
-                    <p class="program-desc">
-                        For my final pitch, I developed a story exploring how writers and poets in South Sudan and the wider Global South are using creative spaces as platforms for climate advocacy — examining how a new generation of literary voices is using poetry, storytelling, and written expression to raise awareness about climate challenges, encourage environmental responsibility, and inspire communities to take part in climate mitigation efforts. Although my story was not selected for the in-person newsroom simulation in Abu Dhabi, the pitching process strengthened my ability to develop climate-focused narratives and approach storytelling with a deeper understanding of the relationship between people, culture, and the environment. As a CNN Academy Fellow, I now have lifetime access to the CNN Academy Learning Hub.
-                    </p>
-                    <div class="program-tags">
-                        <span class="program-tag">Climate Journalism</span>
-                        <span class="program-tag">Multimedia Storytelling</span>
-                        <span class="program-tag">Digital Communications</span>
-                        <span class="program-tag">OSINT</span>
-                        <span class="program-tag">Mobile Journalism</span>
-                        <span class="program-tag">Global South</span>
-                        <span class="program-tag">Climate Advocacy</span>
-                    </div>
-                    <blockquote class="program-quote">"The most powerful climate stories are not only about the environment, but about the people using their voices to protect its future."</blockquote>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="prog-stack">
 
-    <!-- UNLEASH -->
-    <section class="program-section" id="unleash">
-        <div class="container">
-            <div class="program-inner has-gallery">
-                <figure class="program-visual">
-                    <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png"
-                         alt="John Ngor Deng Garang at the UNLEASH Global Innovation Lab in Kigali, Rwanda — selected on full scholarship as one of 1,000 young innovators worldwide to develop sustainable solutions for the UN Sustainable Development Goals"
-                         title="John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023"
-                         loading="lazy">
-                    <figcaption>John Ngor Deng Garang · UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023</figcaption>
-                </figure>
-                <div class="program-content">
-                    <p class="program-org">UNLEASH</p>
-                    <h2>UNLEASH Global Innovation Lab</h2>
-                    <div class="program-meta">
-                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> December 2–9, 2023</span>
-                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                <!-- CNN Academy -->
+                <article class="prog-block" id="cnn-academy">
+                    <div class="prog-block-inner">
+                        <figure class="prog-visual">
+                            <img src="/static/Pictures/john-ngor-deng-garang-cnn-academy-fellow.png"
+                                 alt="John Ngor Deng Garang, CNN Academy Voices of the Global South Climate Storytelling Fellow — South Sudanese journalist selected for the CNN Academy international journalism fellowship focused on climate reporting, multimedia storytelling, and amplifying Global South perspectives"
+                                 title="John Ngor Deng Garang — CNN Academy Voices of the Global South Climate Storytelling Fellow, 2025"
+                                 loading="lazy">
+                            <figcaption>John Ngor Deng Garang · CNN Academy Voices of the Global South Climate Storytelling Fellow · 2025</figcaption>
+                        </figure>
+                        <div class="prog-content">
+                            <div class="prog-header-group">
+                                <p class="prog-org">CNN Academy</p>
+                                <h2 class="prog-title">CNN Academy Voices of the Global South Climate Storytelling Fellowship</h2>
+                                <div class="prog-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> July – November 2025</span>
+                                    <span><i class="fas fa-globe"></i> Global (Online)</span>
+                                </div>
+                            </div>
+                            <p class="prog-desc">
+                                The CNN Academy Voices of the Global South Climate Storytelling Fellowship is a competitive journalism program designed to support emerging storytellers from the Global South in producing impactful climate narratives through ethical, evidence-based, and human-centered reporting. The fellowship focuses on amplifying local perspectives and ensuring that communities most connected to climate challenges are represented in global climate conversations.
+                            </p>
+                            <p class="prog-desc">
+                                The fellowship began with an intensive online curriculum delivered through the CNN Academy Learning Hub. I successfully completed interactive modules covering journalism ethics, breaking news reporting, digital storytelling, writing for online audiences, social storytelling, field reporting, television scriptwriting, mobile journalism, mobile editing using LumaFusion, Open Source Intelligence (OSINT), artificial intelligence in journalism, health reporting, and newsroom workflows. These courses strengthened my editorial judgment, research and verification skills, interviewing techniques, multimedia production abilities, and capacity to communicate complex issues through engaging storytelling.
+                            </p>
+                            <p class="prog-desc">
+                                For my final pitch, I developed a story exploring how writers and poets in South Sudan and the wider Global South are using creative spaces as platforms for climate advocacy — examining how a new generation of literary voices is using poetry, storytelling, and written expression to raise awareness about climate challenges, encourage environmental responsibility, and inspire communities to take part in climate mitigation efforts. Although my story was not selected for the in-person newsroom simulation in Abu Dhabi, the pitching process strengthened my ability to develop climate-focused narratives and approach storytelling with a deeper understanding of the relationship between people, culture, and the environment. As a CNN Academy Fellow, I now have lifetime access to the CNN Academy Learning Hub.
+                            </p>
+                            <div class="prog-tags">
+                                <span class="prog-tag">Climate Journalism</span>
+                                <span class="prog-tag">Multimedia Storytelling</span>
+                                <span class="prog-tag">Digital Communications</span>
+                                <span class="prog-tag">OSINT</span>
+                                <span class="prog-tag">Mobile Journalism</span>
+                                <span class="prog-tag">Global South</span>
+                                <span class="prog-tag">Climate Advocacy</span>
+                            </div>
+                            <blockquote class="prog-quote">"The most powerful climate stories are not only about the environment, but about the people using their voices to protect its future."</blockquote>
+                        </div>
                     </div>
-                    <p class="program-desc">
-                        Selected on a full scholarship as one of approximately 1,000 young innovators from around the world, I participated in the UNLEASH Global Innovation Lab in Kigali, Rwanda — one of the world's most prestigious platforms for youth-led innovation aligned with the UN Sustainable Development Goals. Using UNLEASH's internationally recognised design thinking and innovation methodology, participants collaborated in diverse teams to develop scalable, locally grounded solutions to global challenges.
-                    </p>
-                    <p class="program-desc">
-                        Working alongside teammates from The Gambia, Chile, the United Kingdom, Pakistan, and Cambodia, our team created <strong>PappyBags</strong> — a sustainable innovation that transforms papyrus reeds growing along the River Nile in South Sudan into biodegradable shopping bags as an alternative to single-use plastics. Our solution advanced to the knockout stage before the finals, demonstrating the viability of using local natural resources to address climate innovation and environmental sustainability challenges.
-                    </p>
-                    <div class="program-tags">
-                        <span class="program-tag">Sustainable Development Goals</span>
-                        <span class="program-tag">Climate Innovation</span>
-                        <span class="program-tag">Entrepreneurship</span>
-                        <span class="program-tag">Design Thinking</span>
-                        <span class="program-tag">African Leadership</span>
-                        <span class="program-tag">Innovation</span>
-                    </div>
-                    <blockquote class="program-quote">"Innovation begins by seeing opportunity where everyone else sees ordinary."</blockquote>
-                </div>
-                
-                <!-- UNLEASH Gallery -->
-                <p class="gallery-title">Photo Gallery — UNLEASH Global Innovation Lab, Kigali 2023</p>
-                <div class="program-gallery" data-gallery="unleash" data-start="16">
-                    <div class="gallery-track">
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-1.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda December 2023 — one of 1,000 young innovators selected on full scholarship to develop SDG-aligned solutions" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-2.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — design thinking and innovation methodology session" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-3.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — collaborative team session developing PappyBags sustainable innovation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-4.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — youth innovation and SDG solutions" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-5.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — international innovators from across the globe" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-6.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — evening program event" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-7.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — innovation lab workshop" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-8.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — team collaboration and SDG innovation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-9.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — global youth leaders and innovators" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-10.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — innovation showcase" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-11.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — PappyBags team presentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-12.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — sustainable innovation development" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-13.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — climate innovation and entrepreneurship" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-14.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — final day activities" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-15.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — closing ceremony" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-16.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — UNLEASH talent celebration" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-17.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — UNLEASH program moment" loading="lazy"></div>
-                    </div>
-                    <button class="gallery-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="gallery-dots"></div>
-                </div>
-                <p class="gallery-caption">UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023 · Click any photo to expand</p>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- Take Action Lab -->
-    <section class="program-section" id="take-action-lab">
-        <div class="container">
-            <div class="program-inner has-gallery">
-                <figure class="program-visual">
-                    <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png"
-                         alt="John Ngor Deng Garang at the Take Action Lab by Tilting Futures — full-scholarship international leadership program alumnus and Multimedia Apprentice at the Surplus People Project, documenting agroecology, food sovereignty, and human rights across the Western, Northern, Eastern Cape, and Gauteng provinces of South Africa"
-                         title="John Ngor Deng Garang — Take Action Lab, Tilting Futures, South Africa 2024"
-                         loading="lazy">
-                    <figcaption>John Ngor Deng Garang · Take Action Lab · Tilting Futures · South Africa · 2024</figcaption>
-                </figure>
-                <div class="program-content">
-                    <p class="program-org">Tilting Futures (formerly Global Citizen Year)</p>
-                    <h2>Take Action Lab</h2>
-                    <div class="program-meta">
-                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> March – June 2024</span>
-                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Cape Town, Western Cape, South Africa</span>
-                    </div>
-                    <p class="program-desc">
-                        The Take Action Lab is a highly selective international leadership and global citizenship program for young adults aged 17–22. I attended the program on a full scholarship as part of a cohort of 52 young leaders representing 37 countries. Living and learning alongside peers from Nigeria, Ethiopia, Nepal, Bangladesh, Ukraine, Chile, and other parts of the world expanded my understanding of cross-cultural communication, community development, and the role of young people in addressing global challenges.
-                    </p>
-                    <p class="program-desc">
-                        My apprenticeship journey began with Tshintsha Amakhaya before I joined the <strong>Surplus People Project (SPP)</strong> as a Multimedia Apprentice. Founded in 1979, SPP is a South African social justice organisation advancing food sovereignty, agroecology, land rights, and human rights for rural communities. During my three months with SPP, I travelled across the Western, Northern, Eastern Cape, and Gauteng provinces documenting grassroots initiatives through photography, videography, graphic design, and strategic communications. My work took me to Mamre, Wolseley, Springbok, Loeriesfontein, Namakwa Vanrhynsdorp, and Boontjiesrivier — where I facilitated a three-day social media training workshop for SAFE Youth (Sovereign Agro-Ecology Food Empowerment).
-                    </p>
-                    <p class="program-desc">
-                        I also travelled to Gauteng Province, including Johannesburg, to cover the National Indaba Conference on behalf of Tshintsha Amakhaya, and visited Pretoria before returning to Cape Town. I concluded my apprenticeship by travelling to Paarl in the Eastern Cape to document a Food Sovereignty workshop. Through these experiences, I strengthened my skills in multimedia storytelling, campaign communication, video production, graphic design, and digital strategy while learning directly from rural communities working on food systems, environmental sustainability, and social justice.
-                    </p>
-                    <div class="program-tags">
-                        <span class="program-tag">Human Rights</span>
-                        <span class="program-tag">Agroecology</span>
-                        <span class="program-tag">Food Sovereignty</span>
-                        <span class="program-tag">Strategic Communications</span>
-                        <span class="program-tag">Community Development</span>
-                        <span class="program-tag">Global Leadership</span>
-                        <span class="program-tag">Gauteng</span>
-                        <span class="program-tag">South Africa</span>
-                    </div>
-                    <blockquote class="program-quote">"The most powerful stories are those told alongside the communities living them."</blockquote>
-                </div>
-                
-                <!-- Take Action Lab Gallery -->
-                <p class="gallery-title">Photo Gallery — Take Action Lab, South Africa 2024</p>
-                <div class="program-gallery" data-gallery="tal" data-start="3">
-                    <div class="gallery-track">
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-1.jpg" alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa March 2024 — arrival and orientation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-2.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — cohort of 52 leaders from 37 countries" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-3.jpg" alt="John Ngor Deng Garang at Take Action Lab, Cape Town South Africa 2024 — global citizenship program" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-4.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa March 2024 — leadership and community development" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-5.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — cross-cultural exchange" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-6.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Tilting Futures program activities" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-7.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa March 2024 — Western Cape field experience" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-8.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — community engagement" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-9.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — program activities" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-10.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — leadership development" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-11.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — global youth leaders" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-12.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Cape Town immersion" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-13.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — social justice and community work" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-14.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — field visit Western Cape" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-15.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — multimedia apprenticeship" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-16.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Surplus People Project documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-17.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — agroecology and food sovereignty" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-18.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — rural community visit" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-19.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — human rights documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-20.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — storytelling and communications" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-21.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — multimedia production" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-22.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — community development work" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-23.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — land rights and food sovereignty" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-24.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Tilting Futures cohort" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-25.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — strategic communications" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-26.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — digital storytelling" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-27.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — program event" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-28.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa April 2024 — field documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-29.jpg" alt="John Ngor Deng Garang as Multimedia Apprentice at Surplus People Project, South Africa April 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-30.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — agroecology field work" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-31.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — community visit" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-32.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — food sovereignty documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-33.jpg" alt="John Ngor Deng Garang at Surplus People Project, Western Cape April 2024 — rural communities" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-34.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — multimedia production" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-35.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — photography and documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-36.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — land rights field visit" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-37.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — Northern Cape documentation" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-38.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — strategic communications work" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-safe-youth-workshop-south-africa-2024-39.jpg" alt="John Ngor Deng Garang facilitating SAFE Youth social media training workshop, South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-safe-youth-workshop-south-africa-2024-40.jpg" alt="John Ngor Deng Garang at SAFE Youth Sovereign Agro-Ecology Food Empowerment workshop, South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-41.jpg" alt="John Ngor Deng Garang covering the National Indaba Conference for Tshintsha Amakhaya, South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-42.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Gauteng South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-43.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Tshintsha Amakhaya, South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-44.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Johannesburg South Africa May 2024" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-45.jpg" alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa 2024 — portrait" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-food-sovereignty-workshop-paarl-2024-46.jpg" alt="John Ngor Deng Garang at Food Sovereignty workshop, Paarl Eastern Cape South Africa June 2024" loading="lazy"></div>
-                    </div>
-                    <button class="gallery-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="gallery-dots"></div>
-                </div>
-                <p class="gallery-caption">Take Action Lab · Tilting Futures · South Africa · 2024 · Click any photo to expand</p>
-            </div>
-        </div>
-    </section>
+                <!-- UNLEASH -->
+                <article class="prog-block" id="unleash">
+                    <div class="prog-block-inner">
+                        <figure class="prog-visual">
+                            <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png"
+                                 alt="John Ngor Deng Garang at the UNLEASH Global Innovation Lab in Kigali, Rwanda — selected on full scholarship as one of 1,000 young innovators worldwide to develop sustainable solutions for the UN Sustainable Development Goals"
+                                 title="John Ngor Deng Garang — UNLEASH Global Innovation Lab Talent, Kigali Rwanda 2023"
+                                 loading="lazy">
+                            <figcaption>John Ngor Deng Garang · UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023</figcaption>
+                        </figure>
+                        <div class="prog-content">
+                            <div class="prog-header-group">
+                                <p class="prog-org">UNLEASH</p>
+                                <h2 class="prog-title">UNLEASH Global Innovation Lab</h2>
+                                <div class="prog-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> December 2–9, 2023</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                                </div>
+                            </div>
+                            <p class="prog-desc">
+                                Selected on a full scholarship as one of approximately 1,000 young innovators from around the world, I participated in the UNLEASH Global Innovation Lab in Kigali, Rwanda — one of the world's most prestigious platforms for youth-led innovation aligned with the UN Sustainable Development Goals. Using UNLEASH's internationally recognised design thinking and innovation methodology, participants collaborated in diverse teams to develop scalable, locally grounded solutions to global challenges.
+                            </p>
+                            <p class="prog-desc">
+                                Working alongside teammates from The Gambia, Chile, the United Kingdom, Pakistan, and Cambodia, our team created <strong>PappyBags</strong> — a sustainable innovation that transforms papyrus reeds growing along the River Nile in South Sudan into biodegradable shopping bags as an alternative to single-use plastics. Our solution advanced to the knockout stage before the finals, demonstrating the viability of using local natural resources to address climate innovation and environmental sustainability challenges.
+                            </p>
+                            <div class="prog-tags">
+                                <span class="prog-tag">Sustainable Development Goals</span>
+                                <span class="prog-tag">Climate Innovation</span>
+                                <span class="prog-tag">Entrepreneurship</span>
+                                <span class="prog-tag">Design Thinking</span>
+                                <span class="prog-tag">African Leadership</span>
+                                <span class="prog-tag">Innovation</span>
+                            </div>
+                            <blockquote class="prog-quote">"Innovation begins by seeing opportunity where everyone else sees ordinary."</blockquote>
+                        </div>
 
-    <!-- Accra Fusion -->
-    <section class="program-section" id="accra-fusion">
-        <div class="container">
-            <div class="program-inner has-gallery">
-                <figure class="program-visual">
-                    <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg"
-                         alt="John Ngor Deng Garang as Student Ambassador for Accra Fusion, African Leadership University Ghana immersion program — led logistics, secured 8 organisational partnerships, and supported 25+ students during the international learning experience"
-                         title="John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025"
-                         loading="lazy">
-                    <figcaption>John Ngor Deng Garang · Accra Fusion Student Ambassador · Accra, Ghana · 2025</figcaption>
-                </figure>
-                <div class="program-content">
-                    <p class="program-org">African Leadership University — Global Learning Experiences</p>
-                    <h2>Accra Fusion</h2>
-                    <div class="program-meta">
-                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> February – April 2025</span>
-                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Accra, Ghana</span>
+                        <!-- UNLEASH Gallery — cover overlay -->
+                        <p class="gallery-title">Photo Gallery — UNLEASH Global Innovation Lab, Kigali 2023</p>
+                        <div class="prog-gallery-cover" id="unleash-cover" style="position:relative;cursor:pointer;border-radius:0;overflow:hidden;" onclick="openUnleashLightbox()">
+                            <img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-1.jpg"
+                                 alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda December 2023 — one of 1,000 young innovators selected on full scholarship to develop SDG-aligned solutions"
+                                 style="width:100%;height:auto;display:block;" loading="lazy">
+                            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;transition:background 0.25s;" class="prog-cover-overlay">
+                                <i class="fas fa-images" style="color:#fff;font-size:2rem;opacity:0.9;"></i>
+                                <span style="color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif;">View Gallery</span>
+                                <span style="color:rgba(255,255,255,0.65);font-size:0.72rem;font-family:'Inter',sans-serif;">17 photos</span>
+                            </div>
+                        </div>
+                        <!-- Hidden slides for lightbox -->
+                        <div class="program-gallery" data-gallery="unleash" data-start="16" style="display:none;">
+                            <div class="gallery-track">
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-1.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda December 2023 — one of 1,000 young innovators selected on full scholarship to develop SDG-aligned solutions" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-2.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — design thinking and innovation methodology session" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-3.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — collaborative team session developing PappyBags sustainable innovation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-4.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — youth innovation and SDG solutions" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-5.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — international innovators from across the globe" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-6.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — evening program event" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-7.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — innovation lab workshop" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-8.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — team collaboration and SDG innovation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-9.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — global youth leaders and innovators" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-10.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — innovation showcase" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-11.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — PappyBags team presentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-12.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — sustainable innovation development" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-13.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — climate innovation and entrepreneurship" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-14.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — final day activities" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-15.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — closing ceremony" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-16.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — UNLEASH talent celebration" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-17.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — UNLEASH program moment" loading="lazy"></div>
+                            </div>
+                            <button class="gallery-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="gallery-dots"></div>
+                        </div>
+                        <p class="gallery-caption">UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023 · Click any photo to expand</p>
                     </div>
-                    <p class="program-desc">
-                        Accra Fusion is an immersive international learning experience organised by the African Leadership University's Global Learning Experiences Department. Following a competitive selection process, I was selected as one of only two Student Ambassadors responsible for supporting the planning and successful execution of the Ghana immersion — a role that placed me at the intersection of operations, stakeholder engagement, and international program management.
-                    </p>
-                    <p class="program-desc">
-                        I coordinated communications, planned travel itineraries, arranged accommodation, and provided day-to-day pastoral support while living alongside more than 25 participating students. I also initiated and secured partnerships with eight Ghanaian organisations where students completed externships, while coordinating company visits, networking opportunities, cultural experiences, and operational logistics throughout the program. The experience deepened my skills in international program management, partnership development, cross-cultural communication, and leadership — reinforcing my belief that effective leadership is often invisible, built on preparation and trust.
-                    </p>
-                    <div class="program-tags">
-                        <span class="program-tag">International Programs</span>
-                        <span class="program-tag">African Leadership</span>
-                        <span class="program-tag">Partnership Development</span>
-                        <span class="program-tag">Project Management</span>
-                        <span class="program-tag">Global Citizenship</span>
-                        <span class="program-tag">Communications Specialist</span>
-                    </div>
-                    <blockquote class="program-quote">"Leadership is often invisible. Success is when everything works because of preparation."</blockquote>
-                </div>
-                
-                <!-- Accra Fusion Gallery — hidden slides for lightbox, cover thumbnail as entry point -->
-                <p class="gallery-title">Photo Gallery — Accra Fusion, Ghana 2025</p>
-                <div class="accra-gallery-cover" id="accra-cover" style="position:relative;cursor:pointer;border-radius:0;overflow:hidden;" onclick="openAccraLightbox()">
-                    <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg"
-                         alt="Accra Fusion Gallery — John Ngor Deng Garang, ALU Ghana immersion 2025"
-                         style="width:100%;height:auto;display:block;" loading="lazy">
-                    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;transition:background 0.25s;" class="accra-cover-overlay">
-                        <i class="fas fa-images" style="color:#fff;font-size:2rem;opacity:0.9;"></i>
-                        <span style="color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif;">View Gallery</span>
-                        <span style="color:rgba(255,255,255,0.65);font-size:0.72rem;font-family:'Inter',sans-serif;">33 photos</span>
-                    </div>
-                </div>
-                <!-- Hidden slides for lightbox -->
-                <div class="program-gallery" data-gallery="accra" data-start="31" style="display:none;">
-                    <div class="gallery-track">
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-1.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion March 2025 — Student Ambassador"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-2.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — program activities"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-3.jpg" alt="John Ngor Deng Garang at Accra Fusion, Accra Ghana 2025 — international program management"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-4.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort engagement"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-5.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student support and logistics"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-6.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — partnership development"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-7.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cross-cultural leadership"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-8.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship coordination"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-9.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — ALU global learning experience"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-10.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — networking and company visits"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-11.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cultural immersion"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-12.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — pastoral support"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-13.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program coordination"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-14.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — leadership in action"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-15.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — event"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-16.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — program moment"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-17.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — closing activities"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-18.jpg" alt="John Ngor Deng Garang, Accra Fusion Student Ambassador, African Leadership University Ghana 2025"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-19.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — official program photo"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-20.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort photo"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-21.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — group activities"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-22.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Ghanaian organisations partnerships"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-23.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship site visit"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-24.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — portrait"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-25.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program documentation"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-26.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student ambassador role"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-27.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — travel and logistics"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-28.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — community and cultural experience"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-29.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — immersive learning"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-30.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — global citizenship"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-31.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — African leadership"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Accra city experience"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-33.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program conclusion"></div>
-                    </div>
-                </div>
-                <p class="gallery-caption">Accra Fusion · African Leadership University · Accra, Ghana · 2025 · Click to view gallery</p>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- YALI -->
-    <section class="program-section" id="yali">
-        <div class="container">
-            <div class="program-inner float-layout">
-                <figure class="program-visual">
-                    <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png"
-                         alt="John Ngor Deng Garang, YALI East Africa Regional Leadership Centre Cohort 60 alumnus — U.S. Department of State Young African Leaders Initiative, Business and Entrepreneurship Track, developing an AI-powered agricultural solution for underserved farmers"
-                         title="John Ngor Deng Garang — YALI East Africa Cohort 60, U.S. Department of State Young African Leaders Initiative 2024"
-                         loading="lazy">
-                    <figcaption>John Ngor Deng Garang · YALI East Africa · Cohort 60 · 2024</figcaption>
-                </figure>
-                <div class="program-content">
-                    <p class="program-org">U.S. Department of State · USAID · Kenyatta University</p>
-                    <h2>YALI East Africa Regional Leadership Centre</h2>
-                    <div class="program-meta">
-                        <span class="program-meta-item"><i class="fas fa-calendar-alt"></i> November – December 2024</span>
-                        <span class="program-meta-item"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya (Virtual)</span>
-                        <span class="program-meta-item"><i class="fas fa-users"></i> Cohort 60</span>
+                <!-- Take Action Lab -->
+                <article class="prog-block" id="take-action-lab">
+                    <div class="prog-block-inner">
+                        <figure class="prog-visual">
+                            <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png"
+                                 alt="John Ngor Deng Garang at the Take Action Lab by Tilting Futures — full-scholarship international leadership program alumnus and Multimedia Apprentice at the Surplus People Project, documenting agroecology, food sovereignty, and human rights across the Western, Northern, Eastern Cape, and Gauteng provinces of South Africa"
+                                 title="John Ngor Deng Garang — Take Action Lab, Tilting Futures, South Africa 2024"
+                                 loading="lazy">
+                            <figcaption>John Ngor Deng Garang · Take Action Lab · Tilting Futures · South Africa · 2024</figcaption>
+                        </figure>
+                        <div class="prog-content">
+                            <div class="prog-header-group">
+                                <p class="prog-org">Tilting Futures (formerly Global Citizen Year)</p>
+                                <h2 class="prog-title">Take Action Lab</h2>
+                                <div class="prog-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> March – June 2024</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Cape Town, Western Cape, South Africa</span>
+                                </div>
+                            </div>
+                            <p class="prog-desc">
+                                The Take Action Lab is a highly selective international leadership and global citizenship program for young adults aged 17–22. I attended the program on a full scholarship as part of a cohort of 52 young leaders representing 37 countries. Living and learning alongside peers from Nigeria, Ethiopia, Nepal, Bangladesh, Ukraine, Chile, and other parts of the world expanded my understanding of cross-cultural communication, community development, and the role of young people in addressing global challenges.
+                            </p>
+                            <p class="prog-desc">
+                                My apprenticeship journey began with Tshintsha Amakhaya before I joined the <strong>Surplus People Project (SPP)</strong> as a Multimedia Apprentice. Founded in 1979, SPP is a South African social justice organisation advancing food sovereignty, agroecology, land rights, and human rights for rural communities. During my three months with SPP, I travelled across the Western, Northern, Eastern Cape, and Gauteng provinces documenting grassroots initiatives through photography, videography, graphic design, and strategic communications. My work took me to Mamre, Wolseley, Springbok, Loeriesfontein, Namakwa Vanrhynsdorp, and Boontjiesrivier — where I facilitated a three-day social media training workshop for SAFE Youth (Sovereign Agro-Ecology Food Empowerment).
+                            </p>
+                            <p class="prog-desc">
+                                I also travelled to Gauteng Province, including Johannesburg, to cover the National Indaba Conference on behalf of Tshintsha Amakhaya, and visited Pretoria before returning to Cape Town. I concluded my apprenticeship by travelling to Paarl in the Eastern Cape to document a Food Sovereignty workshop. Through these experiences, I strengthened my skills in multimedia storytelling, campaign communication, video production, graphic design, and digital strategy while learning directly from rural communities working on food systems, environmental sustainability, and social justice.
+                            </p>
+                            <div class="prog-tags">
+                                <span class="prog-tag">Human Rights</span>
+                                <span class="prog-tag">Agroecology</span>
+                                <span class="prog-tag">Food Sovereignty</span>
+                                <span class="prog-tag">Strategic Communications</span>
+                                <span class="prog-tag">Community Development</span>
+                                <span class="prog-tag">Global Leadership</span>
+                                <span class="prog-tag">Gauteng</span>
+                                <span class="prog-tag">South Africa</span>
+                            </div>
+                            <blockquote class="prog-quote">"The most powerful stories are those told alongside the communities living them."</blockquote>
+                        </div>
+
+                        <!-- Take Action Lab Gallery — cover overlay -->
+                        <p class="gallery-title">Photo Gallery — Take Action Lab, South Africa 2024</p>
+                        <div class="prog-gallery-cover" id="tal-cover" style="position:relative;cursor:pointer;border-radius:0;overflow:hidden;" onclick="openTALightbox()">
+                            <img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-1.jpg"
+                                 alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa March 2024 — arrival and orientation"
+                                 style="width:100%;height:auto;display:block;" loading="lazy">
+                            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;transition:background 0.25s;" class="prog-cover-overlay">
+                                <i class="fas fa-images" style="color:#fff;font-size:2rem;opacity:0.9;"></i>
+                                <span style="color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif;">View Gallery</span>
+                                <span style="color:rgba(255,255,255,0.65);font-size:0.72rem;font-family:'Inter',sans-serif;">46 photos</span>
+                            </div>
+                        </div>
+                        <!-- Hidden slides for lightbox -->
+                        <div class="program-gallery" data-gallery="tal" data-start="3" style="display:none;">
+                            <div class="gallery-track">
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-1.jpg" alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa March 2024 — arrival and orientation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-2.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — cohort of 52 leaders from 37 countries" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-3.jpg" alt="John Ngor Deng Garang at Take Action Lab, Cape Town South Africa 2024 — global citizenship program" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-4.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa March 2024 — leadership and community development" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-5.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — cross-cultural exchange" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-6.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Tilting Futures program activities" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-7.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa March 2024 — Western Cape field experience" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-8.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — community engagement" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-9.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — program activities" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-10.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — leadership development" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-11.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — global youth leaders" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-12.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Cape Town immersion" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-13.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — social justice and community work" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-14.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — field visit Western Cape" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-15.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — multimedia apprenticeship" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-16.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Surplus People Project documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-17.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — agroecology and food sovereignty" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-18.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — rural community visit" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-19.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — human rights documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-20.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — storytelling and communications" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-21.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — multimedia production" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-22.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — community development work" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-23.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — land rights and food sovereignty" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-24.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — Tilting Futures cohort" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-25.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — strategic communications" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-26.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — digital storytelling" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-27.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — program event" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-28.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa April 2024 — field documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-29.jpg" alt="John Ngor Deng Garang as Multimedia Apprentice at Surplus People Project, South Africa April 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-30.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — agroecology field work" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-31.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — community visit" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-32.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — food sovereignty documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-western-cape-april-2024-33.jpg" alt="John Ngor Deng Garang at Surplus People Project, Western Cape April 2024 — rural communities" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-34.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — multimedia production" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-35.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — photography and documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-36.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — land rights field visit" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-37.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — Northern Cape documentation" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-surplus-people-project-south-africa-2024-38.jpg" alt="John Ngor Deng Garang at Surplus People Project, South Africa April 2024 — strategic communications work" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-safe-youth-workshop-south-africa-2024-39.jpg" alt="John Ngor Deng Garang facilitating SAFE Youth social media training workshop, South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-safe-youth-workshop-south-africa-2024-40.jpg" alt="John Ngor Deng Garang at SAFE Youth Sovereign Agro-Ecology Food Empowerment workshop, South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-41.jpg" alt="John Ngor Deng Garang covering the National Indaba Conference for Tshintsha Amakhaya, South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-42.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Gauteng South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-south-africa-2024-43.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Tshintsha Amakhaya, South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-national-indaba-conference-johannesburg-south-africa-2024-44.jpg" alt="John Ngor Deng Garang at National Indaba Conference, Johannesburg South Africa May 2024" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-45.jpg" alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa 2024 — portrait" loading="lazy"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-food-sovereignty-workshop-paarl-2024-46.jpg" alt="John Ngor Deng Garang at Food Sovereignty workshop, Paarl Eastern Cape South Africa June 2024" loading="lazy"></div>
+                            </div>
+                        </div>
+                        <p class="gallery-caption">Take Action Lab · Tilting Futures · South Africa · 2024 · Click any photo to expand</p>
                     </div>
-                    <p class="program-desc">
-                        The Young African Leaders Initiative (YALI) East Africa Regional Leadership Centre is one of the U.S. Department of State's flagship leadership development programs for emerging African leaders, funded by USAID and implemented by Kenyatta University. I participated virtually in the Business and Entrepreneurship Track as part of Cohort 60, joining young innovators from across East Africa to strengthen my entrepreneurial, leadership, and business development skills.
-                    </p>
-                    <p class="program-desc">
-                        During the program, I developed an AI-powered agricultural venture that analyses crop health through image recognition and provides underserved farmers with disease diagnosis and treatment recommendations — applying innovation and entrepreneurship to address food security challenges across the region. The experience significantly strengthened my understanding of customer-centred design, business modelling, innovation strategy, and leadership. Becoming a YALI alumnus connected me to one of Africa's largest youth leadership networks, opening doors to future opportunities in entrepreneurship, international programs, and community development.
-                    </p>
-                    <div class="program-tags">
-                        <span class="program-tag">Youth Leadership</span>
-                        <span class="program-tag">Entrepreneurship</span>
-                        <span class="program-tag">Innovation</span>
-                        <span class="program-tag">African Leadership</span>
-                        <span class="program-tag">International Experience</span>
-                        <span class="program-tag">Business Development</span>
+                </article>
+
+                <!-- Accra Fusion -->
+                <article class="prog-block" id="accra-fusion">
+                    <div class="prog-block-inner">
+                        <figure class="prog-visual">
+                            <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg"
+                                 alt="John Ngor Deng Garang as Student Ambassador for Accra Fusion, African Leadership University Ghana immersion program — led logistics, secured 8 organisational partnerships, and supported 25+ students during the international learning experience"
+                                 title="John Ngor Deng Garang — Accra Fusion Student Ambassador, African Leadership University, Ghana 2025"
+                                 loading="lazy">
+                            <figcaption>John Ngor Deng Garang · Accra Fusion Student Ambassador · Accra, Ghana · 2025</figcaption>
+                        </figure>
+                        <div class="prog-content">
+                            <div class="prog-header-group">
+                                <p class="prog-org">African Leadership University — Global Learning Experiences</p>
+                                <h2 class="prog-title">Accra Fusion</h2>
+                                <div class="prog-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> February – April 2025</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Accra, Ghana</span>
+                                </div>
+                            </div>
+                            <p class="prog-desc">
+                                Accra Fusion is an immersive international learning experience organised by the African Leadership University's Global Learning Experiences Department. Following a competitive selection process, I was selected as one of only two Student Ambassadors responsible for supporting the planning and successful execution of the Ghana immersion — a role that placed me at the intersection of operations, stakeholder engagement, and international program management.
+                            </p>
+                            <p class="prog-desc">
+                                I coordinated communications, planned travel itineraries, arranged accommodation, and provided day-to-day pastoral support while living alongside more than 25 participating students. I also initiated and secured partnerships with eight Ghanaian organisations where students completed externships, while coordinating company visits, networking opportunities, cultural experiences, and operational logistics throughout the program. The experience deepened my skills in international program management, partnership development, cross-cultural communication, and leadership — reinforcing my belief that effective leadership is often invisible, built on preparation and trust.
+                            </p>
+                            <div class="prog-tags">
+                                <span class="prog-tag">International Programs</span>
+                                <span class="prog-tag">African Leadership</span>
+                                <span class="prog-tag">Partnership Development</span>
+                                <span class="prog-tag">Project Management</span>
+                                <span class="prog-tag">Global Citizenship</span>
+                                <span class="prog-tag">Communications Specialist</span>
+                            </div>
+                            <blockquote class="prog-quote">"Leadership is often invisible. Success is when everything works because of preparation."</blockquote>
+                        </div>
+
+                        <!-- Accra Fusion Gallery — hidden slides for lightbox, cover thumbnail as entry point -->
+                        <p class="gallery-title">Photo Gallery — Accra Fusion, Ghana 2025</p>
+                        <div class="accra-gallery-cover" id="accra-cover" style="position:relative;cursor:pointer;border-radius:0;overflow:hidden;" onclick="openAccraLightbox()">
+                            <img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg"
+                                 alt="Accra Fusion Gallery — John Ngor Deng Garang, ALU Ghana immersion 2025"
+                                 style="width:100%;height:auto;display:block;" loading="lazy">
+                            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;transition:background 0.25s;" class="accra-cover-overlay">
+                                <i class="fas fa-images" style="color:#fff;font-size:2rem;opacity:0.9;"></i>
+                                <span style="color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif;">View Gallery</span>
+                                <span style="color:rgba(255,255,255,0.65);font-size:0.72rem;font-family:'Inter',sans-serif;">33 photos</span>
+                            </div>
+                        </div>
+                        <!-- Hidden slides for lightbox -->
+                        <div class="program-gallery" data-gallery="accra" data-start="31" style="display:none;">
+                            <div class="gallery-track">
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-1.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion March 2025 — Student Ambassador"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-2.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — program activities"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-3.jpg" alt="John Ngor Deng Garang at Accra Fusion, Accra Ghana 2025 — international program management"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-4.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort engagement"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-5.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student support and logistics"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-6.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — partnership development"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-7.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cross-cultural leadership"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-8.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship coordination"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-9.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — ALU global learning experience"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-10.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — networking and company visits"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-11.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cultural immersion"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-12.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — pastoral support"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-13.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program coordination"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-14.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — leadership in action"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-15.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — event"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-16.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — program moment"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-17.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — closing activities"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-18.jpg" alt="John Ngor Deng Garang, Accra Fusion Student Ambassador, African Leadership University Ghana 2025"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-19.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — official program photo"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-20.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort photo"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-21.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — group activities"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-22.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Ghanaian organisations partnerships"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-23.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship site visit"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-24.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — portrait"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-25.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program documentation"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-26.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student ambassador role"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-27.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — travel and logistics"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-28.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — community and cultural experience"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-29.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — immersive learning"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-30.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — global citizenship"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-31.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — African leadership"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Accra city experience"></div>
+                                <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-33.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program conclusion"></div>
+                            </div>
+                        </div>
+                        <p class="gallery-caption">Accra Fusion · African Leadership University · Accra, Ghana · 2025 · Click to view gallery</p>
                     </div>
-                    <blockquote class="program-quote">"Every great venture starts with solving one real problem well."</blockquote>
-                </div>
+                </article>
+
+                <!-- YALI -->
+                <article class="prog-block" id="yali">
+                    <div class="prog-block-inner">
+                        <figure class="prog-visual">
+                            <img src="/static/Pictures/john-ngor-deng-garang-yali-east-africa.png"
+                                 alt="John Ngor Deng Garang, YALI East Africa Regional Leadership Centre Cohort 60 alumnus — U.S. Department of State Young African Leaders Initiative, Business and Entrepreneurship Track, developing an AI-powered agricultural solution for underserved farmers"
+                                 title="John Ngor Deng Garang — YALI East Africa Cohort 60, U.S. Department of State Young African Leaders Initiative 2024"
+                                 loading="lazy">
+                            <figcaption>John Ngor Deng Garang · YALI East Africa · Cohort 60 · 2024</figcaption>
+                        </figure>
+                        <div class="prog-content">
+                            <div class="prog-header-group">
+                                <p class="prog-org">U.S. Department of State · USAID · Kenyatta University</p>
+                                <h2 class="prog-title">YALI East Africa Regional Leadership Centre</h2>
+                                <div class="prog-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> November – December 2024</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya (Virtual)</span>
+                                    <span><i class="fas fa-users"></i> Cohort 60</span>
+                                </div>
+                            </div>
+                            <p class="prog-desc">
+                                The Young African Leaders Initiative (YALI) East Africa Regional Leadership Centre is one of the U.S. Department of State's flagship leadership development programs for emerging African leaders, funded by USAID and implemented by Kenyatta University. I participated virtually in the Business and Entrepreneurship Track as part of Cohort 60, joining young innovators from across East Africa to strengthen my entrepreneurial, leadership, and business development skills.
+                            </p>
+                            <p class="prog-desc">
+                                During the program, I developed an AI-powered agricultural venture that analyses crop health through image recognition and provides underserved farmers with disease diagnosis and treatment recommendations — applying innovation and entrepreneurship to address food security challenges across the region. The experience significantly strengthened my understanding of customer-centred design, business modelling, innovation strategy, and leadership. Becoming a YALI alumnus connected me to one of Africa's largest youth leadership networks, opening doors to future opportunities in entrepreneurship, international programs, and community development.
+                            </p>
+                            <div class="prog-tags">
+                                <span class="prog-tag">Youth Leadership</span>
+                                <span class="prog-tag">Entrepreneurship</span>
+                                <span class="prog-tag">Innovation</span>
+                                <span class="prog-tag">African Leadership</span>
+                                <span class="prog-tag">International Experience</span>
+                                <span class="prog-tag">Business Development</span>
+                            </div>
+                            <blockquote class="prog-quote">"Every great venture starts with solving one real problem well."</blockquote>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
@@ -914,18 +810,24 @@
         });
     });
 
-    // ── Accra cover hover effect ──
-    var accraCover = document.getElementById('accra-cover');
-    if (accraCover) {
-        var overlay = accraCover.querySelector('.accra-cover-overlay');
-        accraCover.addEventListener('mouseenter', function() { overlay.style.background = 'rgba(0,0,0,0.62)'; });
-        accraCover.addEventListener('mouseleave', function() { overlay.style.background = 'rgba(0,0,0,0.48)'; });
-    }
+    // ── Cover hover effects ──
+    ['accra-cover', 'unleash-cover', 'tal-cover'].forEach(function(id) {
+        var cover = document.getElementById(id);
+        if (!cover) return;
+        var overlay = cover.querySelector('.accra-cover-overlay, .prog-cover-overlay');
+        if (!overlay) return;
+        cover.addEventListener('mouseenter', function() { overlay.style.background = 'rgba(0,0,0,0.62)'; });
+        cover.addEventListener('mouseleave', function() { overlay.style.background = 'rgba(0,0,0,0.48)'; });
+    });
 
-    // ── Accra cover opens lightbox at slide 31 ──
-    function openAccraLightbox() {
-        var accraGallery = document.querySelector('.program-gallery[data-gallery="accra"]');
-        openLightbox(accraGallery, 31);
+    // ── Cover opens lightbox ──
+    function openUnleashLightbox() {
+        var gallery = document.querySelector('.program-gallery[data-gallery="unleash"]');
+        openLightbox(gallery, 16);
+    }
+    function openTALightbox() {
+        var gallery = document.querySelector('.program-gallery[data-gallery="tal"]');
+        openLightbox(gallery, 3);
     }
 
     // ── Lightbox ──
