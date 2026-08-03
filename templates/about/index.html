@@ -58,7 +58,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ── Bio cards — experience-page style ── */
+        /* About page specific styles - matching site design system */
+        .about-content {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
         .bio-card {
             background: white;
             border-radius: 0;
@@ -68,7 +73,10 @@
             transition: box-shadow 0.3s ease;
             padding: 2rem;
         }
-        .bio-card:hover { box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
+        .bio-card:hover { 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12); 
+        }
+        
         .bio-card h3 {
             font-family: 'Inter', sans-serif;
             font-size: 1.15rem;
@@ -81,11 +89,13 @@
             padding-bottom: 0.75rem;
             border-bottom: 2px solid #f0f0f0;
         }
+        
         .bio-card .bio-icon {
             color: #16b2dc;
             font-size: 1rem;
             display: inline-flex;
         }
+        
         .bio-card p, .bio-card li {
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
@@ -93,99 +103,259 @@
             color: #555;
             margin: 0;
         }
+        
         .bio-card ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+        
         .bio-card ul li {
             padding: 0.4rem 0 0.4rem 1.5rem;
             position: relative;
             border-bottom: 1px solid #f5f5f5;
         }
-        .bio-card ul li:last-child { border-bottom: none; }
+        
+        .bio-card ul li:last-child { 
+            border-bottom: none; 
+        }
+        
         .bio-card ul li::before {
             content: "▸";
             position: absolute;
             left: 0;
             color: #16b2dc;
         }
-        .bio-grid { gap: 1.5rem !important; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)) !important; }
-
-        /* ── Contact / detail cards ── */
-        .detail-item p, .detail-item li, .contact-label, .contact-value { font-size: 15px !important; line-height: 1.5 !important; }
-        .detail-item { padding: 1rem !important; }
-        .favorite-quote .quote-source { color: #8B0000 !important; }
-        .details-grid { gap: 1rem !important; }
-        .contact-details { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
-        .contact-card { background: white !important; border: 1px solid #e0e0e0 !important; border-radius: 0 !important; padding: 1rem 1.25rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; transition: all 0.3s ease !important; }
-        .contact-card:hover { border-color: #999 !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important; transform: translateX(3px) !important; }
-        .contact-icon { width: 40px !important; height: 40px !important; background: linear-gradient(135deg, #16b2dc, #1a9ec7) !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
-        .contact-icon i { font-size: 1.1rem !important; color: white !important; }
-        .contact-text { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; text-align: left !important; }
-        .contact-label { font-size: 0.75rem !important; color: #999 !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
-        .contact-value { font-size: 0.95rem !important; color: #333 !important; font-weight: 500 !important; }
         
-        @media (max-width: 600px) {
+        .bio-grid { 
+            gap: 1.5rem !important; 
+            grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)) !important; 
+        }
+
+        /* Education cards */
+        .education-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .education-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .education-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .education-header img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #f8f9fa;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+        
+        .education-header h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin: 0 0 0.1rem;
+        }
+        
+        .education-header .location {
+            font-size: 0.78rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+        
+        .education-card .program {
+            font-size: 0.78rem;
+            color: #16b2dc;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+        
+        .education-card .degree {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .education-card .duration {
+            font-size: 0.8rem;
+            color: #888;
+            margin: 0;
+        }
+        
+        .education-card .duration i {
+            color: #16b2dc;
+            margin-right: 0.3rem;
+        }
+        
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.2rem;
+        }
+        
+        .badge {
+            background: rgba(22,178,220,0.1);
+            color: #16b2dc;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        /* Contact section */
+        .contact-info {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .profile-section {
+            text-align: center;
+        }
+        
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #16b2dc;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-section h3 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .profile-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            color: #16b2dc;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-social-links a:hover {
+            background: #16b2dc;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Details grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #f0f0f0;
+            border-left: 3px solid #16b2dc;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        
+        .detail-item h4 {
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .detail-item p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 60px 0;
+            }
+            
             .bio-card--who > div {
                 flex-direction: column !important;
                 align-items: center !important;
             }
+            
             .bio-card--who figure {
                 width: 85% !important;
             }
-        }
-        /* Override global styles that conflict on this page */
-        .about-content .contact-info {
-            background: transparent !important;
-            padding: 0 !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 2rem !important;
-            text-align: left !important;
-        }
-        .about-content .personal-details {
-            background: transparent !important;
-            padding: 0 !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            margin-bottom: 2rem !important;
-        }
-        .about-content .personal-details h3 {
-            text-align: left !important;
-            font-size: 0.75rem !important;
-            font-weight: 700 !important;
-            color: #999 !important;
-            letter-spacing: 0.08em !important;
-            text-transform: uppercase !important;
-            margin-bottom: 1.25rem !important;
-        }
-        .about-content .detail-item {
-            background: #f8f9fa !important;
-            border-radius: 0 !important;
-            border-left: 3px solid #16b2dc !important;
-            padding: 1rem 1.25rem !important;
-        }
-        .about-content .details-grid {
-            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)) !important;
-            gap: 1rem !important;
-        }
-        .section-divider {
-            border: none;
-            border-top: 1px solid #e8e8e8;
-            margin: 2.5rem 0;
-        }
-        @media (max-width: 768px) {
-            .contact-info { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
-            .profile-section { order: -1 !important; }
-            .profile-picture { width: 150px !important; height: 150px !important; object-fit: cover !important; border-radius: 50% !important; border: 3px solid #16b2dc !important; }
-            .about { padding: 80px 15px 40px !important; }
-            .about h1 { font-size: 2.5rem !important; }
-            .bio-grid { grid-template-columns: 1fr !important; }
-            .about-content .details-grid { grid-template-columns: 1fr !important; }
-            .about-content .container { padding-left: 8px !important; padding-right: 8px !important; }
-            .bio-grid { gap: 8px !important; }
-            .bio-card { border-left: none !important; border-right: none !important; }
+            
+            .contact-info {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center !important;
+            }
+            
+            .profile-section { 
+                order: -1 !important; 
+            }
+            
+            .profile-picture { 
+                width: 150px !important; 
+                height: 150px !important; 
+            }
+            
+            .bio-grid { 
+                grid-template-columns: 1fr !important; 
+            }
+            
+            .details-grid { 
+                grid-template-columns: 1fr !important; 
+            }
         }
     </style>
 </head>
@@ -194,24 +364,11 @@
     <div id="header-placeholder"></div>
     <script src="/static/load-header.js"></script>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- About Hero Section -->
+    <section class="category-hero">
         <div class="container">
-            <div class="about-hero-content">
-                <div class="about-social-links">
-                    <a href="https://www.instagram.com/john__garang/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://x.com/John_Ngor_Deng" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/j-garang/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/ngor.johngarang" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="mailto:dengjohn200@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-                <h1>About Me</h1>
-                <div class="favorite-quote">
-                    <div class="quote-label">Favorite Quote</div>
-                    <blockquote>"Every human being is a puzzle of need. Learn to be the missing piece and they will give you anything."</blockquote>
-                    <div class="quote-source">- Red Sparrow</div>
-                </div>
-            </div>
+            <h1>About Me</h1>
+            <p class="hero-subtitle">Communications Professional & Storyteller</p>
         </div>
     </section>
 
@@ -262,43 +419,43 @@
             <hr class="section-divider">
 
             <!-- Education Section -->
-            <div class="personal-details" style="margin-bottom: 2rem;">
+            <div class="education-section">
                 <h3>EDUCATION</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div class="education-grid">
 
                     <!-- Sciences Po -->
-                    <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07); border: 1px solid #f0f0f0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <img src="/static/Pictures/Sciences_Po_Logo.png" alt="Sciences Po" style="width: 52px; height: 52px; object-fit: contain; border-radius: 8px; background: #f8f9fa; padding: 4px; flex-shrink: 0;">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <img src="/static/Pictures/Sciences_Po_Logo.png" alt="Sciences Po">
                             <div>
-                                <p style="font-weight: 700; font-size: 1rem; color: #1a1a1a; margin: 0 0 0.1rem;">Sciences Po</p>
-                                <p style="font-size: 0.78rem; color: #888; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">Paris, France</p>
+                                <h4>Sciences Po</h4>
+                                <p class="location">Paris, France</p>
                             </div>
                         </div>
-                        <p style="font-size: 0.78rem; color: #16b2dc; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">School of Management and Impact</p>
-                        <p style="font-size: 0.9rem; color: #333; font-weight: 600; margin: 0;">Master of Communications, Media &amp; Creative Industries</p>
-                        <p style="font-size: 0.8rem; color: #888; margin: 0;"><i class="fas fa-calendar" style="color:#16b2dc; margin-right:0.3rem;"></i>August 2026 &ndash; June 2028</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.2rem;">
-                            <span style="background: rgba(22,178,220,0.1); color: #16b2dc; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;">Current</span>
-                            <span style="background: rgba(22,178,220,0.1); color: #16b2dc; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;">Mastercard Foundation Scholar</span>
+                        <p class="program">School of Management and Impact</p>
+                        <p class="degree">Master of Communications, Media & Creative Industries</p>
+                        <p class="duration"><i class="fas fa-calendar"></i>August 2026 &ndash; June 2028</p>
+                        <div class="badges">
+                            <span class="badge">Current</span>
+                            <span class="badge">Mastercard Foundation Scholar</span>
                         </div>
                     </div>
 
                     <!-- ALU -->
-                    <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07); border: 1px solid #f0f0f0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <img src="/static/Pictures/African_Leadership_University_Logo.png" alt="African Leadership University" style="width: 52px; height: 52px; object-fit: contain; border-radius: 8px; background: #f8f9fa; padding: 4px; flex-shrink: 0;">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <img src="/static/Pictures/African_Leadership_University_Logo.png" alt="African Leadership University">
                             <div>
-                                <p style="font-weight: 700; font-size: 1rem; color: #1a1a1a; margin: 0 0 0.1rem;">African Leadership University</p>
-                                <p style="font-size: 0.78rem; color: #888; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">Kigali, Rwanda</p>
+                                <h4>African Leadership University</h4>
+                                <p class="location">Kigali, Rwanda</p>
                             </div>
                         </div>
-                        <p style="font-size: 0.78rem; color: #16b2dc; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">School of Business &amp; Entrepreneurship</p>
-                        <p style="font-size: 0.9rem; color: #333; font-weight: 600; margin: 0;">Bachelor of Entrepreneurial Leadership &mdash; First Class Honours</p>
-                        <p style="font-size: 0.8rem; color: #888; margin: 0;"><i class="fas fa-calendar" style="color:#16b2dc; margin-right:0.3rem;"></i>May 2023 &ndash; July 2026</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.2rem;">
-                            <span style="background: rgba(22,178,220,0.1); color: #16b2dc; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;">Alumni</span>
-                            <span style="background: rgba(22,178,220,0.1); color: #16b2dc; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;">Mastercard Foundation Scholar</span>
+                        <p class="program">School of Business & Entrepreneurship</p>
+                        <p class="degree">Bachelor of Entrepreneurial Leadership &mdash; First Class Honours</p>
+                        <p class="duration"><i class="fas fa-calendar"></i>May 2023 &ndash; July 2026</p>
+                        <div class="badges">
+                            <span class="badge">Alumni</span>
+                            <span class="badge">Mastercard Foundation Scholar</span>
                         </div>
                     </div>
 
