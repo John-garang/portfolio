@@ -117,9 +117,8 @@
         .poem-hero {
             background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
             color: white;
-            padding: 5rem 0;
+            padding: 8rem 0 5rem;
             text-align: center;
-            margin-top: 80px;
         }
         .poem-hero h1 {
             font-family: 'Inter', sans-serif;
@@ -1064,8 +1063,9 @@
             document.getElementById('singlePoemView').classList.add('active');
             document.getElementById('poemsGrid').classList.add('hidden');
             
-            // Scroll to top
+            // Scroll to top and re-trigger navbar state
             window.scrollTo(0, 0);
+            window.dispatchEvent(new Event('scroll'));
             
             // Update URL without reloading
             const poemSlug = poem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -1079,8 +1079,9 @@
             // Update URL
             history.pushState({}, 'Poems', '/poems');
             
-            // Scroll to top
+            // Scroll to top and re-trigger navbar state
             window.scrollTo(0, 0);
+            window.dispatchEvent(new Event('scroll'));
         }
 
         function navigatePoem(direction) {
