@@ -86,14 +86,14 @@
 
         .prog-visual {
             width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
+            border-radius: 0;
+            overflow: visible;
         }
         .prog-visual img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 8px;
+            border-radius: 0;
             transition: transform 0.4s ease;
         }
         .prog-block:hover .prog-visual img { transform: scale(1.02); }
@@ -186,16 +186,19 @@
             overflow: hidden;
             user-select: none;
             background: transparent;
+            width: 100%;
         }
         .gallery-track {
             display: flex;
             transition: transform 0.4s ease;
             align-items: flex-start;
             will-change: transform;
+            width: 100%;
         }
         .gallery-slide {
             min-width: 100%;
             flex-shrink: 0;
+            width: 100%;
         }
         .gallery-slide img {
             width: 100%;
@@ -203,6 +206,7 @@
             display: block;
             border-radius: 0;
             background: transparent;
+            flex-shrink: 0;
         }
         .gallery-slide .gallery-placeholder {
             width: 100%; min-height: 300px; display: flex; flex-direction: column;
@@ -479,7 +483,7 @@
     <!-- UNLEASH -->
     <section class="program-section" id="unleash">
         <div class="container">
-            <div class="program-inner">
+            <div class="program-inner has-gallery">
                 <figure class="program-visual">
                     <img src="/static/Pictures/john-ngor-deng-garang-unleash-global-innovation-lab.png"
                          alt="John Ngor Deng Garang at the UNLEASH Global Innovation Lab in Kigali, Rwanda — selected on full scholarship as one of 1,000 young innovators worldwide to develop sustainable solutions for the UN Sustainable Development Goals"
@@ -540,7 +544,7 @@
     <!-- Take Action Lab -->
     <section class="program-section" id="take-action-lab">
         <div class="container">
-            <div class="program-inner">
+            <div class="program-inner has-gallery">
                 <figure class="program-visual">
                     <img src="/static/Pictures/john-ngor-deng-garang-take-action-lab.png"
                          alt="John Ngor Deng Garang at the Take Action Lab by Tilting Futures — full-scholarship international leadership program alumnus and Multimedia Apprentice at the Surplus People Project, documenting agroecology, food sovereignty, and human rights across the Western, Northern, Eastern Cape, and Gauteng provinces of South Africa"
@@ -605,7 +609,7 @@
     <!-- Accra Fusion -->
     <section class="program-section" id="accra-fusion">
         <div class="container">
-            <div class="program-inner">
+            <div class="program-inner has-gallery">
                 <figure class="program-visual">
                     <img src="/static/Pictures/john-ngor-deng-garang-accra-fusion.png"
                          alt="John Ngor Deng Garang as Student Ambassador for Accra Fusion, African Leadership University Ghana immersion program — led logistics, secured 8 organisational partnerships, and supported 25+ students during the international learning experience"
