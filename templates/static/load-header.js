@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <nav class="navbar">
                 <div class="nav-container">
                     <div class="nav-logo">
-                        <img src="static/Pictures/Logo.png" alt="John Garang Logo">
+                        <img src="/static/Pictures/john-ngor-deng-garang-logo.png" alt="John Garang Logo">
                         <span class="logo-name">John Ngor Deng Garang</span>
                     </div>
                     <ul class="nav-menu">
@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li class="dropdown">
                             <a href="/work-portfolio" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
-                                <a href="my-shelf.html">My Shelf</a>
-                                <a href="artefacts.html">Artefacts</a>
-                                <a href="cv.html">CV</a>
-                                <a href="graphic-design.html">Graphic Design</a>
+                                <a href="/my-shelf">My Shelf</a>
+                                <a href="/cv">CV</a>
+                                <a href="/graphic-design">Graphic Design</a>
                             </div>
                         </li>
                         <li><a href="/experience-overview" class="nav-link">Experience</a></li>

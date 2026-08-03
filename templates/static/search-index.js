@@ -21,11 +21,6 @@ const searchIndex = [
         content: 'my shelf writings articles publications medium blog posts thought leadership content writing personal essays stories narratives perspectives insights reflections'
     },
     { 
-        title: 'Artefacts', 
-        url: 'artefacts', 
-        content: 'artefacts creative projects portfolio little bet innovations project tshinsha amakahya national indaba creative connect social media africa inventor alliance linkedin profile personal writings creative work design projects innovation initiatives community engagement'
-    },
-    { 
         title: 'CV / Resume', 
         url: 'cv', 
         content: 'cv curriculum vitae resume professional experience education skills qualifications work history career timeline achievements certifications training'

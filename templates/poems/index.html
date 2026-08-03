@@ -70,6 +70,7 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            cursor: pointer;
         }
         .article-card:hover {
             transform: translateY(-5px);
@@ -97,116 +98,1021 @@
             .poems-hero h1 { font-size: 2.5rem; }
             .article-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
         }
+
+        /* Single Poem View Styles */
+        .single-poem-view {
+            display: none;
+            background: white;
+            min-height: calc(100vh - 80px);
+        }
+        .single-poem-view.active {
+            display: block;
+        }
+        .poems-grid-view {
+            display: block;
+        }
+        .poems-grid-view.hidden {
+            display: none;
+        }
+        .poem-hero {
+            background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .poem-hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+        .article-page { max-width: 700px; margin: 0 auto; padding: 2rem 1rem; }
+        .poem-content { font-family: 'Crimson Text', serif; font-size: 1.2rem; line-height: 1.8; text-align: center; max-width: 600px; margin: 0 auto; }
+        .poem-stanza { margin-bottom: 2rem; }
+        .poem-stanza p { color: #444; margin: 0; }
+        .poem-stanza em { font-style: italic; color: #666; }
+        .poem-footer { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; }
+        .author-attribution { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+        .author-name { font-weight: 600; color: #333; font-size: 1rem; }
+        .author-title { font-size: 0.85rem; color: #666; font-weight: bold; }
+        .poem-notes { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666; font-style: italic; }
+        
+        .poem-navigation { 
+            margin-top: 60px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            padding-top: 40px; 
+            border-top: 1px solid #eee; 
+        }
+        .nav-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .back-link { 
+            background: #16b2dc; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-weight: 500; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: background 0.3s; 
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .back-link:hover { background: #1496b8; }
+        .poem-nav-link { 
+            color: #16b2dc; 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 8px 16px; 
+            border: 2px solid #16b2dc; 
+            border-radius: 20px; 
+            transition: all 0.3s; 
+            background: white;
+            cursor: pointer;
+        }
+        .poem-nav-link:hover { background: #16b2dc; color: white; }
+        .poem-nav-link.disabled { 
+            color: #ccc; 
+            border-color: #ccc; 
+            cursor: not-allowed; 
+            pointer-events: none;
+        }
+        @media (max-width: 768px) {
+            .nav-row { flex-direction: column; gap: 10px; }
+            .back-link { order: 2; }
+        }
     </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
-    <section class="poems-hero">
-        <div class="poems-hero-content">
-            <i class="fas fa-feather-alt feather-icon"></i>
-            <h1>Poems</h1>
-            <p class="poems-hero-subtitle">Poetry Collection</p>
-            <p class="poems-hero-description">Words that dance, emotions that resonate.</p>
-        </div>
-    </section>
-
-    <section class="posts-section">
-        <div class="container">
-            <div class="article-cards-grid">
-                <a href="/an-unbalanced-man" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> September 14, 2025</span>
-                        </div>
-                        <h3>An Unbalanced Man</h3>
-                        <p>Today I woke up on the wrong side of the bed. That's not to say there's nothing right about me. But the room says otherwise...</p>
-                    </div>
-                </a>
-
-                <a href="/learning-to-write-without-permission" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> February 3, 2026</span>
-                        </div>
-                        <h3>Learning to Write Without Permission</h3>
-                        <p>The first lesson in freedom is the courage to write without asking. Where the Nile flows, silent books of law have been written with guns...</p>
-                    </div>
-                </a>
-
-                <a href="/the-price-of-truth" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> November 27, 2025</span>
-                        </div>
-                        <h3>The Price of Truth</h3>
-                        <p>Mama calls me stupid, She says if the degree I'm studying doesn't teach me the value of my own life, then I'm illiterate...</p>
-                    </div>
-                </a>
-
-                <a href="/the-son-mama-couldnt-save" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> July 8, 2025</span>
-                        </div>
-                        <h3>The Son Mama Couldn't Save</h3>
-                        <p>My son, the inspector said your body was found floating, calm, like you always were, the water holding you like a secret it could not keep...</p>
-                    </div>
-                </a>
-
-                <a href="/the-boy-who-taught-his-nation-to-speak" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> April 19, 2026</span>
-                        </div>
-                        <h3>The Boy Who Taught His Nation to Speak</h3>
-                        <p>They buried him facing East — not so he may greet Christ, the way, the truth, and the life, when he returns — but because his ancestor Deng-Aguet and his gods rest in the East...</p>
-                    </div>
-                </a>
-
-                <a href="/a-sour-vow" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> January 11, 2026</span>
-                        </div>
-                        <h3>A Sour Vow</h3>
-                        <p>… the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
-                    </div>
-                </a>
-
-                <a href="/a-fool-of-warmth" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> June 5, 2026</span>
-                        </div>
-                        <h3>A Fool of Warmth</h3>
-                        <p>The curtain hangs half-open, welcoming daybreak. Outside — a rooster screams the day open, reciting yesternight's moans...</p>
-                    </div>
-                </a>
-
-                <a href="/the-words-i-never-said" class="article-card">
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
-                            <span class="read-time"><i class="far fa-clock"></i> March 22, 2026</span>
-                        </div>
-                        <h3>The Words I Never Said</h3>
-                        <p>I never whispered or screamed it out loud, but somehow, I think we both knew. Some words are too soft for sound...</p>
-                    </div>
-                </a>
+    <!-- Grid View -->
+    <div class="poems-grid-view" id="poemsGrid">
+        <section class="poems-hero">
+            <div class="poems-hero-content">
+                <i class="fas fa-feather-alt feather-icon"></i>
+                <h1>Poems</h1>
+                <p class="poems-hero-subtitle">Poetry Collection</p>
+                <p class="poems-hero-description">Words that dance, emotions that resonate.</p>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="posts-section">
+            <div class="container">
+                <div class="article-cards-grid">
+                    <div class="article-card" onclick="showPoem(0)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> September 14, 2025</span>
+                            </div>
+                            <h3>An Unbalanced Man</h3>
+                            <p>Today I woke up on the wrong side of the bed. That's not to say there's nothing right about me. But the room says otherwise...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(1)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> February 3, 2026</span>
+                            </div>
+                            <h3>Learning to Write Without Permission</h3>
+                            <p>The first lesson in freedom is the courage to write without asking. Where the Nile flows, silent books of law have been written with guns...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(2)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> November 27, 2025</span>
+                            </div>
+                            <h3>The Price of Truth</h3>
+                            <p>Mama calls me stupid, She says if the degree I'm studying doesn't teach me the value of my own life, then I'm illiterate...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(3)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> July 8, 2025</span>
+                            </div>
+                            <h3>The Son Mama Couldn't Save</h3>
+                            <p>My son, the inspector said your body was found floating, calm, like you always were, the water holding you like a secret it could not keep...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(4)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> March 22, 2026</span>
+                            </div>
+                            <h3>The Words I Never Said</h3>
+                            <p>I never whispered or screamed it out loud, but somehow, I think we both knew. Some words are too soft for sound...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(5)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> April 19, 2026</span>
+                            </div>
+                            <h3>The Boy Who Taught His Nation to Speak</h3>
+                            <p>They buried him facing East — not so he may greet Christ, the way, the truth, and the life, when he returns — but because his ancestor Deng-Aguet and his gods rest in the East...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(6)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> January 11, 2026</span>
+                            </div>
+                            <h3>A Sour Vow</h3>
+                            <p>… the door slammed so hard the silence flinched. She threw the 50,000 ssp at my face like a stone meant to chase a stray dog...</p>
+                        </div>
+                    </div>
+
+                    <div class="article-card" onclick="showPoem(7)">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-feather-alt"></i> Poetry</span>
+                                <span class="read-time"><i class="far fa-clock"></i> June 5, 2026</span>
+                            </div>
+                            <h3>A Fool of Warmth</h3>
+                            <p>The curtain hangs half-open, welcoming daybreak. Outside — a rooster screams the day open, reciting yesternight's moans...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Single Poem View -->
+    <div class="single-poem-view" id="singlePoemView">
+        <section class="poem-hero">
+            <div class="container">
+                <h1 id="poemTitle"></h1>
+                <p class="hero-subtitle" id="poemSubtitle">Poetry</p>
+            </div>
+        </section>
+
+        <article class="article-page">
+            <div class="container">
+                <div class="poem-content" id="poemContent"></div>
+
+                <div class="poem-navigation">
+                    <div class="nav-row">
+                        <button class="poem-nav-link" id="prevPoem" onclick="navigatePoem(-1)">
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <button class="poem-nav-link" id="nextPoem" onclick="navigatePoem(1)">
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <button class="back-link" onclick="showGrid()">
+                        <i class="fas fa-arrow-left"></i> Back to All Poems
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
 
     <div id="footer-placeholder"></div>
     <script src="/static/load-header.js" defer></script>
     <script src="/static/load-footer.js" defer></script>
+    
+    <script>
+        const poems = [
+            {
+                title: "An Unbalanced Man",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>Today I woke up on the wrong side of the bed.<br>
+                        That's not to say there's nothing right about me.<br>
+                        But the room says otherwise—<br>
+                        chairs scattered like witnesses,<br>
+                        a quiet testimony that I wrestled my inner man last night<br>
+                        and nobody won.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>My life is a knot of small lies<br>
+                        and the ghosts of promises I withdrew<br>
+                        before they matured.<br>
+                        I am an unbalanced man,<br>
+                        with no strong belief in myself.<br>
+                        Like the boring book on my shelf<br>
+                        that no visitor ever opens.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>My spirit went into a casket long ago,<br>
+                        and my feelings—<br>
+                        they've been sitting on the kitchen counter<br>
+                        in a plastic basket,<br>
+                        waiting to be claimed.<br>
+                        Sometimes I have the audacity<br>
+                        to think about resurrections.<br>
+                        But even hope needs rent money.<br>
+                        And those poor barmaids have families to feed.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I, on the other hand,<br>
+                        have thoughts to forget.<br>
+                        I am not that poor.<br>
+                        My small bedsitter has been a ghost town<br>
+                        for most of its existence.<br>
+                        I've been betrayed and left,<br>
+                        but it's the only Samaritan<br>
+                        that takes me in<br>
+                        when I am too loud for myself.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Thieves pass my door with doubt—<br>
+                        they know there's nothing worth stealing.<br>
+                        So security is not a chapter in my worries.<br>
+                        I wear an expensive watch on my wrist,<br>
+                        but I have no time<br>
+                        for a decent breakfast.<br>
+                        I am running late.<br>
+                        Don't be foolish enough to think it's for work.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I have a hangover to silence<br>
+                        before it stages a protest in my head.<br>
+                        I don't like keeping words long<br>
+                        when there's a bar to find.<br>
+                        So I step out.<br>
+                        Now I walk the streets alone.<br>
+                        I remember dancing here a few nights back—<br>
+                        or maybe I'm lying.<br>
+                        I staggered more than I danced.<br>
+                        My feet remember better than my pride.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I see flies whispering on the pavement.<br>
+                        No doubt that's where I donated<br>
+                        a portion of last night's barbeque.<br>
+                        Bars multiply when I have money in my pocket.<br>
+                        They appear generously,<br>
+                        like friends who smell weakness.<br>
+                        So here I go.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I place an order—<br>
+                        not ambitious, but honest.<br>
+                        I pay the price<br>
+                        and borrow a taste of glory.<br>
+                        Through broken sunlight and long shadows,<br>
+                        come what may,<br>
+                        I remain what I am:<br>
+                        An unbalanced man.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Learning to Write Without Permission",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p><em>The first lesson in freedom is the courage to write without asking.</em></p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile flows,<br>
+                        silent books of law have been written with guns.<br>
+                        The Torah there is a compilation of dreaming small —<br>
+                        of gratitude for crumbs not yet received,<br>
+                        of bellied men bathing in the shade of our hunger,<br>
+                        counting our ribs as sport.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile flows,<br>
+                        the Nevi'im reads: send them to school,<br>
+                        but not enough to overwrite the alphabet of obedience —<br>
+                        just enough to worship us<br>
+                        in a language the foreigner understands.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>They design a system<br>
+                        where a certificate is a chain to sycophancy,<br>
+                        and tie it gently or roughly if they must around our wings,<br>
+                        so we believe in God and science,<br>
+                        That when the nation falls— we may call it gravity.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile flows,<br>
+                        I almost got baptized by their Ketuvim,<br>
+                        Wore their striped clothes and barked for validation,<br>
+                        Saluted the wind because they called it a flag.<br>
+                        But one morning I woke to the prophecies<br>
+                        they had torn from the Bible — dogs don't write history, wolves do.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>So I began to write, not with ink but intention,<br>
+                        not for applause but arrival.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile flows,<br>
+                        I learned to write that patriotism is stealing with a flag in hand;<br>
+                        that greed is blessed in churches and called the giving of the Lord;<br>
+                        That fear is called peace, and silence, agreement.<br>
+                        I learned to write how to learn, teach, and become —<br>
+                        to unlearn serving kings who wear crowns of skulls.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile flows,<br>
+                        I learned to write that vision does not die when eyes close,<br>
+                        that Garang was buried but his voice remains —<br>
+                        an antique in the museum of thought<br>
+                        for those who still seek truth.<br>
+                        I learned to write stories and speeches<br>
+                        while standing in the sun of truth,<br>
+                        while they, in the shade of our hunger,<br>
+                        own the country, and we — the muse.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Where the Nile stops flowing,<br>
+                        the skulls of those who wrote without permission<br>
+                        have blocked its path.<br>
+                        And so must more,<br>
+                        because every time we write without permission,<br>
+                        the skulls in the Nile — and Garang —<br>
+                        rise again and again.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>And like October cooking my thoughts,<br>
+                        the notes we write without permission<br>
+                        will become the Bible<br>
+                        of generations still searching for dawn.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "The Price of Truth",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>Mama calls me stupid,<br>
+                        She says if the degree I'm studying doesn't teach me the value of my own life,<br>
+                        then I'm illiterate.<br>
+                        She inquires, don't they teach you how to live long in college?<br>
+                        She warns, don't throw stones with your poems,<br>
+                        The men in blue shoot at anything that sounds like thinking.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>And I ask her,<br>
+                        Mama, are we really living or just surviving?<br>
+                        Is this what you call living, Mama?<br>
+                        Why are your hands a résumé of hardships you never applied for?<br>
+                        Why do you eat hope the way poor people chew meat, slowly, like it might walk away?<br>
+                        Why does your face carry a calendar older than Sudan<br>
+                        when you're only forty-five?<br>
+                        Why is a refugee ID, the only formal identity you've ever had?</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Mama, if freedom smells like recklessness,<br>
+                        then I choose freedom.<br>
+                        In college we don't learn how to live long,<br>
+                        we learn how to live right.<br>
+                        And if I choose to speak out,<br>
+                        I do not choose to die foolish,<br>
+                        I refuse to live afraid.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>They will come for me, Mama,<br>
+                        they will.<br>
+                        But my death will serve a purpose.<br>
+                        It will teach them how to live long<br>
+                        after killing voices like mine.<br>
+                        And someday,<br>
+                        when they ask you what your late son studied,<br>
+                        you will say,<br>
+                        "He studied truth… and he died fluent in it."</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "The Son Mama Couldn't Save",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>My son,<br>
+                        the inspector said your body was found floating,<br>
+                        calm, like you always were,<br>
+                        the water holding you<br>
+                        like a secret it could not keep.<br>
+                        I asked you so many questions,<br>
+                        but this silence—<br>
+                        this silence is the first lie you ever told me.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>They took the one thing you ever truly studied, son,<br>
+                        they took it!<br>
+                        I wanted to scream,<br>
+                        but my throat was clogged with words I never said.<br>
+                        All I had were regrets and prayers.<br>
+                        I wanted you to remain silent,<br>
+                        and now that you're quiet,<br>
+                        I realize silence is not living.<br>
+                        Silence is not peace.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Life is never quiet;<br>
+                        the only life that is quiet is not living.<br>
+                        This is why I called you stupid.<br>
+                        I knew what this country does<br>
+                        to sons whose thoughts are louder than presidential motorcades.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>You asked me,<br>
+                        Mama, are we living or surviving?<br>
+                        I couldn't answer.<br>
+                        Son, how could I tell you—a child—<br>
+                        the only kind of breathing I have ever known<br>
+                        is the one that hurt but kept you here?</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I warned you not to fight the government,<br>
+                        that they kill people for less.<br>
+                        But you said they kill us even if we're quiet.<br>
+                        Son, I realize you were right.<br>
+                        But it's too late to take back calling you stupid.<br>
+                        They killed you for trying to live.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>They killed you for remembering you had a mouth.<br>
+                        Son, you wrote,<br>
+                        "If I must die, let my death serve a purpose."<br>
+                        And the news read:<br>
+                        Young truth-teller killed in unknown circumstances.<br>
+                        I tremble, for the one who wrote the story might follow you,<br>
+                        for truth, here, is a contagious death.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>But your cause echoes around the capital<br>
+                        like a prayer that came true too soon.<br>
+                        Son,<br>
+                        now I finally understand—<br>
+                        you were never reckless.<br>
+                        You were a vessel of freedom,<br>
+                        who bore truth and light.<br>
+                        And when they thought they had turned off the power,<br>
+                        they completed the circuit of your becoming.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>So shine, my boy,<br>
+                        shine.<br>
+                        They extinguished your flame early,<br>
+                        but they cannot flip the switch on what you began.<br>
+                        Son, someday, when I join you in the skies,<br>
+                        the ancestors will ask me, what did your son die for?<br>
+                        And I will answer:<br>
+                        My Manyar* died trying to teach his mother how to live.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "The Words I Never Said",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>I never whispered or screamed it out loud,<br>
+                        But somehow, I think we both knew.<br>
+                        Some words are too soft for sound,<br>
+                        And some men too shy to spell—<br>
+                        So I kept quiet, and loved you in my heart instead.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I'd see you pass by my auntie's shop,<br>
+                        And I would look away—afraid inside.<br>
+                        She spoke so kindly of you;<br>
+                        She said you were rural and rare—<br>
+                        The kind of woman who lives in small moments.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I went abroad to study,<br>
+                        And met many foreign ladies—wild and calm—<br>
+                        But none could warm my colder days.<br>
+                        That December when I returned,<br>
+                        I wished you'd smile and say, "It's been so long,"<br>
+                        But neither you, nor those soft words, ever came along.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>You married well; Adhieu gossiped.<br>
+                        Men and women ate to their fill that afternoon.<br>
+                        You were very happy—I heard the news.<br>
+                        Yet still, my imaginings grew stronger,<br>
+                        As I sat by, hoping for an unhappy marriage—<br>
+                        But the lone bench reminded me they were only hopes.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Five years have come, and five years have gone.<br>
+                        Life has moved on, as life must do.<br>
+                        You have had children, and all the love you ever wanted.<br>
+                        Each time I hear how well your marriage is,<br>
+                        My head turns a hair grayer—<br>
+                        Yet your eyes still hold the only light I ever knew.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>We never made vows; you never said you loved me.<br>
+                        There was no promise that someday it would be mutual.<br>
+                        It was a love that had quietly flown in my heart,<br>
+                        And ended somewhere where the Nile turns.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "The Boy Who Taught His Nation to Speak",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>They buried him facing East—<br>
+                        not so he may greet Christ,<br>
+                        the way, the truth, and the life,<br>
+                        when he returns—<br>
+                        but because his ancestor Deng-Aguet and his gods<br>
+                        rest in the East,<br>
+                        and they were ashamed<br>
+                        to look him in the eye.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>The best-selling newspapers said nothing,<br>
+                        and slowly, but as life must,<br>
+                        life moved on.<br>
+                        The lies the morning radio sang<br>
+                        thinned by bits,<br>
+                        yet the whispers never stopped gathering.<br>
+                        Even louder, someone would ask,<br>
+                        "Did you hear about the boy who refused to be silent?"<br>
+                        And someone else would nod,<br>
+                        as if silence itself had begun to tremble.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Time passed,<br>
+                        and his words became ours.<br>
+                        They found refuge in throats<br>
+                        that had long forgotten how to tell the truth.<br>
+                        Teachers quoted him without naming him.<br>
+                        Preachers called his defiance faith.<br>
+                        Even some of the men in blue began to hesitate,<br>
+                        for his life haunted the barrel<br>
+                        they were meant to silence.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>His mother, now older,<br>
+                        sits by the Nile sometimes,<br>
+                        watching the water they claimed took his life—<br>
+                        a story she does not believe.<br>
+                        Water loved him;<br>
+                        it was the first to hold him</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>when hers broke to bring him forth,<br>
+                        and the last to sail him farewell,<br>
+                        in honor,<br>
+                        to places he had never lived.<br>
+                        She does not cry anymore.<br>
+                        She only listens—<br>
+                        to the murmurs of a generation<br>
+                        learning to live right,<br>
+                        not long.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>And his tombstone does not read John—<br>
+                        for it is too foreign<br>
+                        to define the life he lived.<br>
+                        Instead, a small sign reads:<br>
+                        Here lies no one.<br>
+                        Because truth,<br>
+                        they say,<br>
+                        never<br>
+                        truly<br>
+                        dies.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "A Sour Vow",
+                subtitle: "Poetry",
+                content: `
+                    <div class="poem-stanza">
+                        <p>… the door slammed so hard the silence flinched.<br>
+                        She threw the 50,000 ssp at my face<br>
+                        like a stone meant to chase a stray dog.<br>
+                        The notes scattered on the floor—<br>
+                        small red turacos nosediving<br>
+                        before they could learn how to fly.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>She barked <em>aŋ'il moc</em><br>
+                        with a tongue sharpened by her mother's bitterness.<br>
+                        Quiet like my late father,<br>
+                        I stood still.<br>
+                        Like the trees on the Nile,<br>
+                        tired of storms but too loyal to fall.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>This was the wife I swore death would separate from me.<br>
+                        But death is a lazy visitor.<br>
+                        It never comes early for those who need saving.<br>
+                        This woman!<br>
+                        This woman!<br>
+                        Had branded me the mascot of poor men in these streets.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>In my absence, she fed rumors<br>
+                        to every ear that loved salt.<br>
+                        Like her mother, she stretched the word "dollaaaar"<br>
+                        like a belt meant to whip my pride.<br>
+                        It was the only English word they knew and loved.<br>
+                        They both called me a failed husband,<br>
+                        yet her brothers and father were no better.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>But like my father, and his father before him,<br>
+                        I knew <em>wël ke diäär acie beer</em>—<br>
+                        I swallowed this sorrow<br>
+                        the way villagers swallow herbs:<br>
+                        not because it tastes good,<br>
+                        but because swallowing bitter things<br>
+                        keeps a dying soul one more day.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>I climbed back onto my rickshaw.<br>
+                        It coughed when I turned the key,<br>
+                        as if grieving on my behalf—<br>
+                        the engine too was tired of this marriage.<br>
+                        I drove down the street<br>
+                        and parked just at about the right bar<br>
+                        Soft music leaked through the door,<br>
+                        a song drunk enough to fall into my arms.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>As I put my rickshaw to sleep,<br>
+                        a woman smiled at me—<br>
+                        she always does.<br>
+                        Amuor.<br>
+                        The wife the gods drafted for me,<br>
+                        but life shuffled her to the streets.<br>
+                        Peace sometimes comes in Guinness bottles,<br>
+                        sometimes through hookah pipes,<br>
+                        and sometimes it walks in the shape and aura of Amuor—<br>
+                        a gentle riot curved like a prize,<br>
+                        a prize the streets hid from men like me.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>She is fluent in comfort,<br>
+                        a master of styles grief doesn't understand.<br>
+                        It's 2 a.m. already.<br>
+                        Our livers sing hymns of curses for us,<br>
+                        but our spirits are too heavy to notice.<br>
+                        Sometimes we don't choose a path.<br>
+                        Life points to it<br>
+                        and hands you no map—<br>
+                        only a night, a woman, a sore throat, and a heavy quiet.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>My body gives in as Amuor coquettishly pushes me into the backroom.<br>
+                        The drinks blur as we connect from end to end.<br>
+                        Her body and night stories invite sleep.<br>
+                        I needed sleep because morning trades in movement,<br>
+                        and rickshaws must rise early.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Somewhere across the city,<br>
+                        my lovely wife slept on our matrimonial bed—<br>
+                        lonely.<br>
+                        Somehow she believes money could hold her tighter than I ever did.<br>
+                        And beside me lay Amuor,<br>
+                        drunk but soft,<br>
+                        her heartbeat humming a lullaby my mama used to sing.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>Yes, alcohol kills.<br>
+                        But women who only smile at money<br>
+                        have buried more men<br>
+                        than bottles ever will.<br>
+                        & tonight,<br>
+                        I was just another man<br>
+                        trying to breathe in a life<br>
+                        I did not ask for.</p>
+                    </div>
+
+                    <div class="poem-notes">
+                        <p><em>*aŋ'il moc — A Dinka slur for a useless man who provides nothing.</em></p>
+                        <p><em>* wël ke diäär acie beer — A Dinka phrase that suggests insult from women should not be responded to.</em></p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "A Fool of Warmth",
+                subtitle: "Poetry · <a href=\"https://waxpoetryart.com/shakespearespen/2026/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:white;font-weight:700;text-decoration:underline;\">&#127942; Africa Regional Champion — Shakespeare's Pen 2026</a>",
+                content: `
+                    <div class="poem-stanza">
+                        <p>The curtain hangs half-open, welcoming daybreak.<br>
+                        Outside—a rooster screams the day open, reciting yesternight's moans.<br>
+                        A lizard on my window nods, as if he knows our sins.<br>
+                        He's seen lovers before—<br>
+                        & he knows fire does not forgive the log it loves.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>The sheets lie still, like elders sipping a story<br>
+                        too sacred for the young.<br>
+                        Your scent kneels in the unholy authority of my room,<br>
+                        like a prayer mat after dawn.<br>
+                        It refuses to leave, for it knows—<br>
+                        last night, like others, had no long-term goal.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>My mind revisits episodes of last night,<br>
+                        like two birds wrestling in a cloud.<br>
+                        Our wings were tied by the string of want.<br>
+                        One fell; the other followed on top,<br>
+                        because even falling can be fellowship.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>My ex once said silence grows teeth<br>
+                        when you keep feeding it memory.<br>
+                        So my teeth reach into Jericho,<br>
+                        before you whispered,<br>
+                        "don't wake the river inside me—<br>
+                        it still dreams of rain."</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>But I was already drifting,<br>
+                        too far for salvation,<br>
+                        as I stared at Jericho like an open wound<br>
+                        that refuses to bleed.<br>
+                        You moaned for morning glory,<br>
+                        and the security dog barked—a note of disbelief.<br>
+                        Somewhere, the sun began to burn the world.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>But in here, my lust turned into bread—<br>
+                        you, the yeast.<br>
+                        Each second hammered in like a clout nail<br>
+                        into the dark and quiet.<br>
+                        This river will never forget<br>
+                        this mouth that drank from it.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>In the middle of my own weather,<br>
+                        I paused—watching raindrops that never touched the ground.<br>
+                        I'm done, and tired.<br>
+                        Even wisdom grows weary of being right.<br>
+                        My pillow has folded itself<br>
+                        into the shape of your head,<br>
+                        writing the psalms of this event.</p>
+                    </div>
+
+                    <div class="poem-stanza">
+                        <p>The day yawns wide,<br>
+                        as if to say softly: you are a fool of warmth.<br>
+                        I press my lips to the cup you used.<br>
+                        It is cold now.<br>
+                        The taste of coffee and presence<br>
+                        sits at the bottom like truth—<br>
+                        truth that I am a fool of warmth.</p>
+                    </div>
+
+                    <div class="poem-footer">
+                        <div class="author-attribution">
+                            <span class="author-name">John Ngor Deng Garang</span>
+                            <span class="author-title">Writer & Poet</span>
+                            <span class="author-title" style="color:#16b2dc;">&#127942; Africa Regional Champion &mdash; Shakespeare's Pen 2026</span>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentPoemIndex = 0;
+
+        function showPoem(index) {
+            currentPoemIndex = index;
+            const poem = poems[index];
+            
+            document.getElementById('poemTitle').innerHTML = poem.title;
+            document.getElementById('poemSubtitle').innerHTML = poem.subtitle;
+            document.getElementById('poemContent').innerHTML = poem.content;
+            
+            // Update navigation buttons
+            document.getElementById('prevPoem').classList.toggle('disabled', index === 0);
+            document.getElementById('nextPoem').classList.toggle('disabled', index === poems.length - 1);
+            
+            // Show single poem view, hide grid
+            document.getElementById('singlePoemView').classList.add('active');
+            document.getElementById('poemsGrid').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Update URL without reloading
+            const poemSlug = poem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            history.pushState({poemIndex: index}, poem.title, '/' + poemSlug);
+        }
+
+        function showGrid() {
+            document.getElementById('singlePoemView').classList.remove('active');
+            document.getElementById('poemsGrid').classList.remove('hidden');
+            
+            // Update URL
+            history.pushState({}, 'Poems', '/poems');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function navigatePoem(direction) {
+            const newIndex = currentPoemIndex + direction;
+            if (newIndex >= 0 && newIndex < poems.length) {
+                showPoem(newIndex);
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.poemIndex !== undefined) {
+                showPoem(event.state.poemIndex);
+            } else {
+                showGrid();
+            }
+        });
+
+        // Check URL on page load to see if we should show a specific poem
+        window.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const poemSlug = path.replace(/^\/|\/$/g, '').toLowerCase();
+            
+            const poemIndex = poems.findIndex(p => {
+                const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                return slug === poemSlug;
+            });
+            
+            if (poemIndex !== -1) {
+                showPoem(poemIndex);
+            }
+        });
+    </script>
 </body>
 </html>

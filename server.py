@@ -60,12 +60,16 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             # Has a file extension — serve from templates/
             self.path = 'templates/' + clean.lstrip('/')
         else:
-            # Try direct .html file first, then directory/index.html
+            # Try direct .html file first, then directory/index.html, then poems SPA
             direct = 'templates/' + clean.lstrip('/') + '.html'
+            directory = 'templates/' + clean.lstrip('/') + '/index.html'
             if os.path.exists(direct):
                 self.path = direct
+            elif os.path.exists(directory):
+                self.path = directory
             else:
-                self.path = 'templates/' + clean.lstrip('/') + '/index.html'
+                # Unknown slug — serve poems SPA (JS handles poem routing by URL)
+                self.path = 'templates/poems/index.html'
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 # Enable address reuse
