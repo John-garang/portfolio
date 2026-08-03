@@ -297,6 +297,20 @@
                 justify-content: center;
             }
         }
+        .anchor-link {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 0.5rem;
+            color: #ccc;
+            font-size: 0.75rem;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.2s, color 0.2s;
+            vertical-align: middle;
+        }
+        .exp-block:hover .anchor-link,
+        .prog-block:hover .anchor-link { opacity: 1; }
+        .anchor-link:hover { color: #16b2dc; }
     </style>
 </head>
 <body>
@@ -382,14 +396,14 @@
             <div class="exp-stack">
 
                 <!-- Silicon High School -->
-                <article class="exp-block">
+                <article class="exp-block" id="silicon-high-school">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Silicon_High_School_Logo_John_Ngor_Deng_Garang.png" alt="Silicon High School">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Silicon High School</h2>
+                                <h2 class="exp-company-name">Silicon High School<a href="#silicon-high-school" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Board Member (Governance and Ethics Committee)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Remote / Governance Hub</span>
@@ -413,14 +427,14 @@
                 </article>
 
                 <!-- Africa Careers Network × Jetstream Global -->
-                <article class="exp-block">
+                <article class="exp-block" id="africa-careers-network">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/ACN_Logo_John_Ngor_Deng_Garang.png" alt="Africa Careers Network">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Africa Careers Network × Jetstream Global</h2>
+                                <h2 class="exp-company-name">Africa Careers Network × Jetstream Global<a href="#africa-careers-network" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">GTM Strategy Consultant | 2026 Unity Challenge</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Remote / Regional</span>
@@ -445,14 +459,14 @@
                 </article>
 
                 <!-- Education Bridge -->
-                <article class="exp-block">
+                <article class="exp-block" id="education-bridge">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Education_Bridge_Logo_John_Ngor_Deng_Garang.png" alt="Education Bridge">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Education Bridge</h2>
+                                <h2 class="exp-company-name">Education Bridge<a href="#education-bridge" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Communications Lead (Promoted from Student Researcher)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda &amp; South Sudan (Remote/Hybrid)</span>
@@ -477,14 +491,14 @@
                 </article>
 
                 <!-- Nalafem Collective -->
-                <article class="exp-block">
+                <article class="exp-block" id="nalafem-collective">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Nalafem_Logo_John_Ngor_Deng_Garang.png" alt="Nalafem Collective">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Nalafem Collective</h2>
+                                <h2 class="exp-company-name">Nalafem Collective<a href="#nalafem-collective" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Graphic Designer</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-laptop"></i>Remote</span>
@@ -508,14 +522,14 @@
                 </article>
 
                 <!-- African Leadership Academy -->
-                <article class="exp-block">
+                <article class="exp-block" id="african-leadership-academy">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/ALA_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership Academy">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">African Leadership Academy</h2>
+                                <h2 class="exp-company-name">African Leadership Academy<a href="#african-leadership-academy" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">ALforEducation Apprentice</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Johannesburg, South Africa (Remote)</span>
@@ -539,14 +553,14 @@
                 </article>
 
                 <!-- Creative Connect -->
-                <article class="exp-block">
+                <article class="exp-block" id="creative-connect">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Creative Connect_Logo_John_Ngor_Deng_Garang.png" alt="Creative Connect">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Creative Connect</h2>
+                                <h2 class="exp-company-name">Creative Connect<a href="#creative-connect" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Social Media Manager</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Johannesburg, South Africa (Remote)</span>
@@ -570,14 +584,14 @@
                 </article>
 
                 <!-- African Leadership University — Learning Assistant -->
-                <article class="exp-block">
+                <article class="exp-block" id="alu-learning-assistant">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/ALU_Logo_John_Ngor_Deng_Garang.png" alt="African Leadership University">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">African Leadership University</h2>
+                                <h2 class="exp-company-name">African Leadership University<a href="#alu-learning-assistant" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Learning Assistant (BEL Programme)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-laptop"></i>Remote</span>
@@ -601,14 +615,14 @@
                 </article>
 
                 <!-- ALU Global Learning Experiences — Hub Ambassador -->
-                <article class="exp-block">
+                <article class="exp-block" id="alu-global-learning-experiences">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/ALU_GLE_Logo_John_Ngor_Deng_Garang.png" alt="ALU Global Learning Experiences">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">ALU Global Learning Experiences</h2>
+                                <h2 class="exp-company-name">ALU Global Learning Experiences<a href="#alu-global-learning-experiences" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Hub Ambassador</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Accra, Ghana</span>
@@ -632,14 +646,14 @@
                 </article>
 
                 <!-- Africa Inventor Alliance -->
-                <article class="exp-block">
+                <article class="exp-block" id="africa-inventor-alliance">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Africa_Inventor_Alliance_Logo_John_Ngor_Deng_Garang.png" alt="Africa Inventor Alliance">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Africa Inventor Alliance (AIA)</h2>
+                                <h2 class="exp-company-name">Africa Inventor Alliance (AIA)<a href="#africa-inventor-alliance" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Social Media Manager (Promoted from Social Media Intern)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Kigali, Rwanda (Camp Kigali - KCEV)</span>
@@ -664,14 +678,14 @@
                 </article>
 
                 <!-- Ashinaga Foundation -->
-                <article class="exp-block">
+                <article class="exp-block" id="ashinaga-foundation">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Ashinaga_Foundation_Logo_John_Ngor_Deng_Garang.png" alt="Ashinaga Foundation">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Ashinaga Foundation</h2>
+                                <h2 class="exp-company-name">Ashinaga Foundation<a href="#ashinaga-foundation" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">University Preparatory Instructor (Internship)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Kampala, Uganda</span>
@@ -696,14 +710,14 @@
                 </article>
 
                 <!-- Surplus People Project -->
-                <article class="exp-block">
+                <article class="exp-block" id="surplus-people-project">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Surplus_People_Project_Logo_John_Ngor_Deng_Garang.png" alt="Surplus People Project">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Surplus People Project</h2>
+                                <h2 class="exp-company-name">Surplus People Project<a href="#surplus-people-project" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Multimedia Manager</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Cape Town, South Africa</span>
@@ -727,14 +741,14 @@
                 </article>
 
                 <!-- Uganics Repellents Ltd -->
-                <article class="exp-block">
+                <article class="exp-block" id="uganics">
                     <div class="exp-block-inner">
                         <div class="exp-logo-frame">
                             <img src="/static/Pictures/Uganics_Logo_John_Ngor_Deng_Garang.png" alt="Uganics Repellents Ltd">
                         </div>
                         <div class="exp-block-main">
                             <div class="exp-header-group">
-                                <h2 class="exp-company-name">Uganics Repellents Ltd</h2>
+                                <h2 class="exp-company-name">Uganics Repellents Ltd<a href="#uganics" class="anchor-link" title="Link to this section"><i class="fas fa-link"></i></a></h2>
                                 <span class="exp-role-title">Social Media Manager & Executive Assistant (Promoted from Intern)</span>
                                 <div class="exp-meta-row">
                                     <span><i class="fas fa-map-marker-alt"></i>Kabasanda &amp; Kampala, Uganda</span>
