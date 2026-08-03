@@ -610,7 +610,7 @@ li {
     font-family: 'Inter', sans-serif;
     font-size: 38px;
     font-weight: 400;
-    color: #D1D1D1;
+    color: #ffffff;
     margin-bottom: 24px;
 }
 
@@ -621,7 +621,7 @@ li {
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
-    color: #CFCFCF;
+    color: #ffffff;
 }
 
 .story-highlights {
@@ -2533,20 +2533,33 @@ li {
 
 /* Contact Page Styles */
 .contact-hero {
-    padding: 120px 0 80px;
-    background: linear-gradient(135deg, #16b2dc 0%, #a29bfe 100%);
+    min-height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/Pictures/john-ngor-deng-garang-profile-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.contact-hero .container {
+    z-index: 1;
 }
 
 .contact-hero h1 {
     font-family: 'Inter', sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 .contact-hero p {
     font-size: 1.2rem;
+    color: #ffffff;
     opacity: 0.9;
 }
 
