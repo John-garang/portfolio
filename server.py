@@ -68,8 +68,12 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             elif os.path.exists(directory):
                 self.path = directory
             else:
-                # Unknown slug — serve poems SPA (JS handles poem routing by URL)
-                self.path = 'templates/poems/index.html'
+                # Unknown route — 404
+                self.send_response(404)
+                self.send_header('Content-Type', 'text/html')
+                self.end_headers()
+                self.wfile.write(b'<h1>404 Not Found</h1>')
+                return
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 # Enable address reuse

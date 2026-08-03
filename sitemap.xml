@@ -214,8 +214,8 @@
     </url>
 
     <url>
-        <loc>https://johngarang.com/a-fool-of-warmth</loc>
-        <lastmod>2026-05-15</lastmod>
+        <loc>https://johngarang.com/poems#a-fool-of-warmth</loc>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
         <image:image>
@@ -225,83 +225,50 @@
     </url>
 
     <url>
-        <loc>https://johngarang.com/if-equality-means-this</loc>
-        <lastmod>2026-07-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <image:image>
-            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-if-equality-means-this.jpg</image:loc>
-            <image:title>If Equality Means This, Burn the World Already — Poem by John Ngor Deng Garang</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://johngarang.com/making-of-dinka-woman</loc>
-        <lastmod>2026-07-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <image:image>
-            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-making-of-dinka-woman.jpg</image:loc>
-            <image:title>The Making of a Dinka Woman: A Survival Manual Disguised as Culture — Poem by John Ngor Deng Garang</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://johngarang.com/when-educated-woman-says-no</loc>
-        <lastmod>2026-07-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <image:image>
-            <image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-poem-when-educated-woman-says-no.jpg</image:loc>
-            <image:title>When an Educated Woman Says No — Poem by John Ngor Deng Garang</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://johngarang.com/an-unbalanced-man</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#an-unbalanced-man</loc>
+        <lastmod>2025-09-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/a-sour-vow</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#learning-to-write-without-permission</loc>
+        <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/the-price-of-truth</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#the-price-of-truth</loc>
+        <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/the-son-mama-couldnt-save</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#the-son-mama-couldnt-save</loc>
+        <lastmod>2025-07-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/the-boy-who-taught-his-nation-to-speak</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#the-words-i-never-said</loc>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/learning-to-write-without-permission</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#the-boy-who-taught-his-nation-to-speak</loc>
+        <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>
 
     <url>
-        <loc>https://johngarang.com/the-words-i-never-said</loc>
-        <lastmod>2026-07-29</lastmod>
+        <loc>https://johngarang.com/poems#a-sour-vow</loc>
+        <lastmod>2026-01-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>
     </url>

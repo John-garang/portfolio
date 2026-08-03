@@ -1095,7 +1095,7 @@
             
             // Update URL without reloading
             const poemSlug = poem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            history.pushState({poemIndex: index}, poem.title, '/' + poemSlug);
+            history.pushState({poemIndex: index}, poem.title, '/poems#' + poemSlug);
         }
 
         function showGrid() {
@@ -1104,6 +1104,7 @@
             
             // Update URL
             history.pushState({}, 'Poems', '/poems');
+            window.location.hash = '';
             
             // Scroll to top and re-trigger navbar state
             window.scrollTo(0, 0);
@@ -1128,12 +1129,12 @@
 
         // Check URL on page load to see if we should show a specific poem
         window.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const poemSlug = path.replace(/^\/|\/$/g, '').toLowerCase();
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            if (!hash) return;
             
             const poemIndex = poems.findIndex(p => {
                 const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                return slug === poemSlug;
+                return slug === hash;
             });
             
             if (poemIndex !== -1) {
