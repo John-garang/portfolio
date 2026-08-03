@@ -234,9 +234,80 @@
         .gallery-dot.active { background: #16b2dc; }
         .gallery-caption { font-size: 0.72rem; color: #888; text-align: center; margin-top: 0.4rem; font-style: italic; }
 
+        /* Gallery title */
+        .gallery-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #16b2dc;
+            margin: 0 0 0.6rem;
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.93);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 92vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-img-wrap img {
+            max-width: 92vw;
+            max-height: 85vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 0;
+            user-select: none;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 16px; right: 20px;
+            background: none; border: none;
+            color: #fff; font-size: 1.8rem;
+            cursor: pointer; z-index: 10000;
+            line-height: 1; opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .lightbox-close:hover { opacity: 1; }
+        .lightbox-btn {
+            position: fixed; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.12); border: none; color: #fff;
+            width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+            font-size: 1rem; display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; z-index: 10000;
+        }
+        .lightbox-btn:hover { background: rgba(22,178,220,0.75); }
+        .lightbox-btn.lb-prev { left: 12px; }
+        .lightbox-btn.lb-next { right: 12px; }
+        .lightbox-counter {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.78rem;
+            margin-top: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        /* Make gallery slides clickable */
+        .gallery-slide img { cursor: zoom-in; }
+
         @media (max-width: 768px) {
             .prog-block-inner { padding: 1.5rem; }
             .prog-title { font-size: 1.2rem; }
+            .lightbox-btn.lb-prev { left: 4px; }
+            .lightbox-btn.lb-next { right: 4px; }
         }
 
         /* ── Program section layout ── */
@@ -516,7 +587,8 @@
                 </div>
                 
                 <!-- UNLEASH Gallery -->
-                <div class="program-gallery" data-gallery="unleash">
+                <p class="gallery-title">Photo Gallery — UNLEASH Global Innovation Lab, Kigali 2023</p>
+                <div class="program-gallery" data-gallery="unleash" data-start="16">
                     <div class="gallery-track">
                         <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-1.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda December 2023 — one of 1,000 young innovators selected on full scholarship to develop SDG-aligned solutions" loading="lazy"></div>
                         <div class="gallery-slide"><img src="/static/Pictures/UNLEASH Gallery/web/john-ngor-deng-garang-unleash-global-innovation-lab-kigali-rwanda-2023-2.jpg" alt="John Ngor Deng Garang at UNLEASH Global Innovation Lab, Kigali Rwanda 2023 — design thinking and innovation methodology session" loading="lazy"></div>
@@ -540,7 +612,7 @@
                     <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                     <div class="gallery-dots"></div>
                 </div>
-                <p class="gallery-caption">UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023</p>
+                <p class="gallery-caption">UNLEASH Global Innovation Lab · Kigali, Rwanda · December 2023 · Click any photo to expand</p>
             </div>
         </div>
     </section>
@@ -586,7 +658,8 @@
                 </div>
                 
                 <!-- Take Action Lab Gallery -->
-                <div class="program-gallery" data-gallery="tal">
+                <p class="gallery-title">Photo Gallery — Take Action Lab, South Africa 2024</p>
+                <div class="program-gallery" data-gallery="tal" data-start="3">
                     <div class="gallery-track">
                         <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-1.jpg" alt="John Ngor Deng Garang at Take Action Lab by Tilting Futures, South Africa March 2024 — arrival and orientation" loading="lazy"></div>
                         <div class="gallery-slide"><img src="/static/Pictures/Tilting Futures Gallery/web/john-ngor-deng-garang-take-action-lab-tilting-futures-south-africa-2024-2.jpg" alt="John Ngor Deng Garang at Take Action Lab, South Africa 2024 — cohort of 52 leaders from 37 countries" loading="lazy"></div>
@@ -639,7 +712,7 @@
                     <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                     <div class="gallery-dots"></div>
                 </div>
-                <p class="gallery-caption">Take Action Lab · Tilting Futures · South Africa · 2024</p>
+                <p class="gallery-caption">Take Action Lab · Tilting Futures · South Africa · 2024 · Click any photo to expand</p>
             </div>
         </div>
     </section>
@@ -680,18 +753,48 @@
                 </div>
                 
                 <!-- Accra Fusion Gallery -->
+                <p class="gallery-title">Photo Gallery — Accra Fusion, Ghana 2025</p>
                 <div class="program-gallery" data-gallery="accra">
                     <div class="gallery-track">
-                        <div class="gallery-slide"><img src="/static/Pictures/john-ngor-deng-garang-accra-fusion-1.png" alt="Accra Fusion — John Ngor Deng Garang, Student Ambassador, Ghana 2025" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/john-ngor-deng-garang-accra-fusion-2.png" alt="Accra Fusion — ALU Ghana immersion, partnership engagement 2025" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/john-ngor-deng-garang-accra-fusion-3.png" alt="Accra Fusion — student externship coordination, Accra 2025" loading="lazy"></div>
-                        <div class="gallery-slide"><img src="/static/Pictures/john-ngor-deng-garang-accra-fusion-4.png" alt="Accra Fusion — cultural experience and networking, Ghana 2025" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-1.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion March 2025 — Student Ambassador" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-2.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — program activities" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-3.jpg" alt="John Ngor Deng Garang at Accra Fusion, Accra Ghana 2025 — international program management" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-4.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort engagement" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-5.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student support and logistics" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-6.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — partnership development" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-7.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cross-cultural leadership" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-8.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship coordination" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-9.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — ALU global learning experience" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-10.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — networking and company visits" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-11.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cultural immersion" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-12.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — pastoral support" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-13.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program coordination" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-14.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — leadership in action" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-15.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — event" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-16.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — program moment" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-17.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana March 2025 — closing activities" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-18.jpg" alt="John Ngor Deng Garang, Accra Fusion Student Ambassador, African Leadership University Ghana 2025" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-19.jpg" alt="John Ngor Deng Garang at Accra Fusion, ALU Ghana immersion 2025 — official program photo" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-20.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — cohort photo" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-21.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — group activities" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-22.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Ghanaian organisations partnerships" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-23.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — externship site visit" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-24.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — portrait" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-25.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program documentation" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-26.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — student ambassador role" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-27.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — travel and logistics" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-28.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — community and cultural experience" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-29.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — immersive learning" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-30.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — global citizenship" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-31.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — African leadership" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-32.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — Accra city experience" loading="lazy"></div>
+                        <div class="gallery-slide"><img src="/static/Pictures/Accra Fusion Gallery/web/john-ngor-deng-garang-accra-fusion-alu-ghana-immersion-2025-33.jpg" alt="John Ngor Deng Garang at Accra Fusion, Ghana 2025 — program conclusion" loading="lazy"></div>
                     </div>
                     <button class="gallery-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
                     <button class="gallery-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                     <div class="gallery-dots"></div>
                 </div>
-                <p class="gallery-caption">Accra Fusion · African Leadership University · Accra, Ghana · 2025</p>
+                <p class="gallery-caption">Accra Fusion · African Leadership University · Accra, Ghana · 2025 · Click any photo to expand</p>
             </div>
         </div>
     </section>
@@ -737,21 +840,33 @@
 
     <div id="footer-placeholder"></div>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+        <button class="lightbox-close" id="lb-close" aria-label="Close">&times;</button>
+        <button class="lightbox-btn lb-prev" id="lb-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-img-wrap">
+            <img id="lb-img" src="" alt="">
+        </div>
+        <button class="lightbox-btn lb-next" id="lb-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <p class="lightbox-counter" id="lb-counter"></p>
+    </div>
+
     <script src="/static/loading.js" defer></script>
     <script src="/static/load-header.js?v=1.0.4" defer></script>
     <script src="/static/load-footer.js" defer></script>
     <script>
+    // ── Inline gallery carousels ──
     document.querySelectorAll('.program-gallery').forEach(function(gallery) {
         var track = gallery.querySelector('.gallery-track');
         var slides = Array.from(track.querySelectorAll('.gallery-slide'));
         var dotsContainer = gallery.querySelector('.gallery-dots');
-        var current = 0;
         var total = slides.length;
+        var startIndex = parseInt(gallery.dataset.start || '0', 10);
+        var current = startIndex;
 
-        // Build dots
         slides.forEach(function(_, i) {
             var dot = document.createElement('div');
-            dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+            dot.className = 'gallery-dot' + (i === startIndex ? ' active' : '');
             dot.addEventListener('click', function() { goTo(i); });
             dotsContainer.appendChild(dot);
         });
@@ -763,18 +878,85 @@
                 d.classList.toggle('active', i === current);
             });
         }
+        goTo(startIndex);
 
         gallery.querySelector('.prev').addEventListener('click', function() { goTo(current - 1); });
         gallery.querySelector('.next').addEventListener('click', function() { goTo(current + 1); });
 
-        // Touch swipe
         var startX = 0;
         track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive: true});
         track.addEventListener('touchend', function(e) {
             var diff = startX - e.changedTouches[0].clientX;
             if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
         }, {passive: true});
+
+        // Click to open lightbox
+        slides.forEach(function(slide, i) {
+            var img = slide.querySelector('img');
+            if (img) img.addEventListener('click', function() { openLightbox(gallery, i); });
+        });
     });
+
+    // ── Lightbox ──
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
+    var lbCounter = document.getElementById('lb-counter');
+    var lbImages = [];
+    var lbIndex = 0;
+
+    function openLightbox(gallery, startIdx) {
+        lbImages = Array.from(gallery.querySelectorAll('.gallery-slide img')).map(function(img) {
+            return { src: img.src, alt: img.alt };
+        });
+        lbIndex = startIdx;
+        lbShow();
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function lbShow() {
+        lbImg.src = lbImages[lbIndex].src;
+        lbImg.alt = lbImages[lbIndex].alt;
+        lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    }
+
+    function lbClose() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
+
+    document.getElementById('lb-close').addEventListener('click', lbClose);
+    document.getElementById('lb-prev').addEventListener('click', function() {
+        lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+        lbShow();
+    });
+    document.getElementById('lb-next').addEventListener('click', function() {
+        lbIndex = (lbIndex + 1) % lbImages.length;
+        lbShow();
+    });
+    lb.addEventListener('click', function(e) {
+        if (e.target === lb) lbClose();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') lbClose();
+        if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbShow(); }
+        if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; lbShow(); }
+    });
+
+    // Touch swipe in lightbox
+    var lbStartX = 0;
+    lbImg.addEventListener('touchstart', function(e) { lbStartX = e.touches[0].clientX; }, {passive: true});
+    lbImg.addEventListener('touchend', function(e) {
+        var diff = lbStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            lbIndex = diff > 0
+                ? (lbIndex + 1) % lbImages.length
+                : (lbIndex - 1 + lbImages.length) % lbImages.length;
+            lbShow();
+        }
+    }, {passive: true});
     </script>
 </body>
 </html>
