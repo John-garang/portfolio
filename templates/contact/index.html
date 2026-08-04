@@ -215,7 +215,7 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            emailjs.send('service_bc9f04n', 'template_vl5iart', {
+            emailjs.send('service_7gb9zw8', 'template_vl5iart', {
                 firstName:   this.querySelector('#firstName').value,
                 lastName:    this.querySelector('#lastName').value,
                 email:       this.querySelector('#email').value,
@@ -228,7 +228,9 @@
             }).then(() => {
                 showBrandNotification('success', 'Thank You!', 'Your message has been sent successfully. I\'ll get back to you soon.');
                 this.reset();
-            }).catch(() => {
+            }).catch((err) => {
+                console.error('EmailJS error status:', err.status);
+                console.error('EmailJS error text:', err.text);
                 showBrandNotification('error', 'Oops!', 'Something went wrong. Please try again or email me directly.');
             }).finally(() => {
                 submitBtn.disabled = false;
