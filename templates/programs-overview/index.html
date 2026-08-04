@@ -340,6 +340,38 @@
         }
         .prog-block:hover .anchor-link { opacity: 1; }
         .anchor-link:hover { color: #16b2dc; }
+        .anchor-nav-section {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .anchor-nav-scroll {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.75rem 1.25rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            white-space: nowrap;
+        }
+        .anchor-nav-scroll::-webkit-scrollbar { display: none; }
+        .anchor-nav-btn {
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(22,178,220,0.35);
+            background: #f0f9fd;
+            color: #1a7fa0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .anchor-nav-btn:hover { background: #16b2dc; border-color: #16b2dc; color: #fff; }
     </style>
 
     <!-- Structured Data -->
@@ -426,6 +458,18 @@
         <div class="container">
             <h1>Programs &amp; Fellowships</h1>
             <p>A curated record of international fellowships, innovation labs, and leadership programs</p>
+        </div>
+    </section>
+
+    <section class="anchor-nav-section">
+        <div class="anchor-nav-scroll">
+            <a href="#cnn-academy" class="anchor-nav-btn">CNN Academy</a>
+            <a href="#unleash" class="anchor-nav-btn">UNLEASH Innovation Lab</a>
+            <a href="#take-action-lab" class="anchor-nav-btn">Take Action Lab</a>
+            <a href="#accra-fusion" class="anchor-nav-btn">Accra Fusion</a>
+            <a href="#e4be-hackathon" class="anchor-nav-btn">E4BE Hackathon</a>
+            <a href="#nairobi-nexus-hackathon" class="anchor-nav-btn">Nairobi Nexus Hackathon</a>
+            <a href="#yali" class="anchor-nav-btn">YALI East Africa</a>
         </div>
     </section>
 

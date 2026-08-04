@@ -311,6 +311,38 @@
         .exp-block:hover .anchor-link,
         .prog-block:hover .anchor-link { opacity: 1; }
         .anchor-link:hover { color: #16b2dc; }
+        .anchor-nav-section {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .anchor-nav-scroll {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.75rem 1.25rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            white-space: nowrap;
+        }
+        .anchor-nav-scroll::-webkit-scrollbar { display: none; }
+        .anchor-nav-btn {
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(22,178,220,0.35);
+            background: #f0f9fd;
+            color: #1a7fa0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .anchor-nav-btn:hover { background: #16b2dc; border-color: #16b2dc; color: #fff; }
     </style>
 </head>
 <body>
@@ -388,6 +420,23 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="anchor-nav-section">
+        <div class="anchor-nav-scroll">
+            <a href="#silicon-high-school" class="anchor-nav-btn">Silicon High School</a>
+            <a href="#africa-careers-network" class="anchor-nav-btn">Africa Careers Network</a>
+            <a href="#education-bridge" class="anchor-nav-btn">Education Bridge</a>
+            <a href="#nalafem-collective" class="anchor-nav-btn">Nalafem Collective</a>
+            <a href="#african-leadership-academy" class="anchor-nav-btn">African Leadership Academy</a>
+            <a href="#creative-connect" class="anchor-nav-btn">Creative Connect</a>
+            <a href="#alu-learning-assistant" class="anchor-nav-btn">ALU Learning Assistant</a>
+            <a href="#alu-global-learning-experiences" class="anchor-nav-btn">ALU Global Learning</a>
+            <a href="#africa-inventor-alliance" class="anchor-nav-btn">Africa Inventor Alliance</a>
+            <a href="#ashinaga-foundation" class="anchor-nav-btn">Ashinaga Foundation</a>
+            <a href="#surplus-people-project" class="anchor-nav-btn">Surplus People Project</a>
+            <a href="#uganics" class="anchor-nav-btn">Uganics</a>
         </div>
     </section>
 
