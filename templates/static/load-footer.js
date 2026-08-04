@@ -1,4 +1,10 @@
 ﻿// Load footer across all pages
+// Inject mobile-fixes.css on every page
+const _mf = document.createElement('link');
+_mf.rel = 'stylesheet';
+_mf.href = '/static/mobile-fixes.css';
+document.head.appendChild(_mf);
+
 // Load EmailJS SDK
 const _ejs = document.createElement('script');
 _ejs.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';

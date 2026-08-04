@@ -1,1 +1,6 @@
 /* mobile-fixes.css */
+
+/* Prevent browser auto-zoom on input focus (requires font-size >= 16px) */
+input, select, textarea {
+    font-size: 16px !important;
+}
