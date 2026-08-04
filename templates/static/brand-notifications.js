@@ -46,15 +46,15 @@ function showBrandNotification(type, title, message) {
                 to { transform: translateX(0); opacity: 1; }
             }
             .brand-notification-success {
-                background: linear-gradient(135deg, #10b981, #059669);
+                background: linear-gradient(135deg, #16b2dc, #1a7fa0);
                 color: white;
             }
             .brand-notification-error {
-                background: linear-gradient(135deg, #ef4444, #dc2626);
+                background: linear-gradient(135deg, #1a7fa0, #0f5570);
                 color: white;
             }
             .brand-notification-info {
-                background: linear-gradient(135deg, #3b82f6, #2563eb);
+                background: linear-gradient(135deg, #16b2dc, #1a7fa0);
                 color: white;
             }
             .notification-content {
