@@ -81,3 +81,31 @@
         </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init('jMid5j4K3IEfIlIr0');
+
+    function subscribeNewsletter(e) {
+        e.preventDefault();
+        const form = document.getElementById('newsletterForm');
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        emailjs.send('service_bc9f04n', 'template_4qclxwp', {
+            firstName: document.getElementById('newsletterFirstName').value,
+            lastName:  document.getElementById('newsletterLastName').value,
+            email:     document.getElementById('newsletterEmail').value
+        }).then(() => {
+            showBrandNotification('success', 'Subscribed!', 'Thanks for subscribing — you\'ll hear from me soon.');
+            form.reset();
+        }).catch(() => {
+            showBrandNotification('error', 'Oops!', 'Subscription failed. Please try again.');
+        }).finally(() => {
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        });
+    }
+</script>
