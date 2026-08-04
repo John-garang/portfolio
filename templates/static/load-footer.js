@@ -1,4 +1,10 @@
 ﻿// Load footer across all pages
+// Load EmailJS SDK
+const _ejs = document.createElement('script');
+_ejs.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+_ejs.onload = () => emailjs.init('jMid5j4K3IEfIlIr0');
+document.head.appendChild(_ejs);
+
 fetch('footer')
     .then(response => response.text())
     .then(data => {
@@ -15,4 +21,29 @@ fetch('footer')
         }
     });
 
-// subscribeNewsletter is defined in footer.html via EmailJS
+window.subscribeNewsletter = function(e) {
+    e.preventDefault();
+    const form = document.getElementById('newsletterForm');
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+    emailjs.send('service_7gb9zw8', 'template_4qclxwp', {
+        firstName: document.getElementById('newsletterFirstName').value,
+        lastName:  document.getElementById('newsletterLastName').value,
+        email:     document.getElementById('newsletterEmail').value
+    }).then(() => {
+        if (typeof showBrandNotification === 'function') {
+            showBrandNotification('success', 'Subscribed!', 'Thanks for subscribing — you\'ll hear from me soon.');
+        }
+        form.reset();
+    }).catch(() => {
+        if (typeof showBrandNotification === 'function') {
+            showBrandNotification('error', 'Oops!', 'Subscription failed. Please try again.');
+        }
+    }).finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    });
+};
