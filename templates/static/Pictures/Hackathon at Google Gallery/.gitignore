@@ -1,0 +1,3 @@
+# Ignore raw camera files (e.g. DKMJ0750.JPG, IMG_2512.JPG)
+[A-Z][A-Z][A-Z][A-Z]????.JPG
+IMG_????.JPG
