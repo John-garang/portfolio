@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="/my-shelf">My Shelf</a>
                                 <a href="/cv">CV</a>
                                 <a href="/graphic-design">Graphic Design</a>
+                                <a href="/web-design">Web Design</a>
                             </div>
                         </li>
                         <li><a href="/experience-overview" class="nav-link">Experience</a></li>
