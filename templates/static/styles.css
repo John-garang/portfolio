@@ -2616,7 +2616,7 @@ li {
     }
     
     .alu-hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
     }
     
     .role-item {
@@ -4448,18 +4448,18 @@ li {
 .social-icon {
     display: flex;
     align-items: center;
-    gap: .75rem;
+    gap: .6rem;
     color: rgba(255,255,255,.75);
     text-decoration: none;
-    font-size: .88rem;
+    font-size: 0.88rem;
     transition: color .2s ease;
 }
 
 .social-icon svg {
-    width: 34px;
-    height: 34px;
-    padding: 8px;
-    border-radius: 8px;
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+    border-radius: 6px;
     background: rgba(255,255,255,.1);
     flex-shrink: 0;
     transition: background .25s ease, transform .25s ease;
@@ -5184,19 +5184,19 @@ li {
 /* Mobile-First Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 42px;
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
     .hero-subtitle {
-        font-size: 18px;
+        font-size: 1rem;
     }
 
     .hero-quote {
-        font-size: 16px;
+        font-size: 0.95rem;
     }
 
     .about h1 {
-        font-size: 42px;
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
     .favorite-quote blockquote {
@@ -5292,11 +5292,11 @@ li {
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
     }
     
     .animated-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .welcome-image img {
@@ -5304,7 +5304,7 @@ li {
     }
 
     .about h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
     }
 
     .about-social-links {
@@ -5441,7 +5441,7 @@ li {
     }
     
     .category-hero h1, .services-hero h1, .contact-hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
     }
     
     .service-image img {
