@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+under/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -22,17 +22,32 @@ html {
     width: 100%;
 }
 
+/* ── Type Scale ─────────────────────────────────────────────────────────────
+   One consistent scale used everywhere. Override nothing with raw px/rem
+   values in component rules — use these tokens instead.
+   Body / footer text : 0.95rem
+   Small / meta       : 0.8rem
+   Subtitle / lead    : 1.05rem
+   h4 card titles     : 1.1rem
+   h3 section cards   : 1.2rem
+   h2 section heads   : 1.5rem
+   h1 content pages   : 2rem
+   h1 hero (clamped)  : clamp(2rem, 5vw, 2.5rem)
+──────────────────────────────────────────────────────────────────────────── */
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.25;
     margin-bottom: 0.5em;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
-h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 h3 { font-size: 1.2rem; }
+h4 { font-size: 1.1rem; }
+h5, h6 { font-size: 1rem; }
 
 p {
     font-family: 'Segoe UI', system-ui, sans-serif;
@@ -40,13 +55,6 @@ p {
     line-height: 1.75;
     color: #555;
     margin-bottom: 1em;
-}
-
-@media (max-width: 768px) {
-    p {
-        font-size: 0.9rem;
-        line-height: 1.65;
-    }
 }
 
 span {
@@ -57,6 +65,92 @@ li {
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 0.95rem;
 }
+
+/* ── Global font-size overrides: bring all scattered sizes into the scale ── */
+
+/* Hero titles — only place we allow a larger clamped size */
+.hero h1, .about h1, .alu-hero h1,
+.services-hero h1, .contact-hero h1,
+.shelf-hero h1, .category-hero h1,
+.blog-hero-content h1, .blog-header h1,
+.search-results-section h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+/* Hero subtitles / lead lines */
+.hero-subtitle, .shelf-subtitle, .department,
+.services-hero p, .contact-hero p, .category-hero p,
+.shelf-description, .section-subtitle {
+    font-size: 1.05rem;
+}
+
+/* Section headings that were hardcoded large */
+.skills h2, .how-i-work h2, .portfolio h2,
+.experience h2, .services h2, .contact h2,
+.alu-about h2, .learnings-section h2,
+.content-section h2, .overview-text h2,
+.role-header h2, .approach-section h3,
+.responsibilities h3, .comments-section h2,
+.contact-info-section h2, .contact-form-section h2,
+.section-title {
+    font-size: 1.5rem;
+}
+
+/* Card / component h3 titles */
+.method-card h3, .service-content h3,
+.service-card-page h3, .bio-card h3,
+.learning-card h3, .role-item h3,
+.highlight-card h3, .service-card h3,
+.category-content h3, .post-card h3,
+.project-card h3, .program-content h3,
+.article-content h3, .featured-article h3,
+.search-result-item h3, .welcome-intro h3,
+.responsibility-item h4, .value-card h4,
+.stat h4, .detail-item h4, .contact-info h3,
+.contact-info h4, .personal-details h3,
+.bio-card h3, .method-details h3,
+.social-media-section h3, .company-header h1 {
+    font-size: 1.1rem;
+}
+
+/* Body-level text — match footer text size */
+.bio-card p, .method-card p, .value-card p,
+.service-card-page p, .service-content p,
+.contact-info-section p, .welcome-intro p,
+.role-content p, .overview-text p,
+.about-content p, .experience-content p,
+.blog-text, .blog-text p, .final-reflection p,
+.role-item p, .detail-item p, .detail-item li,
+.footer-tagline, .footer-links a,
+.social-icon, .newsletter-form input,
+.newsletter-form button, .footer-bottom,
+.footer-bottom-links a {
+    font-size: 0.95rem;
+}
+
+/* Small / meta text */
+.article-meta, .read-time, .post-date,
+.read-more, .article-category,
+.contact-label, .footer-heading,
+.section-tag, .quote-label,
+.rotating-text, .skill-title,
+.stat-label, .credential-badge,
+.method-details span, .sub-date,
+.comment-date, .blog-date {
+    font-size: 0.8rem;
+}
+
+/* Stat numbers — decorative, keep prominent but not huge */
+.stat-number, .stat h4 { font-size: 1.75rem; }
+
+/* Skills card icon label */
+.skill-title { font-size: 0.95rem; }
+
+/* Form labels and inputs */
+.form-group label { font-size: 0.95rem; }
+.submit-btn, .submit-quote-btn,
+.quote-btn, .proceed-btn,
+.view-more-btn, .tab-btn { font-size: 0.95rem; }
 
 .container {
     max-width: 1200px;
@@ -205,7 +299,7 @@ li {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -270,7 +364,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     transition: all 0.3s ease;
 }
 
@@ -328,7 +422,7 @@ li {
 
 .search-icon {
     color: #16b2dc;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 #searchInput {
@@ -443,7 +537,7 @@ li {
     text-decoration: none;
     display: block;
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     background: transparent;
     transition: all 0.3s ease;
     border-radius: 8px;
@@ -470,7 +564,7 @@ li {
 
 .dropdown .nav-link i {
     margin-left: 6px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     transition: transform 0.3s ease;
 }
 
@@ -565,7 +659,7 @@ li {
 
 .hero h1 {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 700;
     color: #F5F5F5;
     margin-bottom: clamp(1rem, 3vw, 2rem);
@@ -608,7 +702,7 @@ li {
 
 .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 38px;
+    font-size: 1.05rem;
     font-weight: 400;
     color: #ffffff;
     margin-bottom: 24px;
@@ -616,7 +710,7 @@ li {
 
 .hero-quote {
     font-family: 'Inter', sans-serif;
-    font-size: 19px;
+    font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.6;
     max-width: 600px;
@@ -659,13 +753,13 @@ li {
 }
 
 .highlight-card i {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
     color: #ffd700;
 }
 
 .highlight-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
@@ -674,7 +768,7 @@ li {
 }
 
 .services-preview h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.6s both;
 }
@@ -700,13 +794,13 @@ li {
 }
 
 .service-card i {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1.5rem;
     color: #ffd700;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
@@ -749,7 +843,7 @@ li {
 }
 
 .welcome-content p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     line-height: 1.8;
     margin-bottom: 2rem;
     color: #666;
@@ -781,14 +875,14 @@ li {
 
 .skills h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #333;
 }
 
 .skills-intro {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     color: #16b2dc;
     max-width: 600px;
     margin: 0 auto 3rem;
@@ -831,7 +925,7 @@ li {
 }
 
 .skill-card i {
-    font-size: 48px;
+    font-size: 2rem;
     color: #333;
     margin-bottom: 0.5rem;
     transition: opacity 0.8s ease;
@@ -862,7 +956,7 @@ li {
 
 .skill-title {
     font-family: 'Inter', sans-serif;
-    font-size: 17px;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #333;
     text-align: center;
@@ -871,7 +965,7 @@ li {
 
 .rotating-text {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #16b2dc;
     text-align: center;
@@ -931,7 +1025,7 @@ li {
 
 .how-i-work h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
     position: relative;
@@ -977,7 +1071,7 @@ li {
     }
 
 .method-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #333;
     position: relative;
@@ -1072,7 +1166,7 @@ li {
 
 .about h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 54px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: #F5F5F5;
     margin-bottom: 50px;
@@ -1180,7 +1274,7 @@ li {
 .bio-card p {
     margin: 0;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
 }
 
@@ -1303,7 +1397,7 @@ li {
 }
 
 .contact-icon i {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: white;
 }
 
@@ -1315,7 +1409,7 @@ li {
 }
 
 .contact-label {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #999;
     font-weight: 500;
     text-transform: uppercase;
@@ -1323,7 +1417,7 @@ li {
 }
 
 .contact-value {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #333;
     font-weight: 600;
 }
@@ -1370,7 +1464,7 @@ li {
 .detail-item p {
     color: #666;
     line-height: 1.6;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .detail-item ul {
@@ -1383,7 +1477,7 @@ li {
     margin-bottom: 0.5rem;
     padding-left: 1rem;
     position: relative;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .detail-item li::before {
@@ -1409,13 +1503,13 @@ li {
 }
 
 .company-header h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: #333;
     margin-bottom: 1rem;
 }
 
 .company-header .role {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #16b2dc;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -1441,7 +1535,7 @@ li {
 .experience-content h2 {
     color: #333;
     margin-bottom: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     border-bottom: 3px solid #16b2dc;
     padding-bottom: 1rem;
 }
@@ -1485,7 +1579,7 @@ li {
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 25px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
@@ -1499,7 +1593,7 @@ li {
 .project-card h3 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .project-card p {
@@ -1527,7 +1621,7 @@ li {
 
 .portfolio h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -1655,7 +1749,7 @@ li {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #666;
 }
 
@@ -1664,7 +1758,7 @@ li {
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1679,7 +1773,7 @@ li {
 
 .article-content h3 {
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.4;
 }
 
@@ -1709,7 +1803,7 @@ li {
 
 .post-date {
     color: #999;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1719,7 +1813,7 @@ li {
     color: #16b2dc;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1783,7 +1877,7 @@ li {
 
 .experience h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -1943,7 +2037,7 @@ li {
 
 .services h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -1992,7 +2086,7 @@ li {
 }
 
 .service-content h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #333;
 }
@@ -2032,7 +2126,7 @@ li {
 
 .contact h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -2044,7 +2138,7 @@ li {
 }
 
 .contact-info h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #333;
 }
@@ -2172,7 +2266,7 @@ li {
 
 .alu-hero h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 3.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 3rem;
     color: #F5F5F5;
@@ -2194,7 +2288,7 @@ li {
 }
 
 .role-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #ffd700;
 }
@@ -2211,7 +2305,7 @@ li {
 
 .alu-about h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -2240,7 +2334,7 @@ li {
 }
 
 .overview-text h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #333;
 }
@@ -2281,7 +2375,7 @@ li {
 }
 
 .role-header h2 {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -2305,7 +2399,7 @@ li {
 
 .approach-section h3,
 .responsibilities h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #333;
     border-bottom: 3px solid #16b2dc;
@@ -2351,7 +2445,7 @@ li {
 }
 
 .stat h4 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     color: white;
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -2392,7 +2486,7 @@ li {
 }
 
 .responsibility-item h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     color: #333;
     padding: 0 1rem;
@@ -2412,7 +2506,7 @@ li {
 
 .learnings-section h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -2438,13 +2532,13 @@ li {
 }
 
 .learning-card i {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: #16b2dc;
     margin-bottom: 1.5rem;
 }
 
 .learning-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     color: #333;
 }
@@ -2464,7 +2558,7 @@ li {
 }
 
 .final-reflection blockquote {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-style: italic;
     color: #16b2dc;
     margin-bottom: 2rem;
@@ -2484,7 +2578,7 @@ li {
 /* ALU Responsive Design */
 @media (max-width: 768px) {
     .alu-hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .roles-summary {
@@ -2565,7 +2659,7 @@ li {
 
 .contact-hero h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
     color: #ffffff;
 }
@@ -2590,7 +2684,7 @@ li {
 
 .contact-info-section h2,
 .contact-form-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1.5rem;
     color: #333;
 }
@@ -2651,7 +2745,7 @@ li {
 }
 
 .method-details span {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
 }
 
@@ -2771,7 +2865,7 @@ li {
     }
     
     .contact-hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .professional-contact-form {
@@ -2789,7 +2883,7 @@ li {
 
 .blog-header h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -2825,7 +2919,7 @@ li {
 }
 
 .blog-text .lead {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #16b2dc;
     margin-bottom: 2rem;
@@ -2901,7 +2995,7 @@ li {
 }
 
 .comment-date {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .comment p {
@@ -2914,7 +3008,7 @@ li {
     border: none;
     color: #16b2dc;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 0;
 }
 
@@ -2946,7 +3040,7 @@ li {
 }
 
 .blog-date {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #16b2dc;
     font-weight: 500;
     margin-top: 0.5rem;
@@ -2973,7 +3067,7 @@ li {
 }
 
 .shelf-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
@@ -3113,7 +3207,7 @@ li {
 
 .content-section h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -3142,7 +3236,7 @@ li {
 .post-card h3 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .post-card p {
@@ -3153,7 +3247,7 @@ li {
 
 .post-date {
     color: #16b2dc;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
@@ -3166,7 +3260,7 @@ li {
 }
 
 .category-hero h1 {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
@@ -3255,7 +3349,7 @@ li {
 }
 
 .featured-article h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
@@ -3270,7 +3364,7 @@ li {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #666;
 }
 
@@ -3279,7 +3373,7 @@ li {
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -3299,7 +3393,7 @@ li {
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     z-index: 2;
     animation: pulse 2s infinite;
@@ -3378,7 +3472,7 @@ li {
 .article-content h3 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.4;
 }
 
@@ -3390,7 +3484,7 @@ li {
 
 .article-content .post-date {
     color: #16b2dc;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
@@ -3400,7 +3494,7 @@ li {
     }
     
     .shelf-hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .shelf-subtitle {
@@ -3413,7 +3507,7 @@ li {
     }
     
     .category-hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .categories-grid {
@@ -3440,12 +3534,12 @@ li {
     }
     
     .article-content h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 }
 
 .blog-hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 2rem;
     line-height: 1.2;
 }
@@ -3506,7 +3600,7 @@ li {
 .author-details p {
     margin: 0;
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .article-actions {
@@ -3624,7 +3718,7 @@ li {
 }
 
 .comment-avatar i {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     color: #16b2dc;
 }
 
@@ -3646,7 +3740,7 @@ li {
 
 .comment-date {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .comment-content p {
@@ -3660,7 +3754,7 @@ li {
     border: none;
     color: #16b2dc;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 0.3rem;
@@ -3673,7 +3767,7 @@ li {
 
 @media (max-width: 768px) {
     .blog-hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .blog-meta {
@@ -3699,12 +3793,12 @@ li {
     }
     
     .blog-header h1 {
-        font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
         line-height: 1.3;
     }
     
     .blog-meta {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -3751,7 +3845,7 @@ li {
 }
 
 .services-hero h1 {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
@@ -3984,7 +4078,7 @@ li {
 .design-overlay p {
     margin: 0;
     opacity: 0.9;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* CV Section */
@@ -4215,7 +4309,7 @@ li {
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #16b2dc;
     display: block;
@@ -4237,7 +4331,7 @@ li {
 
 .sub-date {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* ── Footer ── */
@@ -4277,14 +4371,14 @@ li {
 }
 
 .footer-tagline {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: rgba(255,255,255,.55);
     margin-bottom: 1.25rem;
 }
 
 .footer-heading {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -4304,7 +4398,7 @@ li {
 .footer-links a {
     color: rgba(255,255,255,.65);
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     transition: color .2s ease;
 }
 
@@ -4325,7 +4419,7 @@ li {
     background: rgba(255,255,255,.07);
     color: white;
     font-family: inherit;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
@@ -4337,7 +4431,7 @@ li {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 600;
     transition: background .25s ease;
 }
@@ -4655,7 +4749,7 @@ li {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #333;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .form-input,
@@ -5317,7 +5411,7 @@ li {
     }
     
     .search-results-section h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
     
     .search-result-item {
@@ -5331,7 +5425,7 @@ li {
     }
     
     .nav-name {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     
     .hero, .about, .alu-hero, .blog-hero, .shelf-hero {
@@ -5365,7 +5459,7 @@ li {
     }
     
     .search-results-section h1 {
-        font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     }
     
     .search-query {
@@ -5378,7 +5472,7 @@ li {
     }
     
     .search-result-item h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .search-result-item:hover {
@@ -5598,7 +5692,7 @@ li {
 
 .search-results-section h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 15px;
     color: #1a1a2e;
     font-weight: 700;
@@ -5643,7 +5737,7 @@ li {
 .search-result-item h3 {
     margin: 0 0 12px 0;
     font-family: 'Inter', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -5667,7 +5761,7 @@ li {
 
 .no-results {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #555;
     padding: 80px 20px;
     font-family: 'Inter', sans-serif;
@@ -5713,7 +5807,7 @@ li {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     color: #333;
     margin-bottom: 1rem;
 }
@@ -5756,7 +5850,7 @@ li {
 
 .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #16b2dc;
     font-family: 'Inter', sans-serif;
@@ -5765,13 +5859,13 @@ li {
 
 .stat-label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
     font-weight: 500;
 }
 
 .welcome-intro h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: #333;
     margin-bottom: 1.5rem;
 }
@@ -5912,7 +6006,7 @@ li {
 }
 
 .value-card h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #333;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -5975,7 +6069,7 @@ li {
     }
     
     .welcome-intro h3 {
-        font-size: 1.5rem;
+    font-size: 1.2rem;
     }
     
     .welcome-intro p {
