@@ -21,6 +21,10 @@
             color: #ffffff;
             opacity: 0.9;
         }
+        /* Highlight the selected service card */
+        .service-card-page.selected {
+            outline: 3px solid #16b2dc;
+        }
     </style>
 </head>
 <body>
@@ -93,185 +97,221 @@
         </div>
     </section>
 
-    <!-- Quote Modal -->
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Request a Quote</h2>
-            <p>Ready to get started? Let's discuss your project and provide you with a detailed quote.</p>
-            <button id="proceedBtn" class="proceed-btn">Proceed to Quotation Form</button>
+    <!-- Quote Form Section (same layout as contact page) -->
+    <section class="contact-main" id="quoteSection" style="display:none;">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left info panel -->
+                <div class="contact-info-section">
+                    <h2>Request a Quote</h2>
+                    <p>Ready to get started? Fill out the form and I'll get back to you within 24 hours with a detailed quote.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="method-details">
+                                <h3>Email</h3>
+                                <p>dengjohn200@gmail.com</p>
+                                <span>Response within 24 hours</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-phone"></i></div>
+                            <div class="method-details">
+                                <h3>Phone</h3>
+                                <p>+256 768 741 070</p>
+                                <span>Available Mon-Fri, 9AM-6PM EAT</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="method-details">
+                                <h3>WhatsApp</h3>
+                                <p>+250 798 287 465</p>
+                                <span>Quick responses available</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="method-details">
+                                <h3>Location</h3>
+                                <p>Kampala, Uganda</p>
+                                <span>Available for remote work globally</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-media-section">
+                        <h3>Connect on Social Media</h3>
+                        <div class="social-links-contact">
+                            <a href="https://www.linkedin.com/in/j-garang/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                            <a href="https://x.com/John_Ngor_Deng" class="social-link" target="_blank"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                            <a href="https://www.instagram.com/john__garang/" class="social-link" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                            <a href="https://www.facebook.com/ngor.johngarang" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                            <a href="https://medium.com/@j.garang" class="social-link" target="_blank"><i class="fab fa-medium-m"></i><span>Medium</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right form panel -->
+                <div class="contact-form-section">
+                    <h2>Project Quotation Form</h2>
+                    <form class="professional-contact-form" id="quoteForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Required *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="ghost-writing">Ghost Writing Services</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="budget">Budget Range (USD)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="5">$5</option>
+                                    <option value="10">$10</option>
+                                    <option value="15">$15</option>
+                                    <option value="20">$20</option>
+                                    <option value="25">$25</option>
+                                    <option value="40">$40</option>
+                                    <option value="50">$50</option>
+                                    <option value="100">$100</option>
+                                    <option value="150">$150</option>
+                                    <option value="200">$200</option>
+                                    <option value="250">$250</option>
+                                    <option value="300">$300</option>
+                                    <option value="350">$350</option>
+                                    <option value="400">$400</option>
+                                    <option value="450">$450</option>
+                                    <option value="500">$500</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Project Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="urgent">Urgent (1-2 weeks)</option>
+                                    <option value="standard">Standard (3-4 weeks)</option>
+                                    <option value="flexible">Flexible (1-2 months)</option>
+                                    <option value="long-term">Long-term (3+ months)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Please describe your project requirements in detail..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Information</label>
+                            <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any specific requirements, preferences, or questions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Quote Request
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- Quote Form Modal -->
-    <div id="quoteFormModal" class="modal">
-        <div class="modal-content quote-form-modal">
-            <span class="close">&times;</span>
-            <h2>Project Quotation Form</h2>
-            <form id="quoteForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" name="fullName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company/Organization</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Service Required *</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select a service</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="graphic-design">Graphic Design</option>
-                        <option value="ghost-writing">Ghost Writing Services</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="projectDescription">Project Description *</label>
-                    <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Please describe your project requirements in detail..." required></textarea>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="timeline">Project Timeline</label>
-                        <select id="timeline" name="timeline">
-                            <option value="">Select timeline</option>
-                            <option value="urgent">Urgent (1-2 weeks)</option>
-                            <option value="standard">Standard (3-4 weeks)</option>
-                            <option value="flexible">Flexible (1-2 months)</option>
-                            <option value="long-term">Long-term (3+ months)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget">Budget Range (USD)</label>
-                        <select id="budget" name="budget">
-                            <option value="">Select budget range</option>
-                            <option value="5">$5</option>
-                            <option value="10">$10</option>
-                            <option value="15">$15</option>
-                            <option value="20">$20</option>
-                            <option value="25">$25</option>
-                            <option value="40">$40</option>
-                            <option value="50">$50</option>
-                            <option value="100">$100</option>
-                            <option value="150">$150</option>
-                            <option value="200">$200</option>
-                            <option value="250">$250</option>
-                            <option value="300">$300</option>
-                            <option value="350">$350</option>
-                            <option value="400">$400</option>
-                            <option value="450">$450</option>
-                            <option value="500">$500</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="additionalInfo">Additional Information</label>
-                    <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any specific requirements, preferences, or questions..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-quote-btn">Submit Quote Request</button>
-            </form>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <script src="/static/load-footer.js"></script>
 
-    <script src="/static/script.js"></script>
+    <script src="/static/brand-notifications.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Services page functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const quoteButtons = document.querySelectorAll('.quote-btn');
-            const quoteModal = document.getElementById('quoteModal');
-            const quoteFormModal = document.getElementById('quoteFormModal');
-            const proceedBtn = document.getElementById('proceedBtn');
-            const closeBtns = document.querySelectorAll('.close');
-            const quoteForm = document.getElementById('quoteForm');
-            let selectedService = '';
+        emailjs.init('jMid5j4K3IEfIlIr0');
 
-            // Open quote modal
-            quoteButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    selectedService = e.target.closest('.service-card-page').dataset.service;
-                    quoteModal.style.display = 'block';
-                });
+        // Show quote form when Get Quote is clicked
+        document.querySelectorAll('.quote-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.service-card-page');
+                const service = card.dataset.service;
+
+                // Highlight selected card
+                document.querySelectorAll('.service-card-page').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+
+                // Pre-select service and show form
+                document.getElementById('service').value = service;
+                const section = document.getElementById('quoteSection');
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+        });
 
-            // Proceed to form
-            proceedBtn.addEventListener('click', () => {
-                quoteModal.style.display = 'none';
-                quoteFormModal.style.display = 'block';
-                document.getElementById('service').value = selectedService;
-                document.querySelector('.quote-form-modal').scrollTop = 0;
-            });
+        // Handle form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            // Close modals
-            closeBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    quoteModal.style.display = 'none';
-                    quoteFormModal.style.display = 'none';
-                });
-            });
+            const additional = document.getElementById('additionalInfo').value;
+            const fullMessage = document.getElementById('message').value +
+                (additional ? '\n\nAdditional Info: ' + additional : '');
 
-            // Close on outside click
-            window.addEventListener('click', (e) => {
-                if (e.target === quoteModal || e.target === quoteFormModal) {
-                    quoteModal.style.display = 'none';
-                    quoteFormModal.style.display = 'none';
-                }
-            });
-
-            // Handle form submission
-            quoteForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const submitBtn = quoteForm.querySelector('.submit-quote-btn');
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-
-                emailjs.send('service_7gb9zw8', 'template_4qclxwp', {
-                    firstName: document.getElementById('fullName').value,
-                    lastName: document.getElementById('company').value || '',
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    service: document.getElementById('service').value,
-                    budget: document.getElementById('budget').value,
-                    timeline: document.getElementById('timeline').value,
-                    message: document.getElementById('projectDescription').value + '\n\nAdditional Info: ' + document.getElementById('additionalInfo').value
-                }).then(() => {
-                    showBrandNotification('success', 'Quote Request Sent!', 'Thank you for your interest. I\'ll get back to you within 24 hours with a detailed quote.');
-                    quoteFormModal.style.display = 'none';
-                    quoteForm.reset();
-                }).catch(() => {
-                    showBrandNotification('error', 'Oops!', 'Failed to send. Please try again or email directly.');
-                }).finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Submit Quote Request';
-                });
+            emailjs.send('service_7gb9zw8', 'template_vl5iart', {
+                firstName:   document.getElementById('firstName').value,
+                lastName:    document.getElementById('lastName').value,
+                email:       document.getElementById('email').value,
+                phone:       document.getElementById('phone').value,
+                company:     document.getElementById('company').value,
+                serviceType: document.getElementById('service').value,
+                budget:      document.getElementById('budget').value,
+                timeline:    document.getElementById('timeline').value,
+                message:     fullMessage
+            }).then(() => {
+                showBrandNotification('success', 'Quote Request Sent!', "Thank you! I'll get back to you within 24 hours with a detailed quote.");
+                this.reset();
+                document.querySelectorAll('.service-card-page').forEach(c => c.classList.remove('selected'));
+                document.getElementById('quoteSection').style.display = 'none';
+            }).catch(() => {
+                showBrandNotification('error', 'Oops!', 'Something went wrong. Please try again or email me directly.');
+            }).finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
             });
         });
     </script>
 
+    <script src="/static/script.js"></script>
 </body>
 </html>
-
-
-
-
