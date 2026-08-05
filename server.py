@@ -3,83 +3,91 @@ import http.server
 import socketserver
 import os
 import mimetypes
+import gzip
+import io
 
 PORT = int(os.environ.get('PORT', 8080))
 
 class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
-    
-    # Static assets get long-term caching
-    STATIC_ASSETS = {'.css', '.js', '.jpg', '.jpeg', '.png', '.gif', '.svg', 
-                     '.webp', '.woff', '.woff2', '.ttf', '.eot', '.ico'}
-    
+
+    STATIC_ASSETS  = {'.css', '.js', '.jpg', '.jpeg', '.png', '.gif', '.svg',
+                      '.webp', '.woff', '.woff2', '.ttf', '.eot', '.ico'}
+    COMPRESSIBLE   = {'.html', '.css', '.js', '.json', '.xml', '.txt', '.svg'}
+
     def end_headers(self):
-        """Apply smart caching based on file type"""
-        file_ext = os.path.splitext(self.path)[1].lower()
-        
-        if file_ext in self.STATIC_ASSETS:
-            # Long-term caching for static assets (1 year)
+        ext = os.path.splitext(self.path)[1].lower()
+        if ext in self.STATIC_ASSETS:
             self.send_header('Cache-Control', 'public, max-age=31536000, immutable')
         else:
-            # No caching for HTML files (always fetch fresh)
             self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
             self.send_header('Pragma', 'no-cache')
             self.send_header('Expires', '0')
-        
-        # Security headers
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('X-Frame-Options', 'SAMEORIGIN')
         self.send_header('X-XSS-Protection', '1; mode=block')
-        
         super().end_headers()
-    
+
     def guess_type(self, path):
-        """Ensure correct MIME types"""
         mime_type, _ = mimetypes.guess_type(path)
         if mime_type:
             return mime_type
-        # Fallback for common types
-        if path.endswith('.css'):
-            return 'text/css'
-        elif path.endswith('.js'):
-            return 'application/javascript'
-        elif path.endswith('.xml'):
-            return 'application/xml'
-        elif path.endswith('.txt'):
-            return 'text/plain'
+        if path.endswith('.css'):   return 'text/css'
+        if path.endswith('.js'):    return 'application/javascript'
+        if path.endswith('.xml'):   return 'application/xml'
+        if path.endswith('.txt'):   return 'text/plain'
         return 'application/octet-stream'
-    
-    def do_GET(self):
-        """Handle routing with HTML auto-append"""
+
+    def _route(self):
+        """Resolve URL path to a file path in templates/."""
         clean = self.path.split('?')[0]
         if clean == '/':
             self.path = 'templates/index.html'
         elif clean in ('/sitemap.xml', '/robots.txt'):
-            # Serve sitemap and robots from templates/ with correct type
             self.path = 'templates/' + clean.lstrip('/')
         elif '.' in clean.split('/')[-1]:
-            # Has a file extension — serve from templates/
             self.path = 'templates/' + clean.lstrip('/')
         else:
-            # Try direct .html file first, then directory/index.html, then poems SPA
-            direct = 'templates/' + clean.lstrip('/') + '.html'
+            direct    = 'templates/' + clean.lstrip('/') + '.html'
             directory = 'templates/' + clean.lstrip('/') + '/index.html'
             if os.path.exists(direct):
                 self.path = direct
             elif os.path.exists(directory):
                 self.path = directory
             else:
-                # Unknown route — 404
                 self.send_response(404)
                 self.send_header('Content-Type', 'text/html')
                 self.end_headers()
                 self.wfile.write(b'<h1>404 Not Found</h1>')
-                return
-        return http.server.SimpleHTTPRequestHandler.do_GET(self)
+                self.path = None  # signal that response is already sent
 
-# Enable address reuse
+    def do_GET(self):
+        self._route()
+        if self.path is None:
+            return  # 404 already sent
+
+        ext    = os.path.splitext(self.path)[1].lower()
+        accept = self.headers.get('Accept-Encoding', '')
+
+        if 'gzip' in accept and ext in self.COMPRESSIBLE and os.path.isfile(self.path):
+            with open(self.path, 'rb') as f:
+                raw = f.read()
+            buf = io.BytesIO()
+            with gzip.GzipFile(fileobj=buf, mode='wb', compresslevel=6) as gz:
+                gz.write(raw)
+            data = buf.getvalue()
+            self.send_response(200)
+            self.send_header('Content-Type', self.guess_type(self.path))
+            self.send_header('Content-Encoding', 'gzip')
+            self.send_header('Content-Length', str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
+        else:
+            http.server.SimpleHTTPRequestHandler.do_GET(self)
+
+
 socketserver.TCPServer.allow_reuse_address = True
 
 with socketserver.TCPServer(("", PORT), SmartCacheHTTPRequestHandler) as httpd:
     print(f"✓ Server running at http://localhost:{PORT}")
-    print(f"✓ Smart caching enabled: HTML=no-cache, Assets=1yr cache")
+    print(f"✓ Gzip compression + smart caching enabled")
     httpd.serve_forever()

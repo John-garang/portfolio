@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | John Garang</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <style>
         .services-hero h1 {
             font-family: 'Inter', sans-serif;
@@ -41,7 +43,7 @@
             <div class="services-grid-page">
                 <div class="service-card-page" data-service="web-development">
                     <div class="service-image">
-                        <img src="/static/Pictures/Web Development.png" alt="Web Development">
+                        <img src="/static/Pictures/Web Development.png" alt="Web Development" width="400" height="300" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3>Web Development</h3>
@@ -58,7 +60,7 @@
 
                 <div class="service-card-page" data-service="graphic-design">
                     <div class="service-image">
-                        <img src="/static/Pictures/Graphic Design.png" alt="Graphic Design">
+                        <img src="/static/Pictures/Graphic Design.png" alt="Graphic Design" width="400" height="300" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3>Graphic Design</h3>
@@ -75,7 +77,7 @@
 
                 <div class="service-card-page" data-service="ghost-writing">
                     <div class="service-image">
-                        <img src="/static/Pictures/Ghost Writing Services.png" alt="Ghost Writing">
+                        <img src="/static/Pictures/Ghost Writing Services.png" alt="Ghost Writing" width="400" height="300" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3>Ghost Writing Services</h3>
