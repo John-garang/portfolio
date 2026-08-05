@@ -240,61 +240,31 @@
             });
 
             // Handle form submission
-            quoteForm.addEventListener('submit', async (e) => {
+            quoteForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const submitBtn = quoteForm.querySelector('.submit-quote-btn');
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
-                
-                const formData = {
-                    formType: 'contact',
-                    name: document.getElementById('fullName').value,
+
+                emailjs.send('service_7gb9zw8', 'template_4qclxwp', {
+                    firstName: document.getElementById('fullName').value,
+                    lastName: document.getElementById('company').value || '',
                     email: document.getElementById('email').value,
                     phone: document.getElementById('phone').value,
-                    company: document.getElementById('company').value,
                     service: document.getElementById('service').value,
                     budget: document.getElementById('budget').value,
                     timeline: document.getElementById('timeline').value,
                     message: document.getElementById('projectDescription').value + '\n\nAdditional Info: ' + document.getElementById('additionalInfo').value
-                };
-                
-                // Create hidden form for submission
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'https://script.google.com/macros/s/AKfycbyIkrho7Kdvo19Ely41v6U7CNvtjO-oU4IsUqulvVlJHiPa5DuB3hgmhxNkwTEm7Q1XWQ/exec';
-                form.target = 'hidden_iframe';
-                form.style.display = 'none';
-                
-                Object.keys(formData).forEach(key => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = formData[key];
-                    form.appendChild(input);
-                });
-                
-                const iframe = document.createElement('iframe');
-                iframe.name = 'hidden_iframe';
-                iframe.style.display = 'none';
-                
-                iframe.onload = () => {
-                    // Prevent multiple notifications
-                    if (iframe.hasLoaded) return;
-                    iframe.hasLoaded = true;
-                    
-                    showBrandNotification('success', 'Quote Request Sent!', 'Thank you for your interest. We\'ll get back to you within 24 hours with a detailed quote.');
-                    
+                }).then(() => {
+                    showBrandNotification('success', 'Quote Request Sent!', 'Thank you for your interest. I\'ll get back to you within 24 hours with a detailed quote.');
                     quoteFormModal.style.display = 'none';
                     quoteForm.reset();
-                    document.body.removeChild(form);
-                    document.body.removeChild(iframe);
+                }).catch(() => {
+                    showBrandNotification('error', 'Oops!', 'Failed to send. Please try again or email directly.');
+                }).finally(() => {
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Submit Quote Request';
-                };
-                
-                document.body.appendChild(iframe);
-                document.body.appendChild(form);
-                form.submit();
+                });
             });
         });
     </script>
