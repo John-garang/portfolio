@@ -13,6 +13,8 @@ document.head.appendChild(_bn);
 // Load EmailJS SDK
 const _ejs = document.createElement('script');
 _ejs.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+_ejs.integrity = 'sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS';
+_ejs.crossOrigin = 'anonymous';
 _ejs.onload = () => emailjs.init('jMid5j4K3IEfIlIr0');
 document.head.appendChild(_ejs);
 

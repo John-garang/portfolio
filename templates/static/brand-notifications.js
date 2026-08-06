@@ -112,18 +112,41 @@ function showBrandNotification(type, title, message) {
 
     const overlay = document.createElement('div');
     overlay.className = 'bn-overlay';
-    overlay.innerHTML = `
-        <div class="bn-modal" role="dialog" aria-modal="true" aria-label="${title}">
-            <img class="bn-logo" src="/static/Pictures/john-ngor-deng-garang-logo.png" alt="JNDG">
-            <div class="bn-divider"></div>
-            <div class="bn-icon-wrap ${type}">
-                <i class="fas ${iconMap[type] || 'fa-info'}"></i>
-            </div>
-            <p class="bn-title">${title}</p>
-            <p class="bn-message">${message}</p>
-            <button class="bn-close-btn">Got it</button>
-        </div>
-    `;
+
+    const modal = document.createElement('div');
+    modal.className = 'bn-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', title);
+
+    const logo = document.createElement('img');
+    logo.className = 'bn-logo';
+    logo.src = '/static/Pictures/john-ngor-deng-garang-logo.png';
+    logo.alt = 'JNDG';
+
+    const divider = document.createElement('div');
+    divider.className = 'bn-divider';
+
+    const iconWrap = document.createElement('div');
+    iconWrap.className = `bn-icon-wrap ${Object.keys(iconMap).includes(type) ? type : ''}`;
+    const icon = document.createElement('i');
+    icon.className = `fas ${iconMap[type] || 'fa-info'}`;
+    iconWrap.appendChild(icon);
+
+    const titleEl = document.createElement('p');
+    titleEl.className = 'bn-title';
+    titleEl.textContent = title;
+
+    const messageEl = document.createElement('p');
+    messageEl.className = 'bn-message';
+    messageEl.textContent = message;
+
+    const btn = document.createElement('button');
+    btn.className = 'bn-close-btn';
+    btn.textContent = 'Got it';
+
+    modal.append(logo, divider, iconWrap, titleEl, messageEl, btn);
+    overlay.appendChild(modal);
 
     overlay.querySelector('.bn-close-btn').addEventListener('click', () => overlay.remove());
     overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
