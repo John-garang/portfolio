@@ -228,7 +228,7 @@ li {
 
 .nav-link.active {
     color: white;
-    background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+    background: #16b2dc;
     border-color: rgba(255, 255, 255, 0.4);
     font-weight: 600;
 }
@@ -249,7 +249,7 @@ li {
 
 .navbar.scrolled .nav-link.active {
     color: white;
-    background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+    background: #16b2dc;
     border-color: #16b2dc;
 }
 
@@ -4962,7 +4962,7 @@ li {
     }
 
     .nav-menu .nav-link.active {
-        background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+        background: #16b2dc;
         color: white;
         font-weight: 700;
         box-shadow: none;
