@@ -212,39 +212,34 @@
     <div id="footer-placeholder"></div>
     <script src="/static/load-footer.js"></script>
 
-    <script src="/static/brand-notifications.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" crossorigin="anonymous"></script>
     <script>
-        emailjs.init('jMid5j4K3IEfIlIr0');
-
         document.querySelector('.professional-contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            const submitBtn = this.querySelector('.submit-btn');
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
             emailjs.send('service_7gb9zw8', 'template_vl5iart', {
-                firstName:   this.querySelector('#firstName').value,
-                lastName:    this.querySelector('#lastName').value,
-                email:       this.querySelector('#email').value,
-                phone:       this.querySelector('#phone').value,
-                company:     this.querySelector('#company').value,
-                serviceType: this.querySelector('#service').value,
-                budget:      this.querySelector('#budget').value,
-                timeline:    this.querySelector('#timeline').value,
-                message:     this.querySelector('#message').value
+                firstName:   form.querySelector('#firstName').value,
+                lastName:    form.querySelector('#lastName').value,
+                email:       form.querySelector('#email').value,
+                phone:       form.querySelector('#phone').value,
+                company:     form.querySelector('#company').value,
+                serviceType: form.querySelector('#service').value,
+                budget:      form.querySelector('#budget').value,
+                timeline:    form.querySelector('#timeline').value,
+                message:     form.querySelector('#message').value
             }).then(() => {
-                showBrandNotification('success', 'Thank You!', 'Your message has been sent successfully. I\'ll get back to you soon.');
-                this.reset();
-            }).catch((err) => {
-                console.error('EmailJS error status:', err.status);
-                console.error('EmailJS error text:', err.text);
-                showBrandNotification('error', 'Oops!', 'Something went wrong. Please try again or email me directly.');
-            }).finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
+                showBrandNotification('success', 'Thank You!', 'Your message has been sent successfully. I\'ll get back to you soon.');
+                form.reset();
+            }).catch((err) => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                showBrandNotification('error', 'Oops!', 'Something went wrong. Please try again or email me directly.');
             });
         });
     </script>
