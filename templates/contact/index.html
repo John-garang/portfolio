@@ -245,17 +245,6 @@
         });
     </script>
 
-    <script>
-        // Set active page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
     <script src="/static/loading.js" defer></script>
 </body>
 </html>

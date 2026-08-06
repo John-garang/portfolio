@@ -24,7 +24,7 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Expires', '0')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('X-Frame-Options', 'SAMEORIGIN')
-        self.send_header('X-XSS-Protection', '1; mode=block')
+        self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com;")
         super().end_headers()
 
     def guess_type(self, path):

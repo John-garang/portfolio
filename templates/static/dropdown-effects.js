@@ -60,12 +60,10 @@ class AdvancedDropdownSystem {
                 this.showDropdown(dropdown);
                 this.playHoverSound();
                 this.createParticles(dropdown);
-                this.addMagneticEffect(dropdown);
             });
 
             dropdown.addEventListener('mouseleave', () => {
                 this.hideDropdown(dropdown);
-                this.removeMagneticEffect(dropdown);
             });
 
             // Add ripple effect to links
@@ -123,19 +121,6 @@ class AdvancedDropdownSystem {
         }, 300);
     }
 
-    addMagneticEffect(dropdown) {
-        // Magnetic effect disabled
-    }
-
-    removeMagneticEffect(dropdown) {
-        if (dropdown._magneticHandler) {
-            dropdown.removeEventListener('mousemove', dropdown._magneticHandler);
-        }
-        
-        const content = dropdown.querySelector('.dropdown-content');
-        content.style.transform = 'translate(0, 0) scale(1)';
-    }
-
     addRippleEffect(element) {
         const ripple = document.createElement('span');
         ripple.classList.add('ripple');
@@ -167,7 +152,6 @@ class AdvancedDropdownSystem {
 
     createParticles(dropdown) {
         const rect = dropdown.getBoundingClientRect();
-        
         for (let i = 0; i < 15; i++) {
             this.particles.push({
                 x: rect.left + Math.random() * rect.width,
@@ -181,11 +165,11 @@ class AdvancedDropdownSystem {
                 type: 'hover'
             });
         }
+        this.animate();
     }
 
     createClickParticles(element) {
         const rect = element.getBoundingClientRect();
-        
         for (let i = 0; i < 25; i++) {
             this.particles.push({
                 x: rect.left + rect.width / 2,
@@ -199,9 +183,11 @@ class AdvancedDropdownSystem {
                 type: 'click'
             });
         }
+        this.animate();
     }
 
     animate() {
+        if (this.particles.length === 0) return;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
         this.particles = this.particles.filter(particle => {
@@ -231,7 +217,9 @@ class AdvancedDropdownSystem {
             return particle.life > 0;
         });
         
-        requestAnimationFrame(() => this.animate());
+        if (this.particles.length > 0) {
+            requestAnimationFrame(() => this.animate());
+        }
     }
 
     playHoverSound() {
@@ -363,8 +351,12 @@ class AdvancedDropdownSystem {
     }
 
     navigateDropdownLinks(dropdown, direction) {
-        const links = dropdown.querySelectorAll('.dropdown-content a');
-        // Implementation for arrow key navigation within dropdown
+        const links = Array.from(dropdown.querySelectorAll('.dropdown-content a'));
+        if (!links.length) return;
+        const focused = document.activeElement;
+        const currentIndex = links.indexOf(focused);
+        const nextIndex = Math.max(0, Math.min(links.length - 1, currentIndex + direction));
+        links[nextIndex].focus();
     }
 }
 
