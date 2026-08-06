@@ -157,7 +157,9 @@ if (contactForm) {
     
     // Simple validation
     if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields');
+        if (typeof showBrandNotification === 'function') {
+            showBrandNotification('error', 'Missing Fields', 'Please fill in all fields');
+        }
         return;
     }
     
@@ -168,7 +170,9 @@ if (contactForm) {
     submitBtn.disabled = true;
     
     setTimeout(() => {
-        alert('Thank you for your message! I\'ll get back to you soon.');
+        if (typeof showBrandNotification === 'function') {
+            showBrandNotification('success', 'Message Sent!', "Thank you for your message! I'll get back to you soon.");
+        }
         this.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
