@@ -232,61 +232,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add loading animation
+// Loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
-
-// Preloader (optional)
-document.addEventListener('DOMContentLoaded', () => {
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader';
-    
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    preloader.appendChild(loader);
-    
-    document.body.appendChild(preloader);
-    
-    window.addEventListener('load', () => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.remove();
-        }, 500);
-    });
-});
-
-// Add CSS for preloader
-const preloaderCSS = `
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #6c5ce7;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-`;
-
-const style = document.createElement('style');
-style.textContent = preloaderCSS;
-document.head.appendChild(style);

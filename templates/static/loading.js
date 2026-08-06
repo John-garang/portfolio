@@ -1,9 +1,15 @@
-window.addEventListener('load', () => {
+function hideLoadingScreen() {
     const el = document.getElementById('loading-screen') || document.getElementById('loadingScreen');
     if (!el) return;
     el.classList.add('fade-out');
     setTimeout(() => { el.style.display = 'none'; }, 400);
-});
+}
+
+// Hide on load
+window.addEventListener('load', hideLoadingScreen);
+
+// Safety fallback — never stay stuck longer than 3 seconds
+setTimeout(hideLoadingScreen, 3000);
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href]').forEach(link => {
