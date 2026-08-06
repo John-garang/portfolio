@@ -213,11 +213,10 @@
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <script src="/static/load-footer.js" defer></script>
-    <script src="/static/brand-notifications.js" defer></script>
-    <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
-
-    <script src="/static/loading.js" defer></script>
-</body>
+    <script src="/static/brand-notifications.js"></script>
+    <script src="/static/email.min.js" onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
+    <script>
+        document.querySelector('.professional-contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = this;
             const submitBtn = form.querySelector('.submit-btn');
@@ -240,14 +239,13 @@
                 submitBtn.innerHTML = originalText;
                 showBrandNotification('success', 'Thank You!', 'Your message has been sent successfully. I\'ll get back to you soon.');
                 form.reset();
-            }).catch((err) => {
+            }).catch(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
                 showBrandNotification('error', 'Oops!', 'Something went wrong. Please try again or email me directly.');
             });
         });
     </script>
-
     <script src="/static/loading.js" defer></script>
 </body>
 </html>
