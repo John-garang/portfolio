@@ -228,7 +228,7 @@ li {
 
 .nav-link.active {
     color: white;
-    background: rgba(22, 178, 220, 0.9);
+    background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
     border-color: rgba(255, 255, 255, 0.4);
     font-weight: 600;
 }
@@ -249,7 +249,7 @@ li {
 
 .navbar.scrolled .nav-link.active {
     color: white;
-    background: #16b2dc;
+    background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
     border-color: #16b2dc;
 }
 

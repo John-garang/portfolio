@@ -105,6 +105,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileOverlay.classList.remove('active');
                 document.body.classList.remove('menu-open');
             });
+
+            // Dropdown links: first tap opens, second tap navigates
+            navMenu.querySelectorAll('.dropdown > .nav-link').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const dropdown = link.closest('.dropdown');
+                    if (!dropdown.classList.contains('active')) {
+                        e.preventDefault();
+                        navMenu.querySelectorAll('.dropdown').forEach(function(d) {
+                            if (d !== dropdown) d.classList.remove('active');
+                        });
+                        dropdown.classList.add('active');
+                    }
+                });
+            });
         }
     }
 });
