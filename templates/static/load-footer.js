@@ -1,5 +1,5 @@
 // Load footer across all pages
-fetch('footer')
+fetch('/footer')
     .then(response => response.text())
     .then(data => {
         const placeholder = document.getElementById('footer-placeholder');
