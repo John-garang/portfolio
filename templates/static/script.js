@@ -142,43 +142,7 @@ function toggleDropdown(element) {
 
 // Navbar scroll behavior is now handled in load-header.js
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const subject = this.querySelector('input[type="text"]:nth-of-type(2)').value;
-    const message = this.querySelector('textarea').value;
-    
-    // Simple validation
-    if (!name || !email || !subject || !message) {
-        if (typeof showBrandNotification === 'function') {
-            showBrandNotification('error', 'Missing Fields', 'Please fill in all fields');
-        }
-        return;
-    }
-    
-    // Simulate form submission
-    const submitBtn = this.querySelector('button');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-        if (typeof showBrandNotification === 'function') {
-            showBrandNotification('success', 'Message Sent!', "Thank you for your message! I'll get back to you soon.");
-        }
-        this.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
-});
-}
+
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -189,14 +153,12 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate');
         }
     });
 }, observerOptions);
 
-
-
+document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
 
 
 // Typing effect for hero title (optional enhancement)
@@ -223,16 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });

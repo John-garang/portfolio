@@ -45,8 +45,9 @@ function showBrandNotification(type, title, message) {
                 object-fit: contain;
                 margin: 0 auto 1.25rem;
                 display: block;
-                filter: brightness(0) invert(1);
-                opacity: 0.92;
+                background: rgba(255,255,255,0.15);
+                border-radius: 8px;
+                padding: 6px;
             }
             .bn-icon-wrap {
                 width: 56px;
@@ -121,7 +122,7 @@ function showBrandNotification(type, title, message) {
 
     const logo = document.createElement('img');
     logo.className = 'bn-logo';
-    logo.src = '/static/Pictures/john-ngor-deng-garang-logo.png';
+    logo.src = '/static/Pictures/john-ngor-deng-garang-logo-sm.webp';
     logo.alt = 'JNDG';
 
     const divider = document.createElement('div');
