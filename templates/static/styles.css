@@ -910,7 +910,29 @@ li {
     50% { opacity: 0.7; }
 }
 
-/* How I Work Section - Enhanced */
+/* Universal card hover — matches skill card style */
+.method-card:hover,
+.program-card:hover,
+.article-card:hover,
+.service-card-page:hover,
+.category-card:hover,
+.post-card:hover,
+.learning-card:hover,
+.responsibility-item:hover,
+.stat-item:hover,
+.bio-card:hover,
+.contact-method:hover,
+.detail-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.13);
+}
+
+/* Keep program-card scale slightly larger since it has images */
+.program-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
 .how-i-work {
     padding: 40px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -5775,7 +5797,7 @@ li {
     padding: 0.5rem 1rem;
     background: white;
     border: 2px solid #e9ecef;
-    border-radius: 50px;
+    border-radius: 0;
     font-size: 0.875rem;
     font-weight: 600;
     color: #333;
@@ -5856,51 +5878,87 @@ li {
     background: white;
     padding: 2.5rem;
     border-radius: 0;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #f0f0f0;
+    border: 1px solid #ebebeb;
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #16b2dc, #1a1a1a);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.value-card:hover::after {
+    transform: scaleX(1);
 }
 
 .value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    border-color: #ccc;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    border-color: #d0d0d0;
 }
 
-.value-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #16b2dc, #1a9ec7);
-    border-radius: 50%;
+.value-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.value-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: #f4f4f4;
+    border: 1px solid #e8e8e8;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    color: #16b2dc;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
-.value-card:hover .value-icon {
-    background: linear-gradient(135deg, #1a1a1a, #333);
-    transform: scale(1.1) rotate(5deg);
-}
-
-.value-icon i {
-    font-size: 2rem;
+.value-card:hover .value-icon-wrap {
+    background: #16b2dc;
+    border-color: #16b2dc;
     color: white;
 }
 
+.value-icon-wrap svg {
+    transition: stroke 0.3s ease;
+}
+
+.value-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ccc;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+}
+
 .value-card h4 {
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
 }
 
 .value-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
 }
 
