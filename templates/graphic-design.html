@@ -25,9 +25,10 @@
             background: #f8f9fa;
         }
         .design-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 1rem 0;
         }
 
         /* ── Design Block ── */
@@ -56,7 +57,7 @@
         }
         .design-gallery-cover img {
             width: 100%;
-            height: 480px;
+            height: 220px;
             object-fit: cover;
             display: block;
         }
@@ -220,6 +221,16 @@
             letter-spacing: 0.05em;
         }
 
+        @media (max-width: 900px) {
+            .design-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .design-stack {
+                grid-template-columns: 1fr;
+            }
+        }
         @media (max-width: 768px) {
             .design-block-inner {
                 padding: 1.5rem;
