@@ -5032,18 +5032,10 @@ li {
     .hamburger span {
         width: 22px;
         height: 2px;
-        background: white;
+        background: #333;
         margin: 2px 0;
         transition: 0.3s;
         border-radius: 1px;
-    }
-
-    .navbar.scrolled .hamburger span {
-        background: #333;
-    }
-
-    .hamburger.active span {
-        background: #333;
     }
 
     .hamburger.active span:nth-child(1) {
