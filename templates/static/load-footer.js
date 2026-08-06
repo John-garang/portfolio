@@ -1,21 +1,4 @@
-﻿// Load footer across all pages
-// Inject mobile-fixes.css on every page
-const _mf = document.createElement('link');
-_mf.rel = 'stylesheet';
-_mf.href = '/static/mobile-fixes.css';
-document.head.appendChild(_mf);
-
-// Load brand-notifications.js on every page
-const _bn = document.createElement('script');
-_bn.src = '/static/brand-notifications.js';
-document.head.appendChild(_bn);
-
-// Load EmailJS SDK from local copy
-const _ejs = document.createElement('script');
-_ejs.src = '/static/email.min.js';
-_ejs.onload = () => emailjs.init('jMid5j4K3IEfIlIr0');
-document.head.appendChild(_ejs);
-
+// Load footer across all pages
 fetch('footer')
     .then(response => response.text())
     .then(data => {

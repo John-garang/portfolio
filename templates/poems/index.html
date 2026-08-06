@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,6 +24,7 @@
     <link rel="apple-touch-icon" href="/static/Pictures/john-ngor-deng-garang-logo-sm.webp">
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/loading.css">
+    <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -224,7 +225,39 @@
     </div>
     </div>
 
-    <div id="header-placeholder"></div>
+    <nav class="navbar" id="main-navbar">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <img src="/static/Pictures/john-ngor-deng-garang-logo.png" alt="John Garang Logo">
+                        <span class="logo-name">John Ngor Deng Garang</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="/" class="nav-link">Home</a></li>
+                        <li><a href="/about" class="nav-link">About</a></li>
+                        <li class="dropdown">
+                            <a href="/work-portfolio" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="/my-shelf">My Shelf</a>
+                                <a href="/cv">CV</a>
+                                <a href="/graphic-design">Graphic Design</a>
+                                <a href="/web-design">Web Design</a>
+                            </div>
+                        </li>
+                        <li><a href="/experience-overview" class="nav-link">Experience</a></li>
+                        <li><a href="/programs-overview" class="nav-link">Programs</a></li>
+                        <li><a href="/services" class="nav-link">Services</a></li>
+                        <li><a href="/poems" class="nav-link">Poems</a></li>
+                    </ul>
+                    <div class="nav-right">
+                        <div class="hamburger" id="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-overlay" id="mobileOverlay"></div>
+            </nav>
 
     <!-- Grid View -->
     <div class="poems-grid-view" id="poemsGrid">
@@ -374,6 +407,8 @@
     <div id="footer-placeholder"></div>
     <script src="/static/load-header.js" defer></script>
     <script src="/static/load-footer.js" defer></script>
+    <script src="/static/brand-notifications.js" defer></script>
+    <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
     <script src="/static/loading.js" defer></script>
     
     <script>
