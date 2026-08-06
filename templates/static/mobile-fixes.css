@@ -9,3 +9,11 @@ input, select, textarea {
 a, button, input, select, textarea, [role="button"] {
     touch-action: manipulation;
 }
+
+/* Fix parallax backgrounds causing erratic scroll on mobile */
+@media (max-width: 1024px) {
+    .hero, .about, .alu-hero, .unleash-hero, .cnn-hero,
+    .blog-hero, .contact-hero, .shelf-hero, .category-hero {
+        background-attachment: scroll !important;
+    }
+}
