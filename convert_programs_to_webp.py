@@ -15,18 +15,18 @@ FOLDERS = [
 
 def convert(path):
     try:
-        img = Image.open(path)
-        orig_size = path.stat().st_size
-        if img.mode in ('RGBA', 'LA', 'P'):
-            img = img.convert('RGBA')
-        else:
-            img = img.convert('RGB')
-        if img.width > MAX_DIM or img.height > MAX_DIM:
-            img.thumbnail((MAX_DIM, MAX_DIM), Image.Resampling.LANCZOS)
-        out = path.with_suffix('.webp')
-        img.save(out, 'WEBP', quality=QUALITY, method=6)
-        new_size = out.stat().st_size
-        print("OK " + path.name + " -> " + str(orig_size//1024) + "KB -> " + str(new_size//1024) + "KB")
+        with Image.open(path) as img:
+            orig_size = path.stat().st_size
+            if img.mode in ('RGBA', 'LA', 'P'):
+                img = img.convert('RGBA')
+            else:
+                img = img.convert('RGB')
+            if img.width > MAX_DIM or img.height > MAX_DIM:
+                img.thumbnail((MAX_DIM, MAX_DIM), Image.Resampling.LANCZOS)
+            out = path.with_suffix('.webp')
+            img.save(out, 'WEBP', quality=QUALITY, method=6)
+            new_size = out.stat().st_size
+            print("OK " + path.name + " -> " + str(orig_size//1024) + "KB -> " + str(new_size//1024) + "KB")
     except Exception as e:
         print("ERR " + str(path.name) + ": " + str(e))
 

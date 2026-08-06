@@ -33,24 +33,22 @@ for original, seo_name in mapping:
     in_path = os.path.join(src, original)
     out_path = os.path.join(dst, seo_name)
 
-    img = Image.open(in_path)
-    # Auto-rotate based on EXIF orientation
-    img = ImageOps.exif_transpose(img)
+    with Image.open(in_path) as img:
+        img = ImageOps.exif_transpose(img)
 
-    # Downscale if either dimension exceeds MAX_DIMENSION
-    w, h = img.size
-    if max(w, h) > MAX_DIMENSION:
-        if w >= h:
-            new_w = MAX_DIMENSION
-            new_h = int(h * MAX_DIMENSION / w)
-        else:
-            new_h = MAX_DIMENSION
-            new_w = int(w * MAX_DIMENSION / h)
-        img = img.resize((new_w, new_h), Image.LANCZOS)
+        w, h = img.size
+        if max(w, h) > MAX_DIMENSION:
+            if w >= h:
+                new_w = MAX_DIMENSION
+                new_h = int(h * MAX_DIMENSION / w)
+            else:
+                new_h = MAX_DIMENSION
+                new_w = int(w * MAX_DIMENSION / h)
+            img = img.resize((new_w, new_h), Image.LANCZOS)
 
-    img.save(out_path, 'JPEG', quality=QUALITY, optimize=True, progressive=True)
-    orig_kb = os.path.getsize(in_path) // 1024
-    new_kb = os.path.getsize(out_path) // 1024
-    print(f'{original} -> {seo_name} | {orig_kb}KB -> {new_kb}KB | {img.size}')
+        img.save(out_path, 'JPEG', quality=QUALITY, optimize=True, progressive=True)
+        orig_kb = os.path.getsize(in_path) // 1024
+        new_kb = os.path.getsize(out_path) // 1024
+        print(f'{original} -> {seo_name} | {orig_kb}KB -> {new_kb}KB | {img.size}')
 
 print('\nDone.')

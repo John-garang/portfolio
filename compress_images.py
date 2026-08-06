@@ -16,48 +16,36 @@ MAX_HEIGHT = 1920  # Max height for large images
 def compress_image(image_path):
     """Compress a single image while maintaining quality"""
     try:
-        # Open image
-        img = Image.open(image_path)
-        
-        # Get original size
-        original_size = image_path.stat().st_size
-        
-        # Convert RGBA to RGB if needed (for PNG with transparency)
-        if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
-            # Create white background
-            background = Image.new('RGB', img.size, (255, 255, 255))
-            if img.mode == 'P':
-                img = img.convert('RGBA')
-            background.paste(img, mask=img.split()[-1] if img.mode in ('RGBA', 'LA') else None)
-            img = background
-        
-        # Resize if too large (maintain aspect ratio)
-        if img.width > MAX_WIDTH or img.height > MAX_HEIGHT:
-            img.thumbnail((MAX_WIDTH, MAX_HEIGHT), Image.Resampling.LANCZOS)
-        
-        # Determine output format
-        if image_path.suffix.lower() in ['.jpg', '.jpeg']:
-            # Save as high-quality JPEG
-            output_path = image_path.with_suffix('.jpg')
-            img.save(output_path, 'JPEG', quality=QUALITY, optimize=True, progressive=True)
-        elif image_path.suffix.lower() == '.png':
-            # Save as optimized PNG
-            output_path = image_path
-            img.save(output_path, 'PNG', optimize=True)
-        elif image_path.suffix.lower() == '.webp':
-            # Convert WebP to PNG for better compatibility
-            output_path = image_path.with_suffix('.png')
-            img.save(output_path, 'PNG', optimize=True)
-        else:
-            print(f"  Skipping unsupported format: {image_path.suffix}")
-            return
-        
-        # Get new size
-        new_size = output_path.stat().st_size
-        reduction = ((original_size - new_size) / original_size) * 100
-        
-        print(f"  ✓ {image_path.name}: {original_size/1024:.1f}KB → {new_size/1024:.1f}KB ({reduction:.1f}% reduction)")
-        
+        with Image.open(image_path) as img:
+            original_size = image_path.stat().st_size
+
+            if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
+                background = Image.new('RGB', img.size, (255, 255, 255))
+                if img.mode == 'P':
+                    img = img.convert('RGBA')
+                background.paste(img, mask=img.split()[-1] if img.mode in ('RGBA', 'LA') else None)
+                img = background
+
+            if img.width > MAX_WIDTH or img.height > MAX_HEIGHT:
+                img.thumbnail((MAX_WIDTH, MAX_HEIGHT), Image.Resampling.LANCZOS)
+
+            if image_path.suffix.lower() in ['.jpg', '.jpeg']:
+                output_path = image_path.with_suffix('.jpg')
+                img.save(output_path, 'JPEG', quality=QUALITY, optimize=True, progressive=True)
+            elif image_path.suffix.lower() == '.png':
+                output_path = image_path
+                img.save(output_path, 'PNG', optimize=True)
+            elif image_path.suffix.lower() == '.webp':
+                output_path = image_path.with_suffix('.png')
+                img.save(output_path, 'PNG', optimize=True)
+            else:
+                print(f"  Skipping unsupported format: {image_path.suffix}")
+                return
+
+            new_size = output_path.stat().st_size
+            reduction = ((original_size - new_size) / original_size) * 100
+            print(f"  ✓ {image_path.name}: {original_size/1024:.1f}KB → {new_size/1024:.1f}KB ({reduction:.1f}% reduction)")
+
     except Exception as e:
         print(f"  ✗ Error processing {image_path.name}: {e}")
 
