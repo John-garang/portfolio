@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Shelf | John Garang</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
             <div class="categories-grid">
                 <a href="blog" class="category-card">
                     <div class="category-image">
-                        <img src="static/Pictures/Blog.png" alt="Blog">
+                        <img src="/static/Pictures/Blog.png" alt="Blog">
                     </div>
                     <div class="category-content">
                         <h3>Blog</h3>
@@ -51,7 +51,7 @@
                 
                 <a href="academia" class="category-card">
                     <div class="category-image">
-                        <img src="static/Pictures/Academia.png" alt="Academia">
+                        <img src="/static/Pictures/Academia.png" alt="Academia">
                     </div>
                     <div class="category-content">
                         <h3>Academia</h3>
@@ -61,7 +61,7 @@
                 
                 <a href="travels" class="category-card">
                     <div class="category-image">
-                        <img src="static/Pictures/Travels and Fun.png" alt="Travels & Fun">
+                        <img src="/static/Pictures/Travels and Fun.png" alt="Travels & Fun">
                     </div>
                     <div class="category-content">
                         <h3>Travels & Fun</h3>
@@ -77,52 +77,8 @@
     <!-- Footer -->
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js"></script>
-
-    <script src="static/script.js"></script>
-    <script>
-        // Mobile Menu Controller
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            const body = document.body;
-
-            function toggleMenu() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-                body.classList.toggle('menu-open');
-            }
-
-            function closeMenu() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
-
-            hamburger.addEventListener('click', toggleMenu);
-            mobileOverlay.addEventListener('click', closeMenu);
-            
-            // Close menu when clicking nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-        });
-    </script>
-
-    <script>
-        // Set active page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="/static/load-footer.js"></script>
+    <script src="/static/script.js"></script>
     <script src="/static/loading.js" defer></script>
 </body>
 </html>
