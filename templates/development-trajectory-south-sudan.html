@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Development Trajectory of South Sudan | John Ngor Deng Garang">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-development-trajectory-south-sudan.jpg">
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -131,6 +132,14 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">JNDG</div>
+            <p class="loading-text">Communications Professional</p>
+        </div>
+    </div>
+
     <div id="header-placeholder"></div>
     <script src="static/load-header.js"></script>
 
@@ -203,5 +212,6 @@
 
     <div id="footer-placeholder"></div>
     <script src="static/load-footer.js"></script>
+    <script src="/static/loading.js" defer></script>
 </body>
 </html>

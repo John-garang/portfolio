@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Shelf | John Garang</title>
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">JNDG</div>
+            <p class="loading-text">Communications Professional</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
@@ -113,6 +122,7 @@
             });
         });
     </script>
+    <script src="/static/loading.js" defer></script>
 </body>
 </html>
 
