@@ -45,8 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const navbar = document.querySelector('.navbar');
         
         if (navbar) {
-            // All pages start transparent
-            navbar.style.background = 'transparent';
             navbar.classList.remove('scrolled');
         }
         
@@ -60,30 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Scroll effects
+        // Scroll effects — driven by CSS class only, no inline styles
         function updateNavbarState() {
             if (!navbar) return;
-            // All pages have scroll behavior
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.classList.add('scrolled');
             } else {
-                navbar.style.background = 'transparent';
                 navbar.classList.remove('scrolled');
             }
         }
         
-        // Set initial state after header loads
-        setTimeout(() => {
-            updateNavbarState();
-            // Force transparent initially regardless of scroll position
-            if (navbar && window.scrollY <= 80) {
-                navbar.style.background = 'transparent';
-                navbar.classList.remove('scrolled');
-            }
-        }, 0);
-        
-        // Update on scroll
+        updateNavbarState();
         window.addEventListener('scroll', updateNavbarState);
         
         // Mobile menu
