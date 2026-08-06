@@ -48,13 +48,12 @@
             height: 220px;
         }
 
-        .project-preview iframe {
-            width: 160%;
-            height: 160%;
-            border: none;
-            transform: scale(0.625);
-            transform-origin: top left;
-            pointer-events: none;
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
         }
 
         .project-preview-overlay {
@@ -140,7 +139,7 @@
 
                 <div class="web-project-card">
                     <div class="project-preview">
-                        <iframe src="https://bulimifund.com/" title="Bulimi Fund website preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                        <img src="static/Pictures/bulimi.webp.png" alt="Bulimi Fund website screenshot" loading="lazy">
                         <div class="project-preview-overlay"></div>
                     </div>
                     <div class="project-info">
@@ -155,13 +154,13 @@
 
                 <div class="web-project-card">
                     <div class="project-preview">
-                        <iframe src="https://monedgehcs.com/" title="MonEdge HCS website preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                        <img src="static/Pictures/Monedge.webp.png" alt="MonEdge Home Care Services website screenshot" loading="lazy">
                         <div class="project-preview-overlay"></div>
                     </div>
                     <div class="project-info">
                         <span class="project-tag">Healthcare · Services</span>
-                        <h3>MonEdge HCS</h3>
-                        <p>Website for MonEdge Healthcare Services — built to present the company's healthcare offerings, team, and service areas to clients and stakeholders.</p>
+                        <h3>MonEdge Home Care Services</h3>
+                        <p>Website for MonEdge Home Care Services — built to present the company's healthcare offerings, team, and service areas to clients and stakeholders.</p>
                         <a href="https://monedgehcs.com/" target="_blank" rel="noopener noreferrer" class="project-link">
                             <i class="fas fa-external-link-alt"></i> Visit Site
                         </a>
