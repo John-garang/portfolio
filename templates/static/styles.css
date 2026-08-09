@@ -4407,6 +4407,16 @@ li {
     color: rgba(255,255,255,.85);
 }
 
+/* Social icon hover effects */
+.social-icon:hover svg {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.social-icon:hover {
+    color: #fff;
+}
+
 /* Footer bottom bar */
 .footer-bottom {
     display: flex;
