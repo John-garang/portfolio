@@ -2694,6 +2694,14 @@ li {
     border: none;
 }
 
+.social-media-section .social-icon[aria-label="LinkedIn"] svg   { background: #0A66C2; }
+.social-media-section .social-icon[aria-label="X (Twitter)"] svg { background: #000; }
+.social-media-section .social-icon[aria-label="Instagram"] svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-media-section .social-icon[aria-label="Facebook"] svg   { background: #1877F2; }
+.social-media-section .social-icon[aria-label="Medium"] svg     { background: #00AB6C; }
+.social-media-section .social-icon[aria-label="Email"] svg      { background: #EA4335; }
+.social-media-section .social-icon[aria-label="Linktree"] svg   { background: #43E55E; }
+
 .social-media-section h3 {
     margin-bottom: 1.5rem;
     color: #333;
@@ -4415,11 +4423,26 @@ li {
 .social-icon:hover[aria-label="Email"] svg      { background: #EA4335; }
 .social-icon:hover[aria-label="Linktree"] svg   { background: #43E55E; }
 
-/* Social icons on dark hero backgrounds — brand colors override */
+/* Social icons on dark hero backgrounds — brand colors always visible */
 .hero .social-icon,
 .about .social-icon {
     color: rgba(255,255,255,.85);
 }
+
+.hero .social-icon[aria-label="LinkedIn"] svg,
+.about .social-icon[aria-label="LinkedIn"] svg   { background: #0A66C2; }
+.hero .social-icon[aria-label="X (Twitter)"] svg,
+.about .social-icon[aria-label="X (Twitter)"] svg { background: #000; }
+.hero .social-icon[aria-label="Instagram"] svg,
+.about .social-icon[aria-label="Instagram"] svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.hero .social-icon[aria-label="Facebook"] svg,
+.about .social-icon[aria-label="Facebook"] svg   { background: #1877F2; }
+.hero .social-icon[aria-label="Medium"] svg,
+.about .social-icon[aria-label="Medium"] svg     { background: #00AB6C; }
+.hero .social-icon[aria-label="Email"] svg,
+.about .social-icon[aria-label="Email"] svg      { background: #EA4335; }
+.hero .social-icon[aria-label="Linktree"] svg,
+.about .social-icon[aria-label="Linktree"] svg   { background: #43E55E; }
 
 /* Social icon hover effects */
 .social-icon:hover svg {
