@@ -4,6 +4,7 @@
     <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .4s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Addressing Entrepreneurial Gaps in South Sudan | John Ngor Deng Garang</title>
     <meta name="description" content="An academic analysis of entrepreneurial gaps in South Sudan by John Ngor Deng Garang, exploring systems thinking, impact gaps, and levers of change to foster economic growth and reduce unemployment.">
     <meta name="robots" content="index, follow">
@@ -16,101 +17,170 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Addressing Entrepreneurial Gaps in South Sudan | John Ngor Deng Garang">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/Addressing%20Entrepreneurial%20Gaps%20in%20South%20Sudan.jpg">
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo-sm.webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="/static/loading.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css?v=1.0.9">
+    <link rel="stylesheet" href="/static/mobile-fixes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+
     <style>
-        .article-hero {
-            background: linear-gradient(135deg, #16b2dc 0%, #667eea 100%);
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-            margin-top: 80px;
+        /* ── Article card stack — mirrors prog-block / exp-block ── */
+        .article-stack-section {
+            padding: 80px 0;
+            background: #f8f9fa;
         }
-        .article-hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .article-page {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        .article-meta {
+        .article-stack {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            flex-direction: column;
+            gap: 2.5rem;
         }
-        .article-category {
-            background: #16b2dc;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+
+        .article-block {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s ease;
         }
-        .article-date {
-            color: #666;
+        .article-block:hover { box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
+
+        .article-block-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 2rem;
         }
-        .article-image {
-            margin: 2rem 0;
-            border-radius: 12px;
+        @media (min-width: 769px) {
+            .article-block-inner {
+                grid-template-columns: 340px 1fr;
+                gap: 0 2rem;
+                padding: 2rem;
+                align-items: start;
+            }
+            .article-block-inner.reverse {
+                grid-template-columns: 1fr 340px;
+            }
+            .article-block-inner.reverse .ab-visual { order: 2; }
+            .article-block-inner.reverse .ab-content { order: 1; }
+        }
+
+        .ab-visual {
+            width: 100%;
+            border-radius: 0;
             overflow: hidden;
         }
-        .article-image img {
+        .ab-visual img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            border-radius: 0;
+            transition: transform 0.4s ease;
         }
-        .article-content {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        .article-content p.lead {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #555;
-            margin-bottom: 2rem;
-        }
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: #333;
-            margin: 2.5rem 0 1rem 0;
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: #444;
-            margin: 2rem 0 1rem 0;
-        }
-        .article-content h4 {
-            font-size: 1.15rem;
-            color: #555;
-            margin: 1.5rem 0 0.75rem 0;
-        }
-        .article-content .inline-image {
+        .article-block:hover .ab-visual img { transform: scale(1.02); }
+        .ab-visual figcaption {
+            font-size: 0.8rem;
+            color: #888;
             text-align: center;
-            margin: 2rem 0;
+            margin-top: 0.4rem;
+            font-style: italic;
+            font-family: 'Inter', sans-serif;
         }
-        .article-content .inline-image img {
-            max-width: 100%;
-            border-radius: 10px;
+
+        .ab-header-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid #f0f0f0;
         }
+        .ab-section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #16b2dc;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .ab-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .ab-content p {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #555;
+            margin: 0 0 1rem;
+        }
+        .ab-content p:last-of-type { margin-bottom: 0; }
+
+        .ab-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+        .ab-tag {
+            background: #f0f8fc;
+            border: 1px solid #c8e8f5;
+            color: #1a7fa0;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .ab-tag:hover { background: #16b2dc; border-color: #16b2dc; color: white; }
+
+        .ab-quote {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #333;
+            border-left: 3px solid #16b2dc;
+            padding: 0.75rem 1.25rem;
+            margin: 1.25rem 0 0;
+            line-height: 1.65;
+            background: #f8fdff;
+        }
+
+        /* ── Lead card (full-width intro) ── */
+        .lead-card {
+            background: white;
+            border-radius: 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .lead-card p.lead-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+        }
+
+        /* ── Article navigation ── */
         .article-navigation {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid #eee;
+            margin: 3rem 0 0;
+            padding: 2rem 0 0;
+            border-top: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         .nav-btn {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.8rem 1.5rem;
@@ -118,21 +188,20 @@
             color: white;
             text-decoration: none;
             border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
             transition: background 0.3s ease;
         }
-        .nav-btn:hover {
-            background: #5a6fd8;
-        }
-        .nav-btn.disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .return-btn {
-            background: #16b2dc;
-            padding: 1rem 2rem;
-        }
-        .return-btn:hover {
-            background: #129ec5;
+        .nav-btn:hover { background: #5a6fd8; }
+        .nav-btn.return-btn { background: #16b2dc; }
+        .nav-btn.return-btn:hover { background: #129ec5; }
+        .nav-btn.disabled { background: #ccc; pointer-events: none; }
+
+        @media (max-width: 768px) {
+            .article-block-inner { padding: 1.5rem; }
+            .ab-title { font-size: 1.2rem; }
+            .lead-card { padding: 1.5rem; }
+            .article-navigation { justify-content: center; }
         }
     </style>
 </head>
@@ -143,108 +212,170 @@
     </div>
 
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js"></script>
 
-    <section class="article-hero">
+    <!-- Hero -->
+    <section class="category-hero">
         <div class="container">
             <h1>Addressing Entrepreneurial Gaps in South Sudan</h1>
-            <p class="hero-subtitle">Academia</p>
+            <p>Academic Research &nbsp;·&nbsp; Systems Thinking &nbsp;·&nbsp; 20 min read</p>
         </div>
     </section>
 
-    <article class="article-page">
+    <!-- Content -->
+    <section class="article-stack-section">
         <div class="container">
-            <div class="article-content">
-                <p class="lead">South Sudanese students, particularly from low-income backgrounds, have limited access to entrepreneurial resources such as mentorship, funding, and business training. Therefore, they cannot compete for opportunities available to entrepreneurs from developing countries.</p>
 
-                <p>This limits their ability to scale their ideas and sustain their businesses, exacerbating unemployment and poverty nationwide. This problem needs to be addressed to create more jobs and foster economic growth.</p>
-
-                <h2>Problem Background and Context</h2>
-
-                <p>South Sudan's economy has been one of the most fragile in the last decade. On top of attacks and the lack of food, the country's economy is in crisis, the South Sudanese pound has declined in value, and the cost of goods and services has skyrocketed. At one point the inflation rate reached 835 percent, the highest in the world at the time (Mercy Corps, 2023). South Sudan's economic situation is jeopardized by the heavy reliance on oil revenue, which limits industrial diversification. The country's economy has been fragile since the post-conflict, and instability and security remain threats to development.</p>
-
-                <p>The youth unemployment rate stands at over 40%, and rural areas are the underdogs in this case, as they are often economically excluded. While regionally, youth are addressing unemployment through entrepreneurship sustained by funding for developing countries, the case is otherwise for South Sudan, as they lack access to mentorship, funding, and business development. This limits the country's potential for economic growth. The social structures and economic systems in South Sudan are constrained under the weight of political instability and underdeveloped infrastructure.</p>
-
-                <p>The problem is further exacerbated by the cultural perceptions towards work. Most South Sudanese have the managers mindset, where they fear risking to invest in the business and rather prefer white-collar jobs, which, in turn are very limited across the country. This cultural mindset ignores the fact that jobs are created, and hence this system requires an approach that combines short-term goals with long-term visions.</p>
-
-                <div class="inline-image">
-                    <img src="static/Pictures/Addressing Entrepreneurial Gaps in South Sudan opening image.jpg" alt="Entrepreneurial Gaps Analysis">
-                </div>
-
-                <h2>Systems Thinking Analysis</h2>
-
-                <h3>Reinforcing Loop (R1): Skill Development and Employment</h3>
-                <p>A better, experiential learning educational systems can help to lower the unemployment rate while also increasing the economic growth. When employment grows, there is increased economic growth which leads to more investment in education.</p>
-
-                <h3>Balancing Loop (B1): Entrepreneurial Activity and Unemployment</h3>
-                <p>When entrepreneurial support is given, more jobs are created which leads to reduction in unemployment.</p>
-
-                <h3>Reinforcing Loop (R2): Economic Growth and Investment</h3>
-                <p>When there is economic growth, there is enough financial support for education and entrepreneurial activities. This can lead to entrepreneurial growth leading to a robust economy.</p>
-
-                <h3>Balancing Loop (B2): Governance and Structural Barriers</h3>
-                <p>When policies are drafted to support education, there is increased access to education. Overtime the access to education address skills gaps, which leads to reduction in unemployment.</p>
-
-                <h3>Reinforcing Loop (B3): Technological Infrastructure and Growth</h3>
-                <p>When money is injected into improving a state's infrastructure, the economy flourishes, and a flourishing economy attracts foreign investments, which can be injected back into technological infrastructure.</p>
-
-                <div class="inline-image">
-                    <img src="static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Balancing loops.png" alt="Systems Loops Analysis">
-                </div>
-
-                <h2>Impact Gaps and Solutions Landscape Analysis</h2>
-
-                <h3>Key Themes from the Impact Gaps Canvas</h3>
-
-                <p><strong>Skill Gaps and Education Quality:</strong> The educational system is theory-focused and hence does not provide the skills the job market demands. Most students lack practical knowledge and hence no necessary skills to thrive in the workforce or entrepreneurial field.</p>
-
-                <p><strong>Barriers to Entrepreneurship:</strong> Bureaucratic barriers limit entrepreneurial growth (Sørensen, 2006). The limited access to finances, inadequate mentorship, and the tedious processes of acquiring operational permits coupled with high taxes prevent aspiring entrepreneurs from starting or scaling businesses, hence high levels of unemployment.</p>
-
-                <p><strong>Economic Dependence and Structural Weaknesses:</strong> The heavy dependence on oil revenues with a limited economic scope leaves the country vulnerable when oil prices drop (International Crisis Group, 2024). This weak structural system has increased corruption and made public offices the top priority ignoring entrepreneurship.</p>
-
-                <p><strong>Insecurity and Poor Infrastructure:</strong> The political instability in the country has largely contributed to underdeveloped infrastructure and undermined business development in the region, exacerbating unemployment challenges.</p>
-
-                <div class="inline-image">
-                    <img src="static/Pictures/Addressing Entrepreneurial Gaps in South Sudan stakeholder mapping.jpg" alt="Stakeholder Mapping">
-                </div>
-
-                <h3>Key Examples of Existing Solutions</h3>
-
-                <p>Organizations like Educate offer youth-focused entrepreneurship training to equip students with practical skills. ALX Africa is another program that empowers youth with digital skills through experiential learning programs tailored to African challenges.</p>
-
-                <p>Institutions like BRAC offer loans and grants to small SMEs and young entrepreneurs, enabling them to overcome financial barriers. Equity Bank runs youth entrepreneurial programs that provide micro-finance to enhance business sustainability.</p>
-
-                <p>The Tony Elumelu Foundation is an entrepreneurship capacity-building program that supports promising African Entrepreneurs with mentorship and seed funding (De Villiers et al., 2017). The UNLEASH Global Innovation lab also fosters entrepreneurship by providing a collaborative environment for young entrepreneurs to create solutions to the 17 SDGs. In countries like Kenya, the Youth Empowerment Initiative between the Kenyan government and the private sector provides upskilling opportunities for youth and job opportunities. African Development Bank's Jobs for African Youth in fields like agriculture and small-scale industries support employment growth.</p>
-
-                <div class="inline-image">
-                    <img src="static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Levers of Change.jpg" alt="Levers of Change">
-                </div>
-
-                <h2>Impact Gaps and Opportunities for Action</h2>
-
-                <p>The gaps from the impact canvas highlight the need to create context-specific solutions in South Sudan. Despite efforts by government agencies and civil society organizations, gaps in mentorship reach, technological infrastructure, and regulatory reform remain significant. This calls for partnerships between the relevant stakeholders to scale the solutions. An inclusive financial system should be implemented, and entrepreneurship should be enacted in school curricula. By analyzing the successful examples across Africa and the world, we can adopt an effective approach that is unique to South Sudan's socio-economic landscape, reducing unemployment and fostering a vibrant entrepreneurial ecosystem.</p>
-
-                <p>To address the issue of unemployment in South Sudan, the following levers of change are critical:</p>
-
-                <p>The major issue is the lack of a strong entrepreneurial ecosystem, which can be strengthened by capacity-building programs, which can be achieved by creating mentorship networks, conducting frequent workshops, and forging strong partnerships with local and international organizations to exchange knowledge and resources. Furthermore, financial support remains a great setback. Providing low-interest loans and grants to young entrepreneurs would reduce such barriers. Digital crowd-funding and peer-to-peer lending platforms would also help.</p>
-
-                <p>Additionally, reforming the educational system and integrating entrepreneurship into school curricula would equip students with foundational knowledge at an early age. This can be supplemented by workshops, boot camps, and collaboration between educational institutions and private sectors. There is also a need to adjust policies that discourage entrepreneurship like tax barriers for youth-led start-ups and implementing innovation-supportive laws. Furthermore, the government should invest in technology and infrastructure by expanding internet connectivity and electricity penetration to urban areas to bridge the technological divide. Lastly, the government should encourage partnerships to provide affordable tech solutions and digital tools for students and establish innovation hubs for collaboration, mentorship, and resource sharing.</p>
-
-                <p>These strategies can create a sound environment that can foster the growth of an entrepreneurial culture and eco-system.</p>
-
-                <div class="inline-image">
-                    <img src="static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Iceberg Model.jpg" alt="Iceberg Model Analysis">
-                </div>
-
-                <h2>Conclusion and Key Takeaways</h2>
-
-                <p>Through the systems thinking approach, I have gained the understanding that most of the problems we face today are consequences of well-intended solutions we implemented yesterday. The systems often suffer from policy resistance, the tendency for well-intentioned interventions to be defeated by the response of the system to the intervention itself (Sterman, 2002). This systems mapping project has opened my eyes to many interconnected gaps within my social enterprise. I have been able to decipher the interconnection between educational gaps, structural barriers, and economic dependency in South Sudan. These gaps play a key role in exacerbating unemployment and staggering entrepreneurial growth.</p>
-
-                <p>The key takeaways I have taken since the onset of the course include the need for immediate alignment of the educational curricula with the market demands by reforming educational systems. I also learned that financial systems need to be reformed to support the growth of SMEs and youth start-ups. There is also a need for public-private partnerships to drive sustainable development.</p>
-
-                <p>Immediate intervention that can relay change can be enacted in the follow.</p>
+            <!-- Lead -->
+            <div class="lead-card">
+                <p class="lead-text">South Sudanese students, particularly from low-income backgrounds, have limited access to entrepreneurial resources such as mentorship, funding, and business training. Therefore, they cannot compete for opportunities available to entrepreneurs from developing countries. This limits their ability to scale their ideas and sustain their businesses, exacerbating unemployment and poverty nationwide.</p>
             </div>
 
+            <div class="article-stack">
+
+                <!-- 1. Problem Background -->
+                <article class="article-block">
+                    <div class="article-block-inner">
+                        <figure class="ab-visual">
+                            <img src="/static/Pictures/Addressing Entrepreneurial Gaps in South Sudan opening image.jpg"
+                                 alt="Entrepreneurial Gaps in South Sudan — opening analysis"
+                                 loading="lazy">
+                            <figcaption>South Sudan's economic landscape and entrepreneurial challenges</figcaption>
+                        </figure>
+                        <div class="ab-content">
+                            <div class="ab-header-group">
+                                <p class="ab-section-label">Problem Background</p>
+                                <h2 class="ab-title">Context and Economic Fragility</h2>
+                            </div>
+                            <p>South Sudan's economy has been one of the most fragile in the last decade. The country's economy is in crisis — the South Sudanese pound has declined in value and the cost of goods and services has skyrocketed. At one point the inflation rate reached 835 percent, the highest in the world at the time (Mercy Corps, 2023). South Sudan's economic situation is jeopardized by the heavy reliance on oil revenue, which limits industrial diversification.</p>
+                            <p>The youth unemployment rate stands at over 40%, and rural areas are often economically excluded. While regionally, youth are addressing unemployment through entrepreneurship sustained by funding for developing countries, South Sudan lacks access to mentorship, funding, and business development — limiting the country's potential for economic growth.</p>
+                            <p>The problem is further exacerbated by cultural perceptions towards work. Most South Sudanese have a "manager's mindset," fearing risk and preferring white-collar jobs, which are very limited across the country. This system requires an approach that combines short-term goals with long-term visions.</p>
+                            <div class="ab-tags">
+                                <span class="ab-tag">Youth Unemployment</span>
+                                <span class="ab-tag">Economic Fragility</span>
+                                <span class="ab-tag">Oil Dependency</span>
+                                <span class="ab-tag">Post-Conflict Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Systems Thinking -->
+                <article class="article-block">
+                    <div class="article-block-inner reverse">
+                        <figure class="ab-visual">
+                            <img src="/static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Balancing loops.png"
+                                 alt="Systems thinking balancing loops diagram"
+                                 loading="lazy">
+                            <figcaption>Reinforcing and balancing loops in South Sudan's entrepreneurial ecosystem</figcaption>
+                        </figure>
+                        <div class="ab-content">
+                            <div class="ab-header-group">
+                                <p class="ab-section-label">Systems Thinking Analysis</p>
+                                <h2 class="ab-title">Feedback Loops and Structural Dynamics</h2>
+                            </div>
+                            <p><strong>R1 — Skill Development and Employment:</strong> A better, experiential learning educational system can lower the unemployment rate while increasing economic growth. When employment grows, there is increased economic growth which leads to more investment in education.</p>
+                            <p><strong>B1 — Entrepreneurial Activity and Unemployment:</strong> When entrepreneurial support is given, more jobs are created which leads to a reduction in unemployment.</p>
+                            <p><strong>R2 — Economic Growth and Investment:</strong> When there is economic growth, there is enough financial support for education and entrepreneurial activities, leading to a robust economy.</p>
+                            <p><strong>B2 — Governance and Structural Barriers:</strong> When policies are drafted to support education, there is increased access to education. Over time, this addresses skills gaps and leads to a reduction in unemployment.</p>
+                            <p><strong>B3 — Technological Infrastructure and Growth:</strong> When money is injected into improving infrastructure, the economy flourishes and attracts foreign investments, which can be reinvested into technological infrastructure.</p>
+                            <div class="ab-tags">
+                                <span class="ab-tag">Systems Thinking</span>
+                                <span class="ab-tag">Feedback Loops</span>
+                                <span class="ab-tag">Policy Design</span>
+                                <span class="ab-tag">Structural Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. Impact Gaps Canvas -->
+                <article class="article-block">
+                    <div class="article-block-inner">
+                        <figure class="ab-visual">
+                            <img src="/static/Pictures/Addressing Entrepreneurial Gaps in South Sudan stakeholder mapping.jpg"
+                                 alt="Stakeholder mapping for entrepreneurial gaps in South Sudan"
+                                 loading="lazy">
+                            <figcaption>Stakeholder mapping across the entrepreneurial ecosystem</figcaption>
+                        </figure>
+                        <div class="ab-content">
+                            <div class="ab-header-group">
+                                <p class="ab-section-label">Impact Gaps Canvas</p>
+                                <h2 class="ab-title">Key Themes and Structural Weaknesses</h2>
+                            </div>
+                            <p><strong>Skill Gaps and Education Quality:</strong> The educational system is theory-focused and does not provide the skills the job market demands. Most students lack practical knowledge to thrive in the workforce or entrepreneurial field.</p>
+                            <p><strong>Barriers to Entrepreneurship:</strong> Bureaucratic barriers limit entrepreneurial growth. Limited access to finances, inadequate mentorship, and tedious processes for acquiring operational permits coupled with high taxes prevent aspiring entrepreneurs from starting or scaling businesses.</p>
+                            <p><strong>Economic Dependence and Structural Weaknesses:</strong> The heavy dependence on oil revenues leaves the country vulnerable when oil prices drop. This weak structural system has increased corruption and made public offices the top priority, ignoring entrepreneurship.</p>
+                            <p><strong>Insecurity and Poor Infrastructure:</strong> Political instability has largely contributed to underdeveloped infrastructure and undermined business development in the region, exacerbating unemployment challenges.</p>
+                            <div class="ab-tags">
+                                <span class="ab-tag">Impact Gaps Canvas</span>
+                                <span class="ab-tag">Stakeholder Mapping</span>
+                                <span class="ab-tag">Bureaucratic Barriers</span>
+                                <span class="ab-tag">Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. Existing Solutions -->
+                <article class="article-block">
+                    <div class="article-block-inner reverse">
+                        <figure class="ab-visual">
+                            <img src="/static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Levers of Change.jpg"
+                                 alt="Levers of change for entrepreneurial development"
+                                 loading="lazy">
+                            <figcaption>Levers of change identified through the solutions landscape analysis</figcaption>
+                        </figure>
+                        <div class="ab-content">
+                            <div class="ab-header-group">
+                                <p class="ab-section-label">Solutions Landscape</p>
+                                <h2 class="ab-title">Existing Models and Opportunities for Action</h2>
+                            </div>
+                            <p>Organizations like Educate offer youth-focused entrepreneurship training to equip students with practical skills. ALX Africa empowers youth with digital skills through experiential learning programs tailored to African challenges. Institutions like BRAC offer loans and grants to small SMEs and young entrepreneurs, enabling them to overcome financial barriers.</p>
+                            <p>The Tony Elumelu Foundation supports promising African entrepreneurs with mentorship and seed funding. The UNLEASH Global Innovation Lab fosters entrepreneurship by providing a collaborative environment for young innovators to create solutions to the 17 SDGs. In Kenya, the Youth Empowerment Initiative between the government and private sector provides upskilling opportunities and job creation.</p>
+                            <p>The gaps from the impact canvas highlight the need for context-specific solutions in South Sudan. Despite efforts by government agencies and civil society organizations, gaps in mentorship reach, technological infrastructure, and regulatory reform remain significant — calling for partnerships between relevant stakeholders to scale solutions.</p>
+                            <div class="ab-tags">
+                                <span class="ab-tag">Tony Elumelu Foundation</span>
+                                <span class="ab-tag">UNLEASH Innovation</span>
+                                <span class="ab-tag">ALX Africa</span>
+                                <span class="ab-tag">Micro-Finance</span>
+                                <span class="ab-tag">Mentorship Networks</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. Iceberg Model / Conclusion -->
+                <article class="article-block">
+                    <div class="article-block-inner">
+                        <figure class="ab-visual">
+                            <img src="/static/Pictures/Addressing Entrepreneurial Gaps in South Sudan Iceberg Model.jpg"
+                                 alt="Iceberg model analysis of entrepreneurial gaps"
+                                 loading="lazy">
+                            <figcaption>The iceberg model reveals deep structural causes beneath visible symptoms</figcaption>
+                        </figure>
+                        <div class="ab-content">
+                            <div class="ab-header-group">
+                                <p class="ab-section-label">Conclusion</p>
+                                <h2 class="ab-title">Key Takeaways and Pathways Forward</h2>
+                            </div>
+                            <p>Through the systems thinking approach, I have gained the understanding that most of the problems we face today are consequences of well-intended solutions we implemented yesterday. The systems often suffer from policy resistance — the tendency for well-intentioned interventions to be defeated by the response of the system to the intervention itself (Sterman, 2002).</p>
+                            <p>This systems mapping project has opened my eyes to the interconnected gaps within South Sudan's entrepreneurial ecosystem — the interconnection between educational gaps, structural barriers, and economic dependency. These gaps play a key role in exacerbating unemployment and staggering entrepreneurial growth.</p>
+                            <p>Key takeaways include: the need for immediate alignment of educational curricula with market demands; reforming financial systems to support SMEs and youth start-ups; and building public-private partnerships to drive sustainable development. Reforming the educational system, integrating entrepreneurship into school curricula, adjusting policies that discourage entrepreneurship, and investing in technology and infrastructure are the critical levers of change.</p>
+                            <div class="ab-tags">
+                                <span class="ab-tag">Policy Resistance</span>
+                                <span class="ab-tag">Curriculum Reform</span>
+                                <span class="ab-tag">Public-Private Partnerships</span>
+                                <span class="ab-tag">Innovation Hubs</span>
+                                <span class="ab-tag">Digital Infrastructure</span>
+                            </div>
+                            <blockquote class="ab-quote">"Most of the problems we face today are consequences of well-intended solutions we implemented yesterday." — Sterman, 2002</blockquote>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Navigation -->
             <div class="article-navigation">
                 <a href="development-trajectory-south-sudan.html" class="nav-btn">
                     <i class="fas fa-chevron-left"></i> Previous
@@ -252,15 +383,20 @@
                 <a href="academia.html" class="nav-btn return-btn">
                     <i class="fas fa-list"></i> Back to Academia
                 </a>
-                <a href="#" class="nav-btn disabled">
+                <span class="nav-btn disabled">
                     Next <i class="fas fa-chevron-right"></i>
-                </a>
+                </span>
             </div>
+
         </div>
-    </article>
+    </section>
 
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js"></script>
+
     <script src="/static/loading.js" defer></script>
+    <script src="/static/load-header.js?v=1.0.4" defer></script>
+    <script src="/static/load-footer.js" defer></script>
+    <script src="/static/brand-notifications.js" defer></script>
+    <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
 </body>
 </html>
