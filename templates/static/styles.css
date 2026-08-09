@@ -2685,6 +2685,10 @@ li {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
+.social-media-section .social-icon {
+    color: #444;
+}
+
 .social-media-section h3 {
     margin-bottom: 1.5rem;
     color: #333;
@@ -4388,7 +4392,7 @@ li {
     height: 34px;
     padding: 8px;
     border-radius: 8px;
-    background: rgba(255,255,255,.1);
+    background: #b0b0b0;
     flex-shrink: 0;
     transition: background .25s ease, transform .25s ease;
 }
