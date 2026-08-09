@@ -4402,6 +4402,17 @@ li {
 .social-icon[aria-label="Facebook"]:hover svg   { background: #1877F2; }
 .social-icon[aria-label="Medium"]:hover svg     { background: #00AB6C; }
 .social-icon[aria-label="Email"]:hover svg      { background: #EA4335; }
+.social-icon[aria-label="Linktree"]:hover svg   { background: #43E55E; }
+
+/* Social icons on dark hero backgrounds */
+.hero .social-icon,
+.about .social-icon {
+    color: rgba(255,255,255,.85);
+}
+.hero .social-icon svg,
+.about .social-icon svg {
+    background: rgba(255,255,255,.15);
+}
 
 /* Footer bottom bar */
 .footer-bottom {
