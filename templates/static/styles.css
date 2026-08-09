@@ -4402,8 +4402,8 @@ li {
 }
 
 .footer .social-icon svg {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.1);
+    border: none;
 }
 
 .social-icon:hover[aria-label="LinkedIn"] svg   { background: #0A66C2; }
