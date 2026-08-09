@@ -4393,25 +4393,18 @@ li {
     transition: background .25s ease, transform .25s ease;
 }
 
-.social-icon:hover { color: white; }
-.social-icon:hover svg { transform: translateY(-2px); }
+.social-icon[aria-label="LinkedIn"] svg   { background: #0A66C2; }
+.social-icon[aria-label="X (Twitter)"] svg { background: #000; }
+.social-icon[aria-label="Instagram"] svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-icon[aria-label="Facebook"] svg   { background: #1877F2; }
+.social-icon[aria-label="Medium"] svg     { background: #00AB6C; }
+.social-icon[aria-label="Email"] svg      { background: #EA4335; }
+.social-icon[aria-label="Linktree"] svg   { background: #43E55E; }
 
-.social-icon[aria-label="LinkedIn"]:hover svg   { background: #0A66C2; }
-.social-icon[aria-label="X (Twitter)"]:hover svg { background: #000; }
-.social-icon[aria-label="Instagram"]:hover svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.social-icon[aria-label="Facebook"]:hover svg   { background: #1877F2; }
-.social-icon[aria-label="Medium"]:hover svg     { background: #00AB6C; }
-.social-icon[aria-label="Email"]:hover svg      { background: #EA4335; }
-.social-icon[aria-label="Linktree"]:hover svg   { background: #43E55E; }
-
-/* Social icons on dark hero backgrounds */
+/* Social icons on dark hero backgrounds — brand colors override */
 .hero .social-icon,
 .about .social-icon {
     color: rgba(255,255,255,.85);
-}
-.hero .social-icon svg,
-.about .social-icon svg {
-    background: rgba(255,255,255,.15);
 }
 
 /* Footer bottom bar */
