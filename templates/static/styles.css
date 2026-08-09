@@ -4397,6 +4397,10 @@ li {
     transition: background .25s ease, transform .25s ease;
 }
 
+.footer .social-icon svg {
+    background: transparent;
+}
+
 .social-icon:hover[aria-label="LinkedIn"] svg   { background: #0A66C2; }
 .social-icon:hover[aria-label="X (Twitter)"] svg { background: #000; }
 .social-icon:hover[aria-label="Instagram"] svg  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
