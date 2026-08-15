@@ -12,7 +12,7 @@
     <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .4s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; frame-src https://docs.google.com; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
     <title>CV | John Ngor Deng Garang</title>
     <meta name="description" content="Professional CV of John Ngor Deng Garang — Communications Specialist, Mastercard Foundation Scholar at Sciences Po France, First Class Honours alumnus of African Leadership University, CNN Academy Fellow, and UNLEASH Innovation Lab talent.">
     <meta name="robots" content="index, follow">
@@ -30,6 +30,273 @@
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── CV Document Layout ── */
+        .cv-page {
+            background: #f4f6f8;
+            padding: 60px 0 80px;
+        }
+        .cv-cta {
+            background: linear-gradient(135deg, #16b2dc 0%, #0e7ea1 100%);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 35px rgba(22,178,220,0.25);
+        }
+        .cv-cta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem;
+            color: #fff;
+        }
+        .cv-cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.9);
+            margin: 0 auto 1.5rem;
+            max-width: 560px;
+            line-height: 1.7;
+        }
+        .cv-cta .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: #fff;
+            color: #0e7ea1;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .cv-cta .btn-cv:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+        .cv-cta .btn-cv i { font-size: 1.05rem; }
+        .cv-cta .cv-cta-note {
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+        .cv-cta .cv-cta-note i { font-size: 0.85rem; }
+
+        .cv-document {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 35px rgba(0,0,0,0.10);
+            border: 1px solid rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .cv-header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 2.5rem 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: end;
+        }
+        .cv-header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 0.35rem;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .cv-header .cv-title-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #16b2dc;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin: 0 0 1rem;
+        }
+        .cv-contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cv-contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.85);
+            font-family: 'Inter', sans-serif;
+        }
+        .cv-contact-list li i { color: #16b2dc; font-size: 0.8rem; width: 14px; text-align: center; }
+        .cv-contact-list a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+        .cv-contact-list a:hover { color: #16b2dc; }
+        .cv-header-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid #16b2dc;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 0;
+        }
+        .cv-main { padding: 2.5rem 2.5rem 2rem 2rem; border-right: 1px solid #eee; }
+        .cv-side { padding: 2.5rem 2rem 2rem 2.5rem; background: #fafbfc; }
+
+        .cv-section { margin-bottom: 2.2rem; }
+        .cv-section:last-child { margin-bottom: 0; }
+        .cv-section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin: 0 0 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 3px solid #16b2dc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cv-section-title i { color: #16b2dc; font-size: 0.85rem; }
+
+        .cv-summary p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: #444;
+            margin: 0;
+        }
+
+        /* Experience entries */
+        .cv-entry { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f0f0f0; }
+        .cv-entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .cv-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+        .cv-entry-role { font-family: 'Inter', sans-serif; font-size: 0.98rem; font-weight: 700; color: #1a1a1a; margin: 0; }
+        .cv-entry-org { font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 600; color: #16b2dc; margin: 0.15rem 0 0; }
+        .cv-entry-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            background: #f4f6f8;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+        }
+        .cv-entry-loc { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: #999; margin: 0.2rem 0 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
+        .cv-entry-loc i { color: #16b2dc; font-size: 0.7rem; }
+        .cv-entry ul { list-style: none; padding: 0; margin: 0; }
+        .cv-entry ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: #555;
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+        }
+        .cv-entry ul li::before { content: "▸"; position: absolute; left: 0; color: #16b2dc; font-size: 0.9rem; }
+
+        /* Education entries */
+        .cv-edu { display: flex; gap: 1rem; margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid #f0f0f0; }
+        .cv-edu:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .cv-edu-icon {
+            width: 42px; height: 42px; flex-shrink: 0;
+            background: linear-gradient(135deg, #16b2dc, #0e7ea1);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.1rem;
+        }
+        .cv-edu-body h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: #1a1a1a; margin: 0 0 0.15rem; }
+        .cv-edu-body .cv-edu-degree { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #555; margin: 0 0 0.2rem; font-weight: 500; }
+        .cv-edu-body .cv-edu-detail { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: #999; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+        .cv-edu-body .cv-edu-detail span { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .cv-edu-body .cv-edu-detail i { color: #16b2dc; font-size: 0.7rem; }
+
+        /* Sidebar - skills */
+        .cv-skill-group { margin-bottom: 1.5rem; }
+        .cv-skill-group-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin: 0 0 0.6rem;
+        }
+        .cv-skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .cv-skill-tag {
+            background: #eef7fb;
+            border: 1px solid #d4eef7;
+            color: #1a7fa0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+        }
+        .cv-program {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .cv-program:last-child { border-bottom: none; }
+        .cv-program i { color: #16b2dc; font-size: 0.8rem; margin-top: 0.2rem; width: 16px; flex-shrink: 0; text-align: center; }
+        .cv-program-name { font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; color: #333; }
+        .cv-program-org { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: #999; }
+
+        .cv-highlight {
+            background: #eef7fb;
+            border-left: 3px solid #16b2dc;
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+        }
+        .cv-highlight p { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #444; line-height: 1.7; margin: 0; font-style: italic; }
+
+        /* Print friendly */
+        @media print {
+            #header-placeholder, #footer-placeholder, .cv-cta, .loading-screen, .category-hero { display: none !important; }
+            .cv-page { background: #fff; padding: 0; }
+            .cv-document { box-shadow: none; border: none; border-radius: 0; }
+        }
+
+        @media (max-width: 900px) {
+            .cv-body { grid-template-columns: 1fr; }
+            .cv-main { border-right: none; border-bottom: 1px solid #eee; padding: 2rem 1.5rem; }
+            .cv-side { padding: 2rem 1.5rem; }
+            .cv-header { grid-template-columns: 1fr; align-items: start; padding: 2rem 1.5rem; }
+            .cv-header-photo { width: 90px; height: 90px; }
+            .cv-header h1 { font-size: 1.7rem; }
+        }
+        @media (max-width: 600px) {
+            .cv-page { padding: 40px 0 60px; }
+            .cv-cta { padding: 2rem 1.25rem; }
+            .cv-cta h2 { font-size: 1.2rem; }
+            .cv-entry-head { flex-direction: column; gap: 0.35rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -52,11 +319,409 @@
         </div>
     </section>
 
-    <!-- CV Embed Section -->
-    <section class="cv-section">
+    <!-- CV Section -->
+    <section class="cv-page">
         <div class="container">
-            <div class="cv-embed">
-                <iframe src="https://docs.google.com/document/d/16kDdUxY-9KcheU2CpwF2w0xiZtgNcrG2/preview" width="100%" height="800" frameborder="0" sandbox="allow-scripts allow-same-origin"></iframe>
+
+            <!-- CTA to hosted CV -->
+            <div class="cv-cta">
+                <h2>View the Full CV</h2>
+                <p>This page highlights the key chapters of my career. For the complete, fully detailed CV — including all achievements, metrics, and downloadable format — visit my dedicated CV page.</p>
+                <a href="https://johngarang.cv/" class="btn-cv" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-alt"></i> Open Full CV on johngarang.cv
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <div class="cv-cta-note"><i class="fas fa-external-link-alt"></i> Opens in a new tab — hosted on johngarang.cv</div>
+            </div>
+
+            <!-- CV Document -->
+            <div class="cv-document">
+
+                <!-- Header -->
+                <header class="cv-header">
+                    <div>
+                        <h1>John Ngor Deng Garang</h1>
+                        <p class="cv-title-role">Communications Professional</p>
+                        <ul class="cv-contact-list">
+                            <li><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda · Open to work globally</li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:dengjohn200@gmail.com">dengjohn200@gmail.com</a></li>
+                            <li><i class="fas fa-phone-alt"></i> <a href="tel:+256768741070">+256 768 741 070</a></li>
+                            <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer">linkedin.com/in/j-garang</a></li>
+                            <li><i class="fas fa-globe"></i> <a href="https://johngarang.com" target="_blank" rel="noopener noreferrer">johngarang.com</a></li>
+                        </ul>
+                    </div>
+                    <img src="/static/Pictures/john_ngor_deng_garang_profile_picture.png" alt="John Ngor Deng Garang — Communications Professional" class="cv-header-photo" loading="eager">
+                </header>
+
+                <!-- Body -->
+                <div class="cv-body">
+
+                    <!-- Main Column -->
+                    <div class="cv-main">
+
+                        <!-- Professional Summary -->
+                        <div class="cv-section cv-summary">
+                            <h3 class="cv-section-title"><i class="fas fa-user-tie"></i> Professional Summary</h3>
+                            <p>South Sudanese communications specialist, graphic designer, and social impact leader with <strong>5+ years of experience</strong> managing corporate and non-profit communications initiatives across <strong>10+ countries</strong> including South Africa, Uganda, Rwanda, Kenya, and Ghana. Mastercard Foundation Scholar pursuing a Master of Communications, Media & Creative Industries at Sciences Po France, and First Class Honours alumnus of the African Leadership University. Recognized globally as a CNN Academy Fellow, UNLEASH Innovation Lab Talent, YALI alumnus, and Tilting Futures alumni. Has developed close to 1,000 content pieces, driven significant audience growth, and built strategic partnerships across Africa and beyond.</p>
+                        </div>
+
+                        <!-- Professional Experience -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h3>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Communications Lead</p>
+                                        <p class="cv-entry-org">Education Bridge</p>
+                                    </div>
+                                    <span class="cv-entry-date">May 2025 – Present</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Kampala, Uganda & South Sudan</p>
+                                <ul>
+                                    <li>Lead strategic storytelling, stakeholder engagement, and brand positioning for a non-profit providing South Sudanese youth with quality education and leadership development.</li>
+                                    <li>Manage digital communications and strategic content creation, collaborating with the Chief of Staff and "Partners for Equity" on communications capacity building.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Board Member — Governance & Ethics Committee</p>
+                                        <p class="cv-entry-org">Silicon High School</p>
+                                    </div>
+                                    <span class="cv-entry-date">June 2026 – Present</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Remote / Governance Hub</p>
+                                <ul>
+                                    <li>Provide strategic oversight, policy evaluation, and ethical compliance frameworks for institutional advancement.</li>
+                                    <li>Evaluate institutional compliance risks and streamline accountability pipelines for board-level decision-making.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">GTM Strategy Consultant — 2026 Unity Challenge</p>
+                                        <p class="cv-entry-org">Africa Careers Network × Jetstream Global</p>
+                                    </div>
+                                    <span class="cv-entry-date">Jan 2026 – Mar 2026</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Remote / Regional</p>
+                                <ul>
+                                    <li>Selected into an elite group of 50 young professionals to solve a live enterprise trade-finance challenge; co-steered Team Nomad to the Grand Finale Showcase.</li>
+                                    <li>Anchored marketing and narrative strategy to make fintech concepts highly pitchable, targeting access to 1M+ African SMEs.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">University Preparatory Instructor (Internship)</p>
+                                        <p class="cv-entry-org">Ashinaga Foundation</p>
+                                    </div>
+                                    <span class="cv-entry-date">Jul 2024 – Present</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+                                <ul>
+                                    <li>Designed and executed 60+ active-learning lesson plans; achieved a verified 100% student pass rate on SAT examinations.</li>
+                                    <li>Facilitated 13 targeted leadership workshops with 80% self-reported confidence growth among 25+ scholars.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Social Media Manager (Promoted from Intern)</p>
+                                        <p class="cv-entry-org">Africa Inventor Alliance</p>
+                                    </div>
+                                    <span class="cv-entry-date">Oct 2024 – Present</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+                                <ul>
+                                    <li>Engineered SEO and distribution strategies yielding a 90% net increase in organic brand search visibility.</li>
+                                    <li>Built the deep-tech startup's entire digital architecture, audience tracking, and footprint from the ground up within the first six months.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Learning Assistant — BEL Programme</p>
+                                        <p class="cv-entry-org">African Leadership University</p>
+                                    </div>
+                                    <span class="cv-entry-date">Jan 2025 – Apr 2025</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                                <ul>
+                                    <li>Managed 200+ students across the BEL programme, resolving 437 individual engagement cases with a 97.5% verified resolution rate.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Hub Ambassador</p>
+                                        <p class="cv-entry-org">ALU Global Learning Experiences</p>
+                                    </div>
+                                    <span class="cv-entry-date">Jan 2025 – Apr 2025</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                                <ul>
+                                    <li>Selected as Hub Ambassador for the inaugural Ghana Signature Immersive Experience; secured externship placements with 8 prominent organizations across Accra.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Social Media Manager</p>
+                                        <p class="cv-entry-org">Creative Connect</p>
+                                    </div>
+                                    <span class="cv-entry-date">Feb 2025 – May 2025</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                                <ul>
+                                    <li>Curated high-aesthetic digital content and authored contextual captions and educational copy for Instagram and LinkedIn spotlighting contemporary African artists.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Graphic Designer</p>
+                                        <p class="cv-entry-org">Nalafem Collective</p>
+                                    </div>
+                                    <span class="cv-entry-date">May 2025 – Aug 2025</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                                <ul>
+                                    <li>Designed a full visual package for the flagship 4th Nalafem Summit, covering pre-launch, real-time event, and post-summit documentation phases.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">ALforEducation Apprentice</p>
+                                        <p class="cv-entry-org">African Leadership Academy</p>
+                                    </div>
+                                    <span class="cv-entry-date">Apr 2025 – Aug 2025</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa (Remote)</p>
+                                <ul>
+                                    <li>Completed intensive immersion analyzing systemic educational challenges and co-designed an innovative field project framework with a partner organization.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Multimedia Manager</p>
+                                        <p class="cv-entry-org">Surplus People Project</p>
+                                    </div>
+                                    <span class="cv-entry-date">Mar 2024 – Jun 2024</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                                <ul>
+                                    <li>Produced 50+ multimedia assets generating a 170% increase in digital engagement; built the organization's LinkedIn from zero to 700+ followers in 4 months.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-entry">
+                                <div class="cv-entry-head">
+                                    <div>
+                                        <p class="cv-entry-role">Social Media Manager & Executive Assistant (Promoted from Intern)</p>
+                                        <p class="cv-entry-org">Uganics Repellents Ltd</p>
+                                    </div>
+                                    <span class="cv-entry-date">Sep 2023 – Apr 2024</span>
+                                </div>
+                                <p class="cv-entry-loc"><i class="fas fa-map-marker-alt"></i> Kabasanda & Kampala, Uganda</p>
+                                <ul>
+                                    <li>Engineered a data-driven content strategy yielding a 68% net surge in brand community followers; designed 100+ educational graphics and product infographics.</li>
+                                    <li>Researched 20+ global grant opportunities and co-authored technical proposal drafts to scale the business footprint.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Education -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+
+                            <div class="cv-edu">
+                                <div class="cv-edu-icon"><i class="fas fa-university"></i></div>
+                                <div class="cv-edu-body">
+                                    <h4>Sciences Po — School of Management and Impact</h4>
+                                    <p class="cv-edu-degree">Master of Communications, Media & Creative Industries</p>
+                                    <p class="cv-edu-detail">
+                                        <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+                                        <span><i class="fas fa-calendar"></i> Aug 2026 – Jun 2028</span>
+                                        <span><i class="fas fa-award"></i> Mastercard Foundation Scholar</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cv-edu">
+                                <div class="cv-edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="cv-edu-body">
+                                    <h4>African Leadership University — School of Business & Entrepreneurship</h4>
+                                    <p class="cv-edu-degree">Bachelor of Entrepreneurial Leadership — First Class Honours</p>
+                                    <p class="cv-edu-detail">
+                                        <span><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</span>
+                                        <span><i class="fas fa-calendar"></i> May 2023 – Jul 2026</span>
+                                        <span><i class="fas fa-award"></i> Mastercard Foundation Scholar</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Column -->
+                    <div class="cv-side">
+
+                        <!-- Skills -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-cogs"></i> Core Skills</h3>
+                            <div class="cv-skill-group">
+                                <p class="cv-skill-group-label">Communications & Strategy</p>
+                                <div class="cv-skill-tags">
+                                    <span class="cv-skill-tag">Strategic Communications</span>
+                                    <span class="cv-skill-tag">Brand Storytelling</span>
+                                    <span class="cv-skill-tag">Digital Strategy</span>
+                                    <span class="cv-skill-tag">Content Creation</span>
+                                    <span class="cv-skill-tag">SEO</span>
+                                    <span class="cv-skill-tag">Email Marketing</span>
+                                    <span class="cv-skill-tag">Copywriting</span>
+                                    <span class="cv-skill-tag">Ghost Writing</span>
+                                </div>
+                            </div>
+                            <div class="cv-skill-group">
+                                <p class="cv-skill-group-label">Digital & Design</p>
+                                <div class="cv-skill-tags">
+                                    <span class="cv-skill-tag">Social Media Management</span>
+                                    <span class="cv-skill-tag">Graphic Design</span>
+                                    <span class="cv-skill-tag">Web Design</span>
+                                    <span class="cv-skill-tag">HTML5 / CSS3</span>
+                                    <span class="cv-skill-tag">Visual Storytelling</span>
+                                    <span class="cv-skill-tag">Multimedia Production</span>
+                                    <span class="cv-skill-tag">Photography</span>
+                                    <span class="cv-skill-tag">Cinematography</span>
+                                </div>
+                            </div>
+                            <div class="cv-skill-group">
+                                <p class="cv-skill-group-label">Leadership & Management</p>
+                                <div class="cv-skill-tags">
+                                    <span class="cv-skill-tag">Project Management</span>
+                                    <span class="cv-skill-tag">Stakeholder Engagement</span>
+                                    <span class="cv-skill-tag">Partnership Development</span>
+                                    <span class="cv-skill-tag">Team Leadership</span>
+                                    <span class="cv-skill-tag">Programme Facilitation</span>
+                                    <span class="cv-skill-tag">Microsoft Office Suite</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Programs & Fellowships -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-award"></i> Programs & Fellowships</h3>
+
+                            <div class="cv-program">
+                                <i class="fas fa-video"></i>
+                                <div>
+                                    <div class="cv-program-name">CNN Academy Fellow</div>
+                                    <div class="cv-program-org">Voices of the Global South Climate Storytelling Fellowship · 2025</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-flask"></i>
+                                <div>
+                                    <div class="cv-program-name">UNLEASH Global Innovation Lab — Talent</div>
+                                    <div class="cv-program-org">Kigali, Rwanda · Full Scholarship · 2023</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-seedling"></i>
+                                <div>
+                                    <div class="cv-program-name">Take Action Lab — Tilting Futures</div>
+                                    <div class="cv-program-org">Full Scholarship · South Africa · 2024</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-globe-africa"></i>
+                                <div>
+                                    <div class="cv-program-name">Accra Fusion — Student Ambassador</div>
+                                    <div class="cv-program-org">African Leadership University · Ghana · 2025</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-code-branch"></i>
+                                <div>
+                                    <div class="cv-program-name">E4BE Hackathon — Regional Finalist</div>
+                                    <div class="cv-program-org">U.S. Dept. of State · Arusha, Tanzania · 2026</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <div class="cv-program-name">Nairobi Nexus Hackathon — Team Lead</div>
+                                    <div class="cv-program-org">Google Africa HQ · Nairobi, Kenya · 2025</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <div class="cv-program-name">YALI East Africa — Cohort 60</div>
+                                    <div class="cv-program-org">U.S. Dept. of State · 2024</div>
+                                </div>
+                            </div>
+                            <div class="cv-program">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <div class="cv-program-name">Jim Leech Mastercard Foundation — Entrepreneurship</div>
+                                    <div class="cv-program-org">Mastercard Foundation</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credentials -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-id-badge"></i> Credentials</h3>
+                            <div class="cv-skill-tags">
+                                <span class="cv-skill-tag"><i class="fas fa-award" style="margin-right:0.3rem;"></i>Mastercard Foundation Scholar</span>
+                                <span class="cv-skill-tag"><i class="fas fa-video" style="margin-right:0.3rem;"></i>CNN Academy Fellow</span>
+                                <span class="cv-skill-tag"><i class="fas fa-flask" style="margin-right:0.3rem;"></i>UNLEASH Talent</span>
+                                <span class="cv-skill-tag"><i class="fas fa-globe-africa" style="margin-right:0.3rem;"></i>YALI Alumni</span>
+                                <span class="cv-skill-tag"><i class="fas fa-seedling" style="margin-right:0.3rem;"></i>Tilting Futures Alumni</span>
+                                <span class="cv-skill-tag"><i class="fas fa-graduation-cap" style="margin-right:0.3rem;"></i>First Class Honours</span>
+                            </div>
+                        </div>
+
+                        <!-- Key Achievements -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-trophy"></i> Key Achievements</h3>
+                            <div class="cv-skill-tags">
+                                <span class="cv-skill-tag">~1,000 Content Pieces</span>
+                                <span class="cv-skill-tag">+90% Organic Search Growth</span>
+                                <span class="cv-skill-tag">+170% Digital Engagement</span>
+                                <span class="cv-skill-tag">97.5% Case Resolution Rate</span>
+                                <span class="cv-skill-tag">100% SAT Pass Rate</span>
+                                <span class="cv-skill-tag">0→700+ LinkedIn Followers</span>
+                                <span class="cv-skill-tag">+68% Community Growth</span>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="cv-section">
+                            <h3 class="cv-section-title"><i class="fas fa-language"></i> Languages</h3>
+                            <div class="cv-skill-tags">
+                                <span class="cv-skill-tag">English (Fluent)</span>
+                                <span class="cv-skill-tag">Dinka (Native)</span>
+                                <span class="cv-skill-tag">Arabic (Conversational)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -84,7 +749,3 @@
     </script>
 </body>
 </html>
-
-
-
-
