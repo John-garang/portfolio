@@ -37,9 +37,34 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         if path.endswith('.txt'):   return 'text/plain'
         return 'application/octet-stream'
 
+    GONE_PATHS = {
+        # old standalone poem pages
+        '/an-unbalanced-man', '/learning-to-write-without-permission',
+        '/the-price-of-truth', '/if-equality-means-this',
+        '/making-of-dinka-woman', '/when-educated-woman-says-no',
+        '/the-son-mama-couldnt-save',
+        # old .html suffixed pages
+        '/article', '/articles', '/blog', '/blogs',
+        '/cnn-academy.html', '/artefacts.html',
+        '/education-bridge.html', '/africa-inventor-alliance.html',
+        '/addressing-entrepreneurial-gaps-south-sudan.html',
+        '/the-son-mama-couldnt-save.html',
+        '/learning-to-write-without-permission.html',
+        # old clean-url pages
+        '/african-leadership-university', '/accra-fusion',
+        '/yali-east-africa',
+    }
+
     def _route(self):
         """Resolve URL path to a file path in templates/."""
         clean = self.path.split('?')[0]
+        if clean in self.GONE_PATHS:
+            self.send_response(410)
+            self.send_header('Content-Type', 'text/html')
+            self.end_headers()
+            self.wfile.write(b'<h1>410 Gone</h1>')
+            self.path = None
+            return
         if clean == '/':
             self.path = 'templates/index.html'
         elif clean in ('/sitemap.xml', '/robots.txt'):

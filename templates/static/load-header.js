@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li class="dropdown">
                             <a href="/work-portfolio" class="nav-link">Work Portfolio <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
-                                <a href="/my-shelf">My Shelf</a>
-                                <a href="/cv">CV</a>
-                                <a href="/graphic-design">Graphic Design</a>
-                                <a href="/web-design">Web Design</a>
+                                <a href="/my-shelf" aria-label="My Shelf — writings, poems and academic works by John Ngor Deng Garang">My Shelf</a>
+                                <a href="/cv" aria-label="CV of John Ngor Deng Garang — Communications Professional">CV</a>
+                                <a href="/graphic-design" aria-label="Graphic Design portfolio by John Ngor Deng Garang">Graphic Design</a>
+                                <a href="/web-design" aria-label="Web Design & Development portfolio by John Ngor Deng Garang">Web Design</a>
                             </div>
                         </li>
                         <li><a href="/experience-overview" class="nav-link">Experience</a></li>
