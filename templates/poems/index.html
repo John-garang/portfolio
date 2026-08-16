@@ -122,9 +122,37 @@
         }
         .pub-badge:hover { background: #c8ebd4; }
         .pub-badge i { font-size: 0.65rem; }
+        .poet-bio {
+            background: #f9f9f9;
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .poet-bio-inner {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .poet-bio-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid #16b2dc;
+        }
+        .poet-bio-text p {
+            color: #444;
+            line-height: 1.75;
+            font-size: 0.95rem;
+            margin: 0;
+        }
         @media (max-width: 600px) {
             .poems-hero h1 { font-size: 2.5rem; }
             .article-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .poet-bio-inner { flex-direction: column; text-align: center; }
         }
 
         /* Single Poem View Styles */
@@ -243,6 +271,15 @@
                 <h1>Poems</h1>
                 <p class="poems-hero-subtitle">Poetry Collection</p>
                 <p class="poems-hero-description">Words that dance, emotions that resonate.</p>
+            </div>
+        </section>
+
+        <section class="poet-bio">
+            <div class="poet-bio-inner">
+                <img src="/static/Pictures/John_Ngor_Deng_Garang_Communications_ProfessionaL_and_Poet1.png" alt="John Ngor Deng Garang" class="poet-bio-photo">
+                <div class="poet-bio-text">
+                    <p>John Ngor Deng Garang is a South Sudanese communications professional and poet, residing in Paris, France. He has no niche; he simply writes whatever comes to mind exactly as he feels it. His writing mirrors the struggles of his community, the small details of daily life like love, travel, name it all… and sometimes his defiance of conservative, modern, and political views/norms. His work lives across various publications and collected on his blog <a href="https://johngarang.com" style="color:#16b2dc;">johngarang.com</a>.</p>
+                </div>
             </div>
         </section>
 
