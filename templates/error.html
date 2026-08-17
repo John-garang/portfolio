@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Page Not Found | John Ngor Deng Garang</title>
+    <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo-sm.webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9f9f9;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .error-container { max-width: 560px; width: 100%; }
+        .error-code {
+            font-size: clamp(5rem, 20vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #16b2dc, #1a1a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .error-title {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #16b2dc;
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #1496b8; }
+        .btn-secondary {
+            background: white;
+            color: #16b2dc;
+            padding: 0.75rem 1.75rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid #16b2dc;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover { background: #16b2dc; color: white; }
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: #16b2dc;
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+        .nav-links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #16b2dc; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code" id="errorCode">404</div>
+        <div class="divider"></div>
+        <h1 class="error-title" id="errorTitle">Page Not Found</h1>
+        <p class="error-message" id="errorMessage">
+            This page no longer exists or has been moved. Head back home or explore what's available.
+        </p>
+        <div class="error-actions">
+            <a href="/" class="btn-primary">Go Home</a>
+            <a href="/poems" class="btn-secondary">Read Poems</a>
+        </div>
+        <nav class="nav-links">
+            <a href="/about">About</a>
+            <a href="/experience-overview">Experience</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+    <script>
+        const code = document.getElementById('errorCode');
+        const title = document.getElementById('errorTitle');
+        const msg = document.getElementById('errorMessage');
+        if (window.__errorCode === 410) {
+            code.textContent = '410';
+            title.textContent = 'Page Gone';
+            msg.textContent = 'This page has been permanently removed. It no longer lives here — but plenty of good things still do.';
+        }
+    </script>
+</body>
+</html>

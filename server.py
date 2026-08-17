@@ -79,15 +79,31 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/web-design', '/web-design.html',
     }
 
+    def _send_error_page(self, code):
+        """Serve the styled error page with the correct HTTP status code."""
+        error_path = 'templates/error.html'
+        try:
+            with open(error_path, 'rb') as f:
+                raw = f.read()
+            # Inject the error code so JS can customise the message
+            raw = raw.replace(b'window.__errorCode === 410', f'window.__errorCode === {code}'.encode())
+            raw = raw.replace(b"window.__errorCode = undefined", f"window.__errorCode = {code}".encode())
+            # Set the JS variable before the check runs
+            raw = raw.replace(b'<script>', f'<script>window.__errorCode = {code};'.encode(), 1)
+        except FileNotFoundError:
+            raw = f'<h1>{code}</h1>'.encode()
+        self.send_response(code)
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.send_header('Content-Length', str(len(raw)))
+        self.end_headers()
+        self.wfile.write(raw)
+        self.path = None
+
     def _route(self):
         """Resolve URL path to a file path in templates/."""
         clean = self.path.split('?')[0]
         if clean in self.GONE_PATHS:
-            self.send_response(410)
-            self.send_header('Content-Type', 'text/html')
-            self.end_headers()
-            self.wfile.write(b'<h1>410 Gone</h1>')
-            self.path = None
+            self._send_error_page(410)
             return
         if clean == '/':
             self.path = 'templates/index.html'
@@ -103,11 +119,7 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             elif os.path.exists(directory):
                 self.path = directory
             else:
-                self.send_response(404)
-                self.send_header('Content-Type', 'text/html')
-                self.end_headers()
-                self.wfile.write(b'<h1>404 Not Found</h1>')
-                self.path = None  # signal that response is already sent
+                self._send_error_page(404)
 
     def do_GET(self):
         self._route()
