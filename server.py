@@ -51,7 +51,6 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/the-words-i-never-said', '/the-words-i-never-said.html',
         '/the-boy-who-taught-his-nation-to-speak', '/the-boy-who-taught-his-nation-to-speak.html',
         # old experience/program pages
-        '/cv', '/cv.html',
         '/academia', '/academia.html',
         '/education-bridge', '/education-bridge.html',
         '/africa-inventor-alliance', '/africa-inventor-alliance.html',
@@ -64,7 +63,7 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/cnn-academy', '/cnn-academy.html',
         '/accra-fusion', '/accra-fusion.html',
         '/yali-east-africa', '/yali-east-africa.html',
-        '/work-portfolio', '/work-portfolio.html',
+
         # old article/blog pages
         '/article', '/articles', '/blog', '/blogs',
         '/artefacts', '/artefacts.html',
@@ -73,10 +72,7 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/entrepreneurial-gaps-south-sudan', '/entrepreneurial-gaps-south-sudan.html',
         '/cape-town-travel-guide', '/cape-town-travel-guide.html',
         # old misc pages
-        '/my-shelf', '/my-shelf.html',
         '/travels', '/travels.html',
-        '/graphic-design', '/graphic-design.html',
-        '/web-design', '/web-design.html',
     }
 
     def _send_error_page(self, code):

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M10S25C7JC');
+    </script>
+    <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .4s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shelf | John Garang</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/mobile-fixes.css">
+    <link rel="stylesheet" href="/static/loading.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" class="loading-logo">
+        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="/static/load-header.js"></script>
+
+    <!-- Shelf Hero -->
+    <section class="shelf-hero" style="background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%); min-height: 70vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 6rem 20px 4rem;">
+        <div style="max-width: 800px;">
+            <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" style="width: 64px; height: 64px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; margin-bottom: 1.5rem; display: block; margin-left: auto; margin-right: auto;">
+            <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem;">Welcome to My Shelf</h1>
+            <div style="width: 48px; height: 3px; background: rgba(255,255,255,0.4); margin: 0 auto 1.5rem;"></div>
+            <p style="font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.88); max-width: 680px; margin: 0 auto 2rem;">Welcome to my digital shelf, where my thoughts roam free and ideas are neatly shelved for your reading pleasure. From academic musings to travel stories that might make you rethink your bucket list, it's all here — just a click away.</p>
+            <a href="https://medium.com/@j.garang" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); color: #fff; padding: 0.65rem 1.5rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s;">
+                <i class="fab fa-medium"></i> Read on Medium
+            </a>
+            <a href="work-portfolio" style="display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; margin-top: 1.25rem;"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Shelf Categories -->
+    <section class="posts-section">
+        <div class="container">
+            <div class="categories-grid">
+                <a href="blog" class="category-card" aria-label="Blog — thoughts, ideas and stories by John Ngor Deng Garang">
+                    <div class="category-image">
+                        <img src="/static/Pictures/Blog.png" alt="Blog">
+                    </div>
+                    <div class="category-content">
+                        <h3>Blog</h3>
+                        <p>Discover a collection of thoughts, ideas, and stories that inspire and inform.</p>
+                    </div>
+                </a>
+                
+                <a href="academia" class="category-card" aria-label="Academia — academic writings and research by John Ngor Deng Garang">
+                    <div class="category-image">
+                        <img src="/static/Pictures/Academia.png" alt="Academia">
+                    </div>
+                    <div class="category-content">
+                        <h3>Academia</h3>
+                        <p>Dive into my academic journey, projects, and lifelong learning endeavors.</p>
+                    </div>
+                </a>
+                
+                <a href="travels" class="category-card" aria-label="Travels & Fun — travel stories and adventures by John Ngor Deng Garang">
+                    <div class="category-image">
+                        <img src="/static/Pictures/Travels and Fun.png" alt="Travels & Fun">
+                    </div>
+                    <div class="category-content">
+                        <h3>Travels & Fun</h3>
+                        <p>Explore adventures, memories, and the joy of life's little moments.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="/static/load-footer.js" defer></script>
+    <script src="/static/brand-notifications.js" defer></script>
+    <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/loading.js" defer></script>
+</body>
+</html>
+
+
+
+

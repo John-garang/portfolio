@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M10S25C7JC');
+    </script>
+    <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .4s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Portfolio | John Ngor Deng Garang</title>
+    <meta name="description" content="John Ngor Deng Garang's graphic design portfolio featuring brand identity, social media graphics, and campaign design for Nalafem, Africa Inventor Alliance, Uganics, Education Bridge, and more.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://johngarang.com/graphic-design">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://johngarang.com/graphic-design">
+    <meta property="og:title" content="Graphic Design Portfolio | John Ngor Deng Garang">
+    <meta property="og:description" content="Graphic design portfolio featuring brand identity, social media graphics, and campaign design across Africa.">
+    <meta property="og:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Graphic Design Portfolio | John Ngor Deng Garang">
+    <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.png">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/mobile-fixes.css">
+    <link rel="stylesheet" href="/static/loading.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── Design Gallery Section ── */
+        .design-gallery-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .design-stack {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        /* ── Design Block ── */
+        .design-block {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        .design-block:hover {
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+        }
+        .design-block-inner {
+            padding: 0;
+        }
+
+        /* ── Gallery Cover ── */
+        .design-gallery-cover {
+            position: relative;
+            cursor: pointer;
+            border-radius: 0;
+            overflow: hidden;
+        }
+        .design-gallery-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .design-cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.48);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            transition: background 0.25s;
+        }
+        .design-gallery-cover:hover .design-cover-overlay {
+            background: rgba(0,0,0,0.62);
+        }
+        .design-cover-overlay .overlay-label {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            color: #16b2dc;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .design-cover-overlay .overlay-caption {
+            position: absolute;
+            bottom: 12px;
+            left: 14px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.72rem;
+            font-style: italic;
+            font-family: 'Inter', sans-serif;
+        }
+        .design-cover-overlay i {
+            color: #fff;
+            font-size: 1.6rem;
+            opacity: 0.9;
+        }
+        .design-cover-overlay .view-gallery-text {
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .design-cover-overlay .photo-count {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ── Hidden Gallery for Lightbox ── */
+        .design-program-gallery {
+            display: none;
+        }
+        .design-gallery-track {
+            display: flex;
+            transition: transform 0.4s ease;
+            align-items: center;
+            will-change: transform;
+            width: 100%;
+        }
+        .design-gallery-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        .design-gallery-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0;
+            background: transparent;
+            flex-shrink: 0;
+        }
+
+        /* ── Gallery Title ── */
+        .design-gallery-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #16b2dc;
+            margin: 0 0 0.6rem;
+        }
+
+        /* ── Gallery Caption ── */
+        .design-gallery-caption {
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+            margin-top: 0.6rem;
+            font-style: italic;
+        }
+
+        /* ── Lightbox ── */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.93);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox-overlay.open {
+            display: flex;
+        }
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 92vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-img-wrap img {
+            max-width: 92vw;
+            max-height: 85vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 0;
+            user-select: none;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10000;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+        .lightbox-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10000;
+        }
+        .lightbox-btn:hover {
+            background: rgba(22,178,220,0.75);
+        }
+        .lightbox-btn.lb-prev {
+            left: 12px;
+        }
+        .lightbox-btn.lb-next {
+            right: 12px;
+        }
+        .lightbox-counter {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.8rem;
+            margin-top: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 900px) {
+            .design-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .design-stack {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .design-block-inner {
+                padding: 1.5rem;
+            }
+            .lightbox-btn.lb-prev {
+                left: 4px;
+            }
+            .lightbox-btn.lb-next {
+                right: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" class="loading-logo">
+        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="/static/load-header.js"></script>
+
+    <!-- Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1>Graphic Design Portfolio</h1>
+            <p>Visual storytelling through creative design solutions</p>
+            <a href="work-portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Design Gallery -->
+    <section class="design-gallery-section">
+        <div class="container">
+            <div class="design-stack">
+
+                <!-- Nalafem -->
+                <article class="design-block" id="nalafem">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('nalafem', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_01.webp"
+                                 alt="Nalafem brand identity design by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">Nalafem</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">15 photos</span>
+                                <span class="overlay-caption">Brand Identity</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="nalafem">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_01.webp" alt="Nalafem brand identity design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_02.webp" alt="Nalafem visual identity system" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_03.webp" alt="Nalafem brand guidelines" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_04.webp" alt="Nalafem logo design variations" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_05.webp" alt="Nalafem color palette" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_06.webp" alt="Nalafem typography system" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_07.webp" alt="Nalafem brand applications" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_08.webp" alt="Nalafem digital assets" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_09.webp" alt="Nalafem social media templates" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_10.webp" alt="Nalafem marketing materials" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_11.webp" alt="Nalafem brand collateral" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_12.webp" alt="Nalafem visual language" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_13.webp" alt="Nalafem brand strategy" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_14.webp" alt="Nalafem design system" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Nalafem_15.webp" alt="Nalafem final brand identity" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Africa Inventor Alliance -->
+                <article class="design-block" id="africa-inventor-alliance">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('africa-inventor-alliance', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_01.webp"
+                                 alt="Africa Inventor Alliance campaign graphics by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">Africa Inventor Alliance</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">16 photos</span>
+                                <span class="overlay-caption">Campaign Design</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="africa-inventor-alliance">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_01.webp" alt="Africa Inventor Alliance campaign design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_02.webp" alt="Africa Inventor Alliance social graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_03.webp" alt="Africa Inventor Alliance visual campaign" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_04.webp" alt="Africa Inventor Alliance digital assets" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_05.webp" alt="Africa Inventor Alliance promotional graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_06.webp" alt="Africa Inventor Alliance event graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_07.webp" alt="Africa Inventor Alliance marketing visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_08.webp" alt="Africa Inventor Alliance social media campaign" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_09.webp" alt="Africa Inventor Alliance brand messaging" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_10.webp" alt="Africa Inventor Alliance visual storytelling" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_11.webp" alt="Africa Inventor Alliance campaign visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_12.webp" alt="Africa Inventor Alliance digital design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_13.webp" alt="Africa Inventor Alliance graphic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_14.webp" alt="Africa Inventor Alliance creative direction" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_15.webp" alt="Africa Inventor Alliance visual identity" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Africa_Inventor_Alliance_16.webp" alt="Africa Inventor Alliance campaign assets" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- nFIX -->
+                <article class="design-block" id="nfix">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('nfix', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_11.webp"
+                                 alt="nFIX product and app design by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">nFIX</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">8 photos</span>
+                                <span class="overlay-caption">Product & App Design</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="nfix">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_11.webp" alt="nFIX app design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_01.webp" alt="nFIX user interface" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_02.webp" alt="nFIX mobile app screens" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_03.webp" alt="nFIX UX design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_05.webp" alt="nFIX product design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_09.webp" alt="nFIX app interface" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_nFIX_10.webp" alt="nFIX user experience" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Uganics -->
+                <article class="design-block" id="uganics">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('uganics', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_11.webp"
+                                 alt="Uganics brand and packaging design by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">Uganics</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">14 photos</span>
+                                <span class="overlay-caption">Brand & Packaging Design</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="uganics">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_11.webp" alt="Uganics packaging design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_01.webp" alt="Uganics brand identity" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_02.webp" alt="Uganics product packaging" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_03.webp" alt="Uganics label design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_04.webp" alt="Uganics brand packaging" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_05.webp" alt="Uganics product design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_06.webp" alt="Uganics visual identity" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_07.webp" alt="Uganics packaging solutions" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_08.webp" alt="Uganics brand materials" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_09.webp" alt="Uganics design system" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_10.webp" alt="Uganics product branding" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_12.webp" alt="Uganics packaging artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_13.webp" alt="Uganics brand application" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Uganics_14.webp" alt="Uganics final packaging" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ALU -->
+                <article class="design-block" id="alu">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('alu', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_ALU_02.webp"
+                                 alt="ALU institutional visual design by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">ALU</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">3 photos</span>
+                                <span class="overlay-caption">Institutional Visual Design</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="alu">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_ALU_02.webp" alt="ALU institutional design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_ALU_01.webp" alt="ALU visual communications" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_ALU_03.webp" alt="ALU event design" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Education Bridge -->
+                <article class="design-block" id="education-bridge">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('education-bridge', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_05.webp"
+                                 alt="Education Bridge educational campaign design by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">Education Bridge</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">16 photos</span>
+                                <span class="overlay-caption">Educational Campaign Design</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="education-bridge">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_05.webp" alt="Education Bridge campaign design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_01.webp" alt="Education Bridge educational materials" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_02.webp" alt="Education Bridge visual campaign" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_03.webp" alt="Education Bridge outreach graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_04.webp" alt="Education Bridge community design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_05.webp" alt="Education Bridge program visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_06.webp" alt="Education Bridge campaign graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_07.webp" alt="Education Bridge educational design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_08.webp" alt="Education Bridge initiative visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Education_Bridge_09.webp" alt="Education Bridge program design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_01.webp" alt="Little Bet Innovations design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_02.webp" alt="Little Bet Innovations visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_03.webp" alt="Little Bet Innovations campaign" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_04.webp" alt="Little Bet Innovations graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_05.webp" alt="Little Bet Innovations materials" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Little_Bet_Innovations_06.webp" alt="Little Bet Innovations branding" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- General Graphic Design -->
+                <article class="design-block" id="general-graphic-design">
+                    <div class="design-block-inner">
+                        <div class="design-gallery-cover" onclick="openDesignLightbox('general-graphic-design', 0)">
+                            <img src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_36.webp"
+                                 alt="General graphic design works by John Ngor Deng Garang"
+                                 loading="lazy">
+                            <div class="design-cover-overlay">
+                                <span class="overlay-label">General Graphic Design</span>
+                                <i class="fas fa-images"></i>
+                                <span class="view-gallery-text">View Designs</span>
+                                <span class="photo-count">67 photos</span>
+                                <span class="overlay-caption">Miscellaneous Creative Works</span>
+                            </div>
+                        </div>
+                        <div class="design-program-gallery" data-gallery="general-graphic-design">
+                            <div class="design-gallery-track">
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_36.webp" alt="General graphic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_01.webp" alt="Creative design work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_02.webp" alt="Graphic design project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_03.webp" alt="Visual design composition" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_04.webp" alt="Design experiment" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_06.webp" alt="Creative artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_07.webp" alt="Digital art piece" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_09.webp" alt="Poster design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_10.webp" alt="Social media graphic" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_11.webp" alt="Branding exercise" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_12.webp" alt="Visual composition" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_13.webp" alt="Graphic design sample" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_14.webp" alt="Creative project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_15.webp" alt="Design exploration" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_16.webp" alt="Artistic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_17.webp" alt="Visual artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_18.webp" alt="Graphic composition" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_19.webp" alt="Design piece" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_20.webp" alt="Creative work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_21.webp" alt="Visual design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_22.webp" alt="Design project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_23.webp" alt="Graphic artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_24.webp" alt="Creative design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_25.webp" alt="Visual project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_26.webp" alt="Design work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_27.webp" alt="Artistic composition" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_28.webp" alt="Graphic piece" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_29.webp" alt="Creative composition" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_30.webp" alt="Visual art" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_31.webp" alt="Design creation" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_32.webp" alt="Graphic creation" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_33.webp" alt="Artistic work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_34.webp" alt="Visual creation" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_General_Graphic_Design_35.webp" alt="Design artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_UNLEASH_01.webp" alt="UNLEASH design work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_UNLEASH_02.webp" alt="UNLEASH creative design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_UNLEASH_03.webp" alt="UNLEASH visual design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_UNLEASH_04.webp" alt="UNLEASH graphic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_UNLEASH_05.webp" alt="UNLEASH design project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Creative_Connect_01.webp" alt="Creative Connect design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Creative_Connect_02.webp" alt="Creative Connect visuals" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Creative_Connect_03.webp" alt="Creative Connect graphics" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Creative_Connect_04.webp" alt="Creative Connect artwork" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Indaba_01.webp" alt="Indaba design work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Indaba_02.webp" alt="Indaba creative design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_Indaba_03.webp" alt="Indaba visual design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_John_Ngor_01.webp" alt="Personal design project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_John_Ngor_02.webp" alt="Personal creative work" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_John_Ngor_03.webp" alt="Personal graphic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_John_Ngor_04.webp" alt="Personal visual art" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_BK_01.webp" alt="BK design project" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_BK_02.webp" alt="BK creative design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_BK_03.webp" alt="BK visual design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_BK_04.webp" alt="BK graphic design" loading="lazy"></div>
+                                <div class="design-gallery-slide"><img data-src="static/Pictures/Graphic Design Portfolio/John_Ngor_Deng_Garang_BK_05.webp" alt="BK design work" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="static/load-footer.js" defer></script>
+    <script src="static/brand-notifications.js" defer></script>
+    <script src="static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
+    <script src="static/script.js"></script>
+    <script src="/static/loading.js" defer></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+        <button class="lightbox-close" id="lb-close" aria-label="Close">&times;</button>
+        <button class="lightbox-btn lb-prev" id="lb-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-img-wrap">
+            <img id="lb-img" src="" alt="">
+        </div>
+        <button class="lightbox-btn lb-next" id="lb-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <p class="lightbox-counter" id="lb-counter"></p>
+    </div>
+
+    <script>
+        // ── Lightbox for Design Galleries ──
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lb-img');
+        var lbCounter = document.getElementById('lb-counter');
+        var lbImages = [];
+        var lbIndex = 0;
+
+        function openDesignLightbox(galleryName, startIdx) {
+            var gallery = document.querySelector('.design-program-gallery[data-gallery="' + galleryName + '"]');
+            if (!gallery) return;
+
+            gallery.querySelectorAll('.design-gallery-slide img').forEach(function(img) {
+                if (!img.src && img.dataset.src) img.src = img.dataset.src;
+            });
+
+            lbImages = Array.from(gallery.querySelectorAll('.design-gallery-slide img')).map(function(img) {
+                return { src: img.src, alt: img.alt };
+            });
+
+            lbIndex = startIdx;
+            lbShow();
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function lbShow() {
+            if (lbImages.length === 0) return;
+            lbImg.src = lbImages[lbIndex].src;
+            lbImg.alt = lbImages[lbIndex].alt;
+            lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+        }
+
+        function lbClose() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+        }
+
+        document.getElementById('lb-close').addEventListener('click', lbClose);
+        document.getElementById('lb-prev').addEventListener('click', function() {
+            if (lbImages.length === 0) return;
+            lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+            lbShow();
+        });
+        document.getElementById('lb-next').addEventListener('click', function() {
+            if (lbImages.length === 0) return;
+            lbIndex = (lbIndex + 1) % lbImages.length;
+            lbShow();
+        });
+        lb.addEventListener('click', function(e) {
+            if (e.target === lb) lbClose();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') lbClose();
+            if (e.key === 'ArrowLeft') {
+                if (lbImages.length === 0) return;
+                lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+                lbShow();
+            }
+            if (e.key === 'ArrowRight') {
+                if (lbImages.length === 0) return;
+                lbIndex = (lbIndex + 1) % lbImages.length;
+                lbShow();
+            }
+        });
+
+        // Touch swipe in lightbox
+        var lbStartX = 0;
+        lbImg.addEventListener('touchstart', function(e) { lbStartX = e.touches[0].clientX; }, {passive: true});
+        lbImg.addEventListener('touchend', function(e) {
+            if (lbImages.length === 0) return;
+            var diff = lbStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) {
+                lbIndex = diff > 0
+                    ? (lbIndex + 1) % lbImages.length
+                    : (lbIndex - 1 + lbImages.length) % lbImages.length;
+                lbShow();
+            }
+        }, {passive: true});
+
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
