@@ -51,7 +51,6 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/the-words-i-never-said', '/the-words-i-never-said.html',
         '/the-boy-who-taught-his-nation-to-speak', '/the-boy-who-taught-his-nation-to-speak.html',
         # old experience/program pages
-        '/academia', '/academia.html',
         '/education-bridge', '/education-bridge.html',
         '/africa-inventor-alliance', '/africa-inventor-alliance.html',
         '/nalafem-collective', '/nalafem-collective.html',
@@ -95,9 +94,21 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(raw)
         self.path = None
 
+    REDIRECT_PATHS = {
+        '/academia.html': '/academia',
+    }
+
     def _route(self):
         """Resolve URL path to a file path in templates/."""
         clean = self.path.split('?')[0]
+        # Redirects (301)
+        if clean in self.REDIRECT_PATHS:
+            self.send_response(301)
+            self.send_header('Location', self.REDIRECT_PATHS[clean])
+            self.end_headers()
+            self.path = None
+            return
+        # Always check GONE_PATHS first, before any file-serving logic
         if clean in self.GONE_PATHS:
             self._send_error_page(410)
             return
