@@ -64,14 +64,13 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/yali-east-africa', '/yali-east-africa.html',
 
         # old article/blog pages
-        '/article', '/articles', '/blog', '/blogs',
+        '/article', '/articles', '/blogs',
         '/artefacts', '/artefacts.html',
         '/addressing-entrepreneurial-gaps-south-sudan', '/addressing-entrepreneurial-gaps-south-sudan.html',
         '/development-trajectory-south-sudan', '/development-trajectory-south-sudan.html',
         '/entrepreneurial-gaps-south-sudan', '/entrepreneurial-gaps-south-sudan.html',
         '/cape-town-travel-guide', '/cape-town-travel-guide.html',
         # old misc pages
-        '/travels', '/travels.html',
     }
 
     def _send_error_page(self, code):
