@@ -279,7 +279,7 @@
     </url>
 
     <url>
-        <loc>https://johngarang.com/blogs</loc>
+        <loc>https://johngarang.com/blog</loc>
         <lastmod>2026-07-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.75</priority>
@@ -290,14 +290,10 @@
     </url>
 
     <url>
-        <loc>https://johngarang.com/cape-town-travel-guide</loc>
+        <loc>https://johngarang.com/web-design</loc>
         <lastmod>2026-07-29</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <image:image>
-            <image:loc>https://johngarang.com/static/Pictures/A%20First-time%20Traveller%27s%20Guide%20to%20Cape%20Town.jpg</image:loc>
-            <image:title>A First-time Traveller's Guide to Cape Town by John Ngor Deng Garang</image:title>
-        </image:image>
+        <priority>0.75</priority>
     </url>
 
     <!-- ACADEMIC WRITINGS -->
