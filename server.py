@@ -67,8 +67,6 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '/article', '/articles', '/blogs',
         '/artefacts', '/artefacts.html',
         '/addressing-entrepreneurial-gaps-south-sudan', '/addressing-entrepreneurial-gaps-south-sudan.html',
-        '/development-trajectory-south-sudan', '/development-trajectory-south-sudan.html',
-        '/entrepreneurial-gaps-south-sudan', '/entrepreneurial-gaps-south-sudan.html',
         '/cape-town-travel-guide', '/cape-town-travel-guide.html',
         # old misc pages
     }
@@ -95,6 +93,12 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     REDIRECT_PATHS = {
         '/academia.html': '/academia',
+        '/cv.html': '/cv',
+        '/blog.html': '/blog',
+        '/graphic-design.html': '/graphic-design',
+        '/web-design.html': '/web-design',
+        '/my-shelf.html': '/my-shelf',
+        '/travels.html': '/travels',
     }
 
     def _route(self):
