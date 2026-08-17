@@ -39,20 +39,44 @@ class SmartCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     GONE_PATHS = {
         # old standalone poem pages
-        '/an-unbalanced-man', '/learning-to-write-without-permission',
-        '/the-price-of-truth', '/if-equality-means-this',
-        '/making-of-dinka-woman', '/when-educated-woman-says-no',
-        '/the-son-mama-couldnt-save',
-        # old .html suffixed pages
+        '/an-unbalanced-man', '/an-unbalanced-man.html',
+        '/learning-to-write-without-permission', '/learning-to-write-without-permission.html',
+        '/the-price-of-truth', '/the-price-of-truth.html',
+        '/if-equality-means-this', '/if-equality-means-this.html',
+        '/making-of-dinka-woman', '/making-of-dinka-woman.html',
+        '/when-educated-woman-says-no', '/when-educated-woman-says-no.html',
+        '/the-son-mama-couldnt-save', '/the-son-mama-couldnt-save.html',
+        '/a-sour-vow', '/a-sour-vow.html',
+        '/a-fool-of-warmth', '/a-fool-of-warmth.html',
+        '/the-words-i-never-said', '/the-words-i-never-said.html',
+        '/the-boy-who-taught-his-nation-to-speak', '/the-boy-who-taught-his-nation-to-speak.html',
+        # old experience/program pages
+        '/cv', '/cv.html',
+        '/academia', '/academia.html',
+        '/education-bridge', '/education-bridge.html',
+        '/africa-inventor-alliance', '/africa-inventor-alliance.html',
+        '/nalafem-collective', '/nalafem-collective.html',
+        '/surplus-people-project', '/surplus-people-project.html',
+        '/uganics-repellents', '/uganics-repellents.html',
+        '/take-action-lab', '/take-action-lab.html',
+        '/unleash-innovation-lab', '/unleash-innovation-lab.html',
+        '/african-leadership-university', '/african-leadership-university.html',
+        '/cnn-academy', '/cnn-academy.html',
+        '/accra-fusion', '/accra-fusion.html',
+        '/yali-east-africa', '/yali-east-africa.html',
+        '/work-portfolio', '/work-portfolio.html',
+        # old article/blog pages
         '/article', '/articles', '/blog', '/blogs',
-        '/cnn-academy.html', '/artefacts.html',
-        '/education-bridge.html', '/africa-inventor-alliance.html',
-        '/addressing-entrepreneurial-gaps-south-sudan.html',
-        '/the-son-mama-couldnt-save.html',
-        '/learning-to-write-without-permission.html',
-        # old clean-url pages
-        '/african-leadership-university', '/accra-fusion',
-        '/yali-east-africa',
+        '/artefacts', '/artefacts.html',
+        '/addressing-entrepreneurial-gaps-south-sudan', '/addressing-entrepreneurial-gaps-south-sudan.html',
+        '/development-trajectory-south-sudan', '/development-trajectory-south-sudan.html',
+        '/entrepreneurial-gaps-south-sudan', '/entrepreneurial-gaps-south-sudan.html',
+        '/cape-town-travel-guide', '/cape-town-travel-guide.html',
+        # old misc pages
+        '/my-shelf', '/my-shelf.html',
+        '/travels', '/travels.html',
+        '/graphic-design', '/graphic-design.html',
+        '/web-design', '/web-design.html',
     }
 
     def _route(self):
