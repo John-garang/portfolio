@@ -4898,9 +4898,9 @@ li {
 }
 
 /* Responsive Design */
-/* Nav collapses to hamburger from tablet/small-laptop widths down, so the
-   full link row + logo text never has to squeeze and wrap on mid-size screens */
-@media (max-width: 1250px) {
+/* Nav collapses to hamburger on mobile/tablet widths only, so the
+   full link row stays visible on desktop */
+@media (max-width: 768px) {
     .navbar {
         height: 60px;
         padding: 0;

@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Dropdown: first tap opens on mobile only, navigates directly on desktop
             navMenu.querySelectorAll('.dropdown > .nav-link').forEach(function(link) {
                 link.addEventListener('click', function(e) {
-                    if (window.innerWidth > 1250) return; // desktop: let it navigate
+                    if (window.innerWidth > 768) return; // desktop: let it navigate
                     const dropdown = link.closest('.dropdown');
                     if (!dropdown.classList.contains('active')) {
                         e.preventDefault();
