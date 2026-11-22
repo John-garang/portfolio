@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/theme.css?v=3.0.0">
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -39,14 +39,17 @@
     </div>
 
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=2.0.0"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
-    <section class="hx hx-japan on-dark">
+    <section class="hx hx-japan hx-travel on-dark">
         <span class="jp-mark" aria-hidden="true"></span>
-        <div class="container">
-            <h1 class="jp-lines"><span class="erode">Travels &amp;</span><span class="fall">Fun</span></h1>
-            <p class="jp-meta"><span class="erode-soft">Adventures &amp;</span><br>Memories</p>
-            <div class="jp-foot"><p>Explore adventures, memories, and the joy of life's little moments.</p><span>johngarang.com</span></div>
+        <div class="container travel-grid">
+            <div>
+                <h1 class="jp-lines"><span class="erode">Travels &amp;</span><span>Fun</span></h1>
+                <p class="jp-meta"><span class="erode-soft">Adventures &amp;</span><br><span class="fall">Memories</span></p>
+                <div class="jp-foot"><p>Explore adventures, memories, and the joy of life's little moments.</p><span>johngarang.com</span></div>
+            </div>
+            <div class="polaroids" aria-label="Places"><figure class="polaroid p0"><img src="/static/Pictures/travel-cape-town.webp" alt="Group photo below Table Mountain, Cape Town" width="520" height="620"><figcaption>Cape Town</figcaption></figure><figure class="polaroid p1"><img src="/static/Pictures/travel-kigali.webp" alt="UNLEASH Global Innovation Lab stage in Kigali" width="520" height="620"><figcaption>Kigali</figcaption></figure><figure class="polaroid p2"><img src="/static/Pictures/travel-accra.webp" alt="Student cohort in Accra" width="520" height="620"><figcaption>Accra</figcaption></figure><figure class="polaroid p3"><img src="/static/Pictures/travel-nairobi.webp" alt="Hackathon space in Nairobi" width="520" height="620"><figcaption>Nairobi</figcaption></figure></div>
         </div>
     </section>
 
@@ -118,7 +121,7 @@
         });
     </script>
     <script src="/static/loading.js" defer></script>
-    <script src="/static/site.js?v=3.0.0" defer></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
 

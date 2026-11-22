@@ -170,6 +170,16 @@
         }).filter(function (i) { return i.src; });
     }
     function initGalleryHooks() {
+        // Programs page galleries
+        if (typeof window.openLightbox === 'function' && document.querySelector('.program-gallery')) {
+            window.openLightbox = function (gallery, start) {
+                if (!gallery) return;
+                var block = gallery.closest('.prog-block');
+                var t = block && block.querySelector('.prog-title');
+                var title = t ? t.childNodes[0].textContent.trim() : '';
+                openDeck(imagesFrom(gallery, '.gallery-slide'), title, start || 0);
+            };
+        }
         if (typeof window.openDesignLightbox === 'function') {
             window.openDesignLightbox = function (name, start) {
                 var g = document.querySelector('.design-program-gallery[data-gallery="' + name + '"]');

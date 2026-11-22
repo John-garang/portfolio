@@ -90,6 +90,8 @@
         { "@type": "Organization", "name": "Silicon High School" },
         { "@type": "Organization", "name": "ALU Global Learning Experiences" },
         { "@type": "Organization", "name": "African Leadership Academy" },
+        { "@type": "EducationalOrganization", "name": "Sciences Po — Paris School of International Affairs" },
+        { "@type": "Organization", "name": "UrbanGeekz" },
         { "@type": "Organization", "name": "Education Bridge" },
         { "@type": "Organization", "name": "Ashinaga Foundation" },
         { "@type": "Organization", "name": "African Leadership University" },
@@ -155,7 +157,7 @@
     <link rel="stylesheet" href="static/mobile-fixes.css?v=1.0.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
-    <link rel="stylesheet" href="/static/theme.css?v=3.0.0">
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body class="page-home">
     <!-- Loading Screen -->
@@ -168,10 +170,13 @@
     <div id="header-placeholder"></div>
 
     <!-- Home Section -->
-    <section id="home" class="hero hero-photo">
-        <div class="container">
+    <section id="home" class="hero hero-layers">
+        <img class="hl-bg" src="/static/Pictures/john-ngor-deng-garang-hero-bg.webp" alt="" width="2000" height="1330" fetchpriority="high">
+        <h1 class="hl-name">John Garang</h1>
+        <img class="hl-cut" src="/static/Pictures/john-ngor-deng-garang-hero-cutout.webp" alt="John Ngor Deng Garang photographing zebras" width="2000" height="1330" fetchpriority="high">
+        <div class="hl-shade" aria-hidden="true"></div>
+        <div class="container hl-content">
             <div class="hero-content">
-                <h1>John<br>Garang</h1>
                 <p class="hero-subtitle">Digital Communications</p>
                 <p class="hero-value">I help mission-driven organisations across Africa grow their audience through content, design and websites.</p>
                 <div class="hero-actions">
@@ -219,22 +224,24 @@
                 <p class="section-subtitle">Strategic storytelling, creative design, and impactful digital solutions</p>
             </div>
 
-            <div class="welcome-hero">
-                <div class="welcome-hero-content">
-                    <div class="stats-row">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="5" data-suffix="+">5+</span>
-                            <span class="stat-label">Years Experience</span>
+            <div class="stats-row stat-cards">
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-years.webp')"><span class="stat-number" data-target="4" data-suffix="+">4+</span></div>
+                            <div class="stat-body"><span class="stat-label">Years Experience</span><small>Across corporate, non-profit and education work</small></div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50" data-suffix="+">50+</span>
-                            <span class="stat-label">Projects Delivered</span>
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-projects.webp')"><span class="stat-number" data-target="50" data-suffix="+">50+</span></div>
+                            <div class="stat-body"><span class="stat-label">Projects Delivered</span><small>Campaigns, designs, websites and stories</small></div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="10" data-suffix="+">10+</span>
-                            <span class="stat-label">Countries Served</span>
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-countries.webp')"><span class="stat-number" data-target="10" data-suffix="+">10+</span></div>
+                            <div class="stat-body"><span class="stat-label">Countries Served</span><small>On the ground and remote, across borders</small></div>
                         </div>
                     </div>
+
+            <div class="welcome-hero">
+                <div class="welcome-hero-content">
+                    
                     <div class="welcome-intro">
                         <h3>Crafting Stories That Connect</h3>
                         <p>I'm John Ngor Deng Garang, a digital communications professional specializing in strategic content creation, brand storytelling, and digital marketing. With experience spanning multiple continents and industries, I help organizations amplify their message and connect with their audiences.</p>
@@ -270,60 +277,60 @@
             </div>
             <div class="case-grid">
                 <article class="case-card">
-                    <span class="case-org">Surplus People Project · Cape Town</span>
-                    <div class="case-result">0 → 700+</div>
-                    <div class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A historic South African land-rights non-profit had no institutional LinkedIn presence.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-spp.webp')">
+                        <span class="case-org">Surplus People Project · Cape Town</span>
+                        <div class="case-result">0 → 700+</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Launched the page and produced 50+ multimedia assets built around human-interest and social-justice stories.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>No institutional LinkedIn presence</li>
+                            <li><span class="case-step-label">What I did</span>Launched the page and produced 50+ multimedia assets</li>
+                        </ul>
+                        <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Africa Inventor Alliance · Kigali</span>
-                    <div class="case-result">+90%</div>
-                    <div class="case-result-label">organic search visibility for the brand</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A young deep-tech ecosystem builder needed its digital presence built from the ground up.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-aia.webp')">
+                        <span class="case-org">Africa Inventor Alliance · Kigali</span>
+                        <div class="case-result">+90%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Built its digital architecture and audience tracking in six months, then led SEO and distribution. Promoted from intern to Social Media Manager.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Organic search visibility for the brand</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>A young deep-tech brand with no digital footprint</li>
+                            <li><span class="case-step-label">What I did</span>Built its digital set-up in six months, then led SEO and distribution</li>
+                        </ul>
+                        <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Uganics Repellents · Uganda</span>
-                    <div class="case-result">+68%</div>
-                    <div class="case-result-label">growth in brand community followers</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A social enterprise making organic mosquito-repellent soap needed to reach communities fighting malaria across East Africa.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-uganics.webp')">
+                        <span class="case-org">Uganics Repellents · Uganda</span>
+                        <div class="case-result">+68%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Ran a data-driven content strategy and designed 100+ educational graphics and product infographics for on-the-ground health campaigns.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Growth in brand community followers</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Reaching communities fighting malaria</li>
+                            <li><span class="case-step-label">What I did</span>Data-driven content and 100+ educational graphics</li>
+                        </ul>
+                        <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                     </div>
-                    <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Client websites · Web design</span>
-                    <div class="case-result">3 sites</div>
-                    <div class="case-result-label">designed, built and live for clients in funding, healthcare and investment</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>Bulimi Fund, MonEdge Home Care and Jabal Investment each needed a site that explains what they do to donors, clients and partners.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-web.webp')">
+                        <span class="case-org">Client websites · Web design</span>
+                        <div class="case-result">3 sites</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Designed and developed each site from concept to launch, shaped around the people it needs to convince.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Designed, built and live in funding, healthcare and investment</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Bulimi Fund, MonEdge and Jabal needed sites that explain them</li>
+                            <li><span class="case-step-label">What I did</span>Designed and built each one from concept to launch</li>
+                        </ul>
+                        <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                     </div>
-                    <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                 </article>
             </div>
 
@@ -421,70 +428,62 @@
     </section>
 
     <!-- How I Work Section -->
-    <!-- How I Work: an exploded view of a project -->
-    <section class="breakdown" id="how-i-work">
+    <!-- How I Work: a project, piece by piece -->
+    <section class="breakdown on-dark" id="how-i-work">
         <div class="container">
             <div class="bd-head">
                 <div>
                     <span class="section-tag">How I Work With Clients</span>
-                    <h2 class="section-title">Anatomy of a <span class="blue">Project</span></h2>
+                    <h2 class="section-title">Inside a project — <span class="blue">piece by piece</span></h2>
+                    <p class="bd-sub">One clear process. Pick a project type to see what goes into it.</p>
                 </div>
                 <div class="bd-tabs" role="tablist">
-                    <button class="bd-tab" role="tab" data-panel="bd-comms" aria-selected="true"><img src="/static/illustrations/chat.svg" alt="">Comms &amp; writing</button>
-                    <button class="bd-tab" role="tab" data-panel="bd-design" aria-selected="false"><img src="/static/illustrations/pen.svg" alt="">Design</button>
-                    <button class="bd-tab" role="tab" data-panel="bd-web" aria-selected="false"><img src="/static/illustrations/browser.svg" alt="">Website</button>
+                    <button class="bd-tab" role="tab" data-panel="bd-comms" aria-selected="true">Comms &amp; writing</button>
+                    <button class="bd-tab" role="tab" data-panel="bd-design" aria-selected="false">Design</button>
+                    <button class="bd-tab" role="tab" data-panel="bd-web" aria-selected="false">Website</button>
                 </div>
             </div>
             <div class="bd-panel active" id="bd-comms" role="tabpanel">
-                <div class="bd-stage" aria-hidden="true">
-                    <div class="bd-scene"><div class="bd-stack"><div class="bd-layer l0" style="--i:0"><i class="mini w" style="left:14%;top:18%;width:52%;height:9%"></i><i class="mini w" style="left:14%;top:36%;width:70%;height:6%;opacity:.6"></i><i class="mini w" style="left:14%;top:50%;width:62%;height:6%;opacity:.6"></i></div><div class="bd-layer l1" style="--i:1"><i class="mini" style="left:12%;top:14%;width:40%;height:40%;border-radius:50%;background:var(--blue)"></i><i class="mini" style="left:58%;top:22%;width:30%;height:8%"></i><i class="mini" style="left:58%;top:38%;width:24%;height:8%;opacity:.4"></i></div><div class="bd-layer l2" style="--i:2"><i class="mini" style="left:12%;top:14%;width:76%;height:10%"></i><i class="mini" style="left:12%;top:32%;width:76%;height:5%;opacity:.35"></i><i class="mini" style="left:12%;top:42%;width:66%;height:5%;opacity:.35"></i><i class="mini" style="left:12%;top:52%;width:70%;height:5%;opacity:.35"></i></div><div class="bd-layer l3" style="--i:3"><i class="mini" style="left:10%;top:12%;width:24%;height:24%;border-radius:8px"></i><i class="mini" style="left:38%;top:12%;width:24%;height:24%;border-radius:8px;background:var(--blue)"></i><i class="mini" style="left:66%;top:12%;width:24%;height:24%;border-radius:8px"></i><i class="mini" style="left:10%;top:42%;width:24%;height:24%;border-radius:8px;background:var(--blue)"></i></div><div class="bd-layer l4" style="--i:4"><i class="mini w" style="left:14%;top:56%;width:10%;height:26%"></i><i class="mini w" style="left:30%;top:44%;width:10%;height:38%"></i><i class="mini w" style="left:46%;top:30%;width:10%;height:52%"></i><i class="mini w" style="left:62%;top:16%;width:10%;height:66%"></i></div></div></div>
-                    <div class="bd-labels"><div class="bd-label" style="--i:0"><b>01</b>Brief &amp; audience</div><div class="bd-label" style="--i:1"><b>02</b>Key message</div><div class="bd-label" style="--i:2"><b>03</b>Story &amp; copy</div><div class="bd-label" style="--i:3"><b>04</b>Channels &amp; calendar</div><div class="bd-label" style="--i:4"><b>05</b>Results &amp; report</div></div>
-                </div>
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-comms.webp" alt="The parts of a communications project laid out piece by piece: brief, key message, story, channels and report" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Brief &amp; audience</b><span>Who we are talking to, and why</span></li><li><b>Key message</b><span>The one thing they should remember</span></li><li><b>Story &amp; copy</b><span>Drafts written in your voice</span></li><li><b>Channels &amp; calendar</b><span>The right post, place and day</span></li><li><b>Results &amp; report</b><span>What worked, and what comes next</span></li></ol>
                 <div class="bd-copy">
                     <h3>Ghost Writing</h3>
                     <p>I listen carefully to capture my client's voice and message. I discuss their style and key ideas, then prepare a draft for them to review. We work together until the final piece clearly reflects their unique style and speaks to their audience.</p>
-                    <p class="sr-only" style="position:absolute;left:-9999px">Steps: Brief &amp; audience; Key message; Story &amp; copy; Channels &amp; calendar; Results &amp; report.</p>
                 </div>
             </div>
             <div class="bd-panel" id="bd-design" role="tabpanel">
-                <div class="bd-stage" aria-hidden="true">
-                    <div class="bd-scene"><div class="bd-stack"><div class="bd-layer l0" style="--i:0"><i class="mini w" style="left:14%;top:18%;width:52%;height:9%"></i><i class="mini w" style="left:14%;top:36%;width:40%;height:6%;opacity:.6"></i></div><div class="bd-layer l1" style="--i:1"><i class="mini" style="left:10%;top:10%;width:38%;height:38%;border-radius:10px;background:var(--blue)"></i><i class="mini" style="left:52%;top:10%;width:38%;height:22%;border-radius:10px"></i><i class="mini" style="left:52%;top:36%;width:38%;height:12%;border-radius:10px;opacity:.3"></i></div><div class="bd-layer l2" style="--i:2"><i class="mini" style="left:10%;top:10%;width:2px;height:80%;opacity:.3"></i><i class="mini" style="left:36%;top:10%;width:2px;height:80%;opacity:.3"></i><i class="mini" style="left:62%;top:10%;width:2px;height:80%;opacity:.3"></i><i class="mini" style="left:16%;top:18%;width:56%;height:14%"></i></div><div class="bd-layer l3" style="--i:3"><i class="mini" style="left:16%;top:14%;width:56%;height:56%;border-radius:50%;background:var(--blue)"></i><i class="mini" style="left:46%;top:44%;width:36%;height:36%;border-radius:10px"></i></div><div class="bd-layer l4" style="--i:4"><i class="mini w" style="left:14%;top:16%;width:30%;height:38%;border-radius:8px"></i><i class="mini w" style="left:50%;top:16%;width:30%;height:38%;border-radius:8px;opacity:.7"></i></div></div></div>
-                    <div class="bd-labels"><div class="bd-label" style="--i:0"><b>01</b>Brief &amp; brand</div><div class="bd-label" style="--i:1"><b>02</b>Moodboard</div><div class="bd-label" style="--i:2"><b>03</b>Grid &amp; type</div><div class="bd-label" style="--i:3"><b>04</b>Visuals</div><div class="bd-label" style="--i:4"><b>05</b>Final files</div></div>
-                </div>
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-design.webp" alt="The parts of a design project laid out piece by piece: brief, moodboard, type and colour, visuals and final files" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Brief &amp; brand</b><span>Goals, audience and the brand you have</span></li><li><b>Moodboard</b><span>References and a clear direction</span></li><li><b>Type &amp; colour</b><span>Grid, fonts and palette</span></li><li><b>Visuals</b><span>Posters, posts and campaign assets</span></li><li><b>Final files</b><span>Ready for print and social</span></li></ol>
                 <div class="bd-copy">
                     <h3>Graphic Design</h3>
                     <p>I begin by understanding my client's vision and brand. I ask straightforward questions to learn about their goals, target audience, and design style. Next, I create some initial ideas and work closely with them until the final design meets or exceeds their expectations. I truly enjoy working independently.</p>
-                    <p class="sr-only" style="position:absolute;left:-9999px">Steps: Brief &amp; brand; Moodboard; Grid &amp; type; Visuals; Final files.</p>
                 </div>
             </div>
             <div class="bd-panel" id="bd-web" role="tabpanel">
-                <div class="bd-stage" aria-hidden="true">
-                    <div class="bd-scene"><div class="bd-stack"><div class="bd-layer l0" style="--i:0"><i class="mini w" style="left:14%;top:18%;width:52%;height:9%"></i><i class="mini w" style="left:14%;top:36%;width:20%;height:14%;opacity:.6"></i><i class="mini w" style="left:40%;top:36%;width:20%;height:14%;opacity:.6"></i><i class="mini w" style="left:66%;top:36%;width:20%;height:14%;opacity:.6"></i></div><div class="bd-layer l1" style="--i:1"><i class="mini" style="left:10%;top:10%;width:80%;height:10%;opacity:.25"></i><i class="mini" style="left:10%;top:26%;width:80%;height:26%;opacity:.12;border:2px dashed var(--ink);background:transparent"></i><i class="mini" style="left:10%;top:58%;width:38%;height:18%;opacity:.15"></i><i class="mini" style="left:52%;top:58%;width:38%;height:18%;opacity:.15"></i></div><div class="bd-layer l2" style="--i:2"><i class="mini" style="left:10%;top:10%;width:80%;height:10%"></i><i class="mini" style="left:10%;top:26%;width:80%;height:26%;background:var(--blue)"></i><i class="mini" style="left:10%;top:58%;width:38%;height:18%"></i><i class="mini" style="left:52%;top:58%;width:38%;height:18%;opacity:.4"></i></div><div class="bd-layer l3" style="--i:3"><i class="mini" style="left:12%;top:14%;width:20%;height:6%;background:var(--blue)"></i><i class="mini" style="left:20%;top:26%;width:40%;height:6%;opacity:.5"></i><i class="mini" style="left:20%;top:38%;width:52%;height:6%;opacity:.5"></i><i class="mini" style="left:12%;top:50%;width:14%;height:6%;background:var(--blue)"></i></div><div class="bd-layer l4" style="--i:4"><i class="mini w" style="left:14%;top:14%;width:72%;height:12%;border-radius:999px"></i><i class="mini" style="left:18%;top:17%;width:7%;height:6%;border-radius:50%"></i></div></div></div>
-                    <div class="bd-labels"><div class="bd-label" style="--i:0"><b>01</b>Goals &amp; sitemap</div><div class="bd-label" style="--i:1"><b>02</b>Wireframe</div><div class="bd-label" style="--i:2"><b>03</b>UI design</div><div class="bd-label" style="--i:3"><b>04</b>Build</div><div class="bd-label" style="--i:4"><b>05</b>Launch &amp; SEO</div></div>
-                </div>
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-web.webp" alt="The parts of a website project laid out piece by piece: sitemap, wireframe, UI design, build and launch" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Goals &amp; sitemap</b><span>What the site must do, page by page</span></li><li><b>Wireframe</b><span>Layout before looks</span></li><li><b>UI design</b><span>The look, on real content</span></li><li><b>Build</b><span>Responsive, fast and accessible</span></li><li><b>Launch &amp; SEO</b><span>Live, indexed and easy to update</span></li></ol>
                 <div class="bd-copy">
                     <h3>Web Development</h3>
                     <p>I also start by grasping what my client needs and wants. I develop a simple plan that outlines the project details, timeline, and main features, with a focus on ease of use and responsive design. I stay in touch throughout the project, providing updates and asking for feedback until the website is complete.</p>
-                    <p class="sr-only" style="position:absolute;left:-9999px">Steps: Goals &amp; sitemap; Wireframe; UI design; Build; Launch &amp; SEO.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Visual storytelling: dark room, blue lens -->
-    <section class="lens-slide tex-dark on-dark">
-        <div class="lens-grid">
+    <section class="lens-slide on-dark" aria-label="Visual storytelling">
+        <div class="container lens-inner">
             <div class="lens-copy">
                 <div class="eyebrow left light">Digital Communications <i></i> Visual Storytelling</div>
                 <p class="lens-kicker">How I use</p>
                 <h2>Visual Storytelling</h2>
                 <p class="lens-sub">to guide attention</p>
-                <p class="lens-q">Photography, video and design that decide where the eye goes first.</p>
+                <p class="lens-q">Every frame should answer: what matters most here?</p>
                 <div class="lens-tags"><span>Photography</span><span>Video</span><span>Cinematography</span><span>Art Direction</span></div>
                 <div class="hero-actions" style="justify-content:flex-start;margin-top:2rem"><a href="/graphic-design" class="btn-blue">See the visuals <i class="fas fa-arrow-right"></i></a></div>
             </div>
-            <div class="lens-photo" role="img" aria-label="John Ngor Deng Garang behind a video camera"><span class="pill">Behind the lens</span></div>
         </div>
+        <div class="lens-pill"><span>♡ Like</span><i></i><span>Share</span><i></i><span>Save</span></div>
     </section>
 
     <!-- Portfolio Section -->
@@ -650,7 +649,7 @@
     
     <!-- CRITICAL SCRIPTS ONLY - Optimized Loading -->
     <script src="static/loading.js" defer></script>
-    <script src="/static/load-header.js?v=2.0.0" defer></script>
+    <script src="/static/load-header.js?v=2.1.0" defer></script>
     <script src="static/load-footer.js?v=2.0.0" defer></script>
     <script src="static/popup-system.js" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
@@ -857,7 +856,7 @@
     </script>
 
     <script>
-        // Count-up animation for the stats row (5+ Years, 50+ Projects, 10+ Countries)
+        // Count-up animation for the stats row (4+ Years, 50+ Projects, 10+ Countries)
         (function () {
             const statNumbers = document.querySelectorAll('.stat-number[data-target]');
             if (!statNumbers.length) return;
@@ -906,6 +905,6 @@
         })();
     </script>
 
-    <script src="/static/site.js?v=3.0.0" defer></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
