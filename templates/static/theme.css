@@ -670,3 +670,6 @@ body:has(.error-container) { background: #0e0e10 var(--static-dark) !important; 
 }
 .exp-metric b { color: var(--blue-deep) !important; }
 .exp-metric span { color: var(--ink-2) !important; }
+/* Darken the photo (both aligned layers) so the white text reads clearly; the name stays bright */
+.hl-bg, .hl-cut { filter: brightness(.58) saturate(.9) contrast(1.05); }
+.hl-shade { background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 52%, rgba(4,14,20,.55) 70%, rgba(4,14,20,.92) 100%), radial-gradient(60% 50% at 25% 100%, rgba(22,178,220,.35), transparent 70%) !important; }
