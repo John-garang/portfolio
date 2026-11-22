@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/theme.css?v=2.0.0">
+    <link rel="stylesheet" href="/static/theme.css?v=3.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -52,10 +52,23 @@
     <script src="/static/load-header.js?v=2.0.0"></script>
 
     <!-- Hero Section -->
-    <section class="category-hero">
+    <section class="hx hx-cover on-dark">
+        <span class="watermark" aria-hidden="true">JG</span>
         <div class="container">
-            <h1>Work Portfolio</h1>
-            <p>Real work and the results behind it: start with the case studies, then browse everything else</p>
+            <div class="hx-copy">
+                <div class="eyebrow left light">Digital Communications <i></i> johngarang.com</div>
+                <h1>Work <span class="blue">Portfolio</span></h1>
+                <p class="hx-sub">Real work and the results behind it: start with the case studies, then browse everything else</p>
+                <div class="hero-actions" style="justify-content:flex-start;margin-top:1.8rem">
+                    <a href="#selected-work" class="btn-blue">Case studies <i class="fas fa-arrow-down"></i></a>
+                    <a href="https://johngarang.cv/" class="btn-ghost light" target="_blank" rel="noopener noreferrer">View my CV</a>
+                </div>
+            </div>
+            <div class="hx-person">
+                <img src="/static/Pictures/john-ngor-deng-garang-cutout-grey.webp" alt="John Ngor Deng Garang" width="747" height="900">
+                <span class="sticker a" aria-hidden="true">with case studies</span>
+                <span class="sticker blue r2 b" aria-hidden="true">+ real numbers</span>
+            </div>
         </div>
     </section>
 
@@ -64,7 +77,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Case Studies</span>
-                <h2 class="section-title">Results, Not Adjectives</h2>
+                <h2 class="section-title">Results, Not <span class="blue">Adjectives</span></h2>
                 <p class="section-subtitle">The problem, what I did, and what changed</p>
             </div>
             <div class="case-grid">
@@ -201,6 +214,7 @@
             });
         });
     </script>
+    <script src="/static/site.js?v=3.0.0" defer></script>
 </body>
 </html>
 

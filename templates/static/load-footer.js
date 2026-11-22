@@ -13,7 +13,6 @@ fetch('/footer')
         while (doc.body.firstChild) {
             placeholder.appendChild(doc.body.firstChild);
         }
-        if (typeof window.accentHeadings === 'function') window.accentHeadings(placeholder);
         // Attach event listener after footer is loaded
         const form = document.getElementById('newsletterForm');
         if (form) {
