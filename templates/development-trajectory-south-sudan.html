@@ -29,7 +29,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="/static/loading.css">
-    <link rel="stylesheet" href="/static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="/static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
@@ -209,6 +209,7 @@
             .article-navigation { justify-content: center; }
         }
     </style>
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <div id="loading-screen" class="loading-screen">
@@ -219,11 +220,12 @@
     <div id="header-placeholder"></div>
 
     <!-- Hero -->
-    <section class="category-hero">
+    <section class="hx hx-serif">
         <div class="container">
-            <h1>Development Trajectory of South Sudan</h1>
-            <p>Academic Research &nbsp;·&nbsp; Political Economy &nbsp;·&nbsp; 15 min read</p>
+            <h1 class="long">Development Trajectory of <span class="brush">South Sudan</span></h1>
+            <p class="sm">Academic Research &nbsp;·&nbsp; Political Economy &nbsp;·&nbsp; 15 min read</p>
         </div>
+        <span class="corner">johngarang.com</span>
     </section>
 
     <!-- Content -->
@@ -342,9 +344,10 @@
     <div id="footer-placeholder"></div>
 
     <script src="/static/loading.js" defer></script>
-    <script src="/static/load-header.js?v=1.0.5" defer></script>
-    <script src="/static/load-footer.js" defer></script>
+    <script src="/static/load-header.js?v=2.1.0" defer></script>
+    <script src="/static/load-footer.js?v=2.0.0" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>

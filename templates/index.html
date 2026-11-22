@@ -90,6 +90,8 @@
         { "@type": "Organization", "name": "Silicon High School" },
         { "@type": "Organization", "name": "ALU Global Learning Experiences" },
         { "@type": "Organization", "name": "African Leadership Academy" },
+        { "@type": "EducationalOrganization", "name": "Sciences Po — Paris School of International Affairs" },
+        { "@type": "Organization", "name": "UrbanGeekz" },
         { "@type": "Organization", "name": "Education Bridge" },
         { "@type": "Organization", "name": "Ashinaga Foundation" },
         { "@type": "Organization", "name": "African Leadership University" },
@@ -113,7 +115,7 @@
         "https://x.com/John_Ngor_Deng",
         "https://medium.com/@j.garang",
         "https://www.facebook.com/ngor.johngarang",
-        "https://www.instagram.com/john__garang/",
+        "https://www.instagram.com/johngarang.official/",
         "https://www.researchgate.net/profile/John-Garang",
         "https://scholar.google.com/citations?user=dz8mbggAAAAJ&hl=en&oi=ao",
         "https://waxpoetryart.com/shakespearespen/2026/",
@@ -151,12 +153,13 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="static/loading.css">
-    <link rel="stylesheet" href="static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="static/mobile-fixes.css?v=1.0.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
-<body>
+<body class="page-home">
     <!-- Loading Screen -->
         <div id="loading-screen" class="loading-screen">
         <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" class="loading-logo">
@@ -167,17 +170,27 @@
     <div id="header-placeholder"></div>
 
     <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>John Garang</h1>
-            <div class="footer-socials" style="flex-direction:row; justify-content:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:20px;">
+    <section id="home" class="hero hero-layers">
+        <img class="hl-bg" src="/static/Pictures/john-ngor-deng-garang-hero-bg.webp" alt="" width="2000" height="1330" fetchpriority="high">
+        <h1 class="hl-name">John Garang</h1>
+        <img class="hl-cut" src="/static/Pictures/john-ngor-deng-garang-hero-cutout.webp" alt="John Ngor Deng Garang photographing zebras" width="2000" height="1330" fetchpriority="high">
+        <div class="hl-shade" aria-hidden="true"></div>
+        <div class="container hl-content">
+            <div class="hero-content">
+                <p class="hero-subtitle">Digital Communications</p>
+                <p class="hero-value">I help mission-driven organisations across Africa grow their audience through content, design and websites.</p>
+                <div class="hero-actions">
+                    <a href="#selected-work" class="btn-blue">See my work <i class="fas fa-arrow-down"></i></a>
+                    <a href="/contact" class="btn-ghost light">Let's talk <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="footer-socials hero-socials">
                 <a href="https://www.linkedin.com/in/j-garang/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
                 <a href="https://x.com/John_Ngor_Deng" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (Twitter)">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/john__garang/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                <a href="https://www.instagram.com/johngarang.official/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                 </a>
                 <a href="https://www.facebook.com/ngor.johngarang" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
@@ -189,21 +202,21 @@
                 <a href="mailto:dengjohn200@gmail.com" class="social-icon" aria-label="Email">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
+                </div>
             </div>
-            <p class="hero-subtitle">Digital Communications</p>
-            <p class="hero-value">I help mission-driven organisations across Africa grow their audience through content, design and websites.</p>
-            <div class="hero-actions">
-                <a href="#selected-work" class="view-more-btn">See my work <i class="fas fa-arrow-down"></i></a>
-                <a href="/contact" class="btn-outline-light">Let's talk <i class="fas fa-arrow-right"></i></a>
+            <div class="hero-aside">
+                <div class="sticker-stack" aria-hidden="true">
+                    <span class="sticker">Comms</span>
+                    <span class="sticker blue r2">+ Design</span>
+                    <span class="sticker ink r0">+ Websites</span>
+                </div>
+                <blockquote class="hero-quote">"I want to make beautiful things, even if nobody cares, as opposed to ugly things. That's my intent."</blockquote>
             </div>
-            <blockquote class="hero-quote">
-                "I want to make beautiful things, even if nobody cares, as opposed to ugly things. That's my intent."
-            </blockquote>
         </div>
     </section>
 
     <!-- Welcome Section -->
-    <section class="welcome">
+    <section class="welcome tex-grey">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Welcome</span>
@@ -211,22 +224,24 @@
                 <p class="section-subtitle">Strategic storytelling, creative design, and impactful digital solutions</p>
             </div>
 
-            <div class="welcome-hero">
-                <div class="welcome-hero-content">
-                    <div class="stats-row">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="5" data-suffix="+">5+</span>
-                            <span class="stat-label">Years Experience</span>
+            <div class="stats-row stat-cards">
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-years.webp')"><span class="stat-number" data-target="4" data-suffix="+">4+</span></div>
+                            <div class="stat-body"><span class="stat-label">Years Experience</span><small>Across corporate, non-profit and education work</small></div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50" data-suffix="+">50+</span>
-                            <span class="stat-label">Projects Delivered</span>
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-projects.webp')"><span class="stat-number" data-target="50" data-suffix="+">50+</span></div>
+                            <div class="stat-body"><span class="stat-label">Projects Delivered</span><small>Campaigns, designs, websites and stories</small></div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="10" data-suffix="+">10+</span>
-                            <span class="stat-label">Countries Served</span>
+                        <div class="stat-item stat-card">
+                            <div class="stat-media" style="background-image:url('/static/Pictures/card-countries.webp')"><span class="stat-number" data-target="10" data-suffix="+">10+</span></div>
+                            <div class="stat-body"><span class="stat-label">Countries Served</span><small>On the ground and remote, across borders</small></div>
                         </div>
                     </div>
+
+            <div class="welcome-hero">
+                <div class="welcome-hero-content">
+                    
                     <div class="welcome-intro">
                         <h3>Crafting Stories That Connect</h3>
                         <p>I'm John Ngor Deng Garang, a digital communications professional specializing in strategic content creation, brand storytelling, and digital marketing. With experience spanning multiple continents and industries, I help organizations amplify their message and connect with their audiences.</p>
@@ -257,65 +272,65 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Selected Work</span>
-                <h2 class="section-title">Results, Not Adjectives</h2>
+                <h2 class="section-title">Results, Not <span class="blue">Adjectives</span></h2>
                 <p class="section-subtitle">The problem, what I did, and what changed</p>
             </div>
             <div class="case-grid">
                 <article class="case-card">
-                    <span class="case-org">Surplus People Project · Cape Town</span>
-                    <div class="case-result">0 → 700+</div>
-                    <div class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A historic South African land-rights non-profit had no institutional LinkedIn presence.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-spp.webp')">
+                        <span class="case-org">Surplus People Project · Cape Town</span>
+                        <div class="case-result">0 → 700+</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Launched the page and produced 50+ multimedia assets built around human-interest and social-justice stories.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>No institutional LinkedIn presence</li>
+                            <li><span class="case-step-label">What I did</span>Launched the page and produced 50+ multimedia assets</li>
+                        </ul>
+                        <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Africa Inventor Alliance · Kigali</span>
-                    <div class="case-result">+90%</div>
-                    <div class="case-result-label">organic search visibility for the brand</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A young deep-tech ecosystem builder needed its digital presence built from the ground up.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-aia.webp')">
+                        <span class="case-org">Africa Inventor Alliance · Kigali</span>
+                        <div class="case-result">+90%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Built its digital architecture and audience tracking in six months, then led SEO and distribution. Promoted from intern to Social Media Manager.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Organic search visibility for the brand</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>A young deep-tech brand with no digital footprint</li>
+                            <li><span class="case-step-label">What I did</span>Built its digital set-up in six months, then led SEO and distribution</li>
+                        </ul>
+                        <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Uganics Repellents · Uganda</span>
-                    <div class="case-result">+68%</div>
-                    <div class="case-result-label">growth in brand community followers</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A social enterprise making organic mosquito-repellent soap needed to reach communities fighting malaria across East Africa.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-uganics.webp')">
+                        <span class="case-org">Uganics Repellents · Uganda</span>
+                        <div class="case-result">+68%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Ran a data-driven content strategy and designed 100+ educational graphics and product infographics for on-the-ground health campaigns.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Growth in brand community followers</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Reaching communities fighting malaria</li>
+                            <li><span class="case-step-label">What I did</span>Data-driven content and 100+ educational graphics</li>
+                        </ul>
+                        <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                     </div>
-                    <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Client websites · Web design</span>
-                    <div class="case-result">3 sites</div>
-                    <div class="case-result-label">designed, built and live for clients in funding, healthcare and investment</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>Bulimi Fund, MonEdge Home Care and Jabal Investment each needed a site that explains what they do to donors, clients and partners.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-web.webp')">
+                        <span class="case-org">Client websites · Web design</span>
+                        <div class="case-result">3 sites</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Designed and developed each site from concept to launch, shaped around the people it needs to convince.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Designed, built and live in funding, healthcare and investment</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Bulimi Fund, MonEdge and Jabal needed sites that explain them</li>
+                            <li><span class="case-step-label">What I did</span>Designed and built each one from concept to launch</li>
+                        </ul>
+                        <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                     </div>
-                    <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                 </article>
             </div>
 
@@ -327,6 +342,22 @@
                 </figure>
             </div>
             -->
+        </div>
+    </section>
+
+    <!-- Transition: random posts vs clear stories -->
+    <section class="vs-slide" aria-label="Random posts versus clear stories">
+        <div class="container">
+            <div class="eyebrow">Digital Communications <i></i> johngarang.com</div>
+            <div class="vs-row dim">
+                <p class="vs-word"><span class="grad-red">Random</span><span>Posts</span></p>
+                <img src="/static/illustrations/megaphone-muted.svg" alt="" width="230" height="230" loading="lazy">
+            </div>
+            <div class="vs-divider"><span class="sticker ink">vs</span></div>
+            <div class="vs-row">
+                <p class="vs-word"><span class="grad-blue">Clear</span><span>Stories</span></p>
+                <img src="/static/illustrations/megaphone.svg" alt="" width="230" height="230" loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -397,24 +428,62 @@
     </section>
 
     <!-- How I Work Section -->
-    <section class="how-i-work">
+    <!-- How I Work: a project, piece by piece -->
+    <section class="breakdown on-dark" id="how-i-work">
         <div class="container">
-            <h2>How I Work With Clients</h2>
-            <div class="work-methods">
-                <div class="method-card">
-                    <h3>Graphic Design</h3>
-                    <p>I begin by understanding my client's vision and brand. I ask straightforward questions to learn about their goals, target audience, and design style. Next, I create some initial ideas and work closely with them until the final design meets or exceeds their expectations. I truly enjoy working independently.</p>
+            <div class="bd-head">
+                <div>
+                    <span class="section-tag">How I Work With Clients</span>
+                    <h2 class="section-title">Inside a project — <span class="blue">piece by piece</span></h2>
+                    <p class="bd-sub">One clear process. Pick a project type to see what goes into it.</p>
                 </div>
-                <div class="method-card">
-                    <h3>Web Development</h3>
-                    <p>I also start by grasping what my client needs and wants. I develop a simple plan that outlines the project details, timeline, and main features, with a focus on ease of use and responsive design. I stay in touch throughout the project, providing updates and asking for feedback until the website is complete.</p>
+                <div class="bd-tabs" role="tablist">
+                    <button class="bd-tab" role="tab" data-panel="bd-comms" aria-selected="true">Comms &amp; writing</button>
+                    <button class="bd-tab" role="tab" data-panel="bd-design" aria-selected="false">Design</button>
+                    <button class="bd-tab" role="tab" data-panel="bd-web" aria-selected="false">Website</button>
                 </div>
-                <div class="method-card">
+            </div>
+            <div class="bd-panel active" id="bd-comms" role="tabpanel">
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-comms.webp" alt="The parts of a communications project laid out piece by piece: brief, key message, story, channels and report" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Brief &amp; audience</b><span>Who we are talking to, and why</span></li><li><b>Key message</b><span>The one thing they should remember</span></li><li><b>Story &amp; copy</b><span>Drafts written in your voice</span></li><li><b>Channels &amp; calendar</b><span>The right post, place and day</span></li><li><b>Results &amp; report</b><span>What worked, and what comes next</span></li></ol>
+                <div class="bd-copy">
                     <h3>Ghost Writing</h3>
                     <p>I listen carefully to capture my client's voice and message. I discuss their style and key ideas, then prepare a draft for them to review. We work together until the final piece clearly reflects their unique style and speaks to their audience.</p>
                 </div>
             </div>
+            <div class="bd-panel" id="bd-design" role="tabpanel">
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-design.webp" alt="The parts of a design project laid out piece by piece: brief, moodboard, type and colour, visuals and final files" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Brief &amp; brand</b><span>Goals, audience and the brand you have</span></li><li><b>Moodboard</b><span>References and a clear direction</span></li><li><b>Type &amp; colour</b><span>Grid, fonts and palette</span></li><li><b>Visuals</b><span>Posters, posts and campaign assets</span></li><li><b>Final files</b><span>Ready for print and social</span></li></ol>
+                <div class="bd-copy">
+                    <h3>Graphic Design</h3>
+                    <p>I begin by understanding my client's vision and brand. I ask straightforward questions to learn about their goals, target audience, and design style. Next, I create some initial ideas and work closely with them until the final design meets or exceeds their expectations. I truly enjoy working independently.</p>
+                </div>
+            </div>
+            <div class="bd-panel" id="bd-web" role="tabpanel">
+                <div class="bd-visual"><img src="/static/Pictures/anatomy-web.webp" alt="The parts of a website project laid out piece by piece: sitemap, wireframe, UI design, build and launch" width="1500" height="640" loading="lazy"></div>
+                <ol class="bd-list"><li><b>Goals &amp; sitemap</b><span>What the site must do, page by page</span></li><li><b>Wireframe</b><span>Layout before looks</span></li><li><b>UI design</b><span>The look, on real content</span></li><li><b>Build</b><span>Responsive, fast and accessible</span></li><li><b>Launch &amp; SEO</b><span>Live, indexed and easy to update</span></li></ol>
+                <div class="bd-copy">
+                    <h3>Web Development</h3>
+                    <p>I also start by grasping what my client needs and wants. I develop a simple plan that outlines the project details, timeline, and main features, with a focus on ease of use and responsive design. I stay in touch throughout the project, providing updates and asking for feedback until the website is complete.</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Visual storytelling: dark room, blue lens -->
+    <section class="lens-slide on-dark" aria-label="Visual storytelling">
+        <div class="container lens-inner">
+            <div class="lens-copy">
+                <div class="eyebrow left light">Digital Communications <i></i> Visual Storytelling</div>
+                <p class="lens-kicker">How I use</p>
+                <h2>Visual Storytelling</h2>
+                <p class="lens-sub">to guide attention</p>
+                <p class="lens-q">Every frame should answer: what matters most here?</p>
+                <div class="lens-tags"><span>Photography</span><span>Video</span><span>Cinematography</span><span>Art Direction</span></div>
+                <div class="hero-actions" style="justify-content:flex-start;margin-top:2rem"><a href="/graphic-design" class="btn-blue">See the visuals <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <div class="lens-pill"><span>♡ Like</span><i></i><span>Share</span><i></i><span>Save</span></div>
     </section>
 
     <!-- Portfolio Section -->
@@ -512,6 +581,15 @@
         </div>
     </section>
 
+    <!-- Transition: ideas into impact -->
+    <section class="vs-slide" aria-label="Ideas into impact">
+        <div class="container vs-single">
+            <img src="/static/illustrations/bulb.svg" alt="" width="190" height="190" loading="lazy">
+            <p class="vs-word"><span class="grad-blue">Ideas</span><span>Into Impact</span></p>
+            <div class="sticker-stack" aria-hidden="true"><span class="sticker">with strategy</span><span class="sticker blue r2">+ design</span></div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
@@ -571,8 +649,8 @@
     
     <!-- CRITICAL SCRIPTS ONLY - Optimized Loading -->
     <script src="static/loading.js" defer></script>
-    <script src="/static/load-header.js?v=1.0.5" defer></script>
-    <script src="static/load-footer.js" defer></script>
+    <script src="/static/load-header.js?v=2.1.0" defer></script>
+    <script src="static/load-footer.js?v=2.0.0" defer></script>
     <script src="static/popup-system.js" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
@@ -778,7 +856,7 @@
     </script>
 
     <script>
-        // Count-up animation for the stats row (5+ Years, 50+ Projects, 10+ Countries)
+        // Count-up animation for the stats row (4+ Years, 50+ Projects, 10+ Countries)
         (function () {
             const statNumbers = document.querySelectorAll('.stat-number[data-target]');
             if (!statNumbers.length) return;
@@ -827,5 +905,6 @@
         })();
     </script>
 
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>

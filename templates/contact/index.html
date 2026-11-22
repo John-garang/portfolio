@@ -14,13 +14,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - John Garang</title>
-    <link rel="stylesheet" href="/static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="/static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="/static/loading.css">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -28,18 +29,18 @@
         <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" class="loading-logo">
         <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
     </div>
-    </div>
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
     <!-- Contact Hero Section -->
     <section class="contact-hero">
         <div class="container">
-            <h1>Get In Touch</h1>
+            <h1>Get In <span class="blue">Touch</span></h1>
             <p>Let's discuss your next project and bring your vision to life</p>
         </div>
+        <div class="hero-stickers sticker-stack" aria-hidden="true"><span class="sticker">Response within 24 hours</span><span class="sticker blue r2">+ remote work, globally</span></div>
     </section>
 
     <!-- Contact Content -->
@@ -65,22 +66,11 @@
                         
                         <div class="contact-method">
                             <div class="method-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="method-details">
-                                <h3>Phone</h3>
-                                <p>+256 768 741 070</p>
-                                <span>Available Mon-Fri, 9AM-6PM EAT</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div class="method-details">
                                 <h3>WhatsApp</h3>
-                                <p>+250 798 287 465</p>
+                                <p><a href="https://wa.me/250798287465" target="_blank" rel="noopener noreferrer">+250 798 287 465</a></p>
                                 <span>Quick responses available</span>
                             </div>
                         </div>
@@ -108,7 +98,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                                 X (Twitter)
                             </a>
-                            <a href="https://www.instagram.com/john__garang/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <a href="https://www.instagram.com/johngarang.official/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                                 Instagram
                             </a>
@@ -224,7 +214,7 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="/static/load-footer.js" defer></script>
+    <script src="/static/load-footer.js?v=2.0.0" defer></script>
     <script src="/static/brand-notifications.js"></script>
     <script src="/static/email.min.js" onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
     <script>
@@ -259,6 +249,7 @@
         });
     </script>
     <script src="/static/loading.js" defer></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
 

@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | John Garang</title>
-    <link rel="stylesheet" href="/static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="/static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="/static/loading.css">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -35,6 +35,7 @@
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -42,16 +43,25 @@
         <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="JNDG" class="loading-logo">
         <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
     </div>
-    </div>
 
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
     <!-- Hero Section -->
-    <section class="services-hero">
+    <section class="hx hx-vs">
         <div class="container">
-            <h1>Professional Services</h1>
-            <p>Transform your digital presence with expert solutions tailored to your needs</p>
+            <div class="eyebrow">Digital Communications <i></i> johngarang.com</div>
+            <h1 class="hx-label">Professional Services</h1>
+            <p class="hx-sub">Transform your digital presence with expert solutions tailored to your needs</p>
+            <div class="vs-row dim">
+                <p class="vs-word"><span class="grad-red">Boring</span><span>Brands</span></p>
+                <img class="mute" src="/static/illustrations/chat.svg" alt="" width="200" height="200">
+            </div>
+            <div class="vs-divider"><span class="sticker ink">vs</span></div>
+            <div class="vs-row">
+                <p class="vs-word"><span class="grad-blue">Bold</span><span>Brands</span></p>
+                <img src="/static/illustrations/camera.svg" alt="" width="200" height="200">
+            </div>
         </div>
     </section>
 
@@ -210,7 +220,7 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="/static/load-footer.js"></script>
+    <script src="/static/load-footer.js?v=2.0.0"></script>
 
     <script src="/static/brand-notifications.js"></script>
     <script src="/static/email.min.js" onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
@@ -273,5 +283,6 @@
 
     <script src="/static/script.js"></script>
     <script src="/static/loading.js" defer></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>

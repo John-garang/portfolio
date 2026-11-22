@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CV | John Ngor Deng Garang">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang_picture.JPG">
-    <link rel="stylesheet" href="static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="static/mobile-fixes.css">
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -94,6 +94,7 @@
             .cv-cta h2 { font-size: 1.3rem; }
         }
     </style>
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -105,14 +106,22 @@
     <!-- Navigation -->
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
     <!-- Hero Section -->
-    <section class="category-hero">
+    <section class="hx hx-grey">
         <div class="container">
-            <h1>Professional CV</h1>
-            <p>Comprehensive overview of professional experience, skills, and achievements</p>
-            <a href="work-portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+            <div>
+                <div class="eyebrow left">Digital Communications <i></i> johngarang.com</div>
+                <h1>Professional CV</h1>
+                <p class="hx-sub">Comprehensive overview of professional experience, skills, and achievements</p>
+                <a href="work-portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+            </div>
+            <div class="hx-art">
+                <span class="blob" aria-hidden="true"></span>
+                <img class="photo" src="/static/Pictures/john-ngor-deng-garang-portrait-sm.webp" alt="John Ngor Deng Garang" style="object-position:center 20%">
+                <span class="sticker ink a" aria-hidden="true">johngarang.cv</span>
+            </div>
         </div>
     </section>
 
@@ -134,7 +143,7 @@
     <!-- Footer -->
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js" defer></script>
+    <script src="static/load-footer.js?v=2.0.0" defer></script>
     <script src="static/brand-notifications.js" defer></script>
     <script src="static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
 
@@ -152,5 +161,6 @@
             });
         });
     </script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>

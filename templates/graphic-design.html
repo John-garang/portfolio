@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Graphic Design Portfolio | John Ngor Deng Garang">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.png">
-    <link rel="stylesheet" href="static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="static/mobile-fixes.css">
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -272,6 +272,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -283,14 +284,22 @@
     <!-- Navigation -->
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
     <!-- Hero Section -->
-    <section class="category-hero">
+    <section class="hx hx-dark on-dark">
         <div class="container">
-            <h1>Graphic Design Portfolio</h1>
-            <p>Visual storytelling through creative design solutions</p>
-            <a href="work-portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+            <div class="hx-copy">
+                <div class="eyebrow left light">Graphic Design <i></i> johngarang.official</div>
+                <h1>Graphic Design <span class="blue">Portfolio</span></h1>
+                <p class="hx-sub">Visual storytelling through creative design solutions</p>
+                <div class="sticker-stack" style="align-items:flex-start;margin:1.6rem 0 2rem" aria-hidden="true">
+                    <span class="sticker">Open a stack</span>
+                    <span class="sticker blue r2">+ throw each design away</span>
+                </div>
+                <a href="work-portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work Portfolio</a>
+            </div>
+            <img class="mock" src="/static/Pictures/john-ngor-deng-garang-mockup-social.webp" alt="Two phones showing John Ngor Deng Garang's designs for Education Bridge and the Nala Feminist Collective on Instagram" width="1325" height="1241">
         </div>
     </section>
 
@@ -615,7 +624,7 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js" defer></script>
+    <script src="static/load-footer.js?v=2.0.0" defer></script>
     <script src="static/brand-notifications.js" defer></script>
     <script src="static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
     <script src="static/script.js"></script>
@@ -722,6 +731,7 @@
             });
         });
     </script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
 

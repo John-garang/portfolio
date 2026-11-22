@@ -33,11 +33,12 @@
     <meta name="twitter:title" content="Work Portfolio | John Ngor Deng Garang">
     <meta name="twitter:description" content="Graphic design, writings, academic papers, and professional CV — a showcase of communications and creative work across Africa.">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-work-experience.webp">
-    <link rel="stylesheet" href="/static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="/static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="/static/loading.css">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -48,13 +49,26 @@
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
     <!-- Hero Section -->
-    <section class="category-hero">
+    <section class="hx hx-cover on-dark">
+        <span class="watermark" aria-hidden="true">JG</span>
         <div class="container">
-            <h1>Work Portfolio</h1>
-            <p>Real work and the results behind it: start with the case studies, then browse everything else</p>
+            <div class="hx-copy">
+                <div class="eyebrow left light">Digital Communications <i></i> johngarang.com</div>
+                <h1>Work <span class="blue">Portfolio</span></h1>
+                <p class="hx-sub">Real work and the results behind it: start with the case studies, then browse everything else</p>
+                <div class="hero-actions" style="justify-content:flex-start;margin-top:1.8rem">
+                    <a href="#selected-work" class="btn-blue">Case studies <i class="fas fa-arrow-down"></i></a>
+                    <a href="https://johngarang.cv/" class="btn-ghost light" target="_blank" rel="noopener noreferrer">View my CV</a>
+                </div>
+            </div>
+            <div class="hx-person">
+                <img src="/static/Pictures/john-ngor-deng-garang-cutout-grey.webp" alt="John Ngor Deng Garang" width="747" height="900">
+                <span class="sticker a" aria-hidden="true">with case studies</span>
+                <span class="sticker blue r2 b" aria-hidden="true">+ real numbers</span>
+            </div>
         </div>
     </section>
 
@@ -63,65 +77,65 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Case Studies</span>
-                <h2 class="section-title">Results, Not Adjectives</h2>
+                <h2 class="section-title">Results, Not <span class="blue">Adjectives</span></h2>
                 <p class="section-subtitle">The problem, what I did, and what changed</p>
             </div>
             <div class="case-grid">
                 <article class="case-card">
-                    <span class="case-org">Surplus People Project · Cape Town</span>
-                    <div class="case-result">0 → 700+</div>
-                    <div class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A historic South African land-rights non-profit had no institutional LinkedIn presence.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-spp.webp')">
+                        <span class="case-org">Surplus People Project · Cape Town</span>
+                        <div class="case-result">0 → 700+</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Launched the page and produced 50+ multimedia assets built around human-interest and social-justice stories.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">LinkedIn followers in 4 months, with a 170% lift in engagement</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>No institutional LinkedIn presence</li>
+                            <li><span class="case-step-label">What I did</span>Launched the page and produced 50+ multimedia assets</li>
+                        </ul>
+                        <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#surplus-people-project" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Africa Inventor Alliance · Kigali</span>
-                    <div class="case-result">+90%</div>
-                    <div class="case-result-label">organic search visibility for the brand</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A young deep-tech ecosystem builder needed its digital presence built from the ground up.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-aia.webp')">
+                        <span class="case-org">Africa Inventor Alliance · Kigali</span>
+                        <div class="case-result">+90%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Built its digital architecture and audience tracking in six months, then led SEO and distribution. Promoted from intern to Social Media Manager.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Organic search visibility for the brand</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>A young deep-tech brand with no digital footprint</li>
+                            <li><span class="case-step-label">What I did</span>Built its digital set-up in six months, then led SEO and distribution</li>
+                        </ul>
+                        <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                     </div>
-                    <a href="/experience-overview#africa-inventor-alliance" class="case-link">Read the full story <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Uganics Repellents · Uganda</span>
-                    <div class="case-result">+68%</div>
-                    <div class="case-result-label">growth in brand community followers</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>A social enterprise making organic mosquito-repellent soap needed to reach communities fighting malaria across East Africa.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-uganics.webp')">
+                        <span class="case-org">Uganics Repellents · Uganda</span>
+                        <div class="case-result">+68%</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Ran a data-driven content strategy and designed 100+ educational graphics and product infographics for on-the-ground health campaigns.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Growth in brand community followers</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Reaching communities fighting malaria</li>
+                            <li><span class="case-step-label">What I did</span>Data-driven content and 100+ educational graphics</li>
+                        </ul>
+                        <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                     </div>
-                    <a href="/graphic-design" class="case-link">See the designs <span>→</span></a>
                 </article>
                 <article class="case-card">
-                    <span class="case-org">Client websites · Web design</span>
-                    <div class="case-result">3 sites</div>
-                    <div class="case-result-label">designed, built and live for clients in funding, healthcare and investment</div>
-                    <div class="case-step">
-                        <span class="case-step-label">The problem</span>
-                        <p>Bulimi Fund, MonEdge Home Care and Jabal Investment each needed a site that explains what they do to donors, clients and partners.</p>
+                    <div class="case-media" style="background-image:url('/static/Pictures/card-web.webp')">
+                        <span class="case-org">Client websites · Web design</span>
+                        <div class="case-result">3 sites</div>
                     </div>
-                    <div class="case-step">
-                        <span class="case-step-label">What I did</span>
-                        <p>Designed and developed each site from concept to launch, shaped around the people it needs to convince.</p>
+                    <div class="case-body">
+                        <p class="case-result-label">Designed, built and live in funding, healthcare and investment</p>
+                        <ul class="case-flow">
+                            <li><span class="case-step-label">The problem</span>Bulimi Fund, MonEdge and Jabal needed sites that explain them</li>
+                            <li><span class="case-step-label">What I did</span>Designed and built each one from concept to launch</li>
+                        </ul>
+                        <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                     </div>
-                    <a href="/web-design" class="case-link">Visit the live sites <span>→</span></a>
                 </article>
             </div>
         </div>
@@ -182,7 +196,7 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    <script src="/static/load-footer.js" defer></script>
+    <script src="/static/load-footer.js?v=2.0.0" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
 
@@ -200,6 +214,7 @@
             });
         });
     </script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
 

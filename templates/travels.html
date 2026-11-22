@@ -24,11 +24,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Travels & Fun | John Ngor Deng Garang">
     <meta name="twitter:image" content="https://johngarang.com/static/Pictures/john-ngor-deng-garang-travels.png">
-    <link rel="stylesheet" href="static/styles.css?v=1.1.0">
+    <link rel="stylesheet" href="static/styles.css?v=1.2.0">
     <link rel="stylesheet" href="static/mobile-fixes.css">
     <link rel="stylesheet" href="/static/loading.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/theme.css?v=4.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -38,13 +39,17 @@
     </div>
 
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=1.0.5"></script>
+    <script src="/static/load-header.js?v=2.1.0"></script>
 
-    <section class="shelf-hero">
-        <div class="container">
-            <h1>Travels & Fun</h1>
-            <p class="shelf-subtitle">Adventures & Memories</p>
-            <p class="shelf-description">Explore adventures, memories, and the joy of life's little moments.</p>
+    <section class="hx hx-japan hx-travel on-dark">
+        <span class="jp-mark" aria-hidden="true"></span>
+        <div class="container travel-grid">
+            <div>
+                <h1 class="jp-lines"><span class="erode">Travels &amp;</span><span>Fun</span></h1>
+                <p class="jp-meta"><span class="erode-soft">Adventures &amp;</span><br><span class="fall">Memories</span></p>
+                <div class="jp-foot"><p>Explore adventures, memories, and the joy of life's little moments.</p><span>johngarang.com</span></div>
+            </div>
+            <div class="polaroids" aria-label="Places"><figure class="polaroid p0"><img src="/static/Pictures/travel-cape-town.webp" alt="Group photo below Table Mountain, Cape Town" width="520" height="620"><figcaption>Cape Town</figcaption></figure><figure class="polaroid p1"><img src="/static/Pictures/travel-kigali.webp" alt="UNLEASH Global Innovation Lab stage in Kigali" width="520" height="620"><figcaption>Kigali</figcaption></figure><figure class="polaroid p2"><img src="/static/Pictures/travel-accra.webp" alt="Student cohort in Accra" width="520" height="620"><figcaption>Accra</figcaption></figure><figure class="polaroid p3"><img src="/static/Pictures/travel-nairobi.webp" alt="Hackathon space in Nairobi" width="520" height="620"><figcaption>Nairobi</figcaption></figure></div>
         </div>
     </section>
 
@@ -55,7 +60,7 @@
     </section>
 
     <div id="footer-placeholder"></div>
-    <script src="static/load-footer.js" defer></script>
+    <script src="static/load-footer.js?v=2.0.0" defer></script>
     <script src="static/brand-notifications.js" defer></script>
     <script src="static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
 
@@ -116,6 +121,7 @@
         });
     </script>
     <script src="/static/loading.js" defer></script>
+    <script src="/static/site.js?v=4.0.0" defer></script>
 </body>
 </html>
 
