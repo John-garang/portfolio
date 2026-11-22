@@ -5,6 +5,11 @@ fetch('/footer')
         const placeholder = document.getElementById('footer-placeholder');
         const parser = new DOMParser();
         const doc = parser.parseFromString(data, 'text/html');
+        // The contact page is already the "let's talk" step, so skip the band there
+        if (window.location.pathname.replace(/\/$/, '') === '/contact') {
+            const band = doc.getElementById('cta-band');
+            if (band) band.remove();
+        }
         while (doc.body.firstChild) {
             placeholder.appendChild(doc.body.firstChild);
         }
