@@ -6,6 +6,21 @@
 (function () {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+
+    /* 0. SVG filter for the aged-wall words (rough, uneven paint edges) */
+    function injectFilters() {
+        if (!document.querySelector('.aged') || document.getElementById('rough-edges')) return;
+        var ns = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('width', '0'); svg.setAttribute('height', '0');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.style.position = 'absolute';
+        svg.innerHTML = '<filter id="rough-edges" x="-5%" y="-5%" width="110%" height="110%">' +
+            '<feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="3" seed="7" result="n"/>' +
+            '<feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>';
+        document.body.appendChild(svg);
+    }
+
     /* 1. Breakdown ---------------------------------------------------- */
     function initBreakdown() {
         document.querySelectorAll('.breakdown').forEach(function (root) {
@@ -191,7 +206,32 @@
         }
     }
 
+
+    /* 4. My Shelf: category filters and copy-link buttons */
+    function initShelf() {
+        var bar = document.querySelector('.shelf-filters');
+        if (bar) {
+            bar.addEventListener('click', function (e) {
+                var b = e.target.closest('button'); if (!b) return;
+                bar.querySelectorAll('button').forEach(function (x) { x.classList.toggle('active', x === b); });
+                var f = b.getAttribute('data-filter');
+                document.querySelectorAll('#articlesGrid .shelf-card').forEach(function (c) {
+                    c.classList.toggle('is-hidden', f !== 'all' && c.getAttribute('data-cat') !== f);
+                });
+            });
+        }
+        document.querySelectorAll('[data-copy]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var url = btn.getAttribute('data-copy');
+                var done = function () { btn.classList.add('copied'); var s = btn.querySelector('span'); if (s) s.textContent = 'Copied'; setTimeout(function () { btn.classList.remove('copied'); if (s) s.textContent = 'Copy link'; }, 2000); };
+                if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else done();
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
+        injectFilters();
+        initShelf();
         initBreakdown();
         initFall();
         initGalleryHooks();

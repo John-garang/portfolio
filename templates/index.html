@@ -29,7 +29,10 @@
     <meta property="og:url" content="https://johngarang.com/">
     <meta property="og:title" content="John Ngor Deng Garang | Communications Professional">
     <meta property="og:description" content="South Sudanese communications professional.">
-    <meta property="og:image" content="https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang%20_picture.JPG">
+    <meta property="og:image" content="https://johngarang.com/static/og/johngarang-com.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="John Garang — Digital Communications: comms, design and websites">
     <meta property="og:site_name" content="John Ngor Deng Garang Portfolio">
     <meta property="og:locale" content="en_US">
 
@@ -39,7 +42,7 @@
     <meta name="twitter:creator" content="@John_Ngor_Deng">
     <meta name="twitter:title" content="John Ngor Deng Garang | Communications Professional">
     <meta name="twitter:description" content="South Sudanese communications professional.">
-    <meta name="twitter:image" content="https://johngarang.com/static/Pictures/John_Ngor_Deng_Garang%20_picture.JPG">
+    <meta name="twitter:image" content="https://johngarang.com/static/og/johngarang-com.jpg">
 
        <!-- Person Schema Markup -->
     <script type="application/ld+json">
@@ -157,7 +160,7 @@
     <link rel="stylesheet" href="static/mobile-fixes.css?v=1.0.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 
-    <link rel="stylesheet" href="/static/theme.css?v=4.2.0">
+    <link rel="stylesheet" href="/static/theme.css?v=5.0.0">
 </head>
 <body class="page-home">
     <!-- Loading Screen -->
@@ -352,7 +355,7 @@
         <div class="container">
             <div class="eyebrow">Digital Communications <i></i> johngarang.com</div>
             <div class="vs-row dim">
-                <p class="vs-word"><span class="grad-red">Random</span><span>Posts</span></p>
+                <p class="vs-word"><span class="aged">Random</span><span>Posts</span></p>
                 <img src="/static/illustrations/megaphone-muted.svg" alt="" width="230" height="230" loading="lazy">
             </div>
             <div class="vs-divider"><span class="sticker ink">vs</span></div>
@@ -364,7 +367,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
+    <section class="skills tex-grey">
         <div class="container">
             <h2>Skills & Expertise</h2>
             <p class="skills-intro">Blending creativity with strategy to deliver impactful results</p>
@@ -489,7 +492,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio tex-grey">
         <div class="container">
             <h2>My Shelf</h2>
             <div class="portfolio-tabs">
@@ -524,7 +527,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience tex-grey">
         <div class="container">
             <h2>Programs & Fellowships</h2>
             <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; color: #666;">Global experiences shaping my professional journey</p>
@@ -593,7 +596,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services tex-grey">
         <div class="container">
             <h2>Services</h2>
             <div class="services-detailed">
@@ -710,14 +713,26 @@
         function loadPortfolioContent() {
             const staticContent = {
                 blogs: [
-                    { title: 'Digital Marketing Trends 2024', excerpt: 'Exploring the latest trends shaping digital marketing landscape...', category: 'Marketing', readTime: '5 min read', date: 'December 2024' },
-                    { title: 'Building Brand Identity', excerpt: 'A comprehensive guide to creating memorable brand experiences...', category: 'Branding', readTime: '7 min read', date: 'November 2024' },
-                    { title: 'Content Strategy Essentials', excerpt: 'Key principles for developing effective content strategies...', category: 'Strategy', readTime: '6 min read', date: 'October 2024' }
+                    { title: 'The Long Walk to the Library', excerpt: 'Last week, I came across a story online about the Kenya National Library Service (KNLS) – Nakuru Branch, and I just don\'t know why anyone would think I\'m showing…', category: 'Social Commentary & Reflections', readTime: '3 min read', date: 'November 14, 2026', link: '/blog/the-long-walk-to-the-library' },
+                    { title: 'Rakuba Writers and the Pamphleteers in the Cellar', excerpt: 'Cultural etiquette and the illusion of the silent obedient patriot have long been used since medieval times as tools of containment.', category: 'Politics & Governance', readTime: '4 min read', date: 'November 10, 2026', link: '/blog/rakuba-writers-and-the-pamphleteers-in-the-cellar' },
+                    { title: 'Life Loves the Jolly Ones', excerpt: 'I am not the oldest person alive, but in the short yet long span of life I have led, I have always noticed how jolly people keep attracting good things into their…', category: 'Social Commentary & Reflections', readTime: '6 min read', date: 'June 4, 2026', link: '/blog/life-loves-the-jolly-ones' },
+                    { title: 'Bor, 2013: The Stories No One Wrote Down', excerpt: 'Yesterday, I had a 5-hour chat with my girlfriend that started with our own lives and experiences before slowly taking shape around the Bor Massacre of 2013/2014.…', category: 'Social Commentary & Reflections', readTime: '5 min read', date: 'June 2, 2026', link: '/blog/bor-2013-the-stories-no-one-wrote-down' },
+                    { title: 'Dear Jieng: The Wife Is Not the Enemy', excerpt: 'Dear Jieng, We need to stop blaming women for the alleged "stinginess" of their husbands. Actually, no. We need to stop expecting other people\'s sweat to finance…', category: 'Social Commentary & Reflections', readTime: '5 min read', date: 'June 1, 2026', link: '/blog/dear-jieng-the-wife-is-not-the-enemy' },
+                    { title: 'Build With Someone Your Age', excerpt: 'I believe in building together with someone within your age range, so listen, ladies. Going for an already established guy in his early 40s might seem like the…', category: 'Social Commentary & Reflections', readTime: '3 min read', date: 'May 28, 2026', link: '/blog/build-with-someone-your-age' },
+                    { title: 'National Security Service: A Tool for Pride?', excerpt: 'There is a painful story in Sherkat, and now in Bor. You\'d find some stupid young man, half-trained and fully armed, parading through the streets with a rifle slung…', category: 'Politics & Governance', readTime: '6 min read', date: 'May 1, 2026', link: '/blog/national-security-service-a-tool-for-pride' },
+                    { title: 'Order of Rope — Part 2', excerpt: 'He lived with his mother and little sister in a two-room house that remembered better days. Every morning, he woke before the sun, because sleep felt undeserved. He…', category: 'Fiction', readTime: '7 min read', date: 'April 6, 2026', link: '/blog/order-of-rope-part-2' },
+                    { title: 'Order of Rope — Part 1', excerpt: 'Sherkat was not marked on important maps, yet it existed long before roads were widened or promises were made. It was a wild forest that did not foresee a day it…', category: 'Fiction', readTime: '5 min read', date: 'April 5, 2026', link: '/blog/order-of-rope-part-1' },
+                    { title: 'Do Not Decorate This With Culture', excerpt: 'First of all, this is not just disgusting; it is a daylight exhibition of moral and social decay and collapse. And it reveals a lot — more than small chicken brains…', category: 'Social Commentary & Reflections', readTime: '3 min read', date: 'February 16, 2026', link: '/blog/do-not-decorate-this-with-culture' },
+                    { title: 'Courtesy Is Not Weakness: Youth Politics in Bor, Duk and Twic', excerpt: 'Politically, Twic East has produced the most mature youth of this generation. In 2025, Duk, Twic, and Bor all elected youth leaders. All three processes were…', category: 'Politics & Governance', readTime: '3 min read', date: 'February 3, 2026', link: '/blog/courtesy-is-not-weakness-youth-politics-in-bor-duk-and-twic' },
+                    { title: '2025: The Year of Politics, Shenanigans, and Professional Nonsense', excerpt: '2025 has been riddled and generous with political failure, moral collapse, elite stupidity, men discovering too late that power has an expiry date, a few…', category: 'Politics & Governance', readTime: '5 min read', date: 'December 30, 2025', link: '/blog/2025-the-year-of-politics-shenanigans-and-professional-nonsense' },
+                    { title: 'Desperation Has No Pocket Big Enough for $1,500', excerpt: 'Last night I received news of the passing of a childhood friend in Libya, and I had to leave this here! If you can raise $1,500 for the Libya route, you\'re not…', category: 'Social Commentary & Reflections', readTime: '3 min read', date: 'December 7, 2025', link: '/blog/desperation-has-no-pocket-big-enough-for-1-500' },
+                    { title: 'Majak D\'Agoot and the Former Detainees (FDs)', excerpt: 'Tea places in South Sudan push cheap propaganda that continues to shape the country\'s dirty political landscape. Some elements of Bor, Duk, and even Twic (and I…', category: 'Politics & Governance', readTime: '6 min read', date: 'November 19, 2025', link: '/blog/majak-dagoot-and-the-former-detainees-fds' },
+                    { title: 'Better-Dressed Rebels With Smartphones', excerpt: 'I have been working professionally in the media and communications field for close to three years. Not too long, but long enough to learn one undeniable truth…', category: 'Social Commentary & Reflections', readTime: '5 min read', date: 'November 9, 2025', link: '/blog/better-dressed-rebels-with-smartphones' },
+                    { title: 'Jonglei\'s Tragedy Is Intellectual', excerpt: 'Jonglei\'s tragedy isn\'t merely territorial, as many may perceive it. It is intellectual. The very people who understand the land, from contours to histories and…', category: 'Politics & Governance', readTime: '1 min read', date: 'October 14, 2025', link: '/blog/jongleis-tragedy-is-intellectual' }
                 ],
                 travels: [
-                    { title: 'Journey Through East Africa', excerpt: 'Discovering the vibrant cultures and landscapes of East Africa...', category: 'Travel', readTime: '8 min read', date: 'September 2024' },
-                    { title: 'Urban Photography in Nairobi', excerpt: 'Capturing the essence of modern African city life...', category: 'Photography', readTime: '4 min read', date: 'August 2024' },
-                    { title: 'Cultural Immersion Experience', excerpt: 'Learning from local communities and traditions...', category: 'Culture', readTime: '6 min read', date: 'July 2024' }
+                    { title: 'The Not-a-Tourist Price', excerpt: 'You don\'t feel so insulted when there\'s something to gain. 😅🤦🏽‍♂️ So, I went to a store with Maghai Abul-dit in Florence (Firenze) to buy a souvenir. The souvenir…', category: 'Travel', readTime: '1 min read', date: 'November 4, 2026', link: '/travels/the-not-a-tourist-price' },
+                    { title: 'Are You Nuer?', excerpt: 'Last week, I was traveling from Kampala to Juba. And you know me — I believe time bends for me until it doesn\'t — so I got to Namayiba pretty late. By the time I…', category: 'Travel', readTime: '5 min read', date: 'October 28, 2025', link: '/travels/are-you-nuer' }
                 ],
                 poems: [
                     { title: 'An Unbalanced Man', excerpt: 'Today I woke up on the wrong side of the bed. That\'s not to say there\'s nothing right about me. But the room says otherwise...', category: 'Poetry', readTime: '3 min read', date: 'January 2025', link: '/poems#an-unbalanced-man' },
@@ -774,11 +789,11 @@
             // Populate content
             document.getElementById('blogs-grid').innerHTML = 
                 staticContent.blogs.slice(0, 3).map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.blogs.length, 'blogs');
+                createViewMoreButton('/blog', staticContent.blogs.length, 'blogs');
                 
             document.getElementById('travels-grid').innerHTML = 
                 staticContent.travels.slice(0, 3).map(createArticleCard).join('') + 
-                createViewMoreButton('my-shelf', staticContent.travels.length, 'travels');
+                createViewMoreButton('/travels', staticContent.travels.length, 'travels');
                 
             document.getElementById('poems-grid').innerHTML = 
                 staticContent.poems.slice(0, 3).map(createArticleCard).join('') + 
@@ -907,6 +922,6 @@
         })();
     </script>
 
-    <script src="/static/site.js?v=4.0.0" defer></script>
+    <script src="/static/site.js?v=5.0.0" defer></script>
 </body>
 </html>
