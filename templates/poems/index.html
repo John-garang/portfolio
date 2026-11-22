@@ -252,7 +252,7 @@
             .back-link { order: 2; }
         }
     </style>
-    <link rel="stylesheet" href="/static/theme.css?v=4.2.0">
+    <link rel="stylesheet" href="/static/theme.css?v=5.0.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -265,18 +265,28 @@
 
     <!-- Grid View -->
     <div class="poems-grid-view" id="poemsGrid">
-        <section class="hx hx-serif">
-            <div class="container">
-                <p class="sm" style="margin:0 0 1rem!important">Poetry Collection</p>
-                <h1>Poems</h1>
-                <p>Words that dance, emotions that <span class="brush">resonate.</span></p>
+        <section class="hx hx-poems on-dark">
+            <div class="container poems-grid">
+                <div class="poems-copy">
+                    <p class="poems-eyebrow">Poetry Collection</p>
+                    <h1>Poems</h1>
+                    <p class="poems-sub">Words that dance, emotions that <span class="brush">resonate.</span></p>
+                    <figure class="poems-line">
+                        <blockquote>The first lesson in freedom is the courage to write without asking.</blockquote>
+                        <figcaption>— from <a href="/poems#learning-to-write-without-permission">Learning to Write Without Permission</a></figcaption>
+                    </figure>
+                </div>
+                <div class="poems-art">
+                    <span class="poems-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <span class="blob" aria-hidden="true"></span>
+                    <img src="/static/Pictures/john-ngor-deng-garang-cutout-grey.webp" alt="John Ngor Deng Garang" width="747" height="900">
+                    <a class="poems-award sticker" href="https://waxpoetryart.com/shakespearespen/2026/" target="_blank" rel="noopener noreferrer">&#127942; Africa Regional Champion — Shakespeare's Pen 2026</a>
+                </div>
             </div>
-            <span class="corner">johngarang.com</span>
         </section>
 
         <section class="poet-bio">
             <div class="poet-bio-inner">
-                <img src="/static/Pictures/John_Ngor_Deng_Garang_Communications_ProfessionaL_and_Poet1.png" alt="John Ngor Deng Garang" class="poet-bio-photo">
                 <div class="poet-bio-text">
                     <p>John Ngor Deng Garang is a South Sudanese communications professional and poet, residing in Paris, France. He has no niche; he simply writes whatever comes to mind exactly as he feels it. His writing mirrors the struggles of his community, the small details of daily life like love, travel, name it all… and sometimes his defiance of conservative, modern, and political views/norms. His work lives across various publications and collected on his blog <a href="https://johngarang.com" style="color:#16b2dc;">johngarang.com</a>.</p>
                 </div>
@@ -1200,6 +1210,6 @@
             }
         });
     </script>
-    <script src="/static/site.js?v=4.0.0" defer></script>
+    <script src="/static/site.js?v=5.0.0" defer></script>
 </body>
 </html>
