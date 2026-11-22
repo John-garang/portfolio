@@ -639,3 +639,34 @@ body:has(.error-container) { background: #0e0e10 var(--static-dark) !important; 
     .prog-block::before { display: none; }
     .prog-title { padding-right: 0; }
 }
+
+/* =====================================================================
+   v4.1 — hero spacing + static-noise number boxes
+   ===================================================================== */
+/* Hero: the name sits at John's head height, the text block sits below it.
+   A minimum height keeps the two apart on short windows. */
+.hero.hero-layers { min-height: 780px; padding-bottom: 48px; }
+.hl-name { top: 37%; font-size: clamp(3.2rem, 10.5vw, 10.5rem) !important; }
+.hero.hero-layers .hero-subtitle { margin-bottom: .5rem !important; }
+.hero.hero-layers .hero-value { margin-bottom: 1.2rem !important; }
+.hero-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.hero.hero-layers .hero-cta-row .hero-actions { margin: 0 !important; }
+@media (max-width: 1024px) {
+    .hero.hero-layers { min-height: 900px; }
+    .hero.hero-layers .hero-aside .sticker-stack { display: none; }
+}
+@media (max-width: 768px) {
+    .hero.hero-layers { min-height: max(100svh, 760px); }
+    .hl-name { top: 38%; font-size: 17vw !important; }
+    .hero.hero-layers .hero-aside { display: flex; }
+    .hero.hero-layers .hero-quote { font-size: 1rem !important; }
+}
+
+/* Experience number boxes: TV-static grey instead of black */
+.exp-metric {
+    background: #dcdcdc var(--static) !important; background-size: 512px !important;
+    color: var(--ink) !important; border: 0 !important;
+    box-shadow: inset 0 0 0 1px rgba(14,14,16,.06), 0 10px 18px -14px rgba(0,0,0,.45);
+}
+.exp-metric b { color: var(--blue-deep) !important; }
+.exp-metric span { color: var(--ink-2) !important; }
