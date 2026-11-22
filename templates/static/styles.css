@@ -6082,3 +6082,339 @@ li {
         padding: 2rem;
     }
 }
+
+/* =====================================================================
+   PORTFOLIO PROOF COMPONENTS
+   Shared building blocks so every page "shows, not tells":
+   1. Who you are + what you do  -> .hero-value / .hero-actions
+   2. Case studies               -> .case-grid / .case-card
+   3. Results in numbers         -> .case-result
+   4. Proof from other people    -> .proof-quote (fill with real quotes)
+   5. CV one click away          -> .cta-band (in footer.html)
+   6. One clear way to reach you -> .nav-cta + .cta-band
+   Tokens: accent #16b2dc, dark #1a1a1a, Inter, square cards, #ebebeb border
+   ===================================================================== */
+
+/* 1. Hero value line + actions */
+.hero .hero-value {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.45;
+    color: #ffffff;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+}
+
+.hero-actions,
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: #ffffff;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+/* Shared section heading (matches .welcome .section-header) */
+.proof-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.proof-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* 2 + 3. Case studies: problem -> what I did -> result */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.case-card {
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #16b2dc, #1a1a1a);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    border-color: #d0d0d0;
+}
+
+.case-card:hover::after {
+    transform: scaleX(1);
+}
+
+.case-org {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #16b2dc;
+    margin-bottom: 1rem;
+}
+
+.case-result {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+}
+
+.case-result-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.case-step {
+    margin-bottom: 1rem;
+}
+
+.case-step-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.25rem;
+}
+
+.case-step p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.case-link {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #16b2dc;
+    text-decoration: none;
+}
+
+.case-link:hover {
+    color: #1a1a1a;
+}
+
+.case-link span {
+    transition: transform 0.3s ease;
+}
+
+.case-link:hover span {
+    transform: translateX(3px);
+}
+
+/* 4. Proof from other people (add real quotes only) */
+.proof-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.proof-quote {
+    background: #ffffff;
+    border-left: 3px solid #16b2dc;
+    padding: 1.75rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.proof-quote blockquote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.proof-quote cite {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* 5 + 6. CV + contact band above every footer */
+.cta-band {
+    background: linear-gradient(135deg, #16b2dc 0%, #1a1a1a 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.cta-band h2 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.cta-band p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+}
+
+.cta-band .cta-actions {
+    margin-bottom: 0;
+}
+
+.btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-light:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Nav: one clear way to reach you, on every page */
+.nav-link.nav-cta {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.nav-link.nav-cta:hover {
+    background: #16b2dc;
+    color: #ffffff;
+}
+
+.navbar.scrolled .nav-link.nav-cta {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.navbar.scrolled .nav-link.nav-cta:hover {
+    background: #16b2dc;
+    border-color: #16b2dc;
+}
+
+@media (max-width: 768px) {
+    .nav-menu .nav-link.nav-cta {
+        background: #1a1a1a;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .proof-section {
+        padding: 60px 0;
+    }
+
+    .case-card {
+        padding: 1.5rem;
+    }
+
+    .case-result {
+        font-size: 2.2rem;
+    }
+
+    .hero-actions .view-more-btn,
+    .hero-actions .btn-outline-light,
+    .cta-actions .btn-light,
+    .cta-actions .btn-outline-light {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Keep the nav on one line on laptop widths (the extra "Let's talk" button) */
+@media (min-width: 769px) {
+    .nav-link,
+    .logo-name {
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .nav-menu {
+        gap: 6px;
+    }
+
+    .nav-link {
+        padding: 8px 11px;
+        font-size: 0.82rem;
+    }
+
+    .logo-name {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1080px) {
+    .logo-name {
+        display: none;
+    }
+}

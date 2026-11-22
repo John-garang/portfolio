@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="/programs-overview" class="nav-link">Programs</a></li>
                         <li><a href="/services" class="nav-link">Services</a></li>
                         <li><a href="/poems" class="nav-link">Poems</a></li>
+                        <li><a href="/contact" class="nav-link nav-cta">Let's talk</a></li>
                     </ul>
                     <div class="nav-right">
                         <div class="hamburger" id="hamburger">
