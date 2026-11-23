@@ -1,19 +1,18 @@
-function hideLoadingScreen() {
-    const el = document.getElementById('loading-screen') || document.getElementById('loadingScreen');
-    if (!el) return;
-    el.classList.add('fade-out');
-    setTimeout(() => { el.style.display = 'none'; }, 400);
-}
-
-// Hide immediately if DOM is already ready
-if (document.readyState === 'complete') {
-    hideLoadingScreen();
-} else {
-    window.addEventListener('load', hideLoadingScreen);
-}
-
-// Hard fallback — never stuck longer than 2 seconds
-setTimeout(hideLoadingScreen, 2000);
-
-// Handle bfcache (back/forward navigation)
-window.addEventListener('pageshow', hideLoadingScreen);
+// Hide the splash as soon as the page's HTML is ready — not after every image has downloaded.
+(function () {
+    function hide() {
+        var el = document.getElementById('loading-screen') || document.getElementById('loadingScreen');
+        if (!el || el.dataset.hidden) return;
+        el.dataset.hidden = '1';
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+        setTimeout(function () { el.style.display = 'none'; }, 300);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hide);
+    } else {
+        hide();
+    }
+    setTimeout(hide, 1200);
+    window.addEventListener('pageshow', hide);
+})();

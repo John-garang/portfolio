@@ -40,8 +40,8 @@
     --serif: 'EB Garamond', Garamond, Georgia, serif;
     --note: 'Amatic SC', 'Caveat', cursive;
     --r: 18px;
-    --static: url('/static/Pictures/texture-static-grey.png');
-    --static-dark: url('/static/Pictures/texture-static-dark.png');
+    --static: url('/static/Pictures/texture-static-grey.webp');
+    --static-dark: url('/static/Pictures/texture-static-dark.webp');
     --blob: 42% 58% 63% 37% / 41% 44% 56% 59%;
 }
 
@@ -508,7 +508,7 @@ body h1 span:not(.sticker), body h2 span:not(.sticker), body h3 span:not(.sticke
 
 /* CV page call-out as a dark slide */
 .cv-page { background-color: #dcdcdc !important; background-image: var(--static) !important; background-size: 512px !important; }
-.cv-cta { background: #0e0e10 url('/static/Pictures/texture-static-dark.png') !important; background-size: 512px !important; border-radius: 22px !important; box-shadow: 10px 10px 0 var(--blue) !important; }
+.cv-cta { background: #0e0e10 url('/static/Pictures/texture-static-dark.webp') !important; background-size: 512px !important; border-radius: 22px !important; box-shadow: 10px 10px 0 var(--blue) !important; }
 .cv-cta h2 { font-family: var(--display) !important; font-weight: 400 !important; text-transform: uppercase; font-size: clamp(2.2rem, 4vw, 3.2rem) !important; color: #fff !important; }
 .cv-cta p { color: rgba(255,255,255,.8) !important; }
 .cv-cta .btn-cv { background: #fff !important; color: var(--ink) !important; border-radius: 999px !important; }
@@ -1021,3 +1021,19 @@ body:has(.error-container) { background: #0e0e10 var(--static-dark) !important; 
     .world-map { width: 228%; max-width: none; margin-left: -88%; }
     .wm-label { font-size: 17px; }
 }
+
+/* ===== v6 — academic essay page (Liquid Death) ===== */
+.post-hero.has-art { position: relative; overflow: hidden; }
+.post-hero.has-art .post-head { max-width: 760px; }
+.post-hero.has-art h1 { max-width: 15ch; }
+.post-art { position: absolute; right: max(5vw, calc((100vw - 1180px) / 2)); bottom: -70px; height: 400px; width: auto; transform: rotate(9deg); filter: drop-shadow(0 30px 34px rgba(0,0,0,.35)); pointer-events: none; }
+.post-art-tag { position: absolute; right: max(calc(5vw + 150px), calc((100vw - 1180px) / 2 + 150px)); top: 150px; transform: rotate(-5deg); z-index: 2; }
+@media (max-width: 1000px) { .post-art { height: 260px; bottom: -60px; right: -10px; opacity: .95; } .post-art-tag { display: none; } .post-hero.has-art .post-head { padding-right: 120px; } }
+@media (max-width: 600px) { .post-art { height: 128px; bottom: auto; top: 74px; right: 6px; } .post-hero.has-art .post-head { padding-right: 0; } }
+.post-figure { margin: 2rem 0 2.2rem; }
+.post-figure img { width: 100%; height: auto; display: block; border-radius: 16px; }
+.post-figure figcaption { font-family: var(--sans) !important; font-size: .85rem; line-height: 1.45; color: var(--muted); margin-top: .7rem; text-align: center; }
+.post-body blockquote.question { margin: 1.8rem 0 2rem; padding: 1.2rem 1.4rem; background: var(--ink); color: #fff; border-radius: 16px; transform: rotate(-.6deg); box-shadow: 0 20px 30px -24px rgba(0,0,0,.7); }
+.post-body blockquote.question p { color: #fff !important; font-style: italic; font-size: 1.2rem !important; margin: 0 !important; }
+.post-body blockquote.question small { display: block; font-family: var(--sans); font-weight: 800; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: .5rem; }
+.post-body .essay-note { font-family: var(--sans) !important; font-size: .9rem !important; color: var(--muted) !important; border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem !important; }
