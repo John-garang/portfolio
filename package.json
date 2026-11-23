@@ -5,8 +5,8 @@
   "description": "Digital Marketing Professional Portfolio",
   "main": "templates/index.html",
   "scripts": {
-    "start": "python3 -m http.server ${PORT:-8080}",
-    "dev": "python3 -m http.server 3000"
+    "start": "python3 server.py",
+    "dev": "PORT=3000 python3 server.py"
   },
   "keywords": ["portfolio", "static", "html"],
   "author": "John Ngor Deng Garang",

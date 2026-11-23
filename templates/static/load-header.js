@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <nav class="navbar">
                 <div class="nav-container">
                     <div class="nav-logo">
-                        <img src="/static/Pictures/john-ngor-deng-garang-logo.png" alt="John Garang Logo">
+                        <img src="/static/Pictures/john-ngor-deng-garang-logo.webp" alt="John Ngor Deng Garang logo" width="45" height="45">
                         <span class="logo-name">John Ngor Deng Garang</span>
                     </div>
                     <ul class="nav-menu">

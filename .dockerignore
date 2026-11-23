@@ -1,0 +1,8 @@
+.git
+.gitignore
+.github
+.vscode
+.kilo
+*.md
+Dockerfile
+.dockerignore
