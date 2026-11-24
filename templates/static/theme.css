@@ -1570,7 +1570,8 @@ body .pg h2.pg-title > span { display: block; font-family: var(--sans) !importan
 .pv-fields dd.edu-place { font-size: .86rem !important; color: var(--ink) !important; letter-spacing: .03em; margin: .08rem 0 0 !important; }
 .pv-fields .edu-alum, .pv-fields .exp-now { display: inline-block; margin: 0; font-size: .6rem; padding: .2rem .55rem; }
 .pv-mrz { margin: .8rem 0 0 !important; padding-top: .55rem; border-top: 1px solid rgba(14,14,16,.1); font-size: .54rem !important; line-height: 1.55 !important; }
-.pp-vpage { min-height: 610px; }
+.pp-vpage { min-height: 640px; }
+.pp-vpage .pp-stamp, .pp-exit { z-index: 2; }
 .pp-vpage .pp-stamp { top: auto; bottom: 1.6rem; right: 1.6rem; width: 124px; height: 124px; }
 .pp-vpage .pp-stamp b { font-size: 1.9rem; }
 .pp-vpage .pp-stamp small { font-size: .6rem; }
@@ -1637,3 +1638,12 @@ body .pg h2.pg-title > span { display: block; font-family: var(--sans) !importan
     .ab-s1 { left: -4%; } .ab-s2 { left: 0; }
     .hx .sticker.b, .hx-grey .hx-art .sticker.b { right: 4px; }
 }
+/* Mastercard Foundation visa strip on each school page */
+.pp-visa { position: relative; z-index: 1; align-self: flex-end; display: flex; flex-direction: column; margin: 1.1rem -1.7rem 0 0; padding: .65rem 1.9rem .65rem 1rem; border-radius: 8px 0 0 8px; background: linear-gradient(120deg, #e3f6fc, #fff3cc 40%, #f3dcff 70%, #d7f6e8); box-shadow: 0 12px 22px -14px rgba(0,0,0,.55); transform: rotate(-2.5deg); font-family: var(--display); font-size: 1.05rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); white-space: nowrap; }
+.pp-visa small { font-family: var(--sans); font-weight: 800; font-size: .56rem; letter-spacing: .2em; color: var(--blue-deep); }
+.passport.will-open:not(.is-open) .pp-visa { opacity: 0; }
+.passport.is-open .pp-visa { animation: pfSlide .6s cubic-bezier(.2,.9,.3,1.2) both; }
+.passport.is-open .pp-page:nth-child(2) .pp-visa { animation-delay: 1.8s; }
+.passport.is-open .pp-page:nth-child(3) .pp-visa { animation-delay: 2.3s; }
+@keyframes pfSlide { from { opacity: 0; translate: 60px 0; } }
+@media (max-width: 860px) { .pp-visa { margin-right: -1.2rem; font-size: .98rem; } }
