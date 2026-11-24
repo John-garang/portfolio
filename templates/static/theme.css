@@ -1348,3 +1348,16 @@ body .dep h3.dep-who > span { display: block; font-family: var(--sans) !importan
     .xs-cards.three { grid-template-columns: 1fr; }
 }
 .xs-visual.xs-desk .xs-print.p1 + .xs-print.p2 ~ .xs-s2 { top: auto; }
+/* collage scene: one big print with two small ones taped around it */
+.xs-collage .xs-print.big { left: 50%; top: 50%; width: 400px; transform: translate(-50%, -50%) rotate(-3deg); z-index: 2; padding: 10px 10px 34px; }
+.xs.flip .xs-collage .xs-print.big { transform: translate(-50%, -50%) rotate(3deg); }
+.xs-collage .xs-print.p1 { left: -2%; top: 2%; width: 230px; transform: rotate(-9deg); }
+.xs-collage .xs-print.p2 { right: -1%; bottom: 6%; width: 180px; transform: rotate(8deg); z-index: 3; }
+.xs-collage .xs-s1 { top: 0; } .xs-collage .xs-s3 { bottom: 0; right: 34%; }
+.xs-visual.xs-collage .xs-print.p1 ~ .xs-s2 { top: auto; bottom: 24%; }
+.xs.flip .xs-collage .xs-s3 { right: auto; left: 34%; }
+@media (max-width: 960px) {
+    .xs-collage .xs-print.big { width: 290px; }
+    .xs-collage .xs-print.p1 { width: 170px; }
+    .xs-collage .xs-print.p2 { width: 130px; }
+}
