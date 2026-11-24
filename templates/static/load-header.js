@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Scroll effects — driven by CSS class only, no inline styles
         // Pages that open on a light hero show the header's scrolled (white) state from the top
-        const lightTop = !!document.querySelector('.hx-liked, .hx-vs, .hx-serif, .hx-grey, .search-results-section');
+        const lightTop = !!document.querySelector('.hx-liked, .hx-vs, .hx-serif, .hx-grey, .og-hero, .search-results-section');
         function updateNavbarState() {
             if (!navbar) return;
             if (lightTop || window.scrollY > 50) {

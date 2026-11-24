@@ -38,7 +38,7 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="/static/styles.css?v=1.4.0">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
-    <link rel="stylesheet" href="/static/fontawesome.css?v=1.0.0">
+    <link rel="stylesheet" href="/static/fontawesome.css?v=1.1.0">
 
     <style>
         .article-stack-section {
@@ -216,7 +216,7 @@
             .article-navigation { justify-content: center; }
         }
     </style>
-    <link rel="stylesheet" href="/static/theme.css?v=6.1.0">
+    <link rel="stylesheet" href="/static/theme.css?v=6.3.0">
 </head>
 <body>
     <div id="loading-screen" class="loading-screen">
@@ -227,13 +227,19 @@
     <div id="header-placeholder"></div>
 
     <!-- Hero -->
-    <section class="hx hx-serif">
+    <header class="og-hero">
+        <span class="og-bar" aria-hidden="true"></span>
+        <span class="og-blob" aria-hidden="true"></span>
         <div class="container">
-            <h1 class="long">Development Trajectory of <span class="brush">South Sudan</span></h1>
-            <p class="sm">Academic Research &nbsp;·&nbsp; Political Economy &nbsp;·&nbsp; 15 min read</p>
+            <p class="og-eyebrow"><a href="/academia">Academia</a> <i aria-hidden="true"></i> Political economy</p>
+            <h1>Development Trajectory of <span class="deep">South Sudan</span></h1>
+            <div class="og-byline">
+                <img src="/static/Pictures/john-ngor-deng-garang-avatar.webp" alt="" width="64" height="64">
+                <div><strong>John Garang</strong><span>Academic research · 15 min read</span></div>
+            </div>
         </div>
-        <span class="corner">johngarang.com</span>
-    </section>
+        <span class="og-site" aria-hidden="true">johngarang.com</span>
+    </header>
 
     <!-- Content -->
     <section class="article-stack-section">
@@ -351,7 +357,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="/static/loading.js?v=2.0.0" defer></script>
-    <script src="/static/load-header.js?v=2.2.0" defer></script>
+    <script src="/static/load-header.js?v=2.3.0" defer></script>
     <script src="/static/load-footer.js?v=2.0.0" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
