@@ -191,7 +191,7 @@
                 if (!gallery) return;
                 var block = gallery.closest('.prog-block, .pg');
                 var t = block && block.querySelector('.prog-title, .pg-title');
-                var title = t ? t.childNodes[0].textContent.trim() : '';
+                var title = t ? Array.prototype.filter.call(t.childNodes, function (n) { return !(n.classList && (n.classList.contains('pg-sub') || n.classList.contains('anchor-link'))); }).map(function (n) { return n.textContent; }).join('').trim() : '';
                 openDeck(imagesFrom(gallery, '.gallery-slide'), title, start || 0);
             };
         }
