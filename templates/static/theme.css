@@ -1295,3 +1295,33 @@ body .dep h3.dep-who > span { display: block; font-family: var(--sans) !importan
 .xs-cap span { display: block; height: 7px; border-radius: 4px; background: #e3e4e8; margin: 0 0 7px; }
 @media (max-width: 600px) { .xs-s3, .xs-s4 { display: none; } .xs-visual { height: 430px; } }
 .xs-cards { align-items: start; }
+/* PSIA scene: real PSIA work + the walking pair stepping out of the frame */
+.xs-print.wide { width: 300px; }
+.xs-psia .xs-print.p1 { left: -2%; top: 2%; transform: rotate(-7deg); }
+.xs-psia .xs-phone { left: 44%; top: 54%; }
+.xs-cutout { position: absolute; right: -6%; bottom: -2%; height: 440px; width: auto; z-index: 3; filter: drop-shadow(0 24px 22px rgba(0,0,0,.45)); pointer-events: none; }
+.xs-psia .xs-s1 { right: auto; left: -2%; top: 36%; }
+.xs-psia .xs-s2 { left: auto; right: 2%; top: 2%; }
+.xs-psia .xs-s3 { right: auto; left: 14%; bottom: 2%; }
+.xs-psia .xs-s4 { display: none; }
+.xs-psia .xs-logo { left: -1%; bottom: 22%; }
+@media (max-width: 960px) {
+    .xs-print.wide { width: 210px; }
+    .xs-cutout { height: 320px; right: -4%; }
+}
+@media (max-width: 600px) { .xs-cutout { height: 270px; } .xs-psia .xs-logo { bottom: 4%; } }
+.xs-visual.xs-psia .xs-phone { left: 37%; }
+.xs-visual.xs-psia .xs-cutout { right: -13%; height: 455px; }
+.xs-visual.xs-psia .xs-s1 { left: -3%; right: auto; top: 42%; }
+.xs-visual.xs-psia .xs-s2 { right: -2%; left: auto; top: 0; }
+.xs-visual.xs-psia .xs-s3 { left: 12%; right: auto; bottom: 1%; top: auto; }
+@media (max-width: 960px) {
+    .xs-visual.xs-psia .xs-phone { left: 40%; }
+    .xs-visual.xs-psia .xs-cutout { right: -8%; height: 300px; }
+}
+@media (max-width: 600px) {
+    .xs-visual.xs-psia .xs-cutout { right: -6%; height: 240px; bottom: 0; }
+    .xs-visual.xs-psia .xs-s2 { top: 2%; }
+    .xs-visual.xs-psia .xs-s1 { top: 30%; }
+}
+.xs-dark .sticker.ink.xs-s { background: #fff; color: var(--ink); }
