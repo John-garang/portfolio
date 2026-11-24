@@ -189,8 +189,8 @@
         if (typeof window.openLightbox === 'function' && document.querySelector('.program-gallery')) {
             window.openLightbox = function (gallery, start) {
                 if (!gallery) return;
-                var block = gallery.closest('.prog-block');
-                var t = block && block.querySelector('.prog-title');
+                var block = gallery.closest('.prog-block, .pg');
+                var t = block && block.querySelector('.prog-title, .pg-title');
                 var title = t ? t.childNodes[0].textContent.trim() : '';
                 openDeck(imagesFrom(gallery, '.gallery-slide'), title, start || 0);
             };

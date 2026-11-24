@@ -210,12 +210,11 @@
             .about h1 { font-size: 2.5rem !important; }
             .bio-grid { grid-template-columns: 1fr !important; }
             .about-content .details-grid { grid-template-columns: 1fr !important; }
-            .about-content .container { padding-left: 8px !important; padding-right: 8px !important; }
             .bio-grid { gap: 8px !important; }
             .bio-card { border-left: none !important; border-right: none !important; }
         }
     </style>
-    <link rel="stylesheet" href="/static/theme.css?v=6.8.0">
+    <link rel="stylesheet" href="/static/theme.css?v=6.9.0">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -226,7 +225,7 @@
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
-    <script src="/static/load-header.js?v=2.3.0"></script>
+    <script src="/static/load-header.js?v=2.4.0"></script>
 
     <!-- About Section -->
     <section class="about">
@@ -318,46 +317,67 @@
             </div>
             <div class="passport pf-fold">
                 <article class="pp-page pp-data">
-                    <p class="pd-type"><b>Learning Passport</b><span>Passeport · Type P</span></p>
+                    <p class="pp-head"><span>Learning Passport</span><span>Passeport</span></p>
                     <div class="pd-grid">
-                        <figure class="pd-photo"><img loading="lazy" decoding="async" src="/static/Pictures/john-ngor-deng-garang-picture.webp" alt="John Ngor Deng Garang" width="240" height="300"></figure>
+                        <div class="pd-left">
+                            <figure class="pd-photo"><img loading="lazy" decoding="async" src="/static/Pictures/john-ngor-deng-garang-picture.webp" alt="John Ngor Deng Garang" width="240" height="300"></figure>
+                            <p class="pd-sign"><small>Holder's signature / Signature du titulaire</small><span aria-hidden="true">John Garang</span></p>
+                        </div>
                         <dl class="pd-fields">
-                            <div><dt>Surname / Nom</dt><dd>Garang</dd></div>
-                            <div><dt>Given names / Prénoms</dt><dd>John Ngor Deng</dd></div>
-                            <div><dt>Nationality</dt><dd>South Sudanese</dd></div>
-                            <div><dt>Occupation</dt><dd>Communications</dd></div>
-                            <div><dt>Route</dt><dd>Kigali → Paris</dd></div>
+                            <div><dt>Type / Type</dt><dd>P</dd></div>
+                            <div><dt>Code / Code</dt><dd>SSD</dd></div>
+                            <div class="w"><dt>Surname / Nom</dt><dd>Garang</dd></div>
+                            <div class="w"><dt>Given names / Prénoms</dt><dd>John Ngor Deng</dd></div>
+                            <div class="w"><dt>Nationality / Nationalité</dt><dd>South Sudanese</dd></div>
+                            <div class="w"><dt>Occupation / Profession</dt><dd>Communications</dd></div>
+                            <div><dt>Date of issue</dt><dd>May 2023</dd></div>
+                            <div><dt>Date of expiry</dt><dd>Jun 2028</dd></div>
+                            <div class="w"><dt>Authority / Autorité</dt><dd>ALU · Sciences Po</dd></div>
                         </dl>
+                        <img class="pd-ghost" src="/static/Pictures/john-ngor-deng-garang-picture.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
                     </div>
-                    <p class="pd-sign" aria-hidden="true">John Garang</p>
-                    <dl class="pd-fields pd-row">
-                        <div><dt>Place of issue</dt><dd>Kigali, 2023</dd></div>
-                        <div><dt>Valid until</dt><dd>Always learning</dd></div>
-                    </dl>
-                    <p class="pd-mrz" aria-hidden="true">P&lt;SSDGARANG&lt;&lt;JOHN&lt;NGOR&lt;DENG&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>KGL2023&lt;ALU&lt;FIRSTCLASS&lt;&lt;CDG2026&lt;SCIENCESPO&lt;&lt;</p>
+                    <p class="pd-mrz" aria-hidden="true">P&lt;SSDGARANG&lt;&lt;JOHN&lt;NGOR&lt;DENG&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>KGL2023&lt;ALU&lt;&lt;BEL&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;CDG2026&lt;SCIENCESPO&lt;&lt;</p>
                 </article>
-                <article class="pp-page">
-                    <span class="pp-no" aria-hidden="true">P. 02</span>
-                    <span class="pp-logo"><img loading="lazy" decoding="async" src="/static/Pictures/alu-mark.webp" alt="African Leadership University" width="64" height="64"></span>
-                    <div class="pp-stamp" aria-hidden="true"><small>Kigali · Rwanda</small><b>ALU</b><small>2023 — 2026</small></div>
-                    <p class="edu-school">African Leadership University</p>
-                    <p class="edu-place">Kigali, Rwanda</p>
-                    <p class="edu-faculty">School of Business &amp; Entrepreneurship</p>
-                    <p class="edu-degree">Bachelor of Entrepreneurial Leadership &mdash; First Class Honours</p>
-                    <span class="pp-honours" aria-hidden="true">First Class Honours</span>
-                    <div class="edu-foot"><span class="edu-alum">Alumni</span><span class="edu-date"><i class="fas fa-calendar" aria-hidden="true"></i>May 2023 &ndash; July 2026</span></div>
-                    <span class="pp-visa"><small>Visa</small>Mastercard Foundation Scholar</span>
+                <article class="pp-page pp-vpage">
+                    <p class="pp-head"><span>Visas</span><span>02</span></p>
+                    <div class="pv-sticker">
+                        <div class="pv-top">
+                            <span class="pv-logo"><img loading="lazy" decoding="async" src="/static/Pictures/alu-mark.webp" alt="African Leadership University" width="64" height="64"></span>
+                            <div><small>Study visa · Visa d'études</small><p class="edu-school">African Leadership University</p></div>
+                        </div>
+                        <dl class="pv-fields">
+                            <div><dt>Place</dt><dd class="edu-place">Kigali, Rwanda</dd></div>
+                            <div><dt>Status</dt><dd><span class="edu-alum">Alumni</span></dd></div>
+                            <div class="w"><dt>Faculty</dt><dd class="edu-faculty">School of Business &amp; Entrepreneurship</dd></div>
+                            <div class="w"><dt>Programme</dt><dd class="edu-degree">Bachelor of Entrepreneurial Leadership &mdash; First Class Honours</dd></div>
+                            <div><dt>Valid from</dt><dd>May 2023</dd></div>
+                            <div><dt>Until</dt><dd>July 2026</dd></div>
+                            <div class="w"><dt>Scholarship</dt><dd>Mastercard Foundation Scholar</dd></div>
+                        </dl>
+                        <p class="pv-mrz" aria-hidden="true">V&lt;RWAAFRICAN&lt;LEADERSHIP&lt;UNIVERSITY&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>GARANG&lt;&lt;JOHN&lt;NGOR&lt;DENG&lt;&lt;KGL2305&lt;2607&lt;MCF&lt;&lt;&lt;&lt;</p>
+                    </div>
+                    <div class="pp-stamp" aria-hidden="true"><small>Kigali</small><b>ALU</b><small>May 2023</small></div>
+                    <span class="pp-exit" aria-hidden="true"><small>Departed · Kigali</small>Jul 2026</span>
                 </article>
-                <article class="pp-page is-current">
-                    <span class="pp-no" aria-hidden="true">P. 03</span>
-                    <span class="pp-logo"><img loading="lazy" decoding="async" src="/static/Pictures/sciences-po-logo.webp" alt="Sciences Po" width="64" height="64"></span>
-                    <div class="pp-stamp red" aria-hidden="true"><small>Paris · France</small><b>Entry</b><small>August 2026</small></div>
-                    <p class="edu-school">Sciences Po</p>
-                    <p class="edu-place">Paris, France</p>
-                    <p class="edu-faculty">School of Management and Impact</p>
-                    <p class="edu-degree">Master of Communications, Media &amp; Creative Industries</p>
-                    <div class="edu-foot"><span class="exp-now">Current</span><span class="edu-date"><i class="fas fa-calendar" aria-hidden="true"></i>August 2026 &ndash; June 2028</span></div>
-                    <span class="pp-visa"><small>Visa</small>Mastercard Foundation Scholar</span>
+                <article class="pp-page pp-vpage is-current">
+                    <p class="pp-head"><span>Visas</span><span>03</span></p>
+                    <div class="pv-sticker">
+                        <div class="pv-top">
+                            <span class="pv-logo"><img loading="lazy" decoding="async" src="/static/Pictures/sciences-po-logo.webp" alt="Sciences Po" width="64" height="64"></span>
+                            <div><small>Study visa · Visa d'études</small><p class="edu-school">Sciences Po</p></div>
+                        </div>
+                        <dl class="pv-fields">
+                            <div><dt>Place</dt><dd class="edu-place">Paris, France</dd></div>
+                            <div><dt>Status</dt><dd><span class="exp-now">Current</span></dd></div>
+                            <div class="w"><dt>Faculty</dt><dd class="edu-faculty">School of Management and Impact</dd></div>
+                            <div class="w"><dt>Programme</dt><dd class="edu-degree">Master of Communications, Media &amp; Creative Industries</dd></div>
+                            <div><dt>Valid from</dt><dd>August 2026</dd></div>
+                            <div><dt>Until</dt><dd>June 2028</dd></div>
+                            <div class="w"><dt>Scholarship</dt><dd>Mastercard Foundation Scholar</dd></div>
+                        </dl>
+                        <p class="pv-mrz" aria-hidden="true">V&lt;FRASCIENCES&lt;PO&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>GARANG&lt;&lt;JOHN&lt;NGOR&lt;DENG&lt;&lt;CDG2608&lt;2806&lt;MCF&lt;&lt;&lt;&lt;</p>
+                    </div>
+                    <div class="pp-stamp red" aria-hidden="true"><small>Paris</small><b>Entry</b><small>Aug 2026</small></div>
                 </article>
             </div>
         </div>
@@ -414,7 +434,7 @@
     <section class="ab-more tex-grey">
         <div class="container">
             <h3 class="ab-section-h">A LITTLE BIT MORE ABOUT ME...</h3>
-            <div class="notes-wall"><article class="note n0"><span class="note-icon"><i class="fas fa-ghost" aria-hidden="true"></i></span><h4>Nickname(s)...</h4><p>Most people call me Ghost, a nickname that dates back to my high school days. It came from how I easily disappear where trouble smells.</p></article><article class="note n1"><span class="note-icon"><i class="fas fa-camera" aria-hidden="true"></i></span><h4>Favorite pastime...</h4><p>I enjoy traveling, reading books, wildlife photography, trying new restaurants, and playing board games.</p></article><article class="note n2"><span class="note-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span><h4>Graduated from...</h4><p>Alumnus of the African Leadership University, graduating with a First Class Honours degree in Entrepreneurial Leadership in July 2026. Now a Mastercard Foundation Scholar at Sciences Po France, pursuing a Master of Communications, Media and Creative Industries at the School of Management and Impact in Paris.</p></article><article class="note n3"><span class="note-icon"><i class="fas fa-paw" aria-hidden="true"></i></span><h4>Favorite animal is...</h4><p>I like lions  in all their greatness, they represent majesty, strength, courage, justice, and military might. And to add to it, it's known as the king of beasts. Their awe-inspiring strength and dominance captures my imagination.</p></article><article class="note n0"><span class="note-icon"><i class="fas fa-plane-departure" aria-hidden="true"></i></span><h4>If I could go anywhere, I'd visit...</h4><p>I would visit La Popa Monastery in Cartagena, Colombia.</p></article><article class="note n1"><span class="note-icon"><i class="fas fa-glass-cheers" aria-hidden="true"></i></span><h4>Best college memory would be...</h4><p>It wasn't a lecture, a grade, or a campus event. It was a house party. I'll carry the memories with me always!</p></article><article class="note n2"><span class="note-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><h4>Best advice...</h4><p>Don't carry any guilt for the past. Don't carry baggage. Leave everything that's holding you back, leave everything that holds you from soaring high. Don't look back. It's a new day, new fight, fight hard, very hard, but fight clean. Don't carry any amount of guilt. You won't be able to run fast and long in life. Never look back on the past. Nobody knows your heart better than you. Trust your instincts. Never let anyone cast a shadow on your sunshine.</p></article><article class="note n3"><span class="note-icon"><i class="fas fa-comments" aria-hidden="true"></i></span><h4>Conversation Starters...</h4><ul>
+            <div class="notes-wall"><article class="note n3 note-lang"><span class="note-icon"><i class="fas fa-language" aria-hidden="true"></i></span><h4>Languages...</h4><ul class="lang-list"><li><b>English</b><span class="lv" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><em>Fluent</em></li><li><b>Kiswahili</b><span class="lv" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><em>Fluent</em></li><li><b>Arabic</b><span class="lv" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><em>Conversational</em></li><li><b>French</b><span class="lv" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span><em>Un peu</em></li></ul></article><article class="note n0"><span class="note-icon"><i class="fas fa-ghost" aria-hidden="true"></i></span><h4>Nickname(s)...</h4><p>Most people call me Ghost, a nickname that dates back to my high school days. It came from how I easily disappear where trouble smells.</p></article><article class="note n1"><span class="note-icon"><i class="fas fa-camera" aria-hidden="true"></i></span><h4>Favorite pastime...</h4><p>I enjoy traveling, reading books, wildlife photography, trying new restaurants, and playing board games.</p></article><article class="note n2"><span class="note-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span><h4>Graduated from...</h4><p>Alumnus of the African Leadership University, graduating with a First Class Honours degree in Entrepreneurial Leadership in July 2026. Now a Mastercard Foundation Scholar at Sciences Po France, pursuing a Master of Communications, Media and Creative Industries at the School of Management and Impact in Paris.</p></article><article class="note n3"><span class="note-icon"><i class="fas fa-paw" aria-hidden="true"></i></span><h4>Favorite animal is...</h4><p>I like lions  in all their greatness, they represent majesty, strength, courage, justice, and military might. And to add to it, it's known as the king of beasts. Their awe-inspiring strength and dominance captures my imagination.</p></article><article class="note n0"><span class="note-icon"><i class="fas fa-plane-departure" aria-hidden="true"></i></span><h4>If I could go anywhere, I'd visit...</h4><p>I would visit La Popa Monastery in Cartagena, Colombia.</p></article><article class="note n1"><span class="note-icon"><i class="fas fa-glass-cheers" aria-hidden="true"></i></span><h4>Best college memory would be...</h4><p>It wasn't a lecture, a grade, or a campus event. It was a house party. I'll carry the memories with me always!</p></article><article class="note n2"><span class="note-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><h4>Best advice...</h4><p>Don't carry any guilt for the past. Don't carry baggage. Leave everything that's holding you back, leave everything that holds you from soaring high. Don't look back. It's a new day, new fight, fight hard, very hard, but fight clean. Don't carry any amount of guilt. You won't be able to run fast and long in life. Never look back on the past. Nobody knows your heart better than you. Trust your instincts. Never let anyone cast a shadow on your sunshine.</p></article><article class="note n3"><span class="note-icon"><i class="fas fa-comments" aria-hidden="true"></i></span><h4>Conversation Starters...</h4><ul>
                             <li>Television shows. Some of my favorites include The Vampire Diaries, The Originals, Lucifer, Fast & Furious, The Avatar, and many more...</li>
                             <li>Beers & Country songs</li>
                             <li>Travel</li>
@@ -433,10 +453,10 @@
     <script src="/static/script.js" defer></script>
     <script src="/static/loading.js?v=2.0.0" defer></script>
 
-    <script src="/static/site.js?v=5.0.0" defer></script>
+    <script src="/static/site.js?v=5.1.0" defer></script>
 <script>
 (function(){
-  var f=document.querySelector('.pf-fold'); if(!f) return;
+  var f=document.querySelector(".passport"); if(!f) return;
   var fly=document.getElementById('efFly');
   if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
   f.classList.add('will-open'); document.querySelector('.edu-flight').classList.add('will-fly');
