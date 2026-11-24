@@ -1454,7 +1454,7 @@ body.pm-open { overflow: hidden; }
 .pg-no { font-family: var(--display); font-size: clamp(3.4rem, 6vw, 5.4rem); line-height: .8; color: transparent; -webkit-text-stroke: 2px var(--ink); }
 .pg-org { font-family: var(--sans); font-weight: 800; font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-deep); max-width: 32ch; line-height: 1.4; }
 .pg-title { font-family: var(--display) !important; font-weight: 400 !important; text-transform: uppercase; font-size: clamp(2rem, 3.4vw, 3rem) !important; line-height: .95 !important; letter-spacing: .005em !important; color: var(--ink) !important; margin: 0 0 1.1rem !important; max-width: 16ch; }
-body .pg h2.pg-title > span { display: block; font-family: var(--sans) !important; margin-top: .55rem; font-family: var(--sans); font-weight: 700; font-size: clamp(.95rem, 1.2vw, 1.08rem); line-height: 1.35; letter-spacing: 0; text-transform: none; color: var(--ink-2); max-width: 40ch; }
+body .pg h2.pg-title > span.pg-sub { display: block; font-family: var(--sans) !important; margin-top: .55rem; font-family: var(--sans); font-weight: 700; font-size: clamp(.95rem, 1.2vw, 1.08rem); line-height: 1.35; letter-spacing: 0; text-transform: none; color: var(--ink-2); max-width: 40ch; }
 .pg-meta { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0 !important; margin: 0 0 1.7rem !important; }
 .pg-meta li { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--sans); font-weight: 700; font-size: .84rem; padding: .45rem .85rem; border-radius: 999px; background: #fff; color: var(--ink); box-shadow: 0 8px 16px -12px rgba(0,0,0,.5); }
 .pg-meta i { color: var(--blue); }
@@ -1647,3 +1647,17 @@ body .pg h2.pg-title > span { display: block; font-family: var(--sans) !importan
 .passport.is-open .pp-page:nth-child(3) .pp-visa { animation-delay: 2.3s; }
 @keyframes pfSlide { from { opacity: 0; translate: 60px 0; } }
 @media (max-width: 860px) { .pp-visa { margin-right: -1.2rem; font-size: .98rem; } }
+
+/* ===== v12 — titles in brand blue (or black with a blue stress word) ===== */
+body .article-card h3, body .shelf-card h3, body .category-card h3,
+body .service-detail h3, body .service-card-page h3, body .web-project-card h3,
+body .search-result-item h3, body .contact-method h3, body .social-media-section h3,
+body .xs-org, body .xs-card h3, body .ab-pillar h3, body .ab-card-id h3, body .bd-copy h3,
+body .post-body h2, body .ab-header-group h2, body #poemTitle, body .note:not(.n1) h4 { color: var(--blue) !important; }
+body .note.n1 h4 { color: var(--ink) !important; }
+body .xs-cards .xs-card h3, body .xs-card h3.xs-org, body .shelf-grid .shelf-card.featured h3 { color: var(--blue) !important; }
+/* single poem: dark-noise hero like the Poems cover, so the blue title and the header both read */
+.poem-hero { background: #0e0e10 var(--static-dark) 0 0 / 512px !important; border-bottom: 0; }
+.poem-hero .hero-subtitle, .poem-hero .hero-subtitle a { color: rgba(255,255,255,.72) !important; }
+.pp-head em { font-style: normal; }
+.pp-vpage .pp-head span:first-child, body .pv-top .edu-school { color: var(--blue) !important; }
