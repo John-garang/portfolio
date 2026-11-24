@@ -4,9 +4,9 @@
 .fa-spin{animation:fa-spin var(--fa-animation-duration,2s) var(--fa-animation-timing,linear) var(--fa-animation-delay,0) var(--fa-animation-iteration-count,infinite) var(--fa-animation-direction,normal)}
 @media (prefers-reduced-motion:reduce){.fa-spin{animation-duration:1ms;animation-iteration-count:1;transition-duration:0s}}
 @keyframes fa-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-@font-face{font-family:'Font Awesome 6 Brands';font-style:normal;font-weight:400;font-display:block;src:url(/static/fonts/fa-brands-400.woff?v=2) format('woff')}
-@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:400;font-display:block;src:url(/static/fonts/fa-regular-400.woff?v=2) format('woff')}
-@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:900;font-display:block;src:url(/static/fonts/fa-solid-900.woff?v=2) format('woff')}
+@font-face{font-family:'Font Awesome 6 Brands';font-style:normal;font-weight:400;font-display:block;src:url(/static/fonts/fa-brands-400.woff2?v=3) format('woff2'),url(/static/fonts/fa-brands-400.woff?v=3) format('woff')}
+@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:400;font-display:block;src:url(/static/fonts/fa-regular-400.woff2?v=3) format('woff2'),url(/static/fonts/fa-regular-400.woff?v=3) format('woff')}
+@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:900;font-display:block;src:url(/static/fonts/fa-solid-900.woff2?v=3) format('woff2'),url(/static/fonts/fa-solid-900.woff?v=3) format('woff')}
 .fab,.fa-brands{font-family:'Font Awesome 6 Brands';font-weight:400}
 .far,.fa-regular{font-family:'Font Awesome 6 Free';font-weight:400}
 .fas,.fa-solid{font-family:'Font Awesome 6 Free';font-weight:900}

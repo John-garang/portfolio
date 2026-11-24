@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-M10S25C7JC');
+      // Load Google Analytics after the page has rendered (on first interaction, or 8s after load) so it never slows the first view.
+      (function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC';document.head.appendChild(s);}
+      ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});
+      addEventListener('load',function(){setTimeout(load,8000);});})();
     </script>
-    <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .3s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travels &amp; Fun | John Ngor Deng Garang</title>
@@ -32,18 +34,14 @@
     <meta name="twitter:title" content="Travels &amp; Fun | John Ngor Deng Garang">
     <meta name="twitter:description" content="Travel stories and adventures by John Ngor Deng Garang — from Cape Town to Accra, exploring cultures, landscapes, and life across Africa.">
     <meta name="twitter:image" content="https://johngarang.com/static/og/johngarang-com.jpg">
+    <link rel="preload" as="image" href="/static/Pictures/travel-cape-town.webp" fetchpriority="high">
     <link rel="stylesheet" href="/static/styles.css?v=1.4.0">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
-    <link rel="stylesheet" href="/static/fontawesome.css?v=1.1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/theme.css?v=7.0.0">
+    <link rel="stylesheet" href="/static/fontawesome.css?v=1.2.0" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/static/fontawesome.css?v=1.2.0"></noscript>
+    <link rel="stylesheet" href="/static/theme.css?v=7.1.0">
 </head>
 <body>
     <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="" class="loading-logo" width="80" height="80">
-        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
-    </div>
 
     <div id="header-placeholder"></div>
     <script src="/static/load-header.js?v=2.4.0"></script>
@@ -75,7 +73,7 @@
     </section>
 
     <div id="footer-placeholder"></div>
-    <script src="/static/load-footer.js?v=2.0.0" defer></script>
+    <script src="/static/load-footer.js?v=2.1.0" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
 
@@ -91,8 +89,7 @@
             });
         });
     </script>
-    <script src="/static/loading.js?v=2.0.0" defer></script>
-    <script src="/static/site.js?v=5.2.0" defer></script>
+    <script src="/static/site.js?v=5.3.0" defer></script>
 </body>
 </html>
 
