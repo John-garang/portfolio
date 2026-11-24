@@ -1325,3 +1325,26 @@ body .dep h3.dep-who > span { display: block; font-family: var(--sans) !importan
     .xs-visual.xs-psia .xs-s1 { top: 30%; }
 }
 .xs-dark .sticker.ink.xs-s { background: #fff; color: var(--ink); }
+/* v8.1 — "Right now" on white noise, laptop scenes, credits */
+.xs-light { background: linear-gradient(rgba(255,255,255,.62), rgba(255,255,255,.62)), #e6e6e6 var(--static) 0 0 / 512px; color: var(--ink); }
+.xs-laptop { position: absolute; left: 50%; top: 50%; width: 440px; transform: translate(-50%, -50%) rotate(-2deg); z-index: 2; filter: drop-shadow(0 34px 34px rgba(0,0,0,.35)); }
+.xs.flip .xs-laptop { transform: translate(-50%, -50%) rotate(2deg); }
+.xs-laptop-screen { background: #121214; border-radius: 16px 16px 4px 4px; padding: 12px 12px 16px; }
+.xs-laptop-screen img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border-radius: 4px; background: #fff; }
+.xs-laptop-base { position: relative; height: 16px; margin: 0 -36px; background: linear-gradient(#e3e4e8, #a7a9b0); border-radius: 0 0 16px 16px; }
+.xs-laptop-base::after { content: ''; position: absolute; left: 50%; top: 0; width: 84px; height: 6px; margin-left: -42px; border-radius: 0 0 8px 8px; background: #8e9097; }
+.xs-desk .xs-print.p1 { left: -2%; top: 4%; transform: rotate(-8deg); }
+.xs-desk .xs-print.p2 { right: 0; bottom: 4%; width: 190px; transform: rotate(6deg); }
+.xs-desk .xs-s1 { top: 0; } .xs-desk .xs-s2 { top: auto; bottom: 26%; } .xs-desk .xs-s3 { bottom: 0; right: 30%; }
+.xs.flip .xs-desk .xs-s3 { left: 30%; right: auto; }
+.xs-visual.xs-desk .xs-print ~ .xs-s2 { top: auto; }
+.xs-credit { position: absolute; left: 0; right: 0; bottom: -34px; text-align: center; font-family: var(--sans) !important; font-size: .78rem !important; font-style: italic; color: var(--muted) !important; margin: 0 !important; }
+.xs-cards.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 960px) {
+    .xs-laptop { width: 320px; }
+    .xs-laptop-base { margin: 0 -24px; height: 12px; }
+    .xs-desk .xs-print.p2 { width: 140px; }
+    .xs-credit { bottom: -28px; }
+    .xs-cards.three { grid-template-columns: 1fr; }
+}
+.xs-visual.xs-desk .xs-print.p1 + .xs-print.p2 ~ .xs-s2 { top: auto; }
