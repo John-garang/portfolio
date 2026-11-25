@@ -1678,3 +1678,13 @@ body .xs-cards .xs-card h3, body .xs-card h3.xs-org, body .shelf-grid .shelf-car
 @media (max-width: 768px) {
     .lens-slide.bg-in .lens-inner { background-image: url('/static/Pictures/john-ngor-deng-garang-behind-the-lens-mobile.webp') !important; }
 }
+
+/* ===== v14 — near-square cards (4px corners) ===== */
+body :is(.article-card, .category-card, .category-image, .contact-card, .program-card, .shelf-card, .ab-pillar, .article-block,
+  .case-card, .note, .xs-card, .ab-card-id, .contact-method, .cv-cta, .design-cover-overlay, .image-overlay, .post-body,
+  .search-result-item, .service-card-page, .service-content, .service-detail, .social-media-section, .stat-card, .stat-item,
+  .web-project-card, .dep-mini, .xp-open, .professional-contact-form, .pg-quote, blockquote.question, a.prev, a.next,
+  .pv-sticker, .pg-card, .pg-photo img, img.photo, img.mock, .ab-who-photo img) { border-radius: 4px !important; }
+body .welcome-hero-image img, body .welcome-hero-image .image-overlay, body .case-flow li { border-radius: 4px !important; }
+body .bd-list li, body .program-image img, body .program-image, body .bd-visual img, body .bd-visual { border-radius: 4px !important; }
+body .service-image img, body .service-image { border-radius: 4px !important; }
