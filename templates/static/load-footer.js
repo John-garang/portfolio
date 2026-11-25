@@ -13,6 +13,7 @@ fetch('/footer')
         while (doc.body.firstChild) {
             placeholder.appendChild(doc.body.firstChild);
         }
+        if (window.lazyBg) window.lazyBg(placeholder);
         // Attach event listener after footer is loaded
         const form = document.getElementById('newsletterForm');
         if (form) {

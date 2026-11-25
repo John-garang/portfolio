@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-M10S25C7JC');
+      // Load Google Analytics after the page has rendered (on first interaction, or 8s after load) so it never slows the first view.
+      (function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-M10S25C7JC';document.head.appendChild(s);}
+      ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});
+      addEventListener('load',function(){setTimeout(load,8000);});})();
     </script>
-    <style>#loading-screen{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .3s ease}.loading-logo{width:80px;height:auto;margin-bottom:1.5rem}.loading-bar-track{width:120px;height:2px;background:#e8e8e8;overflow:hidden}.loading-bar-fill{height:100%;width:40%;background:#16b2dc;animation:_ld 1s ease-in-out infinite}@keyframes _ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience | John Ngor Deng Garang</title>
@@ -159,8 +161,7 @@
     }
     </script>
     <link rel="icon" type="image/png" href="/static/Pictures/john-ngor-deng-garang-logo-sm.webp">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="image" href="/static/Pictures/john-ngor-deng-garang-filming.webp" fetchpriority="high">
     <link rel="stylesheet" href="/static/styles.css?v=1.4.0">
     <link rel="stylesheet" href="/static/mobile-fixes.css">
     <style>
@@ -368,14 +369,10 @@
         }
         .anchor-nav-btn:hover { background: #16b2dc; border-color: #16b2dc; color: #fff; }
     </style>
-    <link rel="stylesheet" href="/static/fontawesome.css?v=1.1.0">
-    <link rel="stylesheet" href="/static/theme.css?v=7.0.0">
+    <link rel="stylesheet" href="/static/fontawesome.css?v=1.2.0" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/static/fontawesome.css?v=1.2.0"></noscript>
+    <link rel="stylesheet" href="/static/theme.css?v=7.2.0">
 </head>
 <body>
-        <div id="loading-screen" class="loading-screen">
-        <img src="/static/Pictures/john-ngor-deng-garang-logo-sm.webp" alt="" class="loading-logo" width="80" height="80">
-        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
-    </div>
 
     <div id="header-placeholder"></div>
 
@@ -436,7 +433,7 @@
                         </div></div>
                         <img class="xs-cutout" src="/static/Pictures/psia-professionals-walking-cutout.webp" alt="" loading="lazy" decoding="async">
                         <span class="xs-logo"><img src="/static/Pictures/sciences-po-psia-logo-john-ngor-deng-garang.webp" alt="Sciences Po — Paris School of International Affairs" loading="lazy" decoding="async"></span>
-                        <span class="sticker  xs-s xs-s1"><b>2–3</b> briefing notes a week</span><span class="sticker blue r2 xs-s xs-s2"><b>180–230</b> registrations per event</span><span class="sticker ink xs-s xs-s3"><b>3–5</b> LinkedIn posts a week</span><span class="sticker r2 xs-s xs-s4"><b>7+</b> Master's programmes</span>
+                        <span class="sticker  xs-s xs-s1"><b>2–3</b> briefing notes a week</span><span class="sticker ink xs-s xs-s3"><b>3–5</b> LinkedIn posts a week</span><span class="sticker r2 xs-s xs-s4"><b>7+</b> Master's programmes</span>
                     </div>
                     <div class="xs-copy">
                         <p class="xs-years">2026—now</p>
@@ -444,9 +441,9 @@
                         <p class="xs-role">Executive Office Assistant</p>
                         <ul class="xs-meta"><li><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Paris, France</li><li><i class="fas fa-calendar" aria-hidden="true"></i>October 2026 – Present</li></ul>
                         <h4 class="xs-h">My Journey &amp; Scope</h4>
-                        <p class="xs-story">I was recruited to support the Chief of Staff and the Dean's Office at one of Europe's leading schools of international affairs. I write the Dean's briefing notes, run PSIA's LinkedIn presence, and produce content for its admissions campaigns, flagship events and institutional reports.</p>
+                        <p class="xs-story">I was recruited to support the Executive Office of the Dean of the Paris School of International Affairs, working under the Chief of Staff in an assistant role. I help with communications projects and with bits here and there across the office.</p>
                         <h4 class="xs-h">Key Deliverables &amp; Achievements</h4>
-                        <ol class="xs-did"><li>I write 2–3 concept notes and briefing notes a week for the Dean's events. Speakers have included Kosovo Prime Minister Albin Kurti, ICRC President Mirjana Spoljaric Egger, US Congresswoman Pramila Jayapal and David Miliband (IRC). The events drew 180–230 registrations each.</li><li>I write and publish 3–5 LinkedIn posts and articles a week for PSIA's page, and up to 5 in peak weeks, covering flagship events, masterclasses with figures like Federica Mogherini, and student and alumni stories.</li><li>I produce 1–2 posts a week for PSIA's Master's admissions campaign across 7+ programmes.</li><li>I moderate PSIA's LinkedIn page every week and plan its content calendar, scheduling two posts a day when needed.</li><li>I design graphics, carousels, quote cards and campaign graphics.</li></ol>
+                        <ol class="xs-did"><li>I write 2–3 concept notes and briefing notes a week for the Dean's events. Speakers have included Kosovo Prime Minister Albin Kurti, ICRC President Mirjana Spoljaric Egger, US Congresswoman Pramila Jayapal and David Miliband (IRC).</li><li>I write and publish 3–5 LinkedIn posts and articles a week for PSIA's page, and up to 5 in peak weeks, covering flagship events, masterclasses with figures like Federica Mogherini, and student and alumni stories.</li><li>I produce 1–2 posts a week for PSIA's Master's admissions campaign across 7+ programmes.</li><li>I moderate PSIA's LinkedIn page every week and plan its content calendar, scheduling two posts a day when needed.</li><li>I design graphics, carousels, quote cards and campaign graphics.</li></ol>
                     </div>
                 </article>
                 <article class="xs flip" id="urbangeekz">
@@ -762,12 +759,11 @@
     })();
     </script>
 
-    <script src="/static/loading.js?v=2.0.0" defer></script>
     <script src="/static/load-header.js?v=2.4.0" defer></script>
-    <script src="/static/load-footer.js?v=2.0.0" defer></script>
+    <script src="/static/load-footer.js?v=2.1.0" defer></script>
     <script src="/static/brand-notifications.js" defer></script>
     <script src="/static/email.min.js" defer onload="emailjs.init('jMid5j4K3IEfIlIr0')"></script>
-    <script src="/static/site.js?v=5.2.0" defer></script>
+    <script src="/static/site.js?v=5.3.0" defer></script>
 </body>
 </html>
 

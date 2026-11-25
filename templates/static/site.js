@@ -237,3 +237,18 @@
         initGalleryHooks();
     });
 })();
+
+// Lazy decorative backgrounds: give heavy below-the-fold backgrounds the .bg-in class only when they get close to the screen.
+(function () {
+    var SEL = '.lens-slide, .cta-band.cta-eye, .case-media';
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('bg-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '600px 0px' }) : null;
+    window.lazyBg = function (root) {
+        Array.prototype.forEach.call((root || document).querySelectorAll(SEL), function (el) {
+            if (el.dataset.lazyBg) return; el.dataset.lazyBg = '1';
+            if (io) io.observe(el); else el.classList.add('bg-in');
+        });
+    };
+    window.lazyBg(document);
+})();
