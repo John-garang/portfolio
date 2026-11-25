@@ -30,7 +30,7 @@
         <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-my-shelf.webp</image:loc></image:image>
         <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-profile-photo.webp</image:loc></image:image>
         <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-web-development.webp</image:loc></image:image>
-        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.webp</image:loc></image:image>
+        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design-v2.webp</image:loc></image:image>
     </url>
     <url>
         <loc>https://johngarang.com/experience-overview</loc>
@@ -56,8 +56,8 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-web-development.webp</image:loc></image:image>
-        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design.webp</image:loc></image:image>
-        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-ghost-writing.webp</image:loc></image:image>
+        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-graphic-design-v2.webp</image:loc></image:image>
+        <image:image><image:loc>https://johngarang.com/static/Pictures/john-ngor-deng-garang-ghost-writing-v2.webp</image:loc></image:image>
     </url>
     <url>
         <loc>https://johngarang.com/contact</loc>
