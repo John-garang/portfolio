@@ -1688,3 +1688,4 @@ body :is(.article-card, .category-card, .category-image, .contact-card, .program
 body .welcome-hero-image img, body .welcome-hero-image .image-overlay, body .case-flow li { border-radius: 4px !important; }
 body .bd-list li, body .program-image img, body .program-image, body .bd-visual img, body .bd-visual { border-radius: 4px !important; }
 body .service-image img, body .service-image { border-radius: 4px !important; }
+body .service-detail .service-image img, body .service-card-page .service-image img, body .service-image { border-radius: 0 !important; }
